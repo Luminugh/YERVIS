@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">YEZVI</string>
+
+    <!-- Inicio «Hoy» (F1.07) -->
+    <string name="today_title">Hoy</string>
+    <string name="today_capture">Capturar</string>
+    <string name="today_demo_notice">Datos de ejemplo · esta pantalla aún no guarda nada</string>
+    <string name="today_summary">%1$d pendientes · %2$d recientes</string>
+    <string name="today_section_pending">Pendientes próximos</string>
+    <string name="today_section_recent">Recientes</string>
+    <string name="today_empty_title">Sin actividad hoy</string>
+    <string name="today_empty_hint">Captura tu primera nota para verla aquí.</string>
+</resources>
