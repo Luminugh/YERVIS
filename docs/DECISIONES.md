@@ -15,6 +15,9 @@
 ## D-005 — Integraciones profundas Samsung
 **Estado:** Diferida. **Motivo:** la capacidad de hotword/assistant con pantalla apagada depende de permisos y hardware; no prometer compatibilidad hasta probar modelo real.
 
+## D-006 — Sistema de diseño: dynamic color + fallback teal (F1.05)
+**Estado:** Aceptada. **Motivo:** Material You integra la app con el fondo del usuario en One UI/Android 12+; la semilla teal `#00696B` con acento ámbar da identidad propia y coherencia cuando dynamic color no está disponible. **Consecuencia:** los roles `tertiaryContainer` (avisos de honestidad) y `secondaryContainer` (distintivos) quedan reservados por convención; duraciones de animación centralizadas en `Motion` (200/300 ms).
+
 ## D-006 — Representación del contrato de captura F1.01
 **Estado:** Aceptada para el contrato inicial. **Motivo:** mantener el modelo Kotlin independiente de Android y compatible con `minSdk 24` sin activar desugaring ni añadir dependencias.
 - `capturedAtEpochMillis` representa el instante UTC como milisegundos desde Unix epoch; `timezoneId` conserva el identificador IANA de la zona al capturar.

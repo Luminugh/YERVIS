@@ -36,6 +36,16 @@ No crear una navegación de 7+ pestañas en el MVP.
 ## Prototipado
 Primero usar estados y datos sintéticos con contrato estable suministrado por Codex; crear previews Compose donde sea útil. Probar en Pixel 8 API35. Validar One UI en Samsung real antes de decidir integraciones del sistema.
 
+## Dirección visual F1.04 (2026-10-11)
+- Identidad «memoria tranquila»: Material You dinámico por defecto; respaldo estático con semilla teal (~#00696B); superficies planas con elevación tonal y esquinas grandes (cards 16–24 dp).
+- Roles fijos: `tertiaryContainer` = avisos de honestidad (demo/sugerencia); `secondaryContainer` = distintivos de tipo; `error` solo fallos reales.
+- Tipografía sin fuentes custom: fecha `headlineSmall`; secciones `titleMedium` SemiBold; ítems `bodyLarge`; metadatos `bodyMedium`/`onSurfaceVariant`; distintivos `labelMedium`.
+- Una mano (One UI): lectura arriba, interacción en el 40% inferior (FAB, guardar); objetivos ≥48 dp; márgenes laterales 16–24 dp; navegación inferior ≤4 destinos.
+- Inicio/timeline: fecha colapsable (`LargeTopAppBar`), cabeceras de día sticky, detalle expandible, apertura en hoy.
+- Movimiento 200–300 ms con significado (`AnimatedVisibility`, FAB según scroll); respetar reducción de animaciones del sistema; sin bucles.
+- Accesibilidad: contraste ≥4.5:1; `mergeDescendants` en tarjetas para TalkBack; `contentDescription` en acciones sin texto; fontScale 200%; estados con texto+forma, no solo color.
+- Detalle y justificación: `docs/IMPLEMENTACIONES/F1.04-investigacion-visual.md`.
+
 ## Fuentes de diseño
 - https://developer.samsung.com/one-ui/index.html
 - https://developer.android.com/develop/ui/compose/designsystems/material3

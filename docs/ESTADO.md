@@ -11,11 +11,12 @@
 
 ## Aún pendiente de comprobar
 - [ ] `opencode mcp list`: Context7 conectado e invocado.
-- [ ] `git status` y checkpoint: esta ruta no se reconoce como repositorio Git; no se inicializó.
+- [x] `git status` verificado: rama `main` con upstream `origin/main`; cambios F1.03 visibles.
+- [ ] Checkpoint Git de F1.03: pendiente; no se creó commit.
 - [ ] Samsung físico conectado y prueba local STT.
 
 ## Hito activo
-**F0 continúa abierto** por las comprobaciones pendientes anteriores y la reconciliación de roadmaps. F1.01 y F1.02 se completaron por instrucción explícita. Siguiente contrato del `ROADMAP_MAESTRO.md`: **F1.03** (Codex); no se inició.
+**F0 continúa abierto** por las comprobaciones pendientes anteriores y la reconciliación de roadmaps. F1.01, F1.02 y F1.03 se completaron por instrucción explícita. Siguiente tarea del `ROADMAP_MAESTRO.md`: **F1.04** (OpenCode); no se inició.
 
 ## Registro de entregas (añadir entradas, no reescribir historia)
 Formato sugerido:
@@ -35,6 +36,20 @@ Formato sugerido:
 - Decisiones / riesgos: modelo `DemoTodayItem`/`DemoItemKind` es `internal` y vive solo en UI (no es contrato de dominio); `onCaptureClick` es no-op hasta F1.06/F1.08. Build requiere `JAVA_HOME` = JBR de Android Studio (Java 25). Ver `docs/IMPLEMENTACIONES/F1.07-inicio-hoy.md`.
 - Pendiente para siguiente agente: F1.01 (contratos, Codex) y F1.06 (navegación) siguen abiertos; F1.07 ya no bloquea. Siguiente sugerido: F1.06.
 
+### 2026-10-11 — OpenCode — F1.04
+- Resultado: dirección visual única definida (One UI + Material 3): Material You dinámico con respaldo teal, elevación tonal, zona de interacción inferior, fecha colapsable y reglas de accesibilidad/movimiento.
+- Archivos: `docs/IMPLEMENTACIONES/F1.04-investigacion-visual.md` (nuevo); `docs/UX_UI.md` (sección «Dirección visual F1.04»).
+- Pruebas y resultado: sin cambios de código; no se ejecutó Gradle. Fuentes: Samsung One UI Overview y Material 3 AndroidX (Context7). m3.material.io y developer.android.com no cargaron.
+- Decisiones / riesgos: dynamic color por defecto; semilla teal solo como respaldo; tokens concretos quedan para F1.05. Mejoras a «Hoy» listadas, no aplicadas.
+- Pendiente para siguiente agente: F1.05 (tokens visuales) requiere aprobación; F1.06 sigue sugerido si se prioriza navegación.
+
+### 2026-10-11 — OpenCode — F1.05
+- Resultado: sistema de diseño «Memoria tranquila» implementado: dynamic color por defecto, fallback teal #00696B claro/oscuro accesible, tokens de espaciado/formas/movimiento y tipografía F1.04.
+- Archivos: `ui/theme/Color.kt`, `ui/theme/Type.kt`, `ui/theme/Tokens.kt` (nuevo), `ui/theme/Theme.kt`; docs: `docs/IMPLEMENTACIONES/F1.05-sistema-diseno.md`.
+- Pruebas y resultado: `assembleDebug` + `testDebugUnitTest` → BUILD SUCCESSFUL; verificado en emulador en claro y oscuro (captura oscura revisada, sin crash). Dynamic color activo en el emulador; teal aplica como fallback.
+- Decisiones / riesgos: ADR D-006 (dynamic color + identidad teal). Sin componentes nuevos por falta de uso real. `TodayScreen.kt` intacto.
+- Pendiente para siguiente agente: F1.06 (navegación) sugerido; F1.11 aplicará `Motion` con respeto a reducción de animaciones.
+
 ### 2026-10-11 — Codex — F1.01
 - Resultado: definidos `CaptureInput`, `MemoryEntry`, `CaptureSourceType` y `CaptureStatus` como contratos Kotlin puros; texto original intacto, origen tipado, instante UTC, zona horaria e ID estable.
 - Archivos: `app/src/main/java/com/yezvi/assistant/domain/memory/MemoryContracts.kt`; `app/src/test/java/com/yezvi/assistant/domain/memory/MemoryContractsTest.kt`; `docs/ARQUITECTURA.md`; `docs/DECISIONES.md`; `docs/IMPLEMENTACIONES/F1.01-contratos-memoria.md`; `docs/ESTADO.md`. `TodayScreen.kt` no se modificó.
@@ -48,3 +63,10 @@ Formato sugerido:
 - Pruebas y resultado: `JAVA_HOME` temporal apuntó a `C:\Program Files\Android\Android Studio\jbr`; `assembleDebug` → `BUILD SUCCESSFUL`; `testDebugUnitTest` → `BUILD SUCCESSFUL` (9 pruebas, 0 fallos).
 - Decisiones / riesgos: tres callbacks simples agrupados, sin eventos sellados; destino enum; selección transmite `MemoryEntry.id`; se reutiliza `CaptureInput` y no se duplica `CaptureStatus`. No se añadieron dependencias.
 - Pendiente para siguiente agente: F1.03 — fixtures sintéticos y repositorio simulado (Codex); no iniciado. `git status` continúa bloqueado porque esta ruta no es un repositorio Git.
+
+### 2026-10-11 — Codex — F1.03
+- Resultado: añadidos cuatro `MemoryEntry` sintéticos, deterministas, ordenados y una fuente demo de solo lectura con lookup por ID.
+- Archivos: `app/src/main/java/com/yezvi/assistant/data/demo/DemoMemoryFixtures.kt`; `app/src/main/java/com/yezvi/assistant/data/demo/DemoMemoryRepository.kt`; `app/src/test/java/com/yezvi/assistant/data/demo/DemoMemoryRepositoryTest.kt`; `docs/IMPLEMENTACIONES/F1.03-datos-sinteticos.md`; `docs/ESTADO.md`. `TodayScreen.kt` no se modificó.
+- Pruebas y resultado: `JAVA_HOME` temporal apuntó a `C:\Program Files\Android\Android Studio\jbr`; `assembleDebug` → `BUILD SUCCESSFUL`; `testDebugUnitTest` → `BUILD SUCCESSFUL` (12 pruebas, 0 fallos).
+- Decisiones / riesgos: IDs `demo-`, fechas fijas con zona `America/Lima` y `CaptureStatus.IDLE` para no afirmar que los datos están guardados. El objeto demo no escribe ni precarga Room; no se creó interfaz común.
+- Pendiente para siguiente agente: F1.04 — auditoría pública de One UI/Material 3 (OpenCode); no iniciada. `git status` confirma rama `main` con upstream `origin/main`; los cambios F1.03 siguen sin commit.
