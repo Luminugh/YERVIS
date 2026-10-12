@@ -4,7 +4,7 @@
     <!-- Inicio «Hoy» (F1.07) -->
     <string name="today_title">Hoy</string>
     <string name="today_capture">Capturar</string>
-    <string name="today_demo_notice">Datos de ejemplo · esta pantalla aún no guarda nada</string>
+    <string name="today_demo_notice">Hoy muestra ejemplos; tus recuerdos guardados aparecen en Memoria.</string>
     <string name="today_summary">%1$d pendientes · %2$d recientes</string>
     <string name="today_section_pending">Pendientes próximos</string>
     <string name="today_section_recent">Recientes</string>
@@ -27,6 +27,13 @@
     <string name="capture_review_title">Revisar borrador</string>
     <string name="capture_review_meta">Origen: %1$s · %2$s · %3$s</string>
     <string name="capture_review_notice">Aún no se guarda nada; esto es solo una vista previa.</string>
+    <string name="capture_save">Guardar</string>
+    <string name="capture_saving_action">Guardando…</string>
+    <string name="capture_saving_status">Guardando en el dispositivo…</string>
+    <string name="capture_saved_status">Guardado en este dispositivo.</string>
+    <string name="capture_failed_status">No se pudo guardar. El borrador se conserva; puedes reintentar.</string>
+    <string name="capture_retry">Reintentar</string>
+    <string name="capture_done">Listo</string>
     <string name="capture_close">Cerrar</string>
     <string name="capture_discard_title">¿Descartar borrador?</string>
     <string name="capture_discard_message">Perderás lo que escribiste.</string>
@@ -34,9 +41,12 @@
     <string name="capture_discard_cancel">Seguir escribiendo</string>
 
     <!-- Línea temporal de Memoria (F1.09) -->
-    <string name="memory_demo_notice">Datos de demostración · aún no se guardan entradas reales</string>
+    <string name="memory_loading">Cargando recuerdos guardados…</string>
     <string name="memory_empty_title">Sin entradas</string>
     <string name="memory_empty_hint">Captura algo para verlo en la línea temporal.</string>
+    <string name="memory_error_title">No se pudo cargar Memoria</string>
+    <string name="memory_error_hint">Comprueba de nuevo los recuerdos guardados.</string>
+    <string name="memory_retry">Reintentar</string>
     <string name="memory_source_text">Texto</string>
     <string name="memory_source_voice">Voz</string>
 
@@ -53,7 +63,6 @@
     <string name="entry_detail_status_saving">Guardando…</string>
     <string name="entry_detail_status_saved">Guardado en el dispositivo</string>
     <string name="entry_detail_status_failed">No se guardó</string>
-    <string name="entry_detail_demo_notice">Datos de demostración · esta entrada no está guardada en el dispositivo.</string>
     <string name="entry_detail_loading">Cargando…</string>
     <string name="entry_detail_empty_title">Entrada no encontrada</string>
     <string name="entry_detail_empty_hint">Esta entrada no existe o ya no está disponible.</string>

@@ -11,13 +11,17 @@ import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
 import com.yezvi.assistant.data.demo.DemoMemoryFixtures
 import com.yezvi.assistant.data.demo.DemoMemoryRepository
+import com.yezvi.assistant.presentation.memory.EntryDetailUiState
+import com.yezvi.assistant.presentation.memory.MemoryUiState
 import com.yezvi.assistant.presentation.actions.MemoryUiCallbacks
 import com.yezvi.assistant.ui.theme.YEZVITheme
 import org.junit.Assert.assertTrue
+import org.junit.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
 
@@ -34,9 +38,11 @@ class EntryDetailAndAccessibilityTest {
         composeTestRule.setContent {
             YEZVITheme(dynamicColor = false) {
                 EntryDetailScreen(
-                    entryId = "demo-2026-10-11-001",
+                    state = EntryDetailUiState.Loaded(
+                        DemoMemoryRepository.getEntry("demo-2026-10-11-001")!!,
+                    ),
                     onBack = {},
-                    findEntryById = DemoMemoryRepository::getEntry,
+                    onRetry = {},
                 )
             }
         }
@@ -50,9 +56,9 @@ class EntryDetailAndAccessibilityTest {
         composeTestRule.setContent {
             YEZVITheme(dynamicColor = false) {
                 EntryDetailScreen(
-                    entryId = "no-existe",
+                    state = EntryDetailUiState.NotFound,
                     onBack = {},
-                    findEntryById = DemoMemoryRepository::getEntry,
+                    onRetry = {},
                 )
             }
         }
@@ -61,12 +67,46 @@ class EntryDetailAndAccessibilityTest {
     }
 
     @Test
+    fun memoryScreenShowsLoadingState() {
+        composeTestRule.setContent {
+            YEZVITheme(dynamicColor = false) {
+                MemoryScreen(
+                    state = MemoryUiState.Loading,
+                    callbacks = noOpCallbacks(),
+                    onRetry = {},
+                )
+            }
+        }
+        composeTestRule.onNodeWithTag("memory_loading").assertIsDisplayed()
+        composeTestRule.onNodeWithText("Cargando recuerdos guardados…").assertIsDisplayed()
+    }
+
+    @Test
+    fun memoryScreenShowsRepositoryErrorRetry() {
+        var retries = 0
+        composeTestRule.setContent {
+            YEZVITheme(dynamicColor = false) {
+                MemoryScreen(
+                    state = MemoryUiState.Error,
+                    callbacks = noOpCallbacks(),
+                    onRetry = { retries++ },
+                )
+            }
+        }
+        composeTestRule.onNodeWithTag("memory_error").assertIsDisplayed()
+        composeTestRule.onNodeWithText("No se pudo cargar Memoria").assertIsDisplayed()
+        composeTestRule.onNodeWithText("Reintentar").performClick()
+        assertEquals(1, retries)
+    }
+
+    @Test
     fun memoryScreenHasAccessibleHeadingsAndLargeTouchTargets() {
         composeTestRule.setContent {
             YEZVITheme(dynamicColor = false) {
                 MemoryScreen(
-                    entries = DemoMemoryFixtures.entries,
+                    state = MemoryUiState.Content(DemoMemoryFixtures.entries),
                     callbacks = noOpCallbacks(),
+                    onRetry = {},
                 )
             }
         }
@@ -88,8 +128,9 @@ class EntryDetailAndAccessibilityTest {
             CompositionLocalProvider(LocalDensity provides Density(1f, 1.5f)) {
                 YEZVITheme(dynamicColor = false) {
                     MemoryScreen(
-                        entries = DemoMemoryFixtures.entries,
+                        state = MemoryUiState.Content(DemoMemoryFixtures.entries),
                         callbacks = noOpCallbacks(),
+                        onRetry = {},
                     )
                 }
             }

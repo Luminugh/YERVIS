@@ -23,11 +23,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
@@ -40,6 +36,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.yezvi.assistant.R
 import com.yezvi.assistant.data.demo.DemoMemoryFixtures
+import com.yezvi.assistant.presentation.memory.EntryDetailUiState
 import com.yezvi.assistant.domain.memory.CaptureSourceType
 import com.yezvi.assistant.domain.memory.CaptureStatus
 import com.yezvi.assistant.domain.memory.MemoryEntry
@@ -51,23 +48,11 @@ import com.yezvi.assistant.ui.theme.rememberReduceMotion
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun EntryDetailScreen(
-    entryId: String,
+    state: EntryDetailUiState,
     onBack: () -> Unit,
-    findEntryById: (String) -> MemoryEntry?,
+    onRetry: () -> Unit,
 ) {
-    var state by remember { mutableStateOf<EntryDetailState>(EntryDetailState.Loading) }
-    var reloadTick by remember { mutableStateOf(0) }
     val reduceMotion = rememberReduceMotion()
-
-    LaunchedEffect(entryId, reloadTick, findEntryById) {
-        state = try {
-            findEntryById(entryId)
-                ?.let(EntryDetailState::Loaded)
-                ?: EntryDetailState.NotFound
-        } catch (expected: Exception) {
-            EntryDetailState.Error
-        }
-    }
 
     Scaffold(
         topBar = {
@@ -94,35 +79,28 @@ internal fun EntryDetailScreen(
             label = "entry-detail-state",
         ) { current ->
             when (current) {
-                EntryDetailState.Loading -> DetailLoadingState(contentPadding = innerPadding)
-                EntryDetailState.NotFound -> DetailMessageState(
+                EntryDetailUiState.Loading -> DetailLoadingState(contentPadding = innerPadding)
+                EntryDetailUiState.NotFound -> DetailMessageState(
                     title = stringResource(R.string.entry_detail_empty_title),
                     hint = stringResource(R.string.entry_detail_empty_hint),
                     actionLabel = stringResource(R.string.entry_detail_back_to_memory),
                     onAction = onBack,
                     contentPadding = innerPadding,
                 )
-                EntryDetailState.Error -> DetailMessageState(
+                EntryDetailUiState.Error -> DetailMessageState(
                     title = stringResource(R.string.entry_detail_error_title),
                     hint = stringResource(R.string.entry_detail_error_hint),
                     actionLabel = stringResource(R.string.entry_detail_retry),
-                    onAction = { reloadTick++ },
+                    onAction = onRetry,
                     contentPadding = innerPadding,
                 )
-                is EntryDetailState.Loaded -> DetailContent(
+                is EntryDetailUiState.Loaded -> DetailContent(
                     entry = current.entry,
                     contentPadding = innerPadding,
                 )
             }
         }
     }
-}
-
-private sealed interface EntryDetailState {
-    data object Loading : EntryDetailState
-    data class Loaded(val entry: MemoryEntry) : EntryDetailState
-    data object NotFound : EntryDetailState
-    data object Error : EntryDetailState
 }
 
 @Composable
@@ -200,7 +178,6 @@ private fun DetailContent(
         ),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
-        item { DemoNoticeBanner() }
         item {
             Card(
                 modifier = Modifier
@@ -312,25 +289,9 @@ private fun EntryDetailScreenPreview() {
     YEZVITheme(dynamicColor = false) {
         val entry = DemoMemoryFixtures.entries.first()
         EntryDetailScreen(
-            entryId = entry.id,
+            state = EntryDetailUiState.Loaded(entry),
             onBack = {},
-            findEntryById = { requestedId -> entry.takeIf { it.id == requestedId } },
-        )
-    }
-}
-
-@Composable
-private fun DemoNoticeBanner(modifier: Modifier = Modifier) {
-    Surface(
-        modifier = modifier.fillMaxWidth(),
-        color = MaterialTheme.colorScheme.tertiaryContainer,
-        contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
-        shape = MaterialTheme.shapes.medium,
-    ) {
-        Text(
-            text = stringResource(R.string.entry_detail_demo_notice),
-            style = MaterialTheme.typography.bodyMedium,
-            modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
+            onRetry = {},
         )
     }
 }

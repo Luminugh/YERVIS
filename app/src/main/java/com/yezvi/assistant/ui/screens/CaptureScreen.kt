@@ -23,6 +23,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -41,6 +42,9 @@ import androidx.compose.ui.unit.dp
 import com.yezvi.assistant.R
 import com.yezvi.assistant.domain.memory.CaptureInput
 import com.yezvi.assistant.domain.memory.CaptureSourceType
+import com.yezvi.assistant.domain.memory.MemoryEntry
+import com.yezvi.assistant.presentation.capture.CaptureSaveState
+import com.yezvi.assistant.presentation.capture.CaptureViewModel
 import com.yezvi.assistant.presentation.actions.AppDestination
 import com.yezvi.assistant.presentation.actions.MemoryUiCallbacks
 import com.yezvi.assistant.ui.navigation.YezviBottomBar
@@ -51,26 +55,52 @@ import java.util.TimeZone
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun CaptureScreen(callbacks: MemoryUiCallbacks) {
+internal fun CaptureScreen(
+    callbacks: MemoryUiCallbacks,
+    viewModel: CaptureViewModel,
+) {
     var draft by rememberSaveable { mutableStateOf("") }
     var reviewInput by remember { mutableStateOf<CaptureInput?>(null) }
     var showReviewDialog by remember { mutableStateOf(false) }
     var showDiscardDialog by remember { mutableStateOf(false) }
     var pendingNavigation by remember { mutableStateOf<AppDestination?>(null) }
     val focusRequester = remember { FocusRequester() }
+    val saveState by viewModel.uiState.collectAsState()
+    val reviewSaveState = reviewInput?.let(saveState::forCapture) ?: CaptureSaveState.Idle
+    val isSaving = saveState is CaptureSaveState.Saving
+
+    LaunchedEffect(saveState, reviewInput) {
+        if (reviewSaveState is CaptureSaveState.Saved) {
+            draft = ""
+        }
+    }
 
     LaunchedEffect(Unit) {
         focusRequester.requestFocus()
     }
 
-    BackHandler(enabled = draft.isNotBlank()) {
+    BackHandler(enabled = draft.isNotBlank() && !showReviewDialog && !isSaving) {
         pendingNavigation = null
         showDiscardDialog = true
     }
 
     if (showReviewDialog) {
         reviewInput?.let { input ->
-            ReviewDialog(input = input, onDismiss = { showReviewDialog = false })
+            ReviewDialog(
+                input = input,
+                saveState = reviewSaveState,
+                onSave = { viewModel.save(input) },
+                onRetry = viewModel::retry,
+                onDismiss = {
+                    if (reviewSaveState !is CaptureSaveState.Saving) {
+                        if (reviewSaveState is CaptureSaveState.Saved) {
+                            draft = ""
+                            reviewInput = null
+                        }
+                        showReviewDialog = false
+                    }
+                },
+            )
         }
     }
 
@@ -81,6 +111,7 @@ internal fun CaptureScreen(callbacks: MemoryUiCallbacks) {
                 pendingNavigation = null
                 draft = ""
                 reviewInput = null
+                showReviewDialog = false
                 showDiscardDialog = false
             },
             onDismiss = {
@@ -105,13 +136,16 @@ internal fun CaptureScreen(callbacks: MemoryUiCallbacks) {
             Column(modifier = Modifier.imePadding()) {
                 CaptureActionBar(
                     draft = draft,
+                    enabled = !isSaving,
                     onReview = {
-                        reviewInput = CaptureInput(
-                            rawText = draft,
-                            sourceType = CaptureSourceType.TEXT,
-                            capturedAtEpochMillis = System.currentTimeMillis(),
-                            timezoneId = TimeZone.getDefault().id,
-                        )
+                        if (reviewInput?.rawText != draft) {
+                            reviewInput = CaptureInput(
+                                rawText = draft,
+                                sourceType = CaptureSourceType.TEXT,
+                                capturedAtEpochMillis = System.currentTimeMillis(),
+                                timezoneId = TimeZone.getDefault().id,
+                            )
+                        }
                         showReviewDialog = true
                     },
                     onClear = {
@@ -122,11 +156,13 @@ internal fun CaptureScreen(callbacks: MemoryUiCallbacks) {
                 YezviBottomBar(
                     currentDestination = AppDestination.CAPTURE,
                     onNavigateTo = { destination ->
-                        if (draft.isNotBlank() && destination != AppDestination.CAPTURE) {
-                            pendingNavigation = destination
-                            showDiscardDialog = true
-                        } else {
-                            callbacks.onNavigateTo(destination)
+                        if (!isSaving) {
+                            if (draft.isNotBlank() && destination != AppDestination.CAPTURE) {
+                                pendingNavigation = destination
+                                showDiscardDialog = true
+                            } else {
+                                callbacks.onNavigateTo(destination)
+                            }
                         }
                     },
                 )
@@ -135,7 +171,10 @@ internal fun CaptureScreen(callbacks: MemoryUiCallbacks) {
     ) { innerPadding ->
         OutlinedTextField(
             value = draft,
-            onValueChange = { draft = it },
+            onValueChange = {
+                draft = it
+                if (reviewInput?.rawText != it) reviewInput = null
+            },
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
@@ -143,6 +182,7 @@ internal fun CaptureScreen(callbacks: MemoryUiCallbacks) {
                 .focusRequester(focusRequester)
                 .imePadding()
                 .testTag("capture_text_field"),
+            enabled = !isSaving,
             label = { Text(text = stringResource(R.string.capture_label)) },
             placeholder = { Text(text = stringResource(R.string.capture_hint)) },
             supportingText = { Text(text = stringResource(R.string.capture_draft_notice)) },
@@ -156,6 +196,7 @@ internal fun CaptureScreen(callbacks: MemoryUiCallbacks) {
 @Composable
 private fun CaptureActionBar(
     draft: String,
+    enabled: Boolean,
     onReview: () -> Unit,
     onClear: () -> Unit,
     modifier: Modifier = Modifier,
@@ -174,13 +215,13 @@ private fun CaptureActionBar(
         ) {
             TextButton(
                 onClick = onClear,
-                enabled = draft.isNotBlank(),
+                enabled = draft.isNotBlank() && enabled,
             ) {
                 Text(text = stringResource(R.string.capture_clear))
             }
             Button(
                 onClick = onReview,
-                enabled = draft.isNotBlank(),
+                enabled = draft.isNotBlank() && enabled,
             ) {
                 Text(text = stringResource(R.string.capture_review))
             }
@@ -189,9 +230,16 @@ private fun CaptureActionBar(
 }
 
 @Composable
-private fun ReviewDialog(input: CaptureInput, onDismiss: () -> Unit) {
+private fun ReviewDialog(
+    input: CaptureInput,
+    saveState: CaptureSaveState,
+    onSave: () -> Unit,
+    onRetry: () -> Unit,
+    onDismiss: () -> Unit,
+) {
+    val isSaving = saveState is CaptureSaveState.Saving
     AlertDialog(
-        onDismissRequest = onDismiss,
+        onDismissRequest = { if (!isSaving) onDismiss() },
         title = { Text(text = stringResource(R.string.capture_review_title)) },
         text = {
             Column {
@@ -213,19 +261,67 @@ private fun ReviewDialog(input: CaptureInput, onDismiss: () -> Unit) {
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = stringResource(R.string.capture_review_notice),
+                    text = stringResource(
+                        when (saveState) {
+                            CaptureSaveState.Idle -> R.string.capture_review_notice
+                            is CaptureSaveState.Saving -> R.string.capture_saving_status
+                            is CaptureSaveState.Saved -> R.string.capture_saved_status
+                            is CaptureSaveState.Error -> R.string.capture_failed_status
+                        },
+                    ),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.testTag("capture_save_status"),
                 )
             }
         },
         confirmButton = {
-            TextButton(onClick = onDismiss) {
-                Text(text = stringResource(R.string.capture_close))
+            when (saveState) {
+                CaptureSaveState.Idle -> Button(
+                    onClick = onSave,
+                    modifier = Modifier.testTag("capture_save_button"),
+                ) {
+                    Text(text = stringResource(R.string.capture_save))
+                }
+                is CaptureSaveState.Saving -> Button(onClick = {}, enabled = false) {
+                    Text(text = stringResource(R.string.capture_saving_action))
+                }
+                is CaptureSaveState.Saved -> TextButton(
+                    onClick = onDismiss,
+                    modifier = Modifier.testTag("capture_finish_button"),
+                ) {
+                    Text(text = stringResource(R.string.capture_done))
+                }
+                is CaptureSaveState.Error -> Button(
+                    onClick = onRetry,
+                    modifier = Modifier.testTag("capture_retry_button"),
+                ) {
+                    Text(text = stringResource(R.string.capture_retry))
+                }
+            }
+        },
+        dismissButton = {
+            if (saveState is CaptureSaveState.Idle || saveState is CaptureSaveState.Error) {
+                TextButton(onClick = onDismiss) {
+                    Text(text = stringResource(R.string.capture_close))
+                }
             }
         },
     )
 }
+
+private fun CaptureSaveState.forCapture(input: CaptureInput): CaptureSaveState = when (this) {
+    CaptureSaveState.Idle -> this
+    is CaptureSaveState.Saving -> if (this.input == input) this else CaptureSaveState.Idle
+    is CaptureSaveState.Saved -> if (entry.matches(input)) this else CaptureSaveState.Idle
+    is CaptureSaveState.Error -> if (this.input == input) this else CaptureSaveState.Idle
+}
+
+private fun MemoryEntry.matches(input: CaptureInput): Boolean =
+    rawText == input.rawText &&
+        sourceType == input.sourceType &&
+        capturedAtEpochMillis == input.capturedAtEpochMillis &&
+        timezoneId == input.timezoneId
 
 private fun formatReviewDate(epochMillis: Long, timezoneId: String): String =
     SimpleDateFormat("d MMM HH:mm", Locale.forLanguageTag("es-ES"))

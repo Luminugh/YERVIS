@@ -4,6 +4,7 @@ import androidx.compose.ui.semantics.SemanticsProperties
 import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.hasClickAction
+import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithTag
@@ -38,7 +39,7 @@ class YezviAppNavigationTest {
 
             onNodeWithTag("bottom_nav_memory").performClick()
             waitForHeading("Memoria")
-            onNode(hasText("Domingo 11 de octubre") and isHeading()).assertIsDisplayed()
+            waitForMemoryLoaded()
 
             onNodeWithTag("bottom_nav_capture").performClick()
             waitForHeading("Capturar")
@@ -54,20 +55,22 @@ class YezviAppNavigationTest {
     }
 
     @Test
-    fun memoryTimelineShowsEntryCardAndAccessibleHeadings() {
+    fun memoryTimelineLoadsPersistedOrEmptyStateWithoutDemoData() {
         composeTestRule.apply {
             waitForIdle()
             onNodeWithTag("bottom_nav_memory").performClick()
             waitForHeading("Memoria")
+            waitForMemoryLoaded()
+            onNodeWithText("Datos de demostración · aún no se guardan entradas reales")
+                .assertDoesNotExist()
+        }
+    }
 
-            val entryText = "Ejemplo: revisar el resumen de mañana."
-            onNodeWithText(entryText).assertIsDisplayed()
-            onNode(hasText("Domingo 11 de octubre") and isHeading()).assertIsDisplayed()
-
-            onNodeWithTag("timeline_entry_demo-2026-10-11-001").performClick()
-            waitForHeading("Detalle")
-            onNodeWithText("Datos de la captura").assertIsDisplayed()
-            onNodeWithText(entryText).assertIsDisplayed()
+    private fun waitForMemoryLoaded() {
+        composeTestRule.waitUntil(timeoutMillis = 5000) {
+            listOf("memory_empty", "memory_content_loaded", "memory_error").any { tag ->
+                composeTestRule.onAllNodes(hasTestTag(tag)).fetchSemanticsNodes().isNotEmpty()
+            }
         }
     }
 }

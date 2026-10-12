@@ -14,11 +14,13 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -37,6 +39,7 @@ import com.yezvi.assistant.domain.memory.CaptureSourceType
 import com.yezvi.assistant.domain.memory.MemoryEntry
 import com.yezvi.assistant.presentation.actions.AppDestination
 import com.yezvi.assistant.presentation.actions.MemoryUiCallbacks
+import com.yezvi.assistant.presentation.memory.MemoryUiState
 import com.yezvi.assistant.ui.navigation.YezviBottomBar
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -46,9 +49,11 @@ import java.util.TimeZone
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun MemoryScreen(
-    entries: List<MemoryEntry>,
+    state: MemoryUiState,
     callbacks: MemoryUiCallbacks,
+    onRetry: () -> Unit,
 ) {
+    val entries = (state as? MemoryUiState.Content)?.entries.orEmpty()
     val grouped = remember(entries) { groupEntriesByDate(entries) }
 
     Scaffold(
@@ -70,7 +75,15 @@ internal fun MemoryScreen(
         },
     ) { innerPadding ->
         LazyColumn(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier
+                .fillMaxSize()
+                .then(
+                    if (state is MemoryUiState.Content) {
+                        Modifier.testTag("memory_content_loaded")
+                    } else {
+                        Modifier
+                    },
+                ),
             contentPadding = PaddingValues(
                 start = 16.dp,
                 end = 16.dp,
@@ -79,11 +92,11 @@ internal fun MemoryScreen(
             ),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            item { DemoNoticeBanner() }
-            if (grouped.isEmpty()) {
-                item { EmptyTimelineState() }
-            } else {
-                grouped.forEach { (dateKey, dayEntries) ->
+            when (state) {
+                MemoryUiState.Loading -> item { LoadingTimelineState() }
+                MemoryUiState.Empty -> item { EmptyTimelineState() }
+                MemoryUiState.Error -> item { ErrorTimelineState(onRetry = onRetry) }
+                is MemoryUiState.Content -> grouped.forEach { (dateKey, dayEntries) ->
                     stickyHeader(key = dateKey) {
                         DateHeader(dateKey = dateKey)
                     }
@@ -99,7 +112,7 @@ internal fun MemoryScreen(
     }
 }
 
-private fun groupEntriesByDate(
+internal fun groupEntriesByDate(
     entries: List<MemoryEntry>,
 ): List<Pair<String, List<MemoryEntry>>> {
     val keyFormatter = SimpleDateFormat("yyyy-MM-dd", Locale.US)
@@ -108,11 +121,18 @@ private fun groupEntriesByDate(
             keyFormatter.timeZone = TimeZone.getTimeZone(entry.timezoneId)
             keyFormatter.format(Date(entry.capturedAtEpochMillis))
         }
-        .toSortedMap(reverseOrder())
-        .map { (_, dayEntries) ->
-            dayEntries.sortedByDescending { it.capturedAtEpochMillis }
+        .map { (dateKey, dayEntries) ->
+            dateKey to dayEntries.sortedWith(
+                compareByDescending<MemoryEntry> { it.capturedAtEpochMillis }
+                    .thenByDescending { it.id },
+            )
         }
-        .map { dayEntries ->
+        .sortedWith(
+            compareByDescending<Pair<String, List<MemoryEntry>>> {
+                it.second.first().capturedAtEpochMillis
+            }.thenByDescending { it.second.first().id },
+        )
+        .map { (_, dayEntries) ->
             val representative = dayEntries.first()
             keyFormatter.timeZone = TimeZone.getTimeZone(representative.timezoneId)
             keyFormatter.format(Date(representative.capturedAtEpochMillis)) to dayEntries
@@ -208,17 +228,20 @@ internal fun SourceBadge(sourceType: CaptureSourceType, modifier: Modifier = Mod
 }
 
 @Composable
-private fun DemoNoticeBanner(modifier: Modifier = Modifier) {
-    Surface(
-        modifier = modifier.fillMaxWidth(),
-        color = MaterialTheme.colorScheme.tertiaryContainer,
-        contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
-        shape = MaterialTheme.shapes.medium,
+private fun LoadingTimelineState(modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(vertical = 48.dp)
+            .testTag("memory_loading"),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
+        CircularProgressIndicator()
         Text(
-            text = stringResource(R.string.memory_demo_notice),
+            text = stringResource(R.string.memory_loading),
             style = MaterialTheme.typography.bodyMedium,
-            modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
     }
 }
@@ -228,7 +251,8 @@ private fun EmptyTimelineState(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .padding(vertical = 48.dp),
+            .padding(vertical = 48.dp)
+            .testTag("memory_empty"),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
@@ -241,5 +265,30 @@ private fun EmptyTimelineState(modifier: Modifier = Modifier) {
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
+    }
+}
+
+@Composable
+private fun ErrorTimelineState(onRetry: () -> Unit, modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(vertical = 48.dp)
+            .testTag("memory_error"),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        Text(
+            text = stringResource(R.string.memory_error_title),
+            style = MaterialTheme.typography.titleMedium,
+        )
+        Text(
+            text = stringResource(R.string.memory_error_hint),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        TextButton(onClick = onRetry) {
+            Text(text = stringResource(R.string.memory_retry))
+        }
     }
 }

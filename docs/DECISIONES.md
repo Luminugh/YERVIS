@@ -37,9 +37,15 @@
 ## D-009 — Estrategia de testabilidad UI (F1.12)
 **Estado:** Aceptada con nota de riesgo. **Motivo:** los clics instrumentados sobre `ExtendedFloatingActionButton` y `Card` no fueron estables en el emulador API 37 (evento perdido con `NO_INPUT_CHANNEL` al inicio / inyección de Espresso). **Consecuencia:** se añadieron `testTag` semánticos y se priorizaron aserciones de existencia/no-idling (`onAllNodes(...).fetchSemanticsNodes()`) sobre `waitForIdle()` cuando el teclado virtual interfiere. El flujo de captura se verifica navegando desde la barra inferior y el detalle desde `createComposeRule`; el comportamiento real de FAB/tarjetas se validó manualmente en emulador y queda documentado para futura estabilización.
 
+## D-010 — Persistencia Room/KSP y driver SQLite (F2.01–F2.04)
+**Estado:** Aceptada para F2. **Decisión:** Room 3.0.3 + KSP 2.3.12 (KSP2) y `AndroidSQLiteDriver` de `androidx.sqlite:sqlite-framework:2.7.1`; se mantienen las versiones de Kotlin, AGP y Gradle. **Motivo:** app nueva exclusivamente Kotlin, sin Room 2.x ni consumidor conocido de SupportSQLite. El driver usa las APIs SQLite del framework Android, cubre `minSdk 24` y evita empaquetar otro SQLite nativo; se prefiere el motor del sistema para esta app Android-only. **Validación:** spike Room/KSP previo más build y prueba instrumentada F2.04 en AVD API 37; KSP generó la base/DAO y Room exportó schema v1. La prueba en archivo confirmó CRUD y persistencia tras cierre/reapertura. No existe matriz oficial que certifique la tupla completa AGP/KGP/KSP. **Riesgo remanente:** la versión del motor SQLite depende del sistema operativo; validar comportamiento en API 24 y dispositivos Samsung cuando haya entorno disponible.
+
+## D-011 — Historial persistente de correcciones (propuesta F2.09)
+**Estado:** Propuesta pendiente de aprobación; no implementada. **Propuesta:** mantener inmutable `memory_entries.rawText` y agregar en schema v2 una tabla append-only `memory_entry_corrections` (`correctionId INTEGER PRIMARY KEY AUTOINCREMENT`, FK `memoryEntryId`, `correctedText` y `modifiedAtEpochMillis` UTC). Una migración estrictamente aditiva v1→v2 crea únicamente tabla/índice y deja todas las filas v1 intactas; recuerdos sin correcciones siguen mostrando `rawText`. **Motivo:** una edición en la fila v1 destruiría el texto original; una tabla separada conserva el original, metadatos de captura y cada revisión para auditoría. **Pendiente:** aprobación antes de cambiar schema, generar 2.json o registrar/ejecutar la migración. Ver propuesta y estrategia de pruebas en `docs/IMPLEMENTACIONES/F2.09-edicion-segura.md`.
+
 ## Decisiones por resolver
 - Qué motor STT on-device funciona offline con buen español en el Samsung real.
-- Room 2.x vs Room3: comprobar compatibilidad Gradle/Kotlin/KSP, migraciones y API en la fase F2.
+- Migraciones y conservación de datos desde cada schema soportado en F2.12; la base actual empieza en v1.
 - Cifrado, política de backup, exportación y eliminación, según modelo de amenazas.
 - Proveedor gratuito cloud y política de datos; límites/costos y custodia de la credencial.
 - Diseño definitivo de icono/nombre y personalidad TTS.

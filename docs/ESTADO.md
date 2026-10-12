@@ -1,6 +1,6 @@
 # Estado vivo del proyecto
 
-**Última actualización documental:** 2026-10-12 (preparado como guía; no reemplaza las verificaciones locales).
+**Última actualización documental:** 2026-10-12.
 
 ## Verificado en documentación y sesiones
 - [x] YEZVI creado en `C:\Users\Rick\Documents\GitHub\YEZVI`; paquete `com.yezvi.assistant`.
@@ -16,7 +16,7 @@
 - [ ] Samsung físico conectado y prueba local STT.
 
 ## Hito activo
-**F1.13 completado; F1 cerrado.** Los contratos F1.01–F1.03 están integrados con las pantallas F1.06–F1.12. `assembleDebug`, `testDebugUnitTest` y `connectedDebugAndroidTest` pasan en el emulador API 37. **Siguiente tarea: F2.01, no iniciada. No se avanza a F2 sin asignación explícita.**
+**F1.13 completado; F1 cerrado. F2.01–F2.07 completados.** D-010 selecciona Room 3.0.3 + KSP 2.3.12 (KSP2), con `AndroidSQLiteDriver`. **Siguiente tarea: F2.08 — conectar Memoria al repositorio persistente; no iniciada. No se avanza automáticamente.**
 
 ## Registro de entregas (añadir entradas, no reescribir historia)
 Formato sugerido:
@@ -132,3 +132,67 @@ Formato sugerido:
 - Pruebas y resultado: `assembleDebug`, `testDebugUnitTest`, `connectedDebugAndroidTest` → `BUILD SUCCESSFUL`; 14 pruebas unitarias y 8 instrumentadas, cero fallos. Instrumentadas en `Medium_Phone_API_37.0(AVD) - 17`; no es validación Samsung física.
 - Decisiones / riesgos: captura conserva el texto original y su contexto temporal; las pantallas reciben datos/callbacks desde el host y seleccionan por ID. Demo permanece aislada y `TodayScreen.kt`/`DemoTodayItem` no se migran. `onCaptureRequested` queda sin invocar hasta que exista una acción explícita de guardado. Sin ADR ni dependencias nuevas.
 - Pendiente para siguiente agente: F2.01 — evaluar Room/KSP para las versiones existentes, documentar alternativas y riesgos; no iniciada.
+
+### 2026-10-11 — Codex — F2.01
+- Resultado: inventario de versiones y evaluación oficial de compatibilidad completados; recomendación propuesta: Room 3.0.3 + KSP 2.3.12 con KSP2. F1 continúa cerrada.
+- Archivos: `docs/IMPLEMENTACIONES/F2.01-room-ksp.md`; `docs/DECISIONES.md` (D-010 propuesta); `docs/ESTADO.md`. No se modificó Gradle ni código.
+- Configuración observada: AGP 9.4.1, Gradle 9.6.0, catálogo del plugin Compose Kotlin 2.2.10/AGP built-in Kotlin, compile/target SDK 37, min SDK 24, JDK 25 para Gradle, bytecode Java 11.
+- Compatibilidad: AGP 9.4 requiere Gradle 9.6 y JDK ≥17; KSP 2.3.12 declara AGP mínimo 8.12. No hay matriz oficial de la tupla exacta con KGP 2.2.10; el procesamiento Room debe validarse en F2.02.
+- Verificación: lectura de configuración, `gradlew --version` y documentación oficial actual. No se ejecutaron build/tests porque solo cambió documentación.
+- Pendiente para siguiente agente: F2.02 — diseñar esquema mínimo Room 3 y versionar JSON exportados; validar generación, base de prueba y migración inicial. No iniciada.
+
+### 2026-10-12 — Codex — F2.02
+- Resultado: definido el esquema v1 mínimo `memory_entries` con ID estable, `rawText`, `sourceType`, instante UTC y zona IANA; sin estados transitorios ni campos derivados.
+- Archivos: `docs/IMPLEMENTACIONES/F2.02-esquema-memoria.md`; `docs/IMPLEMENTACIONES/F2.01-room-ksp.md` (resultado actualizado); `docs/DECISIONES.md` (D-010 actualizada); `docs/ESTADO.md`. Sin cambios de código o Gradle.
+- Validación: proyecto temporal fuera del repositorio con AGP 9.4.1 / Gradle 9.6.0 / Kotlin integrado y plugin Compose 2.2.10 / KSP2 2.3.12 / Room 3.0.3 / SDK 37 / JDK 25 / bytecode 11: `:app:kspDebugKotlin`, `:app:copyRoomSchemas` y `:app:compileDebugKotlin` → `BUILD SUCCESSFUL`; JSON v1 generado y tipos/índice verificados. No se corrieron tests del proyecto.
+- Límite: el JSON del `ProbeDatabase` temporal no se añadió a `app/schemas`; schema de producción pendiente de la clase `@Database` de F2.04. Driver y ejecución de consultas siguen sin probarse.
+- Siguiente tarea: F2.03 — Entity/DAO conforme al esquema; F2.04 creará la base y exportará el JSON real. No iniciadas.
+
+### 2026-10-12 — Codex — F2.03
+- Resultado: añadidos `MemoryEntryEntity` y `MemoryEntryDao` para `memory_entries` v1; CRUD tipado, lectura por ID y `Flow` descendente por instante/ID. `CaptureStatus` no se persiste.
+- Archivos: `app/src/main/java/com/yezvi/assistant/data/local/memory/{MemoryEntryEntity,MemoryEntryDao,MemoryEntryMappers}.kt`; `app/src/test/java/com/yezvi/assistant/data/local/memory/MemoryEntryMappersTest.kt`; `app/build.gradle.kts`; `build.gradle.kts`; `gradle/libs.versions.toml`; `docs/IMPLEMENTACIONES/F2.03-entity-dao.md`; `docs/ESTADO.md`.
+- Pruebas y resultado: con JBR de Android Studio y SDK local, `:app:kspDebugKotlin`, `:app:assembleDebug` y `:app:testDebugUnitTest` → `BUILD SUCCESSFUL`; 15 pruebas unitarias, cero fallos. La prueba nueva conserva texto literal, origen, epoch-millis, zona e ID.
+- Límite/riesgo: no existe aún `@Database`; KSP no produjo `MemoryEntryDao_Impl` ni schema real, por lo que generación completa y consultas SQLite quedan pendientes de F2.04. No se creó base/driver ni se tocaron pantallas.
+- Siguiente tarea: F2.04 — registrar DAO y Entity en la base Room, configurar driver y exportar schema JSON v1; validar generación/CRUD real. No iniciada.
+
+### 2026-10-12 — Codex — F2.04
+- Resultado: creada `YezviDatabase` v1 con Entity/DAO, exportación versionada y factory singleton con `applicationContext`; usa `AndroidSQLiteDriver` sobre SQLite del framework Android.
+- Archivos: `app/src/main/java/com/yezvi/assistant/data/local/memory/{YezviDatabase,YezviDatabaseFactory}.kt`; `app/src/androidTest/java/com/yezvi/assistant/data/local/memory/YezviDatabaseTest.kt`; `app/schemas/com.yezvi.assistant.data.local.memory.YezviDatabase/1.json`; `gradle/libs.versions.toml`; `build.gradle.kts`; `app/build.gradle.kts`; `docs/DECISIONES.md` (D-010 ampliada); `docs/IMPLEMENTACIONES/F2.04-base-room.md`; `docs/ESTADO.md`.
+- Pruebas: `kspDebugKotlin`, `assembleDebug`, `testDebugUnitTest` y `connectedDebugAndroidTest` → `BUILD SUCCESSFUL`; 15 unitarias y 9 instrumentadas, cero fallos. Prueba de DB en AVD API 37 valida insert, consulta/Flow, update, cierre/reapertura en archivo y delete.
+- Schema: Room generó `YezviDatabase_Impl`, `MemoryEntryDao_Impl` y `1.json`; coinciden con F2.02 en nombre de tabla, cinco columnas, tipos, `NOT NULL`, PK no autogenerada e índice temporal. Solo se usaron datos sintéticos.
+- Riesgos: AndroidSQLiteDriver usa la SQLite de cada versión del sistema; instrumentación realizada en API 37, no en dispositivo físico ni API 24. No hay fallback destructivo ni migraciones porque la base parte en versión 1.
+- Siguiente tarea: F2.05 — repositorio que oculte Room y exponga operaciones suspend/Flow al dominio/presentación; no iniciada.
+
+### 2026-10-12 — Codex — F2.05
+- Resultado: definido `MemoryRepository` independiente de Room e implementado `RoomMemoryRepository` para guardar, buscar por ID, observar en orden cronológico, actualizar y borrar. `DemoMemoryRepository` permanece aislado.
+- Archivos: `app/src/main/java/com/yezvi/assistant/domain/memory/MemoryRepository.kt`; `app/src/main/java/com/yezvi/assistant/data/repository/RoomMemoryRepository.kt`; `app/src/main/java/com/yezvi/assistant/data/local/memory/MemoryEntryMappers.kt`; `app/src/androidTest/java/com/yezvi/assistant/data/repository/RoomMemoryRepositoryTest.kt`; `docs/IMPLEMENTACIONES/F2.05-repositorio.md`; `docs/ESTADO.md`.
+- Pruebas: `kspDebugKotlin`, `assembleDebug`, `testDebugUnitTest` y `connectedDebugAndroidTest` → `BUILD SUCCESSFUL`; 15 unitarias y 11 instrumentadas, cero fallos. Las dos pruebas nuevas usan SQLite real/API 37 y validan CRUD, metadatos, orden/emisiones del Flow y propagación de colisión de ID.
+- Decisiones/riesgos: el llamador entrega el ID estable; los errores Room/SQLite se propagan; `CaptureStatus` no se persiste. Sin dependencias nuevas ni ADR. Prueba instrumentada en AVD API 37, no en Samsung físico ni API 24.
+- Siguiente tarea: F2.06 — ViewModel/StateFlow y estados de guardado/error; no iniciada. No se conectó la UI ni se avanzó F2.07.
+
+### 2026-10-12 — Codex — F2.06
+- Resultado: implementado `CaptureViewModel` con `StateFlow` para reposo, guardando, guardado y error; éxito solo tras completar el guardado suspendido, borrador conservado ante error y reintento con el mismo ID.
+- Archivos: `app/src/main/java/com/yezvi/assistant/presentation/capture/CaptureViewModel.kt`; `app/src/test/java/com/yezvi/assistant/presentation/capture/CaptureViewModelTest.kt`; `app/build.gradle.kts`; `gradle/libs.versions.toml`; `docs/IMPLEMENTACIONES/F2.06-viewmodel-captura.md`; `docs/ESTADO.md`.
+- Pruebas: `assembleDebug` y `testDebugUnitTest` → `BUILD SUCCESSFUL`; 18 pruebas unitarias, cero fallos (3 nuevas). Casos de éxito/estados, doble toque, fallo/reintento, ID estable y cancelación de `viewModelScope`.
+- Decisiones/riesgos: UUID generado en presentación; solo se agregó `kotlinx-coroutines-test` 1.9.0 para reemplazar Main y controlar pruebas. No se registran textos ni se persiste `CaptureStatus`. El estado borrador no sobrevive muerte de proceso.
+- Siguiente tarea: F2.07 — conectar Capturar al ViewModel y persistencia real; no iniciada. No se modificaron pantallas ni se avanzó F2.08.
+
+### 2026-10-12 — Codex — F2.07
+- Resultado: Capturar guarda desde el diálogo de revisión vía `CaptureViewModel` y `RoomMemoryRepository`; refleja IDLE/SAVING/SAVED/FAILED, retiene borrador/contexto tras error, reintenta con el mismo ID y confirma/limpia solo tras escritura SQLite exitosa. Memoria continúa mostrando demo.
+- Archivos: `app/src/main/java/com/yezvi/assistant/ui/navigation/YezviApp.kt`; `app/src/main/java/com/yezvi/assistant/ui/screens/CaptureScreen.kt`; `app/src/main/res/values/strings.xml`; `app/src/androidTest/java/com/yezvi/assistant/ui/screens/CapturePersistenceTest.kt`; `docs/IMPLEMENTACIONES/F2.07-guardado-real.md`; `docs/ESTADO.md`.
+- Pruebas y resultado: `:app:assembleDebug` → `BUILD SUCCESSFUL`; `:app:testDebugUnitTest` → `BUILD SUCCESSFUL` (18, cero fallos); `:app:connectedDebugAndroidTest` → `BUILD SUCCESSFUL` (12, cero fallos) en AVD API 37. La instrumentada verifica colisión SQLite, borrador/reintento, metadatos, estado final y persistencia tras cerrar/reabrir la base. App instalada/arrancada en `emulator-5554`, pantalla Hoy cargada.
+- Decisiones/riesgos: sin dependencias, cambios de schema ni migración; ID y `CaptureInput` se conservan dentro del ViewModel durante los reintentos. El borrador en pantalla no se garantiza tras muerte forzada del proceso. No se validó Samsung físico.
+- Siguiente tarea: F2.08 — conectar timeline/Memoria a datos persistidos y probar orden por instante UTC/fecha local; no iniciada. No avanzar automáticamente.
+
+### 2026-10-12 — Codex — F2.08
+- Resultado: Memoria observa `MemoryRepository` y muestra solo recuerdos persistidos con estados carga/vacío/contenido/error; tarjetas y Detalle consultan por ID real. La fecha de agrupación se calcula en la zona horaria guardada. Hoy aclara que sus ejemplos aún son demo.
+- Archivos F2.08: `app/src/main/java/com/yezvi/assistant/{ui/navigation/YezviApp.kt,ui/screens/MemoryScreen.kt,ui/screens/EntryDetailScreen.kt,presentation/memory/MemoryViewModel.kt,presentation/memory/EntryDetailViewModel.kt,res/values/strings.xml}`; tests `app/src/test/java/com/yezvi/assistant/presentation/memory/MemoryViewModelTest.kt`, `app/src/test/java/com/yezvi/assistant/ui/screens/MemoryTimelineGroupingTest.kt`, `app/src/androidTest/java/com/yezvi/assistant/ui/screens/MemoryPersistenceTest.kt` y ajustes de expectativas F2.07/F1.12 en tests instrumentados; `docs/IMPLEMENTACIONES/F2.08-timeline-persistente.md`.
+- Validación: `assembleDebug` + `testDebugUnitTest` → `BUILD SUCCESSFUL` (20 unit tests). Suite conectada API 37: 14/15; falló únicamente `CaptureDraftFlowTest.typingDraftReviewAndDiscardFlow` con timeout de sincronización Espresso (`DYNAMIC_TASKS_HAVE_IDLED`, 60 s), sin fallo de aserción F2.08. Prueba focalizada F2.08 en `emulator-5554`: 1/1 aprobada, dos capturas sintéticas, estado vacío, orden, detalle y reapertura de archivo Room tras recreación de Activity.
+- Límites/riesgos: el test usa archivo Room temporal propio y no toca base normal ni datos personales; se probó recreación de Activity + Room, no muerte forzada del proceso. AVD API 37; no Pixel 8 ni Samsung físico. No se cambió schema/DAO ni se implementaron edición/borrado.
+- Siguiente tarea: F2.09 — edición de recuerdo persistido; no iniciada. No avanzar automáticamente.
+
+### 2026-10-12 — Codex — F2.09 (propuesta pendiente)
+- Estado: no se implementó la edición persistida. El schema v1 no tiene dónde guardar correcciones sin reemplazar `rawText`; se requiere aprobación antes de una migración, según la instrucción de la tarea.
+- Propuesta: schema v2 aditivo con `memory_entry_corrections` append-only (`correctionId INTEGER PK autogenerada`, `memoryEntryId` FK, `correctedText`, `modifiedAtEpochMillis` UTC e índice padre/revisión). Las filas v1 y metadatos de captura permanecen intactos; sin backfill, destructive fallback o edición de `memory_entries.rawText`.
+- Archivos: `docs/IMPLEMENTACIONES/F2.09-edicion-segura.md`; `docs/DECISIONES.md` (D-011 marcado como propuesta pendiente); `docs/ESTADO.md`. No se modificaron código, schema, Gradle ni dependencias. `CaptureDraftFlowTest` aislado pasó 1/1 en AVD API 37 (`BUILD SUCCESSFUL`); las pruebas de migración/corrección quedan para después de aprobar.
+- Pendiente: aprobar o ajustar el esquema/migración v1→v2 antes de continuar F2.09. F2.10 y F2.11 no iniciadas.
