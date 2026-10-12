@@ -54,6 +54,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.room3.runtime)
     implementation(libs.androidx.sqlite.framework)
+    implementation(libs.androidx.sqlite.async)
     ksp(libs.androidx.room3.compiler)
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)

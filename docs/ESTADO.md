@@ -16,7 +16,7 @@
 - [ ] Samsung físico conectado y prueba local STT.
 
 ## Hito activo
-**F1.13 completado; F1 cerrado. F2.01–F2.07 completados.** D-010 selecciona Room 3.0.3 + KSP 2.3.12 (KSP2), con `AndroidSQLiteDriver`. **Siguiente tarea: F2.08 — conectar Memoria al repositorio persistente; no iniciada. No se avanza automáticamente.**
+**F1 cerrado; F2.01–F2.13 completados; F2.14 validada parcialmente.** D-010 mantiene Room 3.0.3 + KSP 2.3.12 (KSP2), con `AndroidSQLiteDriver`; D-011 mantiene schema v2 con cascada. `1.json` permanece inalterado y `2.json` sigue staged. La secuencia offline manual verificó captura, Memoria, Detalle y reapertura tras muerte del proceso; pruebas UI/Room focalizadas pasaron sin red. La edición manual quedó bloqueada por ANR de foco/entrada y el AVD era Medium Phone API 37, no Pixel 8. **F2 aún requiere repetir la secuencia manual en Pixel 8 y comprobar edición/borrado antes de recomendar cierre. No avanzar a F3 automáticamente.**
 
 ## Registro de entregas (añadir entradas, no reescribir historia)
 Formato sugerido:
@@ -191,8 +191,45 @@ Formato sugerido:
 - Límites/riesgos: el test usa archivo Room temporal propio y no toca base normal ni datos personales; se probó recreación de Activity + Room, no muerte forzada del proceso. AVD API 37; no Pixel 8 ni Samsung físico. No se cambió schema/DAO ni se implementaron edición/borrado.
 - Siguiente tarea: F2.09 — edición de recuerdo persistido; no iniciada. No avanzar automáticamente.
 
-### 2026-10-12 — Codex — F2.09 (propuesta pendiente)
-- Estado: no se implementó la edición persistida. El schema v1 no tiene dónde guardar correcciones sin reemplazar `rawText`; se requiere aprobación antes de una migración, según la instrucción de la tarea.
-- Propuesta: schema v2 aditivo con `memory_entry_corrections` append-only (`correctionId INTEGER PK autogenerada`, `memoryEntryId` FK, `correctedText`, `modifiedAtEpochMillis` UTC e índice padre/revisión). Las filas v1 y metadatos de captura permanecen intactos; sin backfill, destructive fallback o edición de `memory_entries.rawText`.
-- Archivos: `docs/IMPLEMENTACIONES/F2.09-edicion-segura.md`; `docs/DECISIONES.md` (D-011 marcado como propuesta pendiente); `docs/ESTADO.md`. No se modificaron código, schema, Gradle ni dependencias. `CaptureDraftFlowTest` aislado pasó 1/1 en AVD API 37 (`BUILD SUCCESSFUL`); las pruebas de migración/corrección quedan para después de aprobar.
-- Pendiente: aprobar o ajustar el esquema/migración v1→v2 antes de continuar F2.09. F2.10 y F2.11 no iniciadas.
+### 2026-10-12 — Codex — F2.09
+- Estado: implementada la migración aprobada Room v1→v2 y el historial append-only de correcciones. `rawText` y los metadatos originales quedan inmutables; la versión vigente usa la última corrección por ID de inserción o el original si no hay revisiones.
+- Archivos: Entity/DAO/migración/repositorio/modelos de corrección en `app/src/main/java/com/yezvi/assistant/{data/local/memory,data/repository,domain/memory}`; `YezviDatabase`, factory y contrato de memoria ajustados para v2 e inmutabilidad; prueba `MemoryCorrectionMigrationTest`; schema nuevo `app/schemas/com.yezvi.assistant.data.local.memory.YezviDatabase/2.json` (1.json intacto); documentación F2.09 y D-011 aceptada. Se retiró `MemoryRepository.update`/`MemoryEntryDao.update` para cerrar la vía de mutación del original.
+- Pruebas: `:app:kspDebugKotlin`, `:app:assembleDebug`, `:app:testDebugUnitTest` (20/20) y `:app:connectedDebugAndroidTest` (17/17) → `BUILD SUCCESSFUL`; instrumentación en `emulator-5554`, Medium Phone API 37. F2.09 comprueba datos v1 sintéticos, migración, correcciones/historial, latest por ID, FK, error/rollback y cierre/reapertura SQLite.
+- Decisión/riesgo: D-011 aceptada; migración aditiva sin backfill ni fallback destructivo. Se creó el fixture v1 desde el DDL/hash versionado porque `MigrationTestHelper` 3.0.3 falla con `AbstractMethodError` bajo la resolución consistente kotlinx.serialization 1.7.3; Room y la factory real validan la migración. No validado en Samsung físico ni API 24.
+- Siguiente tarea: F2.10 — borrado explícito con confirmación y estado honesto; no iniciada. No avanzar a F2.10/F2.11 automáticamente.
+
+### 2026-10-12 — Codex — F2.10
+- Resultado: borrado explícito desde Detalle con confirmación; cancelar no llama al repositorio, los toques repetidos se bloquean, el error conserva el recuerdo y permite reintento, y el éxito se muestra después del resultado positivo de SQLite. Memoria y Detalle observan cambios por Flow; un ID desaparecido pasa a NotFound.
+- Archivos: `MemoryRepository.kt`, `MemoryEntryDao.kt`, `RoomMemoryRepository.kt`, `EntryDetailViewModel.kt`, `EntryDetailScreen.kt`, `YezviApp.kt`, `strings.xml`; tests `EntryDetailViewModelTest.kt`, `RoomMemoryRepositoryTest.kt`, `EntryDetailAndAccessibilityTest.kt`; docs F2.10. D-011 ya cubre la FK `ON DELETE CASCADE`; no se añadió ADR.
+- Pruebas: `:app:assembleDebug` y `:app:testDebugUnitTest` → BUILD SUCCESSFUL (23/23); `:app:connectedDebugAndroidTest` → BUILD SUCCESSFUL (21/21) en `emulator-5554`, Medium Phone API 37. Verificados cancelación, doble toque, error/reintento, cascada de dos correcciones, actualizaciones Flow y borrado persistente tras reabrir SQLite.
+- Límites/riesgos: no hubo cambio de schema ni migración; no se promete borrado físico irrecuperable ni eliminación de backups. Validación en AVD, no Pixel 8 ni Samsung físico. El diseño completo queda para F2.11.
+- Siguiente tarea: F2.11 — pantallas de edición/borrado y fallos de guardado; no iniciada. No avanzar automáticamente.
+
+### 2026-10-12 — Codex — F2.11
+- Resultado: Detalle permite editar el texto vigente con revisiones append-only, ver separado el original y el historial cronológico, conservar el borrador ante error SQL y reintentar. Cancelar/volver no guarda. Se reutiliza el diálogo de borrado F2.10 y su confirmación real; no cambió schema v2 ni contratos de dominio.
+- Archivos: `app/src/main/java/com/yezvi/assistant/presentation/memory/EntryDetailViewModel.kt`, `ui/screens/EntryDetailScreen.kt`, `ui/navigation/YezviApp.kt`, `res/values/strings.xml`; tests `app/src/test/java/com/yezvi/assistant/presentation/memory/EntryDetailViewModelTest.kt`, `app/src/androidTest/java/com/yezvi/assistant/ui/screens/{EntryDetailEditingTest,EntryDetailAndAccessibilityTest}.kt`; docs `docs/IMPLEMENTACIONES/F2.11-ui-edicion-borrado.md`. Sin ADR ni dependencias nuevas.
+- Pruebas: `:app:assembleDebug` y `:app:testDebugUnitTest` → BUILD SUCCESSFUL (26/26). `:app:compileDebugAndroidTestKotlin` → BUILD SUCCESSFUL. `:app:connectedDebugAndroidTest` completa ejecutó 22 pruebas con 2 fallos: el matcher semántico de la nueva prueba F2.11 (corregido) y timeout de Compose/Espresso en test preexistente `MemoryPersistenceTest.emptyTimelineUpdatesFromCaptureAndSurvivesActivityRecreation`, línea 91. Luego `EntryDetailEditingTest` focalizado → BUILD SUCCESSFUL, 1/1 en `emulator-5554`, Medium Phone API 37.
+- Riesgos: suite conectada completa no se repitió tras el arreglo del matcher; el caso focalizado final sí pasó. No se validó Samsung físico; la prueba usa SQLite temporal y datos sintéticos. `MemoryCorrectionRepository` no ofrece Flow para refrescar historial escrito por otro proceso mientras Detalle sigue abierto.
+- Siguiente tarea: F2.12 — pruebas DAO/repositorio/temporalidad; no iniciada. No avanzar automáticamente.
+
+### 2026-10-12 — Codex — F2.12
+- Resultado: ampliadas las pruebas de Room v2 para CRUD, Flow, orden UTC/ID, zonas horarias, límites de día local, correcciones append-only, conservación de `rawText`/metadatos, reapertura y borrado en cascada sin huérfanos. No hubo cambios de schema, migración, dependencias ni UI.
+- Archivos: `app/src/androidTest/java/com/yezvi/assistant/data/repository/RoomMemoryRepositoryTest.kt`, `app/src/androidTest/java/com/yezvi/assistant/ui/screens/MemoryPersistenceTest.kt`, `app/src/test/java/com/yezvi/assistant/ui/screens/MemoryTimelineGroupingTest.kt`; `docs/IMPLEMENTACIONES/F2.12-pruebas-persistencia.md`.
+- Pruebas: `assembleDebug` → BUILD SUCCESSFUL; `testDebugUnitTest` → BUILD SUCCESSFUL (28/28); `connectedDebugAndroidTest` suite completa → BUILD SUCCESSFUL (23/23) en `emulator-5554`, Medium Phone API 37. `MemoryPersistenceTest` aislado corregido → 1/1.
+- Investigación: el fallo señalado como timeout en F2.11 fue una aserción ambigua que encontró dos nodos del mismo texto en la línea 91; se corrigió el selector al tag de texto vigente. La aserción de `EntryDetailEditingTest` corregida en F2.11 también pasó en la suite completa.
+- Límite conocido: `MemoryCorrectionRepository` no observa el historial con `Flow`; correcciones escritas por otro emisor no refrescan el Detalle abierto hasta recargar. Sin Samsung físico/Pixel 8 físico; no hubo cambios de producción.
+- Siguiente tarea: F2.13 — estrategia de esquema y migraciones iniciales; no iniciada. No avanzar automáticamente.
+
+### 2026-10-12 — Codex — F2.13
+- Resultado: auditados los snapshots v1/v2, entidades, migración registrada y cobertura SQLite. `1.json` coincide con HEAD; `2.json` se verificó contra Room v2 y quedó staged para que el próximo checkpoint lo incluya. Ningún snapshot fue editado; no existe `fallbackToDestructiveMigration`.
+- Archivos: `docs/IMPLEMENTACIONES/F2.13-migraciones.md`, `docs/ESTADO.md`; `app/schemas/com.yezvi.assistant.data.local.memory.YezviDatabase/2.json` añadido al índice, sin commit.
+- Cobertura existente: upgrade de v1 poblada y validación Room del destino, conservación de campos, índices/FK, rechazo de referencia huérfana, reapertura, rollback inducido; F2.12 verifica cascada sin huérfanos. El fixture SQLite manual continúa porque `MigrationTestHelper` 3.0.3 falló antes del upgrade con la resolución actual; sus límites y cotejo con `1.json` están documentados.
+- Pruebas: no se ejecutó Gradle; solo documentación e inclusión del snapshot ya generado en Git. Sin ADR nueva. Riesgo pendiente: política de backup/restore de datos de producción aún no está definida en D-011.
+- Siguiente tarea: F2.14 — prueba integral offline; no iniciada. No avanzar automáticamente.
+
+### 2026-10-12 — Codex — F2.14
+- Resultado: con red desactivada se guardó una nota sintética desde Capturar; Memoria y Detalle mostraron el original y metadatos, y el proceso se terminó con `am force-stop` y se reabrió sin perder la nota. Las pruebas instrumentadas offline de timeline/recreación, correcciones/historial, cancelación y borrado confirmado pasaron con Room real y fixtures sintéticos.
+- Archivos: `docs/IMPLEMENTACIONES/F2.14-validacion-offline.md`, `docs/ESTADO.md`. Sin cambios de código, Gradle o schema; `app/schemas/com.yezvi.assistant.data.local.memory.YezviDatabase/2.json` continúa staged.
+- Pruebas: `assembleDebug` → BUILD SUCCESSFUL (UP-TO-DATE); `testDebugUnitTest` → 28/28, 0 fallos; suite `connectedDebugAndroidTest` → 23/23, 0 fallos en Medium Phone API 37. Con red desconectada: `MemoryPersistenceTest` 1/1, `EntryDetailEditingTest` 1/1 y `RoomMemoryRepositoryTest#consecutiveCorrectionsPreserveOriginalAndHistoryAfterReopen` 1/1.
+- Riesgos: la edición manual causó ANR por timeout de entrada/foco, impidiendo completar las correcciones y el borrado en la misma nota; la nota sintética quedó en la base principal del AVD. No se reinició dispositivo; no disponible Pixel 8, API 24 ni Samsung físico. Wi‑Fi/datos móviles restaurados y red validada.
+- Recomendación: no cerrar F2 hasta repetir la experiencia manual completa y resolver/verificar el ANR en Pixel 8. F2.14 no avanza a F3 automáticamente.

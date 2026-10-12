@@ -20,12 +20,15 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.yezvi.assistant.data.local.memory.YezviDatabaseFactory
+import com.yezvi.assistant.data.repository.RoomMemoryCorrectionRepository
 import com.yezvi.assistant.data.repository.RoomMemoryRepository
 import com.yezvi.assistant.domain.memory.CaptureInput
+import com.yezvi.assistant.domain.memory.MemoryCorrectionRepository
 import com.yezvi.assistant.domain.memory.MemoryRepository
 import com.yezvi.assistant.presentation.actions.AppDestination
 import com.yezvi.assistant.presentation.actions.MemoryUiCallbacks
 import com.yezvi.assistant.presentation.capture.CaptureViewModel
+import com.yezvi.assistant.presentation.memory.EntryDeleteUiState
 import com.yezvi.assistant.presentation.memory.EntryDetailViewModel
 import com.yezvi.assistant.presentation.memory.MemoryViewModel
 import com.yezvi.assistant.ui.screens.CaptureScreen
@@ -43,10 +46,17 @@ internal fun YezviApp(
     onCaptureRequested: (CaptureInput) -> Unit = {},
     captureViewModelOverride: CaptureViewModel? = null,
     memoryRepositoryOverride: MemoryRepository? = null,
+    correctionRepositoryOverride: MemoryCorrectionRepository? = null,
 ) {
     val memoryRepository = memoryRepositoryOverride ?: rememberMemoryRepository()
-    val injectedRepositoryKey = memoryRepositoryOverride?.let {
-        "injected-${System.identityHashCode(it)}"
+    val correctionRepository = correctionRepositoryOverride ?: rememberMemoryCorrectionRepository()
+    val injectedRepositoryKey = if (
+        memoryRepositoryOverride != null || correctionRepositoryOverride != null
+    ) {
+        "injected-${System.identityHashCode(memoryRepository)}-" +
+            System.identityHashCode(correctionRepository)
+    } else {
+        null
     }
     val captureViewModel = captureViewModelOverride ?: rememberCaptureViewModel(memoryRepository)
     val callbacks = remember(navController, onCaptureRequested) {
@@ -107,14 +117,26 @@ internal fun YezviApp(
             val entryId = backStackEntry.arguments?.getString("entryId").orEmpty()
             val detailViewModel = entryDetailViewModel(
                 memoryRepository = memoryRepository,
+                correctionRepository = correctionRepository,
                 entryId = entryId,
                 viewModelKey = injectedRepositoryKey?.let { "$it:$entryId" },
             )
             val state by detailViewModel.uiState.collectAsStateWithLifecycle()
+            val deleteState by detailViewModel.deleteState.collectAsStateWithLifecycle()
+            val correctionState by detailViewModel.correctionState.collectAsStateWithLifecycle()
             EntryDetailScreen(
                 state = state,
+                deleteState = deleteState,
+                correctionState = correctionState,
                 onBack = { navController.navigateUp() },
                 onRetry = detailViewModel::retry,
+                onDelete = detailViewModel::delete,
+                onCancelDelete = detailViewModel::dismissDelete,
+                onRetryCorrections = detailViewModel::retryCorrections,
+                onBeginCorrection = detailViewModel::beginCorrection,
+                onCorrectionDraftChange = detailViewModel::updateCorrectionDraft,
+                onSaveCorrection = detailViewModel::saveCorrection,
+                onCancelCorrection = detailViewModel::cancelCorrection,
             )
         }
     }
@@ -125,6 +147,16 @@ private fun rememberMemoryRepository(): MemoryRepository {
     val appContext = LocalContext.current.applicationContext
     return remember(appContext) {
         RoomMemoryRepository(YezviDatabaseFactory.getInstance(appContext).memoryEntryDao())
+    }
+}
+
+@Composable
+private fun rememberMemoryCorrectionRepository(): MemoryCorrectionRepository {
+    val appContext = LocalContext.current.applicationContext
+    return remember(appContext) {
+        RoomMemoryCorrectionRepository(
+            YezviDatabaseFactory.getInstance(appContext).memoryCorrectionDao(),
+        )
     }
 }
 
@@ -156,12 +188,13 @@ private fun memoryViewModel(
 @Composable
 private fun entryDetailViewModel(
     memoryRepository: MemoryRepository,
+    correctionRepository: MemoryCorrectionRepository,
     entryId: String,
     viewModelKey: String?,
 ): EntryDetailViewModel {
-    val factory = remember(memoryRepository, entryId) {
+    val factory = remember(memoryRepository, correctionRepository, entryId) {
         viewModelFactory {
-            initializer { EntryDetailViewModel(memoryRepository, entryId) }
+            initializer { EntryDetailViewModel(memoryRepository, correctionRepository, entryId) }
         }
     }
     return viewModel(key = viewModelKey, factory = factory)

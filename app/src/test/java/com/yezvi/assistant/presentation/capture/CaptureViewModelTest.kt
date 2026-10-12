@@ -193,9 +193,9 @@ class CaptureViewModelTest {
 
         override suspend fun findById(id: String): MemoryEntry? = null
 
-        override fun observeAll(): Flow<List<MemoryEntry>> = flowOf(emptyList())
+        override fun observeById(id: String): Flow<MemoryEntry?> = flowOf(null)
 
-        override suspend fun update(entry: MemoryEntry): Boolean = false
+        override fun observeAll(): Flow<List<MemoryEntry>> = flowOf(emptyList())
 
         override suspend fun deleteById(id: String): Boolean = false
     }

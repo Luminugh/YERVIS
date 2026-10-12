@@ -11,6 +11,7 @@ import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.StandardTestDispatcher
@@ -66,7 +67,7 @@ class MemoryViewModelTest {
 
                 override suspend fun findById(id: String): MemoryEntry? = null
 
-                override suspend fun update(entry: MemoryEntry): Boolean = false
+                override fun observeById(id: String): Flow<MemoryEntry?> = flowOf(null)
 
                 override suspend fun deleteById(id: String): Boolean = false
             }

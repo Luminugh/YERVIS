@@ -25,12 +25,3 @@ fun MemoryEntryEntity.toMemoryEntry(): MemoryEntry = MemoryEntry(
     timezoneId = timezoneId,
     status = CaptureStatus.SAVED,
 )
-
-/** Maps persisted record fields; transient capture [status] is deliberately not stored. */
-fun MemoryEntry.toMemoryEntryEntity(): MemoryEntryEntity = MemoryEntryEntity(
-    id = id,
-    rawText = rawText,
-    capturedAtEpochMillis = capturedAtEpochMillis,
-    timezoneId = timezoneId,
-    sourceType = sourceType,
-)

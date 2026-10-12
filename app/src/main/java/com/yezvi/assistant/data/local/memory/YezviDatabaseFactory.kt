@@ -22,5 +22,6 @@ object YezviDatabaseFactory {
             databaseName,
         )
             .setDriver(AndroidSQLiteDriver())
+            .addMigrations(MIGRATION_1_2)
             .build()
 }

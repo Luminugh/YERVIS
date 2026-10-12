@@ -22,11 +22,11 @@ class RoomMemoryRepository(
     override suspend fun findById(id: String): MemoryEntry? =
         memoryEntryDao.findById(id)?.toMemoryEntry()
 
+    override fun observeById(id: String): Flow<MemoryEntry?> =
+        memoryEntryDao.observeById(id).map { entry -> entry?.toMemoryEntry() }
+
     override fun observeAll(): Flow<List<MemoryEntry>> =
         memoryEntryDao.observeAll().map { entries -> entries.map { it.toMemoryEntry() } }
-
-    override suspend fun update(entry: MemoryEntry): Boolean =
-        memoryEntryDao.update(entry.toMemoryEntryEntity()) > 0
 
     override suspend fun deleteById(id: String): Boolean =
         memoryEntryDao.deleteById(id) > 0

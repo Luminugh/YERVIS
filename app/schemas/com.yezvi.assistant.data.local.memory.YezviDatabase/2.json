@@ -1,0 +1,127 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "edcce8dc0be423acb08cf6e669c11ebe",
+    "entities": [
+      {
+        "tableName": "memory_entries",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `rawText` TEXT NOT NULL, `capturedAtEpochMillis` INTEGER NOT NULL, `timezoneId` TEXT NOT NULL, `sourceType` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rawText",
+            "columnName": "rawText",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "capturedAtEpochMillis",
+            "columnName": "capturedAtEpochMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timezoneId",
+            "columnName": "timezoneId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sourceType",
+            "columnName": "sourceType",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_memory_entries_capturedAtEpochMillis",
+            "unique": false,
+            "columnNames": [
+              "capturedAtEpochMillis"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_memory_entries_capturedAtEpochMillis` ON `${TABLE_NAME}` (`capturedAtEpochMillis`)"
+          }
+        ]
+      },
+      {
+        "tableName": "memory_entry_corrections",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`correctionId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `memoryEntryId` TEXT NOT NULL, `correctedText` TEXT NOT NULL, `modifiedAtEpochMillis` INTEGER NOT NULL, FOREIGN KEY(`memoryEntryId`) REFERENCES `memory_entries`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "correctionId",
+            "columnName": "correctionId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "memoryEntryId",
+            "columnName": "memoryEntryId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "correctedText",
+            "columnName": "correctedText",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "modifiedAtEpochMillis",
+            "columnName": "modifiedAtEpochMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "correctionId"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_memory_entry_corrections_memoryEntryId_correctionId",
+            "unique": false,
+            "columnNames": [
+              "memoryEntryId",
+              "correctionId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_memory_entry_corrections_memoryEntryId_correctionId` ON `${TABLE_NAME}` (`memoryEntryId`, `correctionId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "memory_entries",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "memoryEntryId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'edcce8dc0be423acb08cf6e669c11ebe')"
+    ]
+  }
+}

@@ -1,6 +1,9 @@
 package com.yezvi.assistant.ui.screens
 
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.semantics.SemanticsProperties
 import androidx.compose.ui.test.SemanticsMatcher
@@ -17,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import com.yezvi.assistant.data.demo.DemoMemoryFixtures
 import com.yezvi.assistant.data.demo.DemoMemoryRepository
 import com.yezvi.assistant.presentation.memory.EntryDetailUiState
+import com.yezvi.assistant.presentation.memory.EntryDeleteUiState
 import com.yezvi.assistant.presentation.memory.MemoryUiState
 import com.yezvi.assistant.presentation.actions.MemoryUiCallbacks
 import com.yezvi.assistant.ui.theme.YEZVITheme
@@ -34,6 +38,67 @@ class EntryDetailAndAccessibilityTest {
     private fun isHeading() = SemanticsMatcher.keyIsDefined(SemanticsProperties.Heading)
 
     @Test
+    fun cancellingDeleteConfirmationDoesNotRequestDeletion() {
+        var deleteRequests = 0
+        var cancelRequests = 0
+        composeTestRule.setContent {
+            YEZVITheme(dynamicColor = false) {
+                EntryDetailScreen(
+                    state = EntryDetailUiState.Loaded(
+                        DemoMemoryRepository.getEntry("demo-2026-10-11-001")!!,
+                    ),
+                    onBack = {},
+                    onRetry = {},
+                    deleteState = EntryDeleteUiState.Idle,
+                    onDelete = { deleteRequests++ },
+                    onCancelDelete = { cancelRequests++ },
+                )
+            }
+        }
+
+        composeTestRule.onNodeWithText("Eliminar recuerdo").performClick()
+        composeTestRule.onNodeWithText("¿Eliminar este recuerdo?").assertIsDisplayed()
+        composeTestRule.onNodeWithText("Cancelar").performClick()
+
+        assertEquals(0, deleteRequests)
+        assertEquals(1, cancelRequests)
+        composeTestRule.onNodeWithTag("entry_current_text").assertIsDisplayed()
+    }
+
+    @Test
+    fun deleteSuccessAppearsOnlyAfterDeleteStateReportsSuccess() {
+        var deletionState: EntryDeleteUiState by mutableStateOf(EntryDeleteUiState.Idle)
+        var deleteRequests = 0
+        var backRequests = 0
+        composeTestRule.setContent {
+            YEZVITheme(dynamicColor = false) {
+                EntryDetailScreen(
+                    state = EntryDetailUiState.Loaded(
+                        DemoMemoryRepository.getEntry("demo-2026-10-11-001")!!,
+                    ),
+                    onBack = { backRequests++ },
+                    onRetry = {},
+                    deleteState = deletionState,
+                    onDelete = {
+                        deleteRequests++
+                        deletionState = EntryDeleteUiState.Deleted
+                    },
+                )
+            }
+        }
+
+        composeTestRule.onNodeWithText("Eliminar recuerdo").performClick()
+        composeTestRule.onNodeWithText("¿Eliminar este recuerdo?").assertIsDisplayed()
+        composeTestRule.onNodeWithText("Eliminar", useUnmergedTree = true).performClick()
+
+        assertEquals(1, deleteRequests)
+        composeTestRule.onNodeWithText("Recuerdo eliminado").assertIsDisplayed()
+        assertEquals(0, backRequests)
+        composeTestRule.onNodeWithText("Volver a Memoria").performClick()
+        assertEquals(1, backRequests)
+    }
+
+    @Test
     fun validEntryDisplaysLoadedState() {
         composeTestRule.setContent {
             YEZVITheme(dynamicColor = false) {
@@ -46,7 +111,7 @@ class EntryDetailAndAccessibilityTest {
                 )
             }
         }
-        composeTestRule.onNodeWithText("Ejemplo: revisar el resumen de mañana.").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("entry_original_text").assertIsDisplayed()
         composeTestRule.onNodeWithText("Sin guardar").assertIsDisplayed()
         composeTestRule.onNodeWithText("America/Lima").assertIsDisplayed()
     }

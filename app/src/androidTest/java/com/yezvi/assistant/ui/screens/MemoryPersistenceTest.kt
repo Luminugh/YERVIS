@@ -88,7 +88,7 @@ class MemoryPersistenceTest {
 
             composeTestRule.onNodeWithTag("timeline_entry_$secondId").performClick()
             waitForHeading("Detalle")
-            composeTestRule.onNodeWithText(secondText).assertIsDisplayed()
+            composeTestRule.onNodeWithTag("entry_current_text").assertTextEquals(secondText)
             val secondEntry = requireNotNull(timelineEntries.firstOrNull { it.id == secondId })
             composeTestRule.onNodeWithTag("entry_detail_source_value")
                 .assertTextEquals("Texto")
@@ -128,7 +128,7 @@ class MemoryPersistenceTest {
             composeTestRule.onNodeWithText(secondText).assertIsDisplayed()
             composeTestRule.onNodeWithTag("timeline_entry_$secondId").performClick()
             waitForHeading("Detalle")
-            composeTestRule.onNodeWithText(secondText).assertIsDisplayed()
+            composeTestRule.onNodeWithTag("entry_current_text").assertTextEquals(secondText)
             assertEquals(TimeZone.getDefault().id, secondEntry.timezoneId)
         } finally {
             database?.close()

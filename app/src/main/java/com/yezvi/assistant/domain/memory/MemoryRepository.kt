@@ -10,11 +10,11 @@ interface MemoryRepository {
     /** Returns the persisted entry for [id], or `null` when it does not exist. */
     suspend fun findById(id: String): MemoryEntry?
 
+    /** Observes one persisted entry, emitting `null` if it is deleted or does not exist. */
+    fun observeById(id: String): Flow<MemoryEntry?>
+
     /** Observes persisted entries in descending capture-time order with a stable ID tie-break. */
     fun observeAll(): Flow<List<MemoryEntry>>
-
-    /** Replaces a persisted entry; returns `false` when no row with its ID exists. */
-    suspend fun update(entry: MemoryEntry): Boolean
 
     /** Deletes the row for [id]; returns `false` when it does not exist. */
     suspend fun deleteById(id: String): Boolean

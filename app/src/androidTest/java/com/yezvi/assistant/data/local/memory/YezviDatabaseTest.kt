@@ -42,14 +42,12 @@ class YezviDatabaseTest {
                 dao.observeAll().first(),
             )
 
-            val updatedEntry = firstEntry.copy(timezoneId = "Etc/UTC")
-            assertEquals(1, dao.update(updatedEntry))
-            assertEquals(updatedEntry, dao.findById(firstEntry.id))
+            assertEquals(firstEntry, dao.findById(firstEntry.id))
 
             database.close()
             database = YezviDatabaseFactory.create(context, databaseName)
             val reopenedDao = database.memoryEntryDao()
-            assertEquals(updatedEntry, reopenedDao.findById(firstEntry.id))
+            assertEquals(firstEntry, reopenedDao.findById(firstEntry.id))
             assertEquals(secondEntry, reopenedDao.findById(secondEntry.id))
 
             assertEquals(1, reopenedDao.deleteById(secondEntry.id))
