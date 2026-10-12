@@ -1,4 +1,4 @@
-# YEZVI — Prompts eficientes para agentes (OpenCode Go y Codex)
+# YEZVI — Prompts eficientes para agentes (edición económica OpenCode Go)
 
 **Propósito:** consumir menos tokens sin omitir validación, privacidad ni documentación. Complementa `AGENTS.md`, `ROADMAP_MAESTRO.md` y `docs/ESTADO.md`; no cambia sus tareas ni responsables.
 
@@ -13,15 +13,16 @@
 7. **Documentar en disco, no duplicar en chat.** Actualizar `docs/ESTADO.md` brevemente; crear `docs/IMPLEMENTACIONES/Fx.xx-tema.md` y ADR solo para cambios relevantes según `AGENTS.md`/roadmap.
 8. **No sacrificar seguridad.** Pedir aprobación para operaciones destructivas, permisos amplios, transferencias de datos privados o cambios de contrato público. Probar con datos sintéticos.
 
-## 2. Modelos según la tarea
+## 2. Modelos económicos por tipo de tarea (nuevo)
 
-| Tipo de tarea | Preferencia OpenCode Go | Cuándo usarla |
+| Tipo de tarea | Primer intento | Respaldo / escalamiento |
 |---|---|---|
-| Ajuste pequeño, documentación o revisión | `O-F` | Si la calidad es suficiente y el modelo aparece en `/models` |
-| Pantallas Compose, navegación, UI funcional | `O-K` | Desarrollo de componentes y pruebas de interfaz |
-| Dirección visual, accesibilidad, sistema de diseño | `O-Q` | Decisiones complejas de UX, no cada retoque |
+| Compose, navegación, timeline, componentes | **O-M: MiMo-V2.6-Flash** | O-D si hay un bloqueo demostrado |
+| Ajustes pequeños, pruebas, documentación | **O-M: MiMo-V2.6-Flash** | Ninguno en condiciones normales |
+| Investigación UX, animaciones o accesibilidad | **O-D: DeepSeek V4.1 Flash** | O-M si es una tarea sencilla |
+| Error difícil que persiste tras dos intentos | **Detenerse y explicar** | O-P: MiMo-V2.6-Pro **solo con aprobación** |
 
-Los nombres completos y alternativas siguen en `MODELOS_Y_ROLES.md`. No afirmamos que un modelo cueste menos tokens o cuota sin conocer las tarifas/límites reales de tu plan: **reducir contexto y retrabajo es la optimización más segura**. Mantén Codex para las tareas `C-*` del roadmap; no pases tareas complejas de arquitectura a OpenCode solo por ahorrar invocaciones.
+No usar Kimi K2.7 Code o Qwen3.8 Max como opción predeterminada. Consulta `MODELOS_Y_ROLES.md` para referencias de precios y el significado de los códigos. **El número de tokens por sí solo no equivale al porcentaje de cuota**: cuenta también el precio por modelo, el contexto, el caching y las ventanas del plan.
 
 ## 3. Prompt breve reutilizable — OpenCode Go
 
@@ -33,13 +34,13 @@ Respeta AGENTS.md y docs/ESTADO.md; consulta únicamente el ticket y los archivo
 Rol: UI/UX Compose. Usa contratos existentes; NO cambies Room, dominio, IA ni Gradle fuera del ticket.
 Usa Context7 solo si surge una duda técnica específica. Implementa el cambio mínimo, en español y accesible.
 Verifica build/tests pertinentes y emulador si aplica. Documenta avances reales en docs/ESTADO.md; si el cambio es importante, crea documento de implementación/ADR.
-Responde en máximo 8 líneas: estado, archivos, pruebas, bloqueo y siguiente ID. No avances otra tarea.
+Responde en máximo 6 líneas: estado, archivos, pruebas, bloqueo y siguiente ID. No avances otra tarea.
 ```
 
 **Aún más corto en sesiones continuas:** si el agente ya conoce el repositorio y sus instrucciones, basta con:
 
 ```text
-Ejecuta solo F1.07 según ROADMAP_MAESTRO.md. Cambio mínimo, prueba y registra en docs/ESTADO.md. Responde en 6 líneas; no avances al siguiente ID.
+Ejecuta solo F1.09 según ROADMAP_MAESTRO.md con MiMo-V2.6-Flash. Lee solo los archivos pertinentes; cambio mínimo, prueba y registra en docs/ESTADO.md. Responde en 6 líneas; no avances al siguiente ID.
 ```
 
 ## 4. Prompt breve reutilizable — Codex
@@ -63,7 +64,7 @@ opencode
 codex
 ```
 
-- Selecciona el modelo real en `/models` (OpenCode) o `/model` (Codex) al iniciar o cuando el tipo de tarea cambie; **no cambies por cada mensaje**.
+- En OpenCode usa **MiMo-V2.6-Flash** por defecto en `/models`; DeepSeek V4.1 Flash solo cuando la tarea lo justifique. Codex mantiene su selección en `/model`; **no cambies por cada mensaje**.
 - Pega el prompt corto con un ID. No adjuntes los 123 tickets en cada conversación.
 - Tras completar, revisa la evidencia y autoriza expresamente el siguiente ID.
 - Para entregas grandes, usa Git como checkpoint y documenta solo las diferencias importantes.

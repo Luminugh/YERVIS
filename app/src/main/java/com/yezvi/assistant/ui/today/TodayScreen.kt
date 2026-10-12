@@ -25,7 +25,10 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.heading
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -75,6 +78,7 @@ internal fun TodayScreen(
     pendingItems: List<DemoTodayItem> = demoPendingItems,
     recentItems: List<DemoTodayItem> = demoRecentItems,
     onCaptureClick: () -> Unit = {},
+    bottomBar: @Composable () -> Unit = {},
 ) {
     Scaffold(
         modifier = modifier.fillMaxSize(),
@@ -85,6 +89,7 @@ internal fun TodayScreen(
                         Text(
                             text = stringResource(R.string.today_title),
                             style = MaterialTheme.typography.titleLarge,
+                            modifier = Modifier.semantics { heading() },
                         )
                         Text(
                             text = formatTodayDate(),
@@ -95,8 +100,12 @@ internal fun TodayScreen(
                 },
             )
         },
+        bottomBar = bottomBar,
         floatingActionButton = {
-            ExtendedFloatingActionButton(onClick = onCaptureClick) {
+            ExtendedFloatingActionButton(
+                onClick = onCaptureClick,
+                modifier = Modifier.testTag("today_capture_fab"),
+            ) {
                 Text(text = stringResource(R.string.today_capture))
             }
         },
@@ -168,14 +177,18 @@ private fun SectionHeader(title: String, modifier: Modifier = Modifier) {
         text = title,
         style = MaterialTheme.typography.titleMedium,
         fontWeight = FontWeight.SemiBold,
-        modifier = modifier.padding(top = 8.dp, bottom = 4.dp),
+        modifier = modifier
+            .padding(top = 8.dp, bottom = 4.dp)
+            .semantics { heading() },
     )
 }
 
 @Composable
 private fun TodayItemCard(item: DemoTodayItem, modifier: Modifier = Modifier) {
     Card(
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier
+            .fillMaxWidth()
+            .semantics(mergeDescendants = true) { },
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
         ),

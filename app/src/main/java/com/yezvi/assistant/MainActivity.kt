@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import com.yezvi.assistant.ui.navigation.YezviApp
 import com.yezvi.assistant.ui.theme.YEZVITheme
-import com.yezvi.assistant.ui.today.TodayScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,7 +13,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             YEZVITheme {
-                TodayScreen(onCaptureClick = {})
+                YezviApp()
             }
         }
     }

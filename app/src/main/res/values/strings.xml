@@ -10,4 +10,55 @@
     <string name="today_section_recent">Recientes</string>
     <string name="today_empty_title">Sin actividad hoy</string>
     <string name="today_empty_hint">Captura tu primera nota para verla aquí.</string>
+
+    <!-- Navegación principal (F1.06) -->
+    <string name="nav_today">Hoy</string>
+    <string name="nav_memory">Memoria</string>
+    <string name="nav_capture">Capturar</string>
+    <string name="nav_settings">Ajustes</string>
+    <string name="placeholder_title">Pantalla de %1$s</string>
+
+    <!-- Captura de texto (F1.08) -->
+    <string name="capture_label">Borrador</string>
+    <string name="capture_hint">Escribe lo que quieres recordar...</string>
+    <string name="capture_draft_notice">Este borrador aún no se guarda en el dispositivo.</string>
+    <string name="capture_clear">Limpiar</string>
+    <string name="capture_review">Revisar</string>
+    <string name="capture_review_title">Revisar borrador</string>
+    <string name="capture_review_meta">Origen: %1$s · %2$s · %3$s</string>
+    <string name="capture_review_notice">Aún no se guarda nada; esto es solo una vista previa.</string>
+    <string name="capture_close">Cerrar</string>
+    <string name="capture_discard_title">¿Descartar borrador?</string>
+    <string name="capture_discard_message">Perderás lo que escribiste.</string>
+    <string name="capture_discard_confirm">Descartar</string>
+    <string name="capture_discard_cancel">Seguir escribiendo</string>
+
+    <!-- Línea temporal de Memoria (F1.09) -->
+    <string name="memory_demo_notice">Datos de demostración · aún no se guardan entradas reales</string>
+    <string name="memory_empty_title">Sin entradas</string>
+    <string name="memory_empty_hint">Captura algo para verlo en la línea temporal.</string>
+    <string name="memory_source_text">Texto</string>
+    <string name="memory_source_voice">Voz</string>
+
+    <!-- Detalle de entrada (F1.10) -->
+    <string name="entry_detail_title">Detalle</string>
+    <string name="entry_detail_back">Atrás</string>
+    <string name="entry_detail_data_title">Datos de la captura</string>
+    <string name="entry_detail_source">Origen</string>
+    <string name="entry_detail_date">Fecha</string>
+    <string name="entry_detail_time">Hora</string>
+    <string name="entry_detail_timezone">Zona horaria</string>
+    <string name="entry_detail_status">Estado</string>
+    <string name="entry_detail_status_idle">Sin guardar</string>
+    <string name="entry_detail_status_saving">Guardando…</string>
+    <string name="entry_detail_status_saved">Guardado en el dispositivo</string>
+    <string name="entry_detail_status_failed">No se guardó</string>
+    <string name="entry_detail_demo_notice">Datos de demostración · esta entrada no está guardada en el dispositivo.</string>
+    <string name="entry_detail_loading">Cargando…</string>
+    <string name="entry_detail_empty_title">Entrada no encontrada</string>
+    <string name="entry_detail_empty_hint">Esta entrada no existe o ya no está disponible.</string>
+    <string name="entry_detail_error_title">No se pudo cargar la entrada</string>
+    <string name="entry_detail_error_hint">Ocurrió un error al leer los datos.</string>
+    <string name="entry_detail_retry">Reintentar</string>
+    <string name="entry_detail_back_to_memory">Volver a Memoria</string>
 </resources>

@@ -31,6 +31,12 @@
 - `AppDestination` enumera `TODAY`, `MEMORY`, `CAPTURE` y `SETTINGS`; el consumidor decide cómo resolver cada destino.
 - La selección transmite el ID, no copia el registro completo. Se reutilizan `CaptureInput` y `CaptureStatus` de F1.01; no se duplican estados ni se crea una jerarquía de eventos sellada.
 
+## D-008 — Dependencias de testing para Android 16 / API 37 (F1.12)
+**Estado:** Aceptada. **Motivo:** Espresso 3.5.1 refleja `android.hardware.input.InputManager.getInstance()`, método eliminado en Android 16 (API 36.1/37), provocando `NoSuchMethodException` en cada test instrumentado Compose. **Consecuencia:** se actualizaron `androidx.test.espresso:espresso-core` a **3.7.0** y `androidx.test.ext:junit` a **1.3.0** en `gradle/libs.versions.toml`. Solo afecta variantes de test; el APK de producción no cambia.
+
+## D-009 — Estrategia de testabilidad UI (F1.12)
+**Estado:** Aceptada con nota de riesgo. **Motivo:** los clics instrumentados sobre `ExtendedFloatingActionButton` y `Card` no fueron estables en el emulador API 37 (evento perdido con `NO_INPUT_CHANNEL` al inicio / inyección de Espresso). **Consecuencia:** se añadieron `testTag` semánticos y se priorizaron aserciones de existencia/no-idling (`onAllNodes(...).fetchSemanticsNodes()`) sobre `waitForIdle()` cuando el teclado virtual interfiere. El flujo de captura se verifica navegando desde la barra inferior y el detalle desde `createComposeRule`; el comportamiento real de FAB/tarjetas se validó manualmente en emulador y queda documentado para futura estabilización.
+
 ## Decisiones por resolver
 - Qué motor STT on-device funciona offline con buen español en el Samsung real.
 - Room 2.x vs Room3: comprobar compatibilidad Gradle/Kotlin/KSP, migraciones y API en la fase F2.
