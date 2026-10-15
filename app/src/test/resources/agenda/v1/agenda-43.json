@@ -1,0 +1,230 @@
+{
+  "id": "agenda-43",
+  "name": "Personas homónimas",
+  "lane": "C",
+  "sources": [
+    {
+      "sourceEntryId": "s-43",
+      "text": "Ana del curso y Ana del trabajo son personas diferentes.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    },
+    {
+      "sourceEntryId": "s-43-unknown",
+      "text": "Ella lo hizo.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-43-a",
+      "extractionId": "e-43-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-43",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "815048d2a49da40e771837903a47c9804e7098ce485812811ceff2385d626d2c",
+          "textLengthUtf16": 56,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 56
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "curso",
+          "category": "PERSON",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Ana del curso",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-43",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Ana del curso",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 13
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "context": {
+              "value": "curso",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-43",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "curso",
+                  "range": {
+                    "startUtf16": 8,
+                    "endUtf16": 13
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            }
+          }
+        },
+        {
+          "proposalId": "trabajo",
+          "category": "PERSON",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Ana del trabajo",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-43",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Ana del trabajo",
+                  "range": {
+                    "startUtf16": 16,
+                    "endUtf16": 31
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "context": {
+              "value": "trabajo",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-43",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "trabajo",
+                  "range": {
+                    "startUtf16": 24,
+                    "endUtf16": 31
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            }
+          }
+        }
+      ],
+      "issues": []
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-43-b",
+      "extractionId": "e-43-b",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-43-unknown",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "fd38ecd3405ec7bd447415fe96de1adf54ab7345766e7c07b17969276e4ae1f7",
+          "textLengthUtf16": 13,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 13
+            }
+          ]
+        }
+      ],
+      "outcome": "NO_PROPOSALS",
+      "proposals": [],
+      "issues": [
+        {
+          "code": "INSUFFICIENT_EVIDENCE",
+          "message": "No identifica persona ni acción verificable.",
+          "affectedProposalIds": [],
+          "evidence": [
+            {
+              "sourceEntryId": "s-43-unknown",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Ella lo hizo.",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 13
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expectedTemporal": [],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [
+    "Identidad requiere contexto y revisión",
+    "Ella no identifica una persona ni una acción verificable; variante sin propuestas."
+  ],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "No fusionar por nombre.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": true
+  }
+}

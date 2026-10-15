@@ -1,0 +1,344 @@
+{
+  "id": "agenda-40",
+  "name": "Historial de tarea pendiente bloqueada completada",
+  "lane": "B",
+  "sources": [
+    {
+      "sourceEntryId": "s-40-0",
+      "text": "Debo preparar el informe.",
+      "capturedAtEpochMillis": "1791219600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    },
+    {
+      "sourceEntryId": "s-40-1",
+      "text": "El informe está bloqueado por una dependencia.",
+      "capturedAtEpochMillis": "1791824400000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    },
+    {
+      "sourceEntryId": "s-40-2",
+      "text": "Ya terminé el informe.",
+      "capturedAtEpochMillis": "1792429200000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-40-a",
+      "extractionId": "e-40-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-40-0",
+          "capturedAtEpochMillis": "1791219600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "3a4c1cec1f7a63e373c310cefa7d0b390eb37d0dbedb04b4253f6359fdc380ee",
+          "textLengthUtf16": 25,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 25
+            }
+          ]
+        },
+        {
+          "sourceEntryId": "s-40-1",
+          "capturedAtEpochMillis": "1791824400000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "0ec5b9f75072d817ee0baa35686b36a4520f9126f0213ab35e95d1138d861341",
+          "textLengthUtf16": 46,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 46
+            }
+          ]
+        },
+        {
+          "sourceEntryId": "s-40-2",
+          "capturedAtEpochMillis": "1792429200000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "842aeb73acc20b8916571b512248c7ec31cacbfdf6bd5b1c280e6a9edfda2a5f",
+          "textLengthUtf16": 22,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 22
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "t0",
+          "category": "TASK",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Debo preparar el informe.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-40-0",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Debo preparar el informe.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 25
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "state": {
+              "value": "PENDING",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-40-0",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Debo preparar el informe.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 25
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            }
+          }
+        },
+        {
+          "proposalId": "t1",
+          "category": "TASK",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "El informe está bloqueado por una dependencia.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-40-1",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "El informe está bloqueado por una dependencia.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 46
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "state": {
+              "value": "BLOCKED",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-40-1",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "El informe está bloqueado por una dependencia.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 46
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            }
+          },
+          "relations": [
+            {
+              "value": {
+                "kind": "UPDATES",
+                "targetProposalId": "t0"
+              },
+              "evidence": [
+                {
+                  "sourceEntryId": "s-40-1",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "El informe está bloqueado por una dependencia.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 46
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            }
+          ]
+        },
+        {
+          "proposalId": "t2",
+          "category": "TASK",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Ya terminé el informe.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-40-2",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Ya terminé el informe.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 22
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "state": {
+              "value": "COMPLETED",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-40-2",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Ya terminé el informe.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 22
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            }
+          },
+          "relations": [
+            {
+              "value": {
+                "kind": "UPDATES",
+                "targetProposalId": "t1"
+              },
+              "evidence": [
+                {
+                  "sourceEntryId": "s-40-2",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Ya terminé el informe.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 22
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            }
+          ]
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [],
+  "comparisons": [],
+  "expectedRelations": [
+    {
+      "source": "t1",
+      "target": "t0",
+      "kind": "UPDATES"
+    },
+    {
+      "source": "t2",
+      "target": "t1",
+      "kind": "UPDATES"
+    }
+  ],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [
+    "2026-10-05",
+    "2026-10-12",
+    "2026-10-19"
+  ],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Tres propuestas versionables; ninguna aceptación ni reemplazo automático.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

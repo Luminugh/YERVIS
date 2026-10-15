@@ -1,0 +1,291 @@
+{
+  "id": "agenda-36",
+  "name": "Semana sin notas",
+  "lane": "B",
+  "sources": [
+    {
+      "sourceEntryId": "s-36",
+      "text": "Los lunes estudio; completé el 2026-10-05 y el 2026-10-19.",
+      "capturedAtEpochMillis": "1792515600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-36-a",
+      "extractionId": "e-36-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-36",
+          "capturedAtEpochMillis": "1792515600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "d28fbfff259fca7163c36f73c5c0138d74f4842e9d6b954fefa29ad2e6eadf8a",
+          "textLengthUtf16": 58,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 58
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "p",
+          "category": "ROUTINE",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Los lunes estudio; completé el 2026-10-05 y el 2026-10-19.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-36",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Los lunes estudio; completé el 2026-10-05 y el 2026-10-19.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 58
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "patternKind": {
+              "value": "DECLARED",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-36",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Los lunes estudio; completé el 2026-10-05 y el 2026-10-19.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 58
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "recurrence": {
+              "frequency": {
+                "value": "WEEKLY",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-36",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "Los lunes estudio; completé el 2026-10-05 y el 2026-10-19.",
+                    "range": {
+                      "startUtf16": 0,
+                      "endUtf16": 58
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "weekdays": [
+                {
+                  "value": "MO",
+                  "evidence": [
+                    {
+                      "sourceEntryId": "s-36",
+                      "revision": {
+                        "kind": "ORIGINAL"
+                      },
+                      "quote": "Los lunes estudio; completé el 2026-10-05 y el 2026-10-19.",
+                      "range": {
+                        "startUtf16": 0,
+                        "endUtf16": 58
+                      }
+                    }
+                  ],
+                  "assessment": {
+                    "basis": "EXPLICIT",
+                    "modality": "ASSERTED",
+                    "polarity": "AFFIRMED",
+                    "certaintyValidation": "UNVALIDATED"
+                  }
+                }
+              ]
+            },
+            "occurrences": [
+              {
+                "occurrenceId": "o0",
+                "at": {
+                  "expression": {
+                    "value": "2026-10-05",
+                    "evidence": [
+                      {
+                        "sourceEntryId": "s-36",
+                        "revision": {
+                          "kind": "ORIGINAL"
+                        },
+                        "quote": "2026-10-05",
+                        "range": {
+                          "startUtf16": 31,
+                          "endUtf16": 41
+                        }
+                      }
+                    ],
+                    "assessment": {
+                      "basis": "EXPLICIT",
+                      "modality": "ASSERTED",
+                      "polarity": "AFFIRMED",
+                      "certaintyValidation": "UNVALIDATED"
+                    }
+                  },
+                  "anchor": {
+                    "sourceEntryId": "s-36",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    }
+                  },
+                  "precision": "UNSPECIFIED",
+                  "uncertainty": "UNRESOLVED",
+                  "resolved": null
+                },
+                "state": {
+                  "value": "COMPLETED",
+                  "evidence": [
+                    {
+                      "sourceEntryId": "s-36",
+                      "revision": {
+                        "kind": "ORIGINAL"
+                      },
+                      "quote": "Los lunes estudio; completé el 2026-10-05 y el 2026-10-19.",
+                      "range": {
+                        "startUtf16": 0,
+                        "endUtf16": 58
+                      }
+                    }
+                  ],
+                  "assessment": {
+                    "basis": "EXPLICIT",
+                    "modality": "ASSERTED",
+                    "polarity": "AFFIRMED",
+                    "certaintyValidation": "UNVALIDATED"
+                  }
+                }
+              },
+              {
+                "occurrenceId": "o1",
+                "at": {
+                  "expression": {
+                    "value": "2026-10-19",
+                    "evidence": [
+                      {
+                        "sourceEntryId": "s-36",
+                        "revision": {
+                          "kind": "ORIGINAL"
+                        },
+                        "quote": "2026-10-19",
+                        "range": {
+                          "startUtf16": 47,
+                          "endUtf16": 57
+                        }
+                      }
+                    ],
+                    "assessment": {
+                      "basis": "EXPLICIT",
+                      "modality": "ASSERTED",
+                      "polarity": "AFFIRMED",
+                      "certaintyValidation": "UNVALIDATED"
+                    }
+                  },
+                  "anchor": {
+                    "sourceEntryId": "s-36",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    }
+                  },
+                  "precision": "UNSPECIFIED",
+                  "uncertainty": "UNRESOLVED",
+                  "resolved": null
+                },
+                "state": {
+                  "value": "COMPLETED",
+                  "evidence": [
+                    {
+                      "sourceEntryId": "s-36",
+                      "revision": {
+                        "kind": "ORIGINAL"
+                      },
+                      "quote": "Los lunes estudio; completé el 2026-10-05 y el 2026-10-19.",
+                      "range": {
+                        "startUtf16": 0,
+                        "endUtf16": 58
+                      }
+                    }
+                  ],
+                  "assessment": {
+                    "basis": "EXPLICIT",
+                    "modality": "ASSERTED",
+                    "polarity": "AFFIRMED",
+                    "certaintyValidation": "UNVALIDATED"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [
+    "2026-10-12"
+  ],
+  "ambiguity": [],
+  "sequence": [
+    "2026-10-05",
+    "2026-10-12",
+    "2026-10-19"
+  ],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "El 12 de octubre está desconocido, no omitido ni incumplido.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

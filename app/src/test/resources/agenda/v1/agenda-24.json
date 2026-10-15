@@ -1,0 +1,139 @@
+{
+  "id": "agenda-24",
+  "name": "Expresión el próximo viernes",
+  "lane": "C",
+  "sources": [
+    {
+      "sourceEntryId": "s-24",
+      "text": "Reunión el próximo viernes.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-24-a",
+      "extractionId": "e-24-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-24",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "56072a0df7834961f6fe685930e9a993bc1986cbee3c4f3b00c362650c5c9781",
+          "textLengthUtf16": 27,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 27
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "p",
+          "category": "EVENT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Reunión el próximo viernes.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-24",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Reunión el próximo viernes.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 27
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "startsAt": {
+              "expression": {
+                "value": "el próximo viernes",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-24",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "el próximo viernes",
+                    "range": {
+                      "startUtf16": 8,
+                      "endUtf16": 26
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-24",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "UNSPECIFIED",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [
+    {
+      "expression": "el próximo viernes",
+      "status": "AMBIGUOUS",
+      "localDate": null,
+      "reason": "NEXT_WEEKDAY_NEEDS_POLICY"
+    }
+  ],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [
+    "NEXT_WEEKDAY_NEEDS_POLICY"
+  ],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Conservar incertidumbre; no imponer año, política u hora.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": true
+  }
+}

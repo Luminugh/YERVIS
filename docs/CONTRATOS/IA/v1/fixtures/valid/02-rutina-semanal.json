@@ -1,0 +1,256 @@
+{
+  "schemaVersion": "1.0.0",
+  "requestId": "request-02-rutina-semanal",
+  "extractionId": "extraction-02-rutina-semanal",
+  "offsetUnit": "UTF16_CODE_UNIT",
+  "sourceSnapshots": [
+    {
+      "sourceEntryId": "s-weekly",
+      "revision": {
+        "kind": "ORIGINAL"
+      },
+      "sourceType": "TEXT",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "textSha256": "5b29d45dee4bd525ebab055cc7d1446a2f93d7ec38962b18c2f8c5955ca0e613",
+      "textLengthUtf16": 80,
+      "authorizedRanges": [
+        {
+          "startUtf16": 0,
+          "endUtf16": 80
+        }
+      ]
+    }
+  ],
+  "outcome": "COMPLETE",
+  "proposals": [
+    {
+      "proposalId": "estudio",
+      "category": "ROUTINE",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "estudio por la tarde",
+          "evidence": [
+            {
+              "sourceEntryId": "s-weekly",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "estudio por la tarde",
+              "range": {
+                "startUtf16": 22,
+                "endUtf16": 42
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "patternKind": {
+          "value": "DECLARED",
+          "evidence": [
+            {
+              "sourceEntryId": "s-weekly",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Los lunes y miércoles estudio por la tarde",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 42
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "recurrence": {
+          "frequency": {
+            "value": "WEEKLY",
+            "evidence": [
+              {
+                "sourceEntryId": "s-weekly",
+                "revision": {
+                  "kind": "ORIGINAL"
+                },
+                "quote": "Los lunes y miércoles",
+                "range": {
+                  "startUtf16": 0,
+                  "endUtf16": 21
+                }
+              }
+            ],
+            "assessment": {
+              "basis": "EXPLICIT",
+              "modality": "ASSERTED",
+              "polarity": "AFFIRMED",
+              "certaintyValidation": "UNVALIDATED"
+            }
+          },
+          "weekdays": [
+            {
+              "value": "MO",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-weekly",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "lunes",
+                  "range": {
+                    "startUtf16": 4,
+                    "endUtf16": 9
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            {
+              "value": "WE",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-weekly",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "miércoles",
+                  "range": {
+                    "startUtf16": 12,
+                    "endUtf16": 21
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            }
+          ],
+          "window": {
+            "value": "tarde",
+            "evidence": [
+              {
+                "sourceEntryId": "s-weekly",
+                "revision": {
+                  "kind": "ORIGINAL"
+                },
+                "quote": "tarde",
+                "range": {
+                  "startUtf16": 37,
+                  "endUtf16": 42
+                }
+              }
+            ],
+            "assessment": {
+              "basis": "EXPLICIT",
+              "modality": "ASSERTED",
+              "polarity": "AFFIRMED",
+              "certaintyValidation": "UNVALIDATED"
+            }
+          }
+        },
+        "exceptions": [
+          {
+            "exceptionId": "ex1",
+            "period": {
+              "from": {
+                "expression": {
+                  "value": "Esta semana",
+                  "evidence": [
+                    {
+                      "sourceEntryId": "s-weekly",
+                      "revision": {
+                        "kind": "ORIGINAL"
+                      },
+                      "quote": "Esta semana",
+                      "range": {
+                        "startUtf16": 44,
+                        "endUtf16": 55
+                      }
+                    }
+                  ],
+                  "assessment": {
+                    "basis": "EXPLICIT",
+                    "modality": "ASSERTED",
+                    "polarity": "AFFIRMED",
+                    "certaintyValidation": "UNVALIDATED"
+                  }
+                },
+                "anchor": {
+                  "sourceEntryId": "s-weekly",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  }
+                },
+                "precision": "UNSPECIFIED",
+                "uncertainty": "UNRESOLVED",
+                "resolved": null
+              }
+            },
+            "effect": {
+              "value": "CANCELLED_OCCURRENCE",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-weekly",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Esta semana no estudio el miércoles",
+                  "range": {
+                    "startUtf16": 44,
+                    "endUtf16": 79
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "description": {
+              "value": "Esta semana no estudio el miércoles",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-weekly",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Esta semana no estudio el miércoles",
+                  "range": {
+                    "startUtf16": 44,
+                    "endUtf16": 79
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "NEGATED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "issues": []
+}

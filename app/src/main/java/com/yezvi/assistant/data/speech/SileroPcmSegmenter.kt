@@ -121,6 +121,10 @@ internal class SileroPcmSegmenter internal constructor(
         mutex.withLock { windowCount + preRollCount + segmentCount }
     }
 
+    internal suspend fun hasVoiceActivity(): Boolean = withContext(workerDispatcher) {
+        mutex.withLock { speechActive }
+    }
+
     private suspend fun processWindow(validSamples: Int, output: MutableList<PcmSpeechSegment>) {
         currentCoroutineContext().ensureActive()
         val probability = detector.probability(window)

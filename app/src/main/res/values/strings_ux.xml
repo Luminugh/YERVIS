@@ -1,0 +1,43 @@
+<resources>
+    <string name="ux_appearance">Apariencia</string>
+    <string name="ux_appearance_description">Haz que YERVIS se sienta a tu manera. Los cambios se guardan en este dispositivo.</string>
+    <string name="ux_theme">Tema</string>
+    <string name="ux_system">Sistema</string>
+    <string name="ux_light">Claro</string>
+    <string name="ux_dark">Oscuro</string>
+    <string name="ux_visual_style">Estilo visual</string>
+    <string name="ux_classic">Clásico YERVIS</string>
+    <string name="ux_crystal">Cristal experimental</string>
+    <string name="ux_classic_description">Memoria tranquila · estilo predeterminado.</string>
+    <string name="ux_crystal_description">Transparencia tonal en barras y paneles destacados. Puedes volver al clásico en cualquier momento.</string>
+    <string name="ux_dynamic_color">Colores del dispositivo</string>
+    <string name="ux_dynamic_color_description">Material You. Desactívalo para usar el teal de YERVIS.</string>
+    <string name="ux_dynamic_color_unavailable">Este dispositivo utiliza la paleta teal de YERVIS.</string>
+    <string name="ux_density">Espacio entre elementos</string>
+    <string name="ux_comfortable">Cómodo</string>
+    <string name="ux_compact">Compacto</string>
+    <string name="ux_motion">Movimiento</string>
+    <string name="ux_motion_system">Seguir al sistema</string>
+    <string name="ux_motion_reduced">Reducido</string>
+    <string name="ux_motion_description">Siempre se respeta la opción de Android de quitar animaciones.</string>
+    <string name="ux_today_subtitle">Tu memoria, a mano.</string>
+    <string name="ux_today_capture_title">Captura un pensamiento</string>
+    <string name="ux_today_capture_detail">Habla o escribe. Conserva lo que importa.</string>
+    <string name="ux_today_recent">Tus últimos recuerdos</string>
+    <string name="ux_today_open_memory">Ver recuerdos</string>
+    <string name="ux_today_empty_title">Empieza con lo que tienes en mente</string>
+    <string name="ux_today_empty_detail">Tu primera captura aparecerá aquí, guardada en tu teléfono.</string>
+    <string name="ux_today_local">En tu teléfono · disponible sin conexión</string>
+    <string name="ux_today_loading">Cargando tus recuerdos…</string>
+    <string name="ux_today_error">No se pudieron cargar los recuerdos. Puedes seguir capturando.</string>
+    <string name="ux_settings_subtitle">Tu experiencia, bajo tu control.</string>
+    <string name="ux_settings_privacy">Privacidad local</string>
+    <string name="ux_settings_privacy_detail">Tus recuerdos se guardan en el teléfono. La transcripción de voz es local; no hay un proveedor cloud conectado.</string>
+    <string name="ux_settings_developer">Desarrollador</string>
+    <string name="ux_settings_diagnostics">Diagnóstico de voz local</string>
+    <string name="ux_settings_diagnostics_detail">Herramientas técnicas de la versión debug. Solo se inician cuando las abres.</string>
+    <plurals name="ux_today_memory_count">
+        <item quantity="one">%d recuerdo guardado</item>
+        <item quantity="other">%d recuerdos guardados</item>
+    </plurals>
+</resources>

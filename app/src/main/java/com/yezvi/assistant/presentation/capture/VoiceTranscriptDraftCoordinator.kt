@@ -23,6 +23,12 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 
+private fun Char.isNotWhitespaceOrOpeningPunctuation(): Boolean =
+    !isWhitespace() && this !in "([{«“‘"
+
+private fun Char.isNotWhitespaceOrClosingPunctuation(): Boolean =
+    !isWhitespace() && this !in ".,!?;:)]}»”’"
+
 /** Immutable capture identity and temporal context, fixed when the user starts one voice session. */
 internal data class VoiceDraftSession(
     val id: String,
@@ -49,6 +55,8 @@ internal data class VoiceTranscriptDraft(
     val annotations: List<VoiceDraftTextRange> = emptyList(),
     /** True after combining a written draft with speech; current persistence has no mixed source. */
     val containsMixedTextAndVoice: Boolean = false,
+    /** Exact recognizer outputs for each voice segment; edits only affect [editableText]. */
+    val recognizedSegments: List<String> = listOf(recognizedText),
 ) {
     init {
         require(recognizedText.isNotBlank()) { "recognizedText must not be blank" }
@@ -68,6 +76,29 @@ internal data class VoiceTranscriptDraft(
         editableText = text,
         annotations = if (text == editableText) annotations else emptyList(),
     )
+
+    /** Adds another literal voice segment at the user's selected UTF-16 range. */
+    fun withVoiceContinuation(text: String, selectionStart: Int, selectionEnd: Int): VoiceTranscriptDraft {
+        require(text.isNotBlank()) { "continuation text must not be blank" }
+        val start = selectionStart.coerceIn(0, editableText.length)
+        val end = selectionEnd.coerceIn(start, editableText.length)
+        val before = editableText.substring(0, start)
+        val after = editableText.substring(end)
+        val needsSpaceBefore = before.lastOrNull()?.let { it.isNotWhitespaceOrOpeningPunctuation() } == true &&
+            text.firstOrNull()?.let { it.isNotWhitespaceOrClosingPunctuation() } == true
+        val needsSpaceAfter = text.lastOrNull()?.let { it.isNotWhitespaceOrOpeningPunctuation() } == true &&
+            after.firstOrNull()?.let { it.isNotWhitespaceOrClosingPunctuation() } == true
+        val insertedText = buildString {
+            if (needsSpaceBefore) append(' ')
+            append(text)
+            if (needsSpaceAfter) append(' ')
+        }
+        return copy(
+            editableText = before + insertedText + after,
+            annotations = emptyList(),
+            recognizedSegments = recognizedSegments + text,
+        )
+    }
 }
 
 internal enum class ExistingTextDraftDecision {
@@ -90,7 +121,10 @@ internal sealed interface VoiceTranscriptDraftState {
         val existingTextDraft: String,
     ) : VoiceTranscriptDraftState
 
-    data class Candidate(val draft: VoiceTranscriptDraft) : VoiceTranscriptDraftState
+    data class Candidate(
+        val draft: VoiceTranscriptDraft,
+        val continuationError: SpeechToTextError? = null,
+    ) : VoiceTranscriptDraftState
 
     data class Saving(
         val draft: VoiceTranscriptDraft,
@@ -141,10 +175,29 @@ internal class VoiceTranscriptDraftCoordinator(
 
     val state: StateFlow<VoiceTranscriptDraftState> = mutableState.asStateFlow()
 
-    /** Starts a fresh session unless another session or unreviewed candidate is still owned here. */
-    suspend fun start(existingTextDraft: String = ""): Boolean = operationMutex.withLock {
+    /** Starts a fresh recognition unless another session or unreviewed candidate is owned here. */
+    suspend fun start(existingTextDraft: String = ""): Boolean = startSession(existingTextDraft)
+
+    /** Continues a voice-only candidate at the cursor range supplied by the capture editor. */
+    suspend fun continueAt(
+        draft: VoiceTranscriptDraft,
+        selectionStart: Int,
+        selectionEnd: Int,
+    ): Boolean = startSession(
+        existingTextDraft = "",
+        continuationDraft = draft,
+        insertionStart = selectionStart,
+        insertionEnd = selectionEnd,
+    )
+
+    private suspend fun startSession(
+        existingTextDraft: String,
+        continuationDraft: VoiceTranscriptDraft? = null,
+        insertionStart: Int = 0,
+        insertionEnd: Int = insertionStart,
+    ): Boolean = operationMutex.withLock {
         synchronized(stateLock) {
-            if (closed || activeSession != null || !mutableState.value.canStartAnotherSession()) {
+            if (closed || activeSession != null || !mutableState.value.canStartAnotherSession(continuationDraft)) {
                 return@withLock false
             }
         }
@@ -154,9 +207,15 @@ internal class VoiceTranscriptDraftCoordinator(
             capturedAtEpochMillis = nowEpochMillis(),
             timezoneId = timezoneId(),
         )
-        val session = ActiveSession(metadata, existingTextDraft)
+        val session = ActiveSession(
+            metadata = metadata,
+            existingTextDraft = existingTextDraft,
+            continuationDraft = continuationDraft,
+            insertionStart = insertionStart,
+            insertionEnd = insertionEnd,
+        )
         synchronized(stateLock) {
-            if (closed || activeSession != null || !mutableState.value.canStartAnotherSession()) {
+            if (closed || activeSession != null || !mutableState.value.canStartAnotherSession(continuationDraft)) {
                 return@withLock false
             }
             activeSession = session
@@ -257,10 +316,9 @@ internal class VoiceTranscriptDraftCoordinator(
             val finalState = sessionController.state.value
             if (finalState is SpeechToTextState.Error) {
                 synchronized(stateLock) {
-                    mutableState.value = VoiceTranscriptDraftState.RecognitionFailed(
-                        session.metadata,
-                        finalState.cause,
-                    )
+                    mutableState.value = session.continuationDraft?.let { existing ->
+                        VoiceTranscriptDraftState.Candidate(existing, finalState.cause)
+                    } ?: VoiceTranscriptDraftState.RecognitionFailed(session.metadata, finalState.cause)
                 }
             }
             return@withLock true
@@ -502,9 +560,20 @@ internal class VoiceTranscriptDraftCoordinator(
                     recognitionObserver = null
                     val transcript = speechState.transcript.text
                     if (transcript.isBlank()) {
-                        mutableState.value = VoiceTranscriptDraftState.EmptyTranscript(session.metadata)
+                        mutableState.value = session.continuationDraft?.let { existing ->
+                            VoiceTranscriptDraftState.Candidate(
+                                draft = existing,
+                                continuationError = SpeechToTextError.RecognitionFailed(
+                                    RecognitionFailureReason.NO_SPEECH,
+                                ),
+                            )
+                        } ?: VoiceTranscriptDraftState.EmptyTranscript(session.metadata)
                     } else {
-                        val candidate = VoiceTranscriptDraft(session.metadata, transcript)
+                        val candidate = session.continuationDraft?.withVoiceContinuation(
+                            text = transcript,
+                            selectionStart = session.insertionStart,
+                            selectionEnd = session.insertionEnd,
+                        ) ?: VoiceTranscriptDraft(session.metadata, transcript)
                         mutableState.value = if (session.existingTextDraft.isBlank()) {
                             VoiceTranscriptDraftState.Candidate(candidate)
                         } else {
@@ -520,17 +589,17 @@ internal class VoiceTranscriptDraftCoordinator(
                     activeSession = null
                     recognitionObserver?.cancel()
                     recognitionObserver = null
-                    mutableState.value = VoiceTranscriptDraftState.Discarded(session.metadata.id)
+                    mutableState.value = session.continuationDraft?.let { VoiceTranscriptDraftState.Candidate(it) }
+                        ?: VoiceTranscriptDraftState.Discarded(session.metadata.id)
                 }
                 is SpeechToTextState.Error -> {
                     if (!session.observedActiveState && !allowStartupError) return
                     activeSession = null
                     recognitionObserver?.cancel()
                     recognitionObserver = null
-                    mutableState.value = VoiceTranscriptDraftState.RecognitionFailed(
-                        session.metadata,
-                        speechState.cause,
-                    )
+                    mutableState.value = session.continuationDraft?.let { existing ->
+                        VoiceTranscriptDraftState.Candidate(existing, speechState.cause)
+                    } ?: VoiceTranscriptDraftState.RecognitionFailed(session.metadata, speechState.cause)
                 }
             }
         }
@@ -542,19 +611,23 @@ internal class VoiceTranscriptDraftCoordinator(
             activeSession = null
             recognitionObserver?.cancel()
             recognitionObserver = null
-            mutableState.value = VoiceTranscriptDraftState.Discarded(session.metadata.id)
+            mutableState.value = session.continuationDraft?.let { VoiceTranscriptDraftState.Candidate(it) }
+                ?: VoiceTranscriptDraftState.Discarded(session.metadata.id)
         }
     }
 
-    private fun VoiceTranscriptDraftState.canStartAnotherSession(): Boolean = when (this) {
+    private fun VoiceTranscriptDraftState.canStartAnotherSession(
+        continuationDraft: VoiceTranscriptDraft? = null,
+    ): Boolean = when (this) {
         VoiceTranscriptDraftState.Idle,
         is VoiceTranscriptDraftState.Discarded,
         is VoiceTranscriptDraftState.EmptyTranscript,
         is VoiceTranscriptDraftState.RecognitionFailed,
         is VoiceTranscriptDraftState.Saved -> true
+        is VoiceTranscriptDraftState.Candidate -> continuationDraft != null &&
+            continuationDraft.session.id == draft.session.id && !draft.containsMixedTextAndVoice
         is VoiceTranscriptDraftState.Recognizing,
         is VoiceTranscriptDraftState.AwaitingTextDraftDecision,
-        is VoiceTranscriptDraftState.Candidate,
         is VoiceTranscriptDraftState.Saving,
         is VoiceTranscriptDraftState.SaveFailed -> false
     }
@@ -584,6 +657,10 @@ internal class VoiceTranscriptDraftCoordinator(
     private data class ActiveSession(
         val metadata: VoiceDraftSession,
         val existingTextDraft: String,
+        val continuationDraft: VoiceTranscriptDraft? = null,
+        val insertionStart: Int = 0,
+        val insertionEnd: Int = insertionStart,
         var observedActiveState: Boolean = false,
     )
+
 }

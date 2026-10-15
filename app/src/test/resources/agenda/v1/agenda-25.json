@@ -1,0 +1,139 @@
+{
+  "id": "agenda-25",
+  "name": "Expresión a fin de mes",
+  "lane": "C",
+  "sources": [
+    {
+      "sourceEntryId": "s-25",
+      "text": "Reunión a fin de mes.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-25-a",
+      "extractionId": "e-25-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-25",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "c390a77cfefd47fdf8eadc74d6a1f5510b35d7411736953d7dcf7a940fe7eedf",
+          "textLengthUtf16": 21,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 21
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "p",
+          "category": "EVENT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Reunión a fin de mes.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-25",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Reunión a fin de mes.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 21
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "startsAt": {
+              "expression": {
+                "value": "a fin de mes",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-25",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "a fin de mes",
+                    "range": {
+                      "startUtf16": 8,
+                      "endUtf16": 20
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-25",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "UNSPECIFIED",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [
+    {
+      "expression": "a fin de mes",
+      "status": "AMBIGUOUS",
+      "localDate": null,
+      "reason": "MONTH_BOUNDARY_UNDEFINED"
+    }
+  ],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [
+    "MONTH_BOUNDARY_UNDEFINED"
+  ],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Conservar incertidumbre; no imponer año, política u hora.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": true
+  }
+}

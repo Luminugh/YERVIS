@@ -149,7 +149,10 @@ internal class SherpaOfflineSpeechToTextEngine internal constructor(
             session.forcedError = SpeechToTextError.PermissionDenied
             session.cancelRequested.set(true)
         }
-        mutableState.value = SpeechToTextState.Transcribing(session.partialTranscript())
+        mutableState.value = SpeechToTextState.Transcribing(
+            session.partialTranscript(),
+            session.voiceActivityObserved,
+        )
         try {
             session.capture.input.stop()
         } catch (cancelled: CancellationException) {
@@ -176,7 +179,10 @@ internal class SherpaOfflineSpeechToTextEngine internal constructor(
             if (synchronized(sessionLock) { activeSession !== session } || session.cancelRequested.get()) {
                 return@withLock false
             }
-            mutableState.value = SpeechToTextState.Paused(session.partialTranscript())
+            mutableState.value = SpeechToTextState.Paused(
+                session.partialTranscript(),
+                session.voiceActivityObserved,
+            )
             true
         } catch (cancelled: CancellationException) {
             session.paused.value = false
@@ -203,7 +209,10 @@ internal class SherpaOfflineSpeechToTextEngine internal constructor(
                 return@withLock false
             }
             session.paused.value = false
-            mutableState.value = SpeechToTextState.Listening(session.partialTranscript())
+            mutableState.value = SpeechToTextState.Listening(
+                session.partialTranscript(),
+                session.voiceActivityObserved,
+            )
             true
         } catch (cancelled: CancellationException) {
             throw cancelled
@@ -254,7 +263,10 @@ internal class SherpaOfflineSpeechToTextEngine internal constructor(
                 currentCoroutineContext().ensureActive()
                 if (session.cancelRequested.get()) break
                 if (session.paused.value) {
-                    mutableState.value = SpeechToTextState.Paused(session.partialTranscript())
+                    mutableState.value = SpeechToTextState.Paused(
+                        session.partialTranscript(),
+                        session.voiceActivityObserved,
+                    )
                     session.paused.first { paused -> !paused }
                     currentCoroutineContext().ensureActive()
                     if (session.cancelRequested.get() || session.finishRequested) break
@@ -269,7 +281,10 @@ internal class SherpaOfflineSpeechToTextEngine internal constructor(
                     val pauseInterruptedRead = session.pauseGeneration.get() != pauseGenerationBeforeRead
                     if (pauseInterruptedRead || session.paused.value) {
                         if (session.paused.value) {
-                            mutableState.value = SpeechToTextState.Paused(session.partialTranscript())
+                            mutableState.value = SpeechToTextState.Paused(
+                                session.partialTranscript(),
+                                session.voiceActivityObserved,
+                            )
                             session.paused.first { paused -> !paused }
                         }
                         if (!session.cancelRequested.get() && !session.finishRequested) continue
@@ -282,12 +297,22 @@ internal class SherpaOfflineSpeechToTextEngine internal constructor(
                 }
                 ensurePermission()
                 val segments = session.segmenter.accept(buffer, length = count)
+                if (session.segmenter.hasVoiceActivity()) {
+                    session.voiceActivityObserved = true
+                    mutableState.value = SpeechToTextState.Listening(
+                        session.partialTranscript(),
+                        hasVoiceActivity = true,
+                    )
+                }
                 processSegments(session, segments, recognizedParts)
             }
 
             if (!session.capture.isOwnerActive()) session.cancelRequested.set(true)
             if (!session.cancelRequested.get() && session.forcedError == null) {
-                mutableState.value = SpeechToTextState.Transcribing(session.partialTranscript())
+                mutableState.value = SpeechToTextState.Transcribing(
+                    session.partialTranscript(),
+                    session.voiceActivityObserved,
+                )
                 val finalSegments = session.segmenter.finish()
                 if (!session.capture.isOwnerActive()) session.cancelRequested.set(true)
                 processSegments(session, finalSegments, recognizedParts)
@@ -335,7 +360,10 @@ internal class SherpaOfflineSpeechToTextEngine internal constructor(
                 currentCoroutineContext().ensureActive()
                 if (session.cancelRequested.get()) return
                 if (session.paused.value) {
-                    mutableState.value = SpeechToTextState.Paused(session.partialTranscript())
+                    mutableState.value = SpeechToTextState.Paused(
+                        session.partialTranscript(),
+                        session.voiceActivityObserved,
+                    )
                     session.paused.first { paused -> !paused }
                     currentCoroutineContext().ensureActive()
                 }
@@ -343,7 +371,10 @@ internal class SherpaOfflineSpeechToTextEngine internal constructor(
                     session.cancelRequested.set(true)
                     return
                 }
-                mutableState.value = SpeechToTextState.Transcribing(session.partialTranscript())
+                mutableState.value = SpeechToTextState.Transcribing(
+                    session.partialTranscript(),
+                    session.voiceActivityObserved,
+                )
                 val result = session.recognizer.transcribe(segment.samples, SAMPLE_RATE)
                 currentCoroutineContext().ensureActive()
                 if (session.cancelRequested.get()) return
@@ -365,9 +396,9 @@ internal class SherpaOfflineSpeechToTextEngine internal constructor(
                     } catch (_: LinkageError) { /* Optional debug bridge is absent from release. */ }
                 }
                 mutableState.value = if (session.paused.value) {
-                    SpeechToTextState.Paused(session.partialTranscript())
+                    SpeechToTextState.Paused(session.partialTranscript(), session.voiceActivityObserved)
                 } else {
-                    SpeechToTextState.Listening(session.partialTranscript())
+                    SpeechToTextState.Listening(session.partialTranscript(), session.voiceActivityObserved)
                 }
             } finally {
                 // Avoid retaining completed segment PCM beyond its one local inference.
@@ -446,6 +477,7 @@ internal class SherpaOfflineSpeechToTextEngine internal constructor(
         val pauseGeneration = AtomicLong()
         val paused = MutableStateFlow(false)
         @Volatile var finishRequested = false
+        @Volatile var voiceActivityObserved = false
         @Volatile var forcedError: SpeechToTextError? = null
         @Volatile var worker: Job? = null
         @Volatile private var partialText: String = ""

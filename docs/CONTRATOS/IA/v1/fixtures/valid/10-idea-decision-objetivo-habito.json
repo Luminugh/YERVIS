@@ -1,0 +1,213 @@
+{
+  "schemaVersion": "1.0.0",
+  "requestId": "request-10-idea-decision-objetivo-ha",
+  "extractionId": "extraction-10-idea-decision-objetivo-ha",
+  "offsetUnit": "UTF16_CODE_UNIT",
+  "sourceSnapshots": [
+    {
+      "sourceEntryId": "s-complement",
+      "revision": {
+        "kind": "ORIGINAL"
+      },
+      "sourceType": "TEXT",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "textSha256": "54dea3b523a22476cce699ff3194b4237dec79cfe4c739dcbcdd115ae7a52a54",
+      "textLengthUtf16": 133,
+      "authorizedRanges": [
+        {
+          "startUtf16": 0,
+          "endUtf16": 133
+        }
+      ]
+    }
+  ],
+  "outcome": "COMPLETE",
+  "proposals": [
+    {
+      "proposalId": "objetivo",
+      "category": "GOAL",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "crear una aplicación",
+          "evidence": [
+            {
+              "sourceEntryId": "s-complement",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Quiero crear una aplicación",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 27
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "DESIRED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        }
+      }
+    },
+    {
+      "proposalId": "idea",
+      "category": "IDEA",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "una agenda",
+          "evidence": [
+            {
+              "sourceEntryId": "s-complement",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Mi idea es una agenda",
+              "range": {
+                "startUtf16": 29,
+                "endUtf16": 50
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        }
+      }
+    },
+    {
+      "proposalId": "decision",
+      "category": "DECISION",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "usar texto primero",
+          "evidence": [
+            {
+              "sourceEntryId": "s-complement",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Decidí usar texto primero",
+              "range": {
+                "startUtf16": 52,
+                "endUtf16": 77
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        }
+      }
+    },
+    {
+      "proposalId": "lectura",
+      "category": "HABIT",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "leer",
+          "evidence": [
+            {
+              "sourceEntryId": "s-complement",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Quiero leer",
+              "range": {
+                "startUtf16": 79,
+                "endUtf16": 90
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "DESIRED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "desiredFrequency": {
+          "frequency": {
+            "value": "WEEKLY",
+            "evidence": [
+              {
+                "sourceEntryId": "s-complement",
+                "revision": {
+                  "kind": "ORIGINAL"
+                },
+                "quote": "tres veces por semana",
+                "range": {
+                  "startUtf16": 91,
+                  "endUtf16": 112
+                }
+              }
+            ],
+            "assessment": {
+              "basis": "EXPLICIT",
+              "modality": "DESIRED",
+              "polarity": "AFFIRMED",
+              "certaintyValidation": "UNVALIDATED"
+            }
+          },
+          "timesPerPeriod": {
+            "value": 3,
+            "evidence": [
+              {
+                "sourceEntryId": "s-complement",
+                "revision": {
+                  "kind": "ORIGINAL"
+                },
+                "quote": "tres veces",
+                "range": {
+                  "startUtf16": 91,
+                  "endUtf16": 101
+                }
+              }
+            ],
+            "assessment": {
+              "basis": "EXPLICIT",
+              "modality": "DESIRED",
+              "polarity": "AFFIRMED",
+              "certaintyValidation": "UNVALIDATED"
+            }
+          }
+        },
+        "trackingIntent": {
+          "value": "REQUESTED",
+          "evidence": [
+            {
+              "sourceEntryId": "s-complement",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "hacer seguimiento",
+              "range": {
+                "startUtf16": 115,
+                "endUtf16": 132
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "DESIRED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        }
+      }
+    }
+  ],
+  "issues": []
+}

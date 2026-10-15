@@ -1,0 +1,5 @@
+<resources>
+    <string name="ux_capture_subtitle">Una idea, un recuerdo o algo por hacer.</string>
+    <string name="ux_capture_recognized_text">Texto reconocido</string>
+    <string name="ux_capture_save_blocked">Revisa el origen antes de guardar.</string>
+</resources>

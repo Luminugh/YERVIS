@@ -1,0 +1,492 @@
+{
+  "fixtureFormatVersion": "1",
+  "privacy": "SYNTHETIC_ONLY",
+  "sources": [
+    {
+      "snapshot": {
+        "sourceEntryId": "s-multiple",
+        "revision": {
+          "kind": "ORIGINAL"
+        },
+        "sourceType": "TEXT",
+        "capturedAtEpochMillis": "1792083600000",
+        "timezoneId": "America/Lima",
+        "textSha256": "af8ea2e4c2d8ab65506bc22bfd81439525944a589caf7fb9933877ec4dec0440",
+        "textLengthUtf16": 111,
+        "authorizedRanges": [
+          {
+            "startUtf16": 0,
+            "endUtf16": 111
+          }
+        ]
+      },
+      "text": "Ayer entregué el informe del proyecto Atlas. Mañana tengo reunión con Ana. Debo preparar el resumen para Atlas."
+    },
+    {
+      "snapshot": {
+        "sourceEntryId": "s-weekly",
+        "revision": {
+          "kind": "ORIGINAL"
+        },
+        "sourceType": "TEXT",
+        "capturedAtEpochMillis": "1792083600000",
+        "timezoneId": "America/Lima",
+        "textSha256": "5b29d45dee4bd525ebab055cc7d1446a2f93d7ec38962b18c2f8c5955ca0e613",
+        "textLengthUtf16": 80,
+        "authorizedRanges": [
+          {
+            "startUtf16": 0,
+            "endUtf16": 80
+          }
+        ]
+      },
+      "text": "Los lunes y miércoles estudio por la tarde. Esta semana no estudio el miércoles."
+    },
+    {
+      "snapshot": {
+        "sourceEntryId": "s-observed-0",
+        "revision": {
+          "kind": "ORIGINAL"
+        },
+        "sourceType": "TEXT",
+        "capturedAtEpochMillis": "1791219600000",
+        "timezoneId": "America/Lima",
+        "textSha256": "01dc25c9fa7c8c1fc3e5a10c52bfdda4dc49578fd07eed211c886dff245a283c",
+        "textLengthUtf16": 32,
+        "authorizedRanges": [
+          {
+            "startUtf16": 0,
+            "endUtf16": 32
+          }
+        ]
+      },
+      "text": "2026-10-05 estudié por la tarde."
+    },
+    {
+      "snapshot": {
+        "sourceEntryId": "s-observed-1",
+        "revision": {
+          "kind": "ORIGINAL"
+        },
+        "sourceType": "TEXT",
+        "capturedAtEpochMillis": "1791824400000",
+        "timezoneId": "America/Lima",
+        "textSha256": "1a4403ffa69c7125cfe0cfc95f8bdd983de3b03436a37de5ab875390f4d49622",
+        "textLengthUtf16": 32,
+        "authorizedRanges": [
+          {
+            "startUtf16": 0,
+            "endUtf16": 32
+          }
+        ]
+      },
+      "text": "2026-10-12 estudié por la tarde."
+    },
+    {
+      "snapshot": {
+        "sourceEntryId": "s-observed-2",
+        "revision": {
+          "kind": "ORIGINAL"
+        },
+        "sourceType": "TEXT",
+        "capturedAtEpochMillis": "1792429200000",
+        "timezoneId": "America/Lima",
+        "textSha256": "23f6f52fc5c8049dd14f99327843de6d314c4fcd2edcaefa7fd3f788ed576841",
+        "textLengthUtf16": 32,
+        "authorizedRanges": [
+          {
+            "startUtf16": 0,
+            "endUtf16": 32
+          }
+        ]
+      },
+      "text": "2026-10-19 estudié por la tarde."
+    },
+    {
+      "snapshot": {
+        "sourceEntryId": "s-ambiguous",
+        "revision": {
+          "kind": "ORIGINAL"
+        },
+        "sourceType": "TEXT",
+        "capturedAtEpochMillis": "1792083600000",
+        "timezoneId": "America/Lima",
+        "textSha256": "bd3959fce2df8adfd6185f90549645fa576a17046e0119021add5bba1139fe0a",
+        "textLengthUtf16": 44,
+        "authorizedRanges": [
+          {
+            "startUtf16": 0,
+            "endUtf16": 44
+          }
+        ]
+      },
+      "text": "Quizá tenga reunión el viernes por la tarde."
+    },
+    {
+      "snapshot": {
+        "sourceEntryId": "s-negation",
+        "revision": {
+          "kind": "ORIGINAL"
+        },
+        "sourceType": "TEXT",
+        "capturedAtEpochMillis": "1792083600000",
+        "timezoneId": "America/Lima",
+        "textSha256": "7cbc3fb21ee7d16c7c87c29f23c044603a75a00850c69a17ebcd7c5968c3154f",
+        "textLengthUtf16": 28,
+        "authorizedRanges": [
+          {
+            "startUtf16": 0,
+            "endUtf16": 28
+          }
+        ]
+      },
+      "text": "No tengo reunión el viernes."
+    },
+    {
+      "snapshot": {
+        "sourceEntryId": "s-completed",
+        "revision": {
+          "kind": "ORIGINAL"
+        },
+        "sourceType": "TEXT",
+        "capturedAtEpochMillis": "1792083600000",
+        "timezoneId": "America/Lima",
+        "textSha256": "842aeb73acc20b8916571b512248c7ec31cacbfdf6bd5b1c280e6a9edfda2a5f",
+        "textLengthUtf16": 22,
+        "authorizedRanges": [
+          {
+            "startUtf16": 0,
+            "endUtf16": 22
+          }
+        ]
+      },
+      "text": "Ya terminé el informe."
+    },
+    {
+      "snapshot": {
+        "sourceEntryId": "s-reminder",
+        "revision": {
+          "kind": "ORIGINAL"
+        },
+        "sourceType": "TEXT",
+        "capturedAtEpochMillis": "1792083600000",
+        "timezoneId": "America/Lima",
+        "textSha256": "ce20768a132b8d38d8223fc1a9e856a202caf3ba7737964ffa3ffbcf8fac6d69",
+        "textLengthUtf16": 31,
+        "authorizedRanges": [
+          {
+            "startUtf16": 0,
+            "endUtf16": 31
+          }
+        ]
+      },
+      "text": "Recuérdame llamar a Ana mañana."
+    },
+    {
+      "snapshot": {
+        "sourceEntryId": "s-change-old",
+        "revision": {
+          "kind": "ORIGINAL"
+        },
+        "sourceType": "TEXT",
+        "capturedAtEpochMillis": "1791651600000",
+        "timezoneId": "America/Lima",
+        "textSha256": "cef1aa570973bb256b10038da10ffec74c72ce5abfcf97d0cff8a9dc6bc6172b",
+        "textLengthUtf16": 26,
+        "authorizedRanges": [
+          {
+            "startUtf16": 0,
+            "endUtf16": 26
+          }
+        ]
+      },
+      "text": "Ana trabaja por la mañana."
+    },
+    {
+      "snapshot": {
+        "sourceEntryId": "s-change-new",
+        "revision": {
+          "kind": "ORIGINAL"
+        },
+        "sourceType": "TEXT",
+        "capturedAtEpochMillis": "1792083600000",
+        "timezoneId": "America/Lima",
+        "textSha256": "bdec395626cfd7f9b95d1fe3a62475346db36b4a1ace02c25ddb5de8ccf982a5",
+        "textLengthUtf16": 34,
+        "authorizedRanges": [
+          {
+            "startUtf16": 0,
+            "endUtf16": 34
+          }
+        ]
+      },
+      "text": "Creo que Ana trabaja por la tarde."
+    },
+    {
+      "snapshot": {
+        "sourceEntryId": "s-insufficient",
+        "revision": {
+          "kind": "ORIGINAL"
+        },
+        "sourceType": "TEXT",
+        "capturedAtEpochMillis": "1792083600000",
+        "timezoneId": "America/Lima",
+        "textSha256": "12dda171abb766684ad54b61cccca058a858fff9eb64f47cd3e08c69339852b7",
+        "textLengthUtf16": 15,
+        "authorizedRanges": [
+          {
+            "startUtf16": 0,
+            "endUtf16": 15
+          }
+        ]
+      },
+      "text": "¿Él ya lo hizo?"
+    },
+    {
+      "snapshot": {
+        "sourceEntryId": "s-complement",
+        "revision": {
+          "kind": "ORIGINAL"
+        },
+        "sourceType": "TEXT",
+        "capturedAtEpochMillis": "1792083600000",
+        "timezoneId": "America/Lima",
+        "textSha256": "54dea3b523a22476cce699ff3194b4237dec79cfe4c739dcbcdd115ae7a52a54",
+        "textLengthUtf16": 133,
+        "authorizedRanges": [
+          {
+            "startUtf16": 0,
+            "endUtf16": 133
+          }
+        ]
+      },
+      "text": "Quiero crear una aplicación. Mi idea es una agenda. Decidí usar texto primero. Quiero leer tres veces por semana y hacer seguimiento."
+    },
+    {
+      "snapshot": {
+        "sourceEntryId": "s-person-0",
+        "revision": {
+          "kind": "ORIGINAL"
+        },
+        "sourceType": "TEXT",
+        "capturedAtEpochMillis": "1791219600000",
+        "timezoneId": "America/Lima",
+        "textSha256": "029c62af0e651246cb3a5067fc9d954579edd7a7e16d7a65a871e41eaeebacac",
+        "textLengthUtf16": 59,
+        "authorizedRanges": [
+          {
+            "startUtf16": 0,
+            "endUtf16": 59
+          }
+        ]
+      },
+      "text": "En la reunión del 2026-10-05, Ana pidió un resumen escrito."
+    },
+    {
+      "snapshot": {
+        "sourceEntryId": "s-person-1",
+        "revision": {
+          "kind": "ORIGINAL"
+        },
+        "sourceType": "TEXT",
+        "capturedAtEpochMillis": "1791824400000",
+        "timezoneId": "America/Lima",
+        "textSha256": "7a5323985d3184fe4be898b51b8708ce78cb14826e0d2963f68df903c266f160",
+        "textLengthUtf16": 59,
+        "authorizedRanges": [
+          {
+            "startUtf16": 0,
+            "endUtf16": 59
+          }
+        ]
+      },
+      "text": "En la reunión del 2026-10-12, Ana pidió un resumen escrito."
+    },
+    {
+      "snapshot": {
+        "sourceEntryId": "s-person-2",
+        "revision": {
+          "kind": "ORIGINAL"
+        },
+        "sourceType": "TEXT",
+        "capturedAtEpochMillis": "1792429200000",
+        "timezoneId": "America/Lima",
+        "textSha256": "19cbe66c9780f922108120463b1049a96bc76ca73d7a77438be331871ff29971",
+        "textLengthUtf16": 59,
+        "authorizedRanges": [
+          {
+            "startUtf16": 0,
+            "endUtf16": 59
+          }
+        ]
+      },
+      "text": "En la reunión del 2026-10-19, Ana pidió un resumen escrito."
+    },
+    {
+      "snapshot": {
+        "sourceEntryId": "s-corrected",
+        "revision": {
+          "kind": "CORRECTION",
+          "correctionId": "9007199254740993"
+        },
+        "sourceType": "VOICE",
+        "capturedAtEpochMillis": "1792083600000",
+        "timezoneId": "America/Lima",
+        "textSha256": "f6f9e56b05d2d403de99eb1e2b95c320777923eae9b49c35f08ae0a2863ded5e",
+        "textLengthUtf16": 41,
+        "authorizedRanges": [
+          {
+            "startUtf16": 0,
+            "endUtf16": 41
+          }
+        ]
+      },
+      "text": "📝 Ayer envié el informe.\r\nFue el sábado."
+    },
+    {
+      "snapshot": {
+        "sourceEntryId": "s-personality",
+        "revision": {
+          "kind": "ORIGINAL"
+        },
+        "sourceType": "TEXT",
+        "capturedAtEpochMillis": "1792083600000",
+        "timezoneId": "America/Lima",
+        "textSha256": "bd258639528253101bb74b218ffecc686d3f6f9a445a9b1e2fc1bffb1aee5fd6",
+        "textLengthUtf16": 53,
+        "authorizedRanges": [
+          {
+            "startUtf16": 0,
+            "endUtf16": 53
+          }
+        ]
+      },
+      "text": "Creo que Ana es reservada en las reuniones del curso."
+    },
+    {
+      "snapshot": {
+        "sourceEntryId": "s-resolved",
+        "revision": {
+          "kind": "ORIGINAL"
+        },
+        "sourceType": "TEXT",
+        "capturedAtEpochMillis": "1792083600000",
+        "timezoneId": "America/Lima",
+        "textSha256": "4fafce55c84faa807fd68fdf2cc214cbd5e59fecb4214c3d07bb7fdd6c590fa5",
+        "textLengthUtf16": 38,
+        "authorizedRanges": [
+          {
+            "startUtf16": 0,
+            "endUtf16": 38
+          }
+        ]
+      },
+      "text": "Reunión 2026-10-20 15:00 America/Lima."
+    }
+  ],
+  "requests": [
+    {
+      "requestId": "request-01-multiple",
+      "extractionId": "extraction-01-multiple",
+      "sourceEntryIds": [
+        "s-multiple"
+      ]
+    },
+    {
+      "requestId": "request-02-rutina-semanal",
+      "extractionId": "extraction-02-rutina-semanal",
+      "sourceEntryIds": [
+        "s-weekly"
+      ]
+    },
+    {
+      "requestId": "request-03-patron-observado",
+      "extractionId": "extraction-03-patron-observado",
+      "sourceEntryIds": [
+        "s-observed-0",
+        "s-observed-1",
+        "s-observed-2"
+      ]
+    },
+    {
+      "requestId": "request-04-evento-ambiguo",
+      "extractionId": "extraction-04-evento-ambiguo",
+      "sourceEntryIds": [
+        "s-ambiguous"
+      ]
+    },
+    {
+      "requestId": "request-05-negacion",
+      "extractionId": "extraction-05-negacion",
+      "sourceEntryIds": [
+        "s-negation"
+      ]
+    },
+    {
+      "requestId": "request-06-tarea-completada",
+      "extractionId": "extraction-06-tarea-completada",
+      "sourceEntryIds": [
+        "s-completed"
+      ]
+    },
+    {
+      "requestId": "request-07-recordatorio-explicito",
+      "extractionId": "extraction-07-recordatorio-explicito",
+      "sourceEntryIds": [
+        "s-reminder"
+      ]
+    },
+    {
+      "requestId": "request-08-actualizacion-contradicto",
+      "extractionId": "extraction-08-actualizacion-contradicto",
+      "sourceEntryIds": [
+        "s-change-old",
+        "s-change-new"
+      ]
+    },
+    {
+      "requestId": "request-09-evidencia-insuficiente",
+      "extractionId": "extraction-09-evidencia-insuficiente",
+      "sourceEntryIds": [
+        "s-insufficient"
+      ]
+    },
+    {
+      "requestId": "request-10-idea-decision-objetivo-ha",
+      "extractionId": "extraction-10-idea-decision-objetivo-ha",
+      "sourceEntryIds": [
+        "s-complement"
+      ]
+    },
+    {
+      "requestId": "request-11-conclusion-personal-acota",
+      "extractionId": "extraction-11-conclusion-personal-acota",
+      "sourceEntryIds": [
+        "s-person-0",
+        "s-person-1",
+        "s-person-2"
+      ]
+    },
+    {
+      "requestId": "request-12-revision-utf16",
+      "extractionId": "extraction-12-revision-utf16",
+      "sourceEntryIds": [
+        "s-corrected"
+      ]
+    },
+    {
+      "requestId": "request-13-descripcion-atribuida",
+      "extractionId": "extraction-13-descripcion-atribuida",
+      "sourceEntryIds": [
+        "s-personality"
+      ]
+    },
+    {
+      "requestId": "request-14-tiempo-resuelto",
+      "extractionId": "extraction-14-tiempo-resuelto",
+      "sourceEntryIds": [
+        "s-resolved"
+      ]
+    }
+  ]
+}

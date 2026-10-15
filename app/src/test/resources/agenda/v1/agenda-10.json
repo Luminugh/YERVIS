@@ -1,0 +1,124 @@
+{
+  "id": "agenda-10",
+  "name": "Hecho sin fecha conocida",
+  "lane": "A",
+  "sources": [
+    {
+      "sourceEntryId": "s-10",
+      "text": "Entregué el informe; no recuerdo cuándo.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-10-a",
+      "extractionId": "e-10-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-10",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "95ce6a8cdf596544ad9536066c365e4d632f2198b01cb8e8b2db628e00a423d7",
+          "textLengthUtf16": 40,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 40
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "p",
+          "category": "FACT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Entregué el informe; no recuerdo cuándo.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-10",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Entregué el informe; no recuerdo cuándo.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 40
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "factKind": {
+              "value": "OCCURRENCE",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-10",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Entregué el informe; no recuerdo cuándo.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 40
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "attribution": {
+              "kind": "CAPTURE_AUTHOR"
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [
+    "Fecha de ocurrencia desconocida"
+  ],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "No utilizar captura como fecha del hecho.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

@@ -8,6 +8,7 @@ internal sealed class Destination(val route: String, val labelRes: Int) {
     data object Memory : Destination("memory", R.string.nav_memory)
     data object Capture : Destination("capture", R.string.nav_capture)
     data object Settings : Destination("settings", R.string.nav_settings)
+    data object ProposalReview : Destination("proposal-review-demo", R.string.proposal_review_title)
     data object EntryDetail : Destination("entry/{entryId}", R.string.entry_detail_title) {
         fun routeFor(entryId: String): String = "entry/${Uri.encode(entryId)}"
     }

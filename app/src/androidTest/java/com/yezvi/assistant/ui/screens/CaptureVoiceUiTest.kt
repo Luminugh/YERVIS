@@ -83,13 +83,13 @@ class CaptureVoiceUiTest {
                 }
             }
         }
-        compose.onNodeWithTag("settings_voice_enabled_row").performClick()
+        compose.onNodeWithTag("settings_voice_enabled_row").performScrollTo().performClick()
         compose.runOnIdle { settings.value = false }
         compose.onNodeWithTag("capture_spoken_confirmation").assertDoesNotExist()
         compose.onNodeWithTag("capture_tts_availability").assertDoesNotExist()
         compose.runOnIdle { assertTrue(viewModel.spokenConfirmation.state.value.enabled) }
         compose.runOnIdle { settings.value = true }
-        compose.onNodeWithTag("settings_voice_enabled_row").assertIsOn().performClick()
+        compose.onNodeWithTag("settings_voice_enabled_row").performScrollTo().assertIsOn().performClick()
         compose.onNodeWithTag("settings_voice_enabled_row").assertIsOff()
         compose.runOnIdle {
             assertEquals(0, speech.calls)
@@ -287,6 +287,7 @@ class CaptureVoiceUiTest {
         compose.runOnIdle { engine.state.value = SpeechToTextState.Result(FinalTranscript("Transcripción sintética")) }
         compose.waitForIdle()
         compose.onNodeWithTag("capture_voice_status").assertTextEquals("Transcripción pendiente de revisión")
+        click("capture_voice_original_toggle")
         compose.onNodeWithTag("capture_voice_transcript").assertTextEquals("Transcripción sintética")
         assertEquals("Borrador escrito protegido", compose.onNodeWithTag("capture_text_field")
             .fetchSemanticsNode().config[SemanticsProperties.EditableText].text)

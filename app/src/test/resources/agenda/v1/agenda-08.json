@@ -1,0 +1,121 @@
+{
+  "id": "agenda-08",
+  "name": "Hábito deseado",
+  "lane": "B",
+  "sources": [
+    {
+      "sourceEntryId": "s-08",
+      "text": "Quiero leer cada día.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-08-a",
+      "extractionId": "e-08-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-08",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "6c66204eb8aaf0a12e7563b405b9e4b21204aae41f7639f93a8299f57b651873",
+          "textLengthUtf16": 21,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 21
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "p",
+          "category": "HABIT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Quiero leer cada día.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-08",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Quiero leer cada día.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 21
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "DESIRED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "desiredFrequency": {
+              "frequency": {
+                "value": "DAILY",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-08",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "Quiero leer cada día.",
+                    "range": {
+                      "startUtf16": 0,
+                      "endUtf16": 21
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Deseo no prueba ninguna acción realizada.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

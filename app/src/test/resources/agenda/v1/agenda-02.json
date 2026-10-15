@@ -1,0 +1,158 @@
+{
+  "id": "agenda-02",
+  "name": "Tarea pendiente y vencimiento",
+  "lane": "A",
+  "sources": [
+    {
+      "sourceEntryId": "s-02",
+      "text": "Debo entregar el informe mañana.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-02-a",
+      "extractionId": "e-02-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-02",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "3e83b027447f06b449c7149fcf20f43eca5260d5e489178938596e52ad9c6865",
+          "textLengthUtf16": 32,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 32
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "p",
+          "category": "TASK",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Debo entregar el informe mañana.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-02",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Debo entregar el informe mañana.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 32
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "state": {
+              "value": "PENDING",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-02",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Debo entregar el informe mañana.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 32
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "dueAt": {
+              "expression": {
+                "value": "mañana",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-02",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "mañana",
+                    "range": {
+                      "startUtf16": 25,
+                      "endUtf16": 31
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-02",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "UNSPECIFIED",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [
+    {
+      "expression": "mañana",
+      "status": "RESOLVED",
+      "localDate": "2026-10-16"
+    }
+  ],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Una obligación afirmada no está completada.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

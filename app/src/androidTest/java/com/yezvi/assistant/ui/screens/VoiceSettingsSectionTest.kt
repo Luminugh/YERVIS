@@ -139,9 +139,10 @@ class VoiceSettingsSectionTest {
                 YERVISTheme { SettingsScreen(MemoryUiCallbacks({}, {}, {}), controller) }
             }
         }
+        compose.onNodeWithTag("settings_voice_card").performScrollTo().assertIsDisplayed()
         compose.waitUntil(5_000) { speech.initializations == 1 }
         compose.onNodeWithTag("settings_voice_card").assertIsDisplayed()
-        compose.onNodeWithTag("settings_voice_enabled_row").assertIsOff()
+        compose.onNodeWithTag("settings_voice_enabled_row").performScrollTo().assertIsOff()
         compose.onNodeWithTag("settings_voice_enabled_row").performClick()
         compose.waitUntil(5_000) { controller.state.value.enabled }
         compose.runOnIdle {

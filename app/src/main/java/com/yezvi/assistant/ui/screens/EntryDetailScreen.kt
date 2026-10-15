@@ -1,9 +1,12 @@
 package com.yezvi.assistant.ui.screens
 
 import androidx.activity.compose.BackHandler
-import androidx.compose.animation.Crossfade
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -14,13 +17,13 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -38,9 +41,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.heading
+import androidx.compose.ui.semantics.LiveRegionMode
+import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -58,6 +64,10 @@ import com.yezvi.assistant.domain.memory.MemoryCorrection
 import com.yezvi.assistant.domain.memory.CaptureSourceType
 import com.yezvi.assistant.domain.memory.CaptureStatus
 import com.yezvi.assistant.domain.memory.MemoryEntry
+import com.yezvi.assistant.ui.components.YervisIcon
+import com.yezvi.assistant.ui.components.YervisPanel
+import com.yezvi.assistant.ui.components.YervisSymbol
+import com.yezvi.assistant.ui.theme.LocalVisualMetrics
 import com.yezvi.assistant.ui.theme.Motion
 import com.yezvi.assistant.ui.theme.YERVISTheme
 import com.yezvi.assistant.ui.theme.motionDurationMillis
@@ -79,7 +89,6 @@ internal fun EntryDetailScreen(
     onSaveCorrection: () -> Unit = {},
     onCancelCorrection: () -> Unit = {},
 ) {
-    val reduceMotion = rememberReduceMotion()
     var showDeleteConfirmation by remember { mutableStateOf(false) }
     val isSavingCorrection = correctionState.saveStatus == CorrectionSaveStatus.SAVING
     val handleBack = {
@@ -105,34 +114,33 @@ internal fun EntryDetailScreen(
     }
 
     Scaffold(
+        containerColor = Color.Transparent,
         topBar = {
             TopAppBar(
                 title = {
                     Text(
                         text = stringResource(R.string.entry_detail_title),
+                        style = MaterialTheme.typography.titleLarge,
                         modifier = Modifier.semantics { heading() },
                     )
                 },
                 navigationIcon = {
-                        TextButton(
-                            onClick = handleBack,
-                            modifier = Modifier.heightIn(min = 48.dp),
-                            enabled = !isSavingCorrection && deleteState != EntryDeleteUiState.Deleting,
-                        ) {
+                    TextButton(
+                        onClick = handleBack,
+                        modifier = Modifier.heightIn(min = 48.dp),
+                        enabled = !isSavingCorrection && deleteState != EntryDeleteUiState.Deleting,
+                    ) {
+                        YervisIcon(YervisSymbol.Back, modifier = Modifier.size(20.dp))
+                        Spacer(Modifier.width(4.dp))
                         Text(text = stringResource(R.string.entry_detail_back))
                     }
                 },
             )
         },
     ) { innerPadding ->
-        Crossfade(
-            targetState = state,
-            animationSpec = tween(
-                durationMillis = motionDurationMillis(Motion.StateChangeMillis, reduceMotion),
-            ),
-            label = "entry-detail-state",
-        ) { current ->
-            when (current) {
+        // Keep a loaded editor in one composition. Animating the complete state used to
+        // duplicate the entire scrolling detail while a new Loaded value arrived.
+        when (state) {
                 EntryDetailUiState.Loading -> DetailLoadingState(contentPadding = innerPadding)
                 EntryDetailUiState.NotFound -> DetailMessageState(
                     title = stringResource(R.string.entry_detail_empty_title),
@@ -149,7 +157,7 @@ internal fun EntryDetailScreen(
                     contentPadding = innerPadding,
                 )
                 is EntryDetailUiState.Loaded -> DetailContent(
-                    entry = current.entry,
+                    entry = state.entry,
                     correctionState = correctionState,
                     contentPadding = innerPadding,
                     onDeleteRequested = {
@@ -163,7 +171,6 @@ internal fun EntryDetailScreen(
                     onSaveCorrection = onSaveCorrection,
                     onCancelCorrection = onCancelCorrection,
                 )
-            }
         }
     }
 
@@ -308,323 +315,300 @@ private fun DetailContent(
     onCancelCorrection: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val metrics = LocalVisualMetrics.current
+    val reduceMotion = rememberReduceMotion()
+    val feedbackDuration = motionDurationMillis(Motion.StateChangeMillis, reduceMotion)
+    val date = remember(entry.capturedAtEpochMillis, entry.timezoneId) {
+        formatEntryDate(entry.capturedAtEpochMillis, entry.timezoneId)
+    }
+    val time = remember(entry.capturedAtEpochMillis, entry.timezoneId) {
+        formatEntryTime(entry.capturedAtEpochMillis, entry.timezoneId)
+    }
+    val currentText = correctionState.currentVersion?.text ?: entry.rawText
+    val hasCorrection = correctionState.currentVersion?.correctionId != null
+    val canSave = correctionState.draft.isNotBlank() &&
+        correctionState.draft != currentText && !isSavingCorrection(correctionState)
+
     LazyColumn(
-        modifier = modifier.fillMaxSize().imePadding(),
+        modifier = modifier.fillMaxSize().imePadding().testTag("entry_detail_list"),
         contentPadding = PaddingValues(
-            start = 16.dp,
-            end = 16.dp,
+            start = metrics.screenPadding,
+            end = metrics.screenPadding,
             top = contentPadding.calculateTopPadding() + 8.dp,
-            bottom = contentPadding.calculateBottomPadding() + 16.dp,
+            bottom = contentPadding.calculateBottomPadding() + 24.dp,
         ),
-        verticalArrangement = Arrangement.spacedBy(12.dp),
+        verticalArrangement = Arrangement.spacedBy(metrics.itemSpacing),
     ) {
-        item {
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-                ),
-            ) {
-                Column(modifier = Modifier.padding(16.dp)) {
+        item(key = "capture_context", contentType = "context") {
+            YervisPanel(highlighted = true, modifier = Modifier.fillMaxWidth()) {
+                Column(
+                    modifier = Modifier.padding(metrics.panelPadding),
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    ) {
+                        YervisIcon(
+                            symbol = if (entry.status == CaptureStatus.SAVED) YervisSymbol.Shield else YervisSymbol.Info,
+                            modifier = Modifier.size(20.dp),
+                            tint = if (entry.status == CaptureStatus.FAILED) MaterialTheme.colorScheme.error
+                            else MaterialTheme.colorScheme.primary,
+                        )
+                        Text(
+                            text = statusLabel(entry.status),
+                            style = MaterialTheme.typography.labelLarge,
+                            color = if (entry.status == CaptureStatus.FAILED) MaterialTheme.colorScheme.error
+                            else MaterialTheme.colorScheme.onSurface,
+                        )
+                    }
                     Text(
-                        text = stringResource(R.string.entry_current_version_title),
+                        text = date,
+                        style = MaterialTheme.typography.titleSmall,
+                    )
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        YervisIcon(
+                            symbol = if (entry.sourceType == CaptureSourceType.VOICE) YervisSymbol.Voice else YervisSymbol.Text,
+                            modifier = Modifier.size(16.dp),
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                        Text(
+                            text = stringResource(
+                                if (entry.sourceType == CaptureSourceType.VOICE) R.string.memory_source_voice
+                                else R.string.memory_source_text,
+                            ),
+                            style = MaterialTheme.typography.bodySmall,
+                            modifier = Modifier.testTag("entry_detail_source_value"),
+                        )
+                        Text(time, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    }
+                    Text(
+                        text = entry.timezoneId,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            }
+        }
+        item(key = "current_text", contentType = "editor") {
+            YervisPanel(modifier = Modifier.fillMaxWidth()) {
+                Column(
+                    modifier = Modifier.padding(metrics.panelPadding),
+                    verticalArrangement = Arrangement.spacedBy(12.dp),
+                ) {
+                    Text(
+                        text = stringResource(
+                            if (hasCorrection) R.string.entry_current_version_title
+                            else R.string.entry_original_version_title,
+                        ),
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.SemiBold,
                         modifier = Modifier.semantics { heading() },
                     )
-                    Spacer(Modifier.height(8.dp))
-                    Text(
-                        text = correctionState.currentVersion?.text ?: entry.rawText,
-                        style = MaterialTheme.typography.bodyLarge,
-                        modifier = Modifier.testTag("entry_current_text"),
-                    )
-                    Spacer(Modifier.height(12.dp))
+                    if (!correctionState.isEditing) {
+                        // One visible text when the current version is the original; both
+                        // source and current-version tags remain available to UI checks.
+                        Box(modifier = if (!hasCorrection) Modifier.testTag("entry_original_text") else Modifier) {
+                            Text(
+                                text = currentText,
+                                style = MaterialTheme.typography.bodyLarge,
+                                modifier = Modifier.testTag("entry_current_text"),
+                            )
+                        }
+                    }
                     when {
                         correctionState.isLoading -> Text(
                             text = stringResource(R.string.entry_corrections_loading),
+                            style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
-                        correctionState.loadFailed -> Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.SpaceBetween,
-                        ) {
+                        correctionState.loadFailed -> {
                             Text(
                                 text = stringResource(R.string.entry_corrections_load_error),
                                 color = MaterialTheme.colorScheme.error,
-                                modifier = Modifier.weight(1f),
                             )
-                            TextButton(
-                                onClick = onRetryCorrections,
-                                modifier = Modifier.heightIn(min = 48.dp),
-                            ) {
+                            TextButton(onClick = onRetryCorrections, modifier = Modifier.heightIn(min = 48.dp)) {
                                 Text(stringResource(R.string.entry_detail_retry))
                             }
                         }
                         correctionState.isEditing -> {
+                            // The editable field is never placed inside AnimatedContent or
+                            // animateContentSize: IME, selection and cursor keep one owner.
                             OutlinedTextField(
                                 value = correctionState.draft,
                                 onValueChange = onCorrectionDraftChange,
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .testTag("entry_correction_editor"),
+                                modifier = Modifier.fillMaxWidth().testTag("entry_correction_editor"),
                                 label = { Text(stringResource(R.string.entry_correction_editor_label)) },
-                                supportingText = {
-                                    Text(stringResource(R.string.entry_correction_editor_hint))
-                                },
+                                supportingText = { Text(stringResource(R.string.entry_correction_editor_hint)) },
                                 minLines = 4,
-                                maxLines = 8,
+                                maxLines = 10,
                                 keyboardOptions = KeyboardOptions(
                                     capitalization = KeyboardCapitalization.Sentences,
                                     imeAction = ImeAction.Done,
                                 ),
-                                keyboardActions = KeyboardActions(onDone = { onSaveCorrection() }),
+                                keyboardActions = KeyboardActions(onDone = { if (canSave) onSaveCorrection() }),
                                 enabled = !isSavingCorrection(correctionState),
                             )
                             Row(
                                 modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.End,
+                                horizontalArrangement = Arrangement.spacedBy(8.dp),
                                 verticalAlignment = Alignment.CenterVertically,
                             ) {
                                 TextButton(
                                     onClick = onCancelCorrection,
-                                    modifier = Modifier
-                                        .heightIn(min = 48.dp)
-                                        .testTag("entry_correction_cancel"),
+                                    modifier = Modifier.weight(1f).heightIn(min = 48.dp).testTag("entry_correction_cancel"),
                                     enabled = !isSavingCorrection(correctionState),
-                                ) {
-                                    Text(stringResource(R.string.entry_correction_cancel))
-                                }
+                                ) { Text(stringResource(R.string.entry_correction_cancel)) }
                                 Button(
                                     onClick = onSaveCorrection,
-                                    enabled = correctionState.draft.isNotBlank() &&
-                                        correctionState.draft != correctionState.currentVersion?.text &&
-                                        !isSavingCorrection(correctionState),
-                                    modifier = Modifier
-                                        .heightIn(min = 48.dp)
-                                        .testTag("entry_correction_save"),
+                                    enabled = canSave,
+                                    modifier = Modifier.weight(1f).heightIn(min = 48.dp).testTag("entry_correction_save"),
                                 ) {
-                                    Text(
-                                        stringResource(
-                                            if (isSavingCorrection(correctionState)) {
-                                                R.string.entry_correction_saving
-                                            } else {
-                                                R.string.entry_correction_save
-                                            },
-                                        ),
-                                    )
+                                    Text(stringResource(
+                                        if (isSavingCorrection(correctionState)) R.string.entry_correction_saving
+                                        else R.string.entry_correction_save,
+                                    ))
                                 }
                             }
-                            if (correctionState.saveStatus == CorrectionSaveStatus.FAILED) {
-                                Text(
-                                    text = stringResource(R.string.entry_correction_save_error),
-                                    color = MaterialTheme.colorScheme.error,
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    modifier = Modifier.testTag("entry_correction_error"),
-                                )
-                            }
                         }
-                        else -> {
-                            if (correctionState.saveStatus == CorrectionSaveStatus.SAVED) {
-                                Text(
-                                    text = stringResource(R.string.entry_correction_saved),
-                                    color = MaterialTheme.colorScheme.primary,
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    modifier = Modifier.testTag("entry_correction_saved"),
-                                )
-                            }
-                            TextButton(
-                                onClick = onBeginCorrection,
-                                enabled = correctionState.currentVersion != null,
-                                modifier = Modifier
-                                    .heightIn(min = 48.dp)
-                                    .testTag("entry_correction_open"),
-                            ) {
-                                Text(stringResource(R.string.entry_correction_open))
-                            }
+                        else -> TextButton(
+                            onClick = onBeginCorrection,
+                            enabled = correctionState.currentVersion != null,
+                            modifier = Modifier.heightIn(min = 48.dp).testTag("entry_correction_open"),
+                            contentPadding = PaddingValues(horizontal = 0.dp, vertical = 8.dp),
+                        ) {
+                            YervisIcon(YervisSymbol.Edit, modifier = Modifier.size(20.dp))
+                            Spacer(Modifier.width(8.dp))
+                            Text(stringResource(R.string.entry_correction_open))
                         }
                     }
+                    AnimatedVisibility(
+                        visible = correctionState.saveStatus == CorrectionSaveStatus.FAILED,
+                        enter = fadeIn(tween(feedbackDuration)),
+                        exit = fadeOut(tween(feedbackDuration)),
+                    ) { CorrectionFeedback(failed = true) }
+                    AnimatedVisibility(
+                        visible = correctionState.saveStatus == CorrectionSaveStatus.SAVED,
+                        enter = fadeIn(tween(feedbackDuration)),
+                        exit = fadeOut(tween(feedbackDuration)),
+                    ) { CorrectionFeedback(failed = false) }
                 }
             }
         }
-        item {
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-                ),
-            ) {
-                Column(modifier = Modifier.padding(16.dp)) {
-                    Text(
-                        text = stringResource(R.string.entry_original_version_title),
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.SemiBold,
-                        modifier = Modifier.semantics { heading() },
-                    )
-                    Spacer(Modifier.height(8.dp))
-                    Text(
-                        entry.rawText,
-                        style = MaterialTheme.typography.bodyLarge,
-                        modifier = Modifier.testTag("entry_original_text"),
-                    )
-                }
-            }
-        }
-        item {
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-                ),
-            ) {
-                Column(
-                    modifier = Modifier.padding(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(8.dp),
-                ) {
-                    Text(
-                        text = stringResource(R.string.entry_correction_history_title),
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.SemiBold,
-                        modifier = Modifier.semantics { heading() },
-                    )
-                    when {
-                        correctionState.isLoading -> Unit
-                        correctionState.loadFailed -> Text(
-                            text = stringResource(R.string.entry_corrections_history_unavailable),
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                        correctionState.history.isEmpty() -> Text(
-                            text = stringResource(R.string.entry_correction_history_empty),
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                        else -> correctionState.history.forEachIndexed { index, correction ->
-                            CorrectionHistoryItem(
-                                index = index + 1,
-                                correction = correction,
-                                timezoneId = entry.timezoneId,
-                            )
-                        }
-                    }
-                }
-            }
-        }
-        item {
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-                ),
-            ) {
-                Column(
-                    modifier = Modifier.padding(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(8.dp),
-                ) {
-                    Text(
-                        text = stringResource(R.string.entry_detail_data_title),
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.SemiBold,
-                        modifier = Modifier.semantics { heading() },
-                    )
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        SourceBadge(entry.sourceType)
-                        Spacer(Modifier.width(8.dp))
+        if (hasCorrection) {
+            item(key = "original_text", contentType = "source") {
+                YervisPanel(modifier = Modifier.fillMaxWidth()) {
+                    Column(
+                        modifier = Modifier.padding(metrics.panelPadding),
+                        verticalArrangement = Arrangement.spacedBy(8.dp),
+                    ) {
                         Text(
-                            text = formatEntryTime(entry.capturedAtEpochMillis, entry.timezoneId),
-                            style = MaterialTheme.typography.labelLarge,
-                            color = MaterialTheme.colorScheme.primary,
+                            text = stringResource(R.string.entry_original_version_title),
+                            style = MaterialTheme.typography.titleSmall,
+                            modifier = Modifier.semantics { heading() },
                         )
+                        Text(
+                            text = stringResource(R.string.ux_memory_original_preserved),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                        Text(entry.rawText, style = MaterialTheme.typography.bodyLarge, modifier = Modifier.testTag("entry_original_text"))
                     }
-                    DetailRow(
-                        label = stringResource(R.string.entry_detail_source),
-                        value = when (entry.sourceType) {
-                            CaptureSourceType.TEXT -> stringResource(R.string.memory_source_text)
-                            CaptureSourceType.VOICE -> stringResource(R.string.memory_source_voice)
-                        },
-                        valueModifier = Modifier.testTag("entry_detail_source_value"),
-                    )
-                    DetailRow(
-                        label = stringResource(R.string.entry_detail_date),
-                        value = formatEntryDate(entry.capturedAtEpochMillis, entry.timezoneId),
-                    )
-                    DetailRow(
-                        label = stringResource(R.string.entry_detail_time),
-                        value = formatEntryTime(entry.capturedAtEpochMillis, entry.timezoneId),
-                    )
-                    DetailRow(
-                        label = stringResource(R.string.entry_detail_timezone),
-                        value = entry.timezoneId,
-                    )
-                    DetailRow(
-                        label = stringResource(R.string.entry_detail_status),
-                        value = statusLabel(entry.status),
-                    )
                 }
             }
         }
-        item {
+        item(key = "history_header", contentType = "section") {
+            Text(
+                text = stringResource(R.string.entry_correction_history_title),
+                style = MaterialTheme.typography.titleSmall,
+                fontWeight = FontWeight.SemiBold,
+                modifier = Modifier.padding(top = 8.dp).semantics { heading() },
+            )
+        }
+        when {
+            correctionState.isLoading -> Unit
+            correctionState.loadFailed -> item(key = "history_unavailable", contentType = "message") {
+                Text(
+                    stringResource(R.string.entry_corrections_history_unavailable),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+            correctionState.history.isEmpty() -> item(key = "history_empty", contentType = "message") {
+                Text(
+                    stringResource(R.string.entry_correction_history_empty),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+            else -> itemsIndexed(
+                correctionState.history,
+                key = { _, correction -> "correction_${correction.correctionId}" },
+                contentType = { _, _ -> "correction" },
+            ) { index, correction ->
+                CorrectionHistoryItem(index + 1, correction, entry.timezoneId)
+            }
+        }
+        item(key = "delete_action", contentType = "action") {
             TextButton(
                 onClick = onDeleteRequested,
-                modifier = Modifier
-                    .heightIn(min = 48.dp)
-                    .testTag("entry_delete_open_action"),
+                modifier = Modifier.heightIn(min = 48.dp).testTag("entry_delete_open_action"),
                 enabled = !correctionState.isEditing,
+                contentPadding = PaddingValues(horizontal = 0.dp, vertical = 8.dp),
             ) {
-                Text(text = stringResource(R.string.entry_delete_open_action))
+                YervisIcon(YervisSymbol.Delete, modifier = Modifier.size(20.dp))
+                Spacer(Modifier.width(8.dp))
+                Text(stringResource(R.string.entry_delete_open_action))
             }
         }
     }
 }
 
 @Composable
-private fun CorrectionHistoryItem(
-    index: Int,
-    correction: MemoryCorrection,
-    timezoneId: String,
-) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 4.dp)
-            .testTag("entry_correction_history_${correction.correctionId}")
-            .semantics(mergeDescendants = true) { },
-        verticalArrangement = Arrangement.spacedBy(4.dp),
-    ) {
-        Text(
-            text = stringResource(
-                R.string.entry_correction_history_item,
-                index,
-                formatEntryDate(correction.modifiedAtEpochMillis, timezoneId),
-                formatEntryTime(correction.modifiedAtEpochMillis, timezoneId),
-            ),
-            style = MaterialTheme.typography.labelLarge,
-            color = MaterialTheme.colorScheme.primary,
-        )
-        Text(correction.correctedText, style = MaterialTheme.typography.bodyMedium)
+private fun CorrectionHistoryItem(index: Int, correction: MemoryCorrection, timezoneId: String) {
+    val date = remember(correction.modifiedAtEpochMillis, timezoneId) {
+        formatEntryDate(correction.modifiedAtEpochMillis, timezoneId)
+    }
+    val time = remember(correction.modifiedAtEpochMillis, timezoneId) {
+        formatEntryTime(correction.modifiedAtEpochMillis, timezoneId)
+    }
+    YervisPanel(modifier = Modifier.fillMaxWidth().testTag("entry_correction_history_${correction.correctionId}")) {
+        Column(
+            modifier = Modifier.padding(LocalVisualMetrics.current.panelPadding).semantics(mergeDescendants = true) { },
+            verticalArrangement = Arrangement.spacedBy(6.dp),
+        ) {
+            Text(
+                text = stringResource(R.string.entry_correction_history_item, index, date, time),
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.primary,
+            )
+            Text(correction.correctedText, style = MaterialTheme.typography.bodyMedium)
+        }
     }
 }
-
 private fun isSavingCorrection(state: EntryCorrectionUiState): Boolean =
     state.saveStatus == CorrectionSaveStatus.SAVING
 
 @Composable
-private fun DetailRow(
-    label: String,
-    value: String,
-    modifier: Modifier = Modifier,
-    valueModifier: Modifier = Modifier,
-) {
-    Row(modifier = modifier.fillMaxWidth()) {
-        Text(
-            text = label,
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.weight(1f),
+private fun CorrectionFeedback(failed: Boolean) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        modifier = Modifier.semantics { liveRegion = LiveRegionMode.Polite },
+    ) {
+        YervisIcon(
+            symbol = if (failed) YervisSymbol.Info else YervisSymbol.Check,
+            modifier = Modifier.size(20.dp),
+            tint = if (failed) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primary,
         )
         Text(
-            text = value,
+            text = stringResource(if (failed) R.string.entry_correction_save_error else R.string.entry_correction_saved),
+            color = if (failed) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primary,
             style = MaterialTheme.typography.bodyMedium,
-            modifier = valueModifier.weight(1f),
-            textAlign = TextAlign.End,
+            modifier = Modifier.testTag(if (failed) "entry_correction_error" else "entry_correction_saved"),
         )
     }
 }

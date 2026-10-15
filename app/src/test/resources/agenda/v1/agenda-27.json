@@ -1,0 +1,144 @@
+{
+  "id": "agenda-27",
+  "name": "Expresión a las nueve",
+  "lane": "C",
+  "sources": [
+    {
+      "sourceEntryId": "s-27",
+      "text": "Reunión a las nueve.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-27-a",
+      "extractionId": "e-27-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-27",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "bc45cb2362206617a458694673b8b47cd705736b5bd7543410ba17591a96c72c",
+          "textLengthUtf16": 20,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 20
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "p",
+          "category": "EVENT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Reunión a las nueve.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-27",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Reunión a las nueve.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 20
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "startsAt": {
+              "expression": {
+                "value": "a las nueve",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-27",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "a las nueve",
+                    "range": {
+                      "startUtf16": 8,
+                      "endUtf16": 19
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-27",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "UNSPECIFIED",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [
+    {
+      "expression": "a las nueve",
+      "status": "AMBIGUOUS",
+      "localDate": null,
+      "reason": "AMBIGUOUS_HOUR",
+      "knownLimitation": {
+        "observedReason": "UNSUPPORTED_EXPRESSION",
+        "desiredReason": "AMBIGUOUS_HOUR",
+        "explanation": "Hora sin fecha permanece ambigua; parser actual no reconoce esta forma aislada."
+      }
+    }
+  ],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [
+    "AMBIGUOUS_HOUR"
+  ],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Conservar incertidumbre; no imponer año, política u hora.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": true
+  }
+}

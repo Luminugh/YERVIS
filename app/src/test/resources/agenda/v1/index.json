@@ -1,0 +1,296 @@
+{
+  "corpusVersion": "1.0.0",
+  "schemaVersion": "1.0.0",
+  "syntheticOnly": true,
+  "expectedOrigin": "MANUALLY_AUTHORED_NOT_FAKE",
+  "scenarios": [
+    {
+      "id": "agenda-01",
+      "file": "agenda-01.json",
+      "lane": "A",
+      "sha256": "afd39e50b3d21923863b51b8ede328736dc11a4e95e384574486043c88286776"
+    },
+    {
+      "id": "agenda-02",
+      "file": "agenda-02.json",
+      "lane": "A",
+      "sha256": "c5009df244beb67c42ad7c59723f332ad144ea113a09f84d401c2bf87b39df6d"
+    },
+    {
+      "id": "agenda-03",
+      "file": "agenda-03.json",
+      "lane": "A",
+      "sha256": "c4d4cee741da167eab670a1ec3c625f5fa3f38ccf4ae485cb477a5c84ff41f9e"
+    },
+    {
+      "id": "agenda-04",
+      "file": "agenda-04.json",
+      "lane": "A",
+      "sha256": "f32136ad105b65eb027305b7993da00c9b741dad1d7f32a0716bcf67ece30567"
+    },
+    {
+      "id": "agenda-05",
+      "file": "agenda-05.json",
+      "lane": "A",
+      "sha256": "92d3a8674765dc34fa4644f2a8f4d3d2b120a7550d866c74bd11b2ab7b68bcd3"
+    },
+    {
+      "id": "agenda-06",
+      "file": "agenda-06.json",
+      "lane": "A",
+      "sha256": "e13afb0f2af846736e66a8bdf0ba63d55d21ab55e7b818be23b8242aa2c6a228"
+    },
+    {
+      "id": "agenda-07",
+      "file": "agenda-07.json",
+      "lane": "A",
+      "sha256": "e4c89189f689c2994c9f233b998834287ff5107f145a2bd68195cd82235e879b"
+    },
+    {
+      "id": "agenda-08",
+      "file": "agenda-08.json",
+      "lane": "B",
+      "sha256": "e8de57043f95eb06ab63a94129e6eeeef500b53a58bddab769fc42c06737074b"
+    },
+    {
+      "id": "agenda-09",
+      "file": "agenda-09.json",
+      "lane": "A",
+      "sha256": "34b72dfaec7af5460e19f8a0628df4805748e517c664d67de75a6c817135e95d"
+    },
+    {
+      "id": "agenda-10",
+      "file": "agenda-10.json",
+      "lane": "A",
+      "sha256": "ebab178baf9be186e1390042c84765b567f3da6d115ec4cf66ff13c35c7aabb6"
+    },
+    {
+      "id": "agenda-11",
+      "file": "agenda-11.json",
+      "lane": "B",
+      "sha256": "182eb73683ca51a08a9d9cb8b5587f3742e2378fea00e40be436a6bd8d9d02fa"
+    },
+    {
+      "id": "agenda-12",
+      "file": "agenda-12.json",
+      "lane": "A",
+      "sha256": "e2ec2855c45dda83a0b9a72af77968d35a1cbd250eccd9fb233acd225771059a"
+    },
+    {
+      "id": "agenda-13",
+      "file": "agenda-13.json",
+      "lane": "A",
+      "sha256": "ed767c8f54448a02d957ed232dc03a0115378fd1a00344bb3336a025880b86eb"
+    },
+    {
+      "id": "agenda-14",
+      "file": "agenda-14.json",
+      "lane": "A",
+      "sha256": "d3cbbec1165bd9c7f4b6cd70bac10ccbeee9eb4ba3db3dd0dfb4b657aee49a6d"
+    },
+    {
+      "id": "agenda-15",
+      "file": "agenda-15.json",
+      "lane": "A",
+      "sha256": "50374c39b1a6358c7caf9a85e28747fcc990b7ca2de144c72e6049c0e477d6e9"
+    },
+    {
+      "id": "agenda-16",
+      "file": "agenda-16.json",
+      "lane": "A",
+      "sha256": "67ed4402593e8e646ee52fd55aaddc5324d4e49ab5df7dd2ce25760afb774c93"
+    },
+    {
+      "id": "agenda-17",
+      "file": "agenda-17.json",
+      "lane": "A",
+      "sha256": "b6ab69ed03c1c4e63fd67780bc3efff8e75b1cfcd9d5192a6d63b73309a16004"
+    },
+    {
+      "id": "agenda-18",
+      "file": "agenda-18.json",
+      "lane": "A",
+      "sha256": "19bcf1f08f1d859321c50eba4425f843bed0ff4a3a9539549af1a6d692e156b5"
+    },
+    {
+      "id": "agenda-19",
+      "file": "agenda-19.json",
+      "lane": "A",
+      "sha256": "a14f5d517c85d7cc791eebdd195bcfbfb39ea99fd1ae61fd0433326137ceaba6"
+    },
+    {
+      "id": "agenda-20",
+      "file": "agenda-20.json",
+      "lane": "A",
+      "sha256": "5ab74427162d0ca1d277d2b25e72efe30d82b443b92398ab75a85a160da45e6e"
+    },
+    {
+      "id": "agenda-21",
+      "file": "agenda-21.json",
+      "lane": "A",
+      "sha256": "24597b8c502b7584b7c71c2b0707cdecd1a6b03ac81448281d606811385c99e6"
+    },
+    {
+      "id": "agenda-22",
+      "file": "agenda-22.json",
+      "lane": "A",
+      "sha256": "87b28c453a890200503174f163388ce9fdb084d9c6dd7383a789c1884c35e5f4"
+    },
+    {
+      "id": "agenda-23",
+      "file": "agenda-23.json",
+      "lane": "C",
+      "sha256": "7f8652c95997c63bfc1333fd5a9623190234bb4fb9aa40547d96a6ce0219009f"
+    },
+    {
+      "id": "agenda-24",
+      "file": "agenda-24.json",
+      "lane": "C",
+      "sha256": "efa27078ad1edb1fe5da3886261610aac845ecccb0d74ea7e8baf5d859a01057"
+    },
+    {
+      "id": "agenda-25",
+      "file": "agenda-25.json",
+      "lane": "C",
+      "sha256": "290183dbb0828c613b5a4a31ee74aeb24fc5ae1f50bc90c734c76906f7afde36"
+    },
+    {
+      "id": "agenda-26",
+      "file": "agenda-26.json",
+      "lane": "C",
+      "sha256": "9c38c55080a3b77ac7d919706bb6f199c894e59d610608152e62301b33d97dcc"
+    },
+    {
+      "id": "agenda-27",
+      "file": "agenda-27.json",
+      "lane": "C",
+      "sha256": "e9fa11d005ca1e68954baf3c074d9cf94036a3aab007fd7e662034b012c41ebb"
+    },
+    {
+      "id": "agenda-28",
+      "file": "agenda-28.json",
+      "lane": "A",
+      "sha256": "101c21f6b87d3adee72b70a58ef3b64e549a31c444d66d41dc5a6cc5e2c3db41"
+    },
+    {
+      "id": "agenda-29",
+      "file": "agenda-29.json",
+      "lane": "A",
+      "sha256": "403ebf5bd7cd8ad256c3d924aaa73504228f58517fbedc2cfa3a0217e5fac9fd"
+    },
+    {
+      "id": "agenda-30",
+      "file": "agenda-30.json",
+      "lane": "A",
+      "sha256": "a370d9b592b539f31b5440430df1869586c6221dffd61d7123b4d1163ef2da0e"
+    },
+    {
+      "id": "agenda-31",
+      "file": "agenda-31.json",
+      "lane": "A",
+      "sha256": "0dfa4f585de22f6297b767302c88be8e3c00a9764a816c4c053d94eaaa2674d1"
+    },
+    {
+      "id": "agenda-32",
+      "file": "agenda-32.json",
+      "lane": "A",
+      "sha256": "4fcb714169c65f152015cb2f10a63a50d085e29b910553c15f49605ddefd77d9"
+    },
+    {
+      "id": "agenda-33",
+      "file": "agenda-33.json",
+      "lane": "A",
+      "sha256": "0a9399372dc019144149262e1b751dba2f4f6772a218f07c23675b6d89df7de8"
+    },
+    {
+      "id": "agenda-34",
+      "file": "agenda-34.json",
+      "lane": "A",
+      "sha256": "f5d8b5882382d6e61cda19eaa162c4bff3f2d589c3c4633fff140356d2c07b1e"
+    },
+    {
+      "id": "agenda-35",
+      "file": "agenda-35.json",
+      "lane": "B",
+      "sha256": "7623561672f14f31ce13855e24486a96abe596e8bf9046e44ab7fb9602f002e0"
+    },
+    {
+      "id": "agenda-36",
+      "file": "agenda-36.json",
+      "lane": "B",
+      "sha256": "131d000cfa84d36d1911aa234f799e33c2ce661bebca3f22a31ac02619dc0da4"
+    },
+    {
+      "id": "agenda-37",
+      "file": "agenda-37.json",
+      "lane": "B",
+      "sha256": "f94ab7eea1ce2856f669af21cf65162bfc0aced6ae0df5dbfe4c8cd44e13646c"
+    },
+    {
+      "id": "agenda-38",
+      "file": "agenda-38.json",
+      "lane": "B",
+      "sha256": "8bbd2eccbf05b2df900a9c8a2f4cb35923343b6f77a3a66c6b2a9cff1c8913cb"
+    },
+    {
+      "id": "agenda-39",
+      "file": "agenda-39.json",
+      "lane": "B",
+      "sha256": "cabfdb2b60113e1bda8c311aadb8bcd21d7b69ad26b3fe6a8d3d4026c40f0d9a"
+    },
+    {
+      "id": "agenda-40",
+      "file": "agenda-40.json",
+      "lane": "B",
+      "sha256": "e5d186776d303610a51fbab306a6a652ae84872bdfaa3946588a08b3d16b0679"
+    },
+    {
+      "id": "agenda-41",
+      "file": "agenda-41.json",
+      "lane": "B",
+      "sha256": "f167109bb376cd4eaafb45e6d0f0e275504caced3e734880291b938e7044b561"
+    },
+    {
+      "id": "agenda-42",
+      "file": "agenda-42.json",
+      "lane": "C",
+      "sha256": "d864a0d90a9a4cec0e2e93ab0ba53e2edd642c7dd3ee3b6e30652c6f58cec62b"
+    },
+    {
+      "id": "agenda-43",
+      "file": "agenda-43.json",
+      "lane": "C",
+      "sha256": "8e4c49b6b686c5dce20b8115ac7cc28b4270554435c6d519737bcec417f35b63"
+    },
+    {
+      "id": "agenda-44",
+      "file": "agenda-44.json",
+      "lane": "C",
+      "sha256": "f5a9c5a8c0114253918a203a274375fa3590b14a2dd15016edd8e9215fe1116d"
+    },
+    {
+      "id": "agenda-45",
+      "file": "agenda-45.json",
+      "lane": "B",
+      "sha256": "a67c00c6d41d83702c04d2d2e3bcfe1788260daa17c317f22e7a6cef0e11da04"
+    },
+    {
+      "id": "agenda-46",
+      "file": "agenda-46.json",
+      "lane": "B",
+      "sha256": "57fea1838f7a42c7059063b91b9040022aa48d100ae29d639f0f440b425823cb"
+    },
+    {
+      "id": "agenda-47",
+      "file": "agenda-47.json",
+      "lane": "B",
+      "sha256": "c84d4d2666f1d1e907b14500a05165dce751e36e0b30fa03f8aad666544036d4"
+    },
+    {
+      "id": "agenda-48",
+      "file": "agenda-48.json",
+      "lane": "B",
+      "sha256": "bd9d7459a5953da396d470f370c824a9e84b69b1f292a7291baea5a58cc3a065"
+    }
+  ]
+}

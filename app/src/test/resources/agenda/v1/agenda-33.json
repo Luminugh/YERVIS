@@ -1,0 +1,390 @@
+{
+  "id": "agenda-33",
+  "name": "Cambio de horario de rutina",
+  "lane": "A",
+  "sources": [
+    {
+      "sourceEntryId": "s-33-old",
+      "text": "Los lunes estudio a las 18:00.",
+      "capturedAtEpochMillis": "1791219600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    },
+    {
+      "sourceEntryId": "s-33-new",
+      "text": "Desde ahora los lunes estudio a las 19:00.",
+      "capturedAtEpochMillis": "1792429200000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-33-a",
+      "extractionId": "e-33-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-33-old",
+          "capturedAtEpochMillis": "1791219600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "d70260e46c10cf93ae044314813aa566968f64e0980560c1fcd2db741fc1c3c6",
+          "textLengthUtf16": 30,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 30
+            }
+          ]
+        },
+        {
+          "sourceEntryId": "s-33-new",
+          "capturedAtEpochMillis": "1792429200000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "68ab02d2dfdb7e8bd98f0d03ffbc259fb64a4c22f388a2539bb8b7ea9e27fd13",
+          "textLengthUtf16": 42,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 42
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "antes",
+          "category": "ROUTINE",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Los lunes estudio a las 18:00.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-33-old",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Los lunes estudio a las 18:00.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 30
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "patternKind": {
+              "value": "DECLARED",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-33-old",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Los lunes estudio a las 18:00.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 30
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "recurrence": {
+              "frequency": {
+                "value": "WEEKLY",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-33-old",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "Los lunes estudio a las 18:00.",
+                    "range": {
+                      "startUtf16": 0,
+                      "endUtf16": 30
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "weekdays": [
+                {
+                  "value": "MO",
+                  "evidence": [
+                    {
+                      "sourceEntryId": "s-33-old",
+                      "revision": {
+                        "kind": "ORIGINAL"
+                      },
+                      "quote": "Los lunes estudio a las 18:00.",
+                      "range": {
+                        "startUtf16": 0,
+                        "endUtf16": 30
+                      }
+                    }
+                  ],
+                  "assessment": {
+                    "basis": "EXPLICIT",
+                    "modality": "ASSERTED",
+                    "polarity": "AFFIRMED",
+                    "certaintyValidation": "UNVALIDATED"
+                  }
+                }
+              ],
+              "times": [
+                {
+                  "value": "18:00",
+                  "evidence": [
+                    {
+                      "sourceEntryId": "s-33-old",
+                      "revision": {
+                        "kind": "ORIGINAL"
+                      },
+                      "quote": "18:00",
+                      "range": {
+                        "startUtf16": 24,
+                        "endUtf16": 29
+                      }
+                    }
+                  ],
+                  "assessment": {
+                    "basis": "EXPLICIT",
+                    "modality": "ASSERTED",
+                    "polarity": "AFFIRMED",
+                    "certaintyValidation": "UNVALIDATED"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "proposalId": "nuevo",
+          "category": "ROUTINE",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Desde ahora los lunes estudio a las 19:00.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-33-new",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Desde ahora los lunes estudio a las 19:00.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 42
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "patternKind": {
+              "value": "DECLARED",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-33-new",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Desde ahora los lunes estudio a las 19:00.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 42
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "recurrence": {
+              "frequency": {
+                "value": "WEEKLY",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-33-new",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "Desde ahora los lunes estudio a las 19:00.",
+                    "range": {
+                      "startUtf16": 0,
+                      "endUtf16": 42
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "weekdays": [
+                {
+                  "value": "MO",
+                  "evidence": [
+                    {
+                      "sourceEntryId": "s-33-new",
+                      "revision": {
+                        "kind": "ORIGINAL"
+                      },
+                      "quote": "Desde ahora los lunes estudio a las 19:00.",
+                      "range": {
+                        "startUtf16": 0,
+                        "endUtf16": 42
+                      }
+                    }
+                  ],
+                  "assessment": {
+                    "basis": "EXPLICIT",
+                    "modality": "ASSERTED",
+                    "polarity": "AFFIRMED",
+                    "certaintyValidation": "UNVALIDATED"
+                  }
+                }
+              ],
+              "times": [
+                {
+                  "value": "19:00",
+                  "evidence": [
+                    {
+                      "sourceEntryId": "s-33-new",
+                      "revision": {
+                        "kind": "ORIGINAL"
+                      },
+                      "quote": "19:00",
+                      "range": {
+                        "startUtf16": 36,
+                        "endUtf16": 41
+                      }
+                    }
+                  ],
+                  "assessment": {
+                    "basis": "EXPLICIT",
+                    "modality": "ASSERTED",
+                    "polarity": "AFFIRMED",
+                    "certaintyValidation": "UNVALIDATED"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": [
+            {
+              "value": {
+                "kind": "UPDATES",
+                "targetProposalId": "antes"
+              },
+              "evidence": [
+                {
+                  "sourceEntryId": "s-33-new",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Desde ahora los lunes estudio a las 19:00.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 42
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            }
+          ]
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [],
+  "comparisons": [
+    {
+      "leftDocument": 0,
+      "rightDocument": 0,
+      "left": "antes",
+      "right": "nuevo",
+      "expected": "UPDATE_PROPOSED",
+      "temporalUncertainty": false,
+      "knownLimitation": {
+        "observedKind": "CONFLICT_REQUIRES_REVIEW",
+        "explanation": "patternKind compara también evidencia de otra fuente; conserva conflicto revisable en vez del subtipo esperado."
+      }
+    }
+  ],
+  "expectedRelations": [
+    {
+      "source": "nuevo",
+      "target": "antes",
+      "kind": "UPDATES"
+    }
+  ],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [
+    "2026-10-05",
+    "2026-10-19"
+  ],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Vínculo anterior→nuevo; conserva fuentes/versiones, no cambia estados automáticamente.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

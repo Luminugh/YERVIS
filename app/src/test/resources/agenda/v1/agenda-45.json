@@ -1,0 +1,155 @@
+{
+  "id": "agenda-45",
+  "name": "Idea decisión objetivo",
+  "lane": "B",
+  "sources": [
+    {
+      "sourceEntryId": "s-45",
+      "text": "Mi idea es una agenda. Decidí usar texto primero. Quiero terminar el prototipo.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-45-a",
+      "extractionId": "e-45-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-45",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "645e48f8d48a442f42cbd34ebf29ad555132c2f966e4f0ae4fbc45c076891610",
+          "textLengthUtf16": 79,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 79
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "idea",
+          "category": "IDEA",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "una agenda",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-45",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Mi idea es una agenda",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 21
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            }
+          }
+        },
+        {
+          "proposalId": "decision",
+          "category": "DECISION",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "usar texto primero",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-45",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Decidí usar texto primero",
+                  "range": {
+                    "startUtf16": 23,
+                    "endUtf16": 48
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            }
+          }
+        },
+        {
+          "proposalId": "meta",
+          "category": "GOAL",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "terminar el prototipo",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-45",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Quiero terminar el prototipo",
+                  "range": {
+                    "startUtf16": 50,
+                    "endUtf16": 78
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "DESIRED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Deseo, decisión y propuesta creativa son conceptos distintos.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

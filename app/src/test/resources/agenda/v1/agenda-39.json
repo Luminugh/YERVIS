@@ -1,0 +1,230 @@
+{
+  "id": "agenda-39",
+  "name": "Menciones múltiples mismo evento",
+  "lane": "B",
+  "sources": [
+    {
+      "sourceEntryId": "s-39-a",
+      "text": "Reunión de Atlas el 2026-10-20.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    },
+    {
+      "sourceEntryId": "s-39-b",
+      "text": "La misma reunión de Atlas sigue el 2026-10-20.",
+      "capturedAtEpochMillis": "1792170000000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-39-a",
+      "extractionId": "e-39-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-39-a",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "3190654ebf076d01377301cbbc3c5809bd33cb847bb4272fc5c5ff4d77feed35",
+          "textLengthUtf16": 31,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 31
+            }
+          ]
+        },
+        {
+          "sourceEntryId": "s-39-b",
+          "capturedAtEpochMillis": "1792170000000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "836716800a5eafc274d3908c094b7c9faf0e2a8a54fd08d929a1834f9c04c0b7",
+          "textLengthUtf16": 46,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 46
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "primero",
+          "category": "EVENT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Reunión de Atlas el 2026-10-20.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-39-a",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Reunión de Atlas el 2026-10-20.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 31
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "startsAt": {
+              "expression": {
+                "value": "2026-10-20",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-39-a",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "2026-10-20",
+                    "range": {
+                      "startUtf16": 20,
+                      "endUtf16": 30
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-39-a",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "UNSPECIFIED",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            }
+          }
+        },
+        {
+          "proposalId": "segundo",
+          "category": "EVENT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "La misma reunión de Atlas sigue el 2026-10-20.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-39-b",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "La misma reunión de Atlas sigue el 2026-10-20.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 46
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "startsAt": {
+              "expression": {
+                "value": "2026-10-20",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-39-b",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "2026-10-20",
+                    "range": {
+                      "startUtf16": 35,
+                      "endUtf16": 45
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-39-b",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "UNSPECIFIED",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [],
+  "comparisons": [
+    {
+      "leftDocument": 0,
+      "rightDocument": 0,
+      "left": "primero",
+      "right": "segundo",
+      "expected": "DISTINCT",
+      "temporalUncertainty": false
+    }
+  ],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [
+    "Posible equivalencia requiere revisión"
+  ],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Candidato humano a equivalencia; el comparador conservador no fusiona fuentes distintas.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

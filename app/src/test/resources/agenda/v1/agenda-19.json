@@ -1,0 +1,137 @@
+{
+  "id": "agenda-19",
+  "name": "DST_GAP America/New_York",
+  "lane": "A",
+  "sources": [
+    {
+      "sourceEntryId": "s-19",
+      "text": "Cita 2026-03-08 02:30.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/New_York",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-19-a",
+      "extractionId": "e-19-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-19",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/New_York",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "2fbf52cfc075242ce73e13dad7b15abae297b672602cd64b46fbd5f04177a1ee",
+          "textLengthUtf16": 22,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 22
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "p",
+          "category": "EVENT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Cita 2026-03-08 02:30.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-19",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Cita 2026-03-08 02:30.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 22
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "startsAt": {
+              "expression": {
+                "value": "2026-03-08 02:30",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-19",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "2026-03-08 02:30",
+                    "range": {
+                      "startUtf16": 5,
+                      "endUtf16": 21
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-19",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "UNSPECIFIED",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [
+    {
+      "expression": "2026-03-08 02:30",
+      "status": "INVALID",
+      "localDate": "2026-03-08",
+      "reason": "DST_GAP"
+    }
+  ],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "No elegir automáticamente un instante inexistente o duplicado.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

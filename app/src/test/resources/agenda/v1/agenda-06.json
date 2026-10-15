@@ -1,0 +1,159 @@
+{
+  "id": "agenda-06",
+  "name": "Negación",
+  "lane": "A",
+  "sources": [
+    {
+      "sourceEntryId": "s-06",
+      "text": "No tengo reunión el viernes.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-06-a",
+      "extractionId": "e-06-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-06",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "7cbc3fb21ee7d16c7c87c29f23c044603a75a00850c69a17ebcd7c5968c3154f",
+          "textLengthUtf16": 28,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 28
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "p",
+          "category": "EVENT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "No tengo reunión el viernes.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-06",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "No tengo reunión el viernes.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 28
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "NEGATED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "state": {
+              "value": "UNKNOWN",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-06",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "No tengo reunión el viernes.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 28
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "NEGATED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "startsAt": {
+              "expression": {
+                "value": "el viernes",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-06",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "el viernes",
+                    "range": {
+                      "startUtf16": 17,
+                      "endUtf16": 27
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-06",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "UNSPECIFIED",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [
+    {
+      "expression": "el viernes",
+      "status": "AMBIGUOUS",
+      "localDate": null,
+      "reason": "WEEKDAY_NEEDS_REFERENCE"
+    }
+  ],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Negación no autoriza evento confirmado.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

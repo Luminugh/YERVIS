@@ -1,0 +1,140 @@
+{
+  "id": "agenda-23",
+  "name": "Expresión 5 de marzo",
+  "lane": "C",
+  "sources": [
+    {
+      "sourceEntryId": "s-23",
+      "text": "Reunión 5 de marzo.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-23-a",
+      "extractionId": "e-23-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-23",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "18e4fef8efb383bd77eb84646844096e9d9faefba51bb52b6c6f913e796fe3b7",
+          "textLengthUtf16": 19,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 19
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "p",
+          "category": "EVENT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Reunión 5 de marzo.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-23",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Reunión 5 de marzo.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 19
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "startsAt": {
+              "expression": {
+                "value": "5 de marzo",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-23",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "5 de marzo",
+                    "range": {
+                      "startUtf16": 8,
+                      "endUtf16": 18
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-23",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "UNSPECIFIED",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [
+    {
+      "expression": "5 de marzo",
+      "status": "PARTIALLY_RESOLVED",
+      "localDate": null,
+      "reason": "YEAR_NOT_STATED",
+      "monthDayWithoutYear": "03-05"
+    }
+  ],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [
+    "YEAR_NOT_STATED"
+  ],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Conservar incertidumbre; no imponer año, política u hora.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": true
+  }
+}

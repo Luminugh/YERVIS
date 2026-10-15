@@ -11,10 +11,12 @@ import androidx.compose.ui.test.assertHeightIsAtLeast
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.hasClickAction
 import androidx.compose.ui.test.hasText
+import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performScrollToNode
 import androidx.compose.ui.test.performTouchInput
 import androidx.compose.ui.test.longClick
 import androidx.compose.ui.unit.Density
@@ -60,12 +62,14 @@ class EntryDetailAndAccessibilityTest {
             }
         }
 
+        composeTestRule.onNodeWithTag("entry_detail_list").performScrollToNode(hasTestTag("entry_delete_open_action"))
         composeTestRule.onNodeWithText("Eliminar recuerdo").performClick()
         composeTestRule.onNodeWithText("¿Eliminar este recuerdo?").assertIsDisplayed()
         composeTestRule.onNodeWithText("Cancelar").performClick()
 
         assertEquals(0, deleteRequests)
         assertEquals(1, cancelRequests)
+        composeTestRule.onNodeWithTag("entry_detail_list").performScrollToNode(hasTestTag("entry_current_text"))
         composeTestRule.onNodeWithTag("entry_current_text").assertIsDisplayed()
     }
 
@@ -91,6 +95,7 @@ class EntryDetailAndAccessibilityTest {
             }
         }
 
+        composeTestRule.onNodeWithTag("entry_detail_list").performScrollToNode(hasTestTag("entry_delete_open_action"))
         composeTestRule.onNodeWithText("Eliminar recuerdo").performClick()
         composeTestRule.onNodeWithText("¿Eliminar este recuerdo?").assertIsDisplayed()
         composeTestRule.onNodeWithText("Eliminar", useUnmergedTree = true).performClick()
@@ -181,14 +186,8 @@ class EntryDetailAndAccessibilityTest {
         }
         composeTestRule.onNode(hasText("Recuerdos") and isHeading()).assertIsDisplayed()
         composeTestRule.onNode(hasText("Domingo 11 de octubre") and isHeading()).assertIsDisplayed()
-        val memoryTab = composeTestRule.onNodeWithTag("bottom_nav_memory")
-        memoryTab.assertHeightIsAtLeast(48.dp).assertIsDisplayed()
-        val buttonHeightPx = memoryTab.fetchSemanticsNode().size.height
-        val maxButtonHeightPx = with(composeTestRule.density) { 80.dp.roundToPx() }
-        assertTrue(
-            "Navigation selection background must stay within the bottom bar",
-            buttonHeightPx <= maxButtonHeightPx,
-        )
+        composeTestRule.onNodeWithTag("timeline_entry_${DemoMemoryFixtures.entries.first().id}")
+            .assertHeightIsAtLeast(48.dp).assertIsDisplayed()
     }
 
     @Test

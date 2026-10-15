@@ -1,0 +1,214 @@
+{
+  "id": "agenda-12",
+  "name": "Recordatorio explícito",
+  "lane": "A",
+  "sources": [
+    {
+      "sourceEntryId": "s-12",
+      "text": "Recuérdame llamar mañana.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-12-a",
+      "extractionId": "e-12-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-12",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "4a3a3260214136247f14877f2b37d6192301fca5afce29c05f4ca84d491ddf19",
+          "textLengthUtf16": 25,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 25
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "llamar",
+          "category": "TASK",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "llamar",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-12",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "llamar",
+                  "range": {
+                    "startUtf16": 11,
+                    "endUtf16": 17
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            }
+          }
+        },
+        {
+          "proposalId": "p",
+          "category": "REMINDER",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Recuérdame llamar mañana.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-12",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Recuérdame llamar mañana.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 25
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "target": {
+              "value": {
+                "proposalId": "llamar"
+              },
+              "evidence": [
+                {
+                  "sourceEntryId": "s-12",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "llamar",
+                  "range": {
+                    "startUtf16": 11,
+                    "endUtf16": 17
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "request": {
+              "value": "REQUESTED",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-12",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Recuérdame",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 10
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "trigger": {
+              "kind": "AT",
+              "at": {
+                "expression": {
+                  "value": "mañana",
+                  "evidence": [
+                    {
+                      "sourceEntryId": "s-12",
+                      "revision": {
+                        "kind": "ORIGINAL"
+                      },
+                      "quote": "mañana",
+                      "range": {
+                        "startUtf16": 18,
+                        "endUtf16": 24
+                      }
+                    }
+                  ],
+                  "assessment": {
+                    "basis": "EXPLICIT",
+                    "modality": "ASSERTED",
+                    "polarity": "AFFIRMED",
+                    "certaintyValidation": "UNVALIDATED"
+                  }
+                },
+                "anchor": {
+                  "sourceEntryId": "s-12",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  }
+                },
+                "precision": "UNSPECIFIED",
+                "uncertainty": "UNRESOLVED",
+                "resolved": null
+              }
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [
+    {
+      "expression": "mañana",
+      "status": "RESOLVED",
+      "localDate": "2026-10-16"
+    }
+  ],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Solicitud explícita independiente de ejecutar una alarma.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

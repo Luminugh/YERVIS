@@ -1,0 +1,214 @@
+{
+  "id": "agenda-48",
+  "name": "Hábito deseado y hecho realizado",
+  "lane": "B",
+  "sources": [
+    {
+      "sourceEntryId": "s-48",
+      "text": "Quiero caminar cada día. Ayer caminé.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-48-a",
+      "extractionId": "e-48-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-48",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "c37340e34c2823045a6d0a4fbb6e0264784e783fad34079d4b45f367c555a412",
+          "textLengthUtf16": 37,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 37
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "habito",
+          "category": "HABIT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "caminar cada día",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-48",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Quiero caminar cada día",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 23
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "DESIRED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "desiredFrequency": {
+              "frequency": {
+                "value": "DAILY",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-48",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "cada día",
+                    "range": {
+                      "startUtf16": 15,
+                      "endUtf16": 23
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              }
+            }
+          }
+        },
+        {
+          "proposalId": "p",
+          "category": "FACT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Ayer caminé",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-48",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Ayer caminé",
+                  "range": {
+                    "startUtf16": 25,
+                    "endUtf16": 36
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "factKind": {
+              "value": "OCCURRENCE",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-48",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Quiero caminar cada día. Ayer caminé.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 37
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "attribution": {
+              "kind": "CAPTURE_AUTHOR"
+            },
+            "occurredAt": {
+              "expression": {
+                "value": "Ayer",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-48",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "Ayer",
+                    "range": {
+                      "startUtf16": 25,
+                      "endUtf16": 29
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-48",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "UNSPECIFIED",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [
+    {
+      "expression": "Ayer",
+      "status": "RESOLVED",
+      "localDate": "2026-10-14"
+    }
+  ],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Una ocurrencia no demuestra adherencia diaria.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

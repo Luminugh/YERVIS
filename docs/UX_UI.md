@@ -6,7 +6,7 @@ Una memoria personal que se entiende a primera vista: menos «chat», más conte
 ## Navegación inicial
 1. **Hoy / Inicio:** resumen discreto del día, acceso de captura, pendientes próximos, fragmentos recientes.
 2. **Memoria / Timeline:** entradas agrupadas por día; búsqueda y filtros; acceso a originales.
-3. **Capturar:** composición de texto; más adelante micrófono/estado de transcripción.
+3. **Capturar:** composición de texto y voz local con estados reales de transcripción y revisión explícita.
 4. **Ajustes:** tema, personalización, voz, privacidad y proveedores (los futuros controles deben ser honestos, no decorativos).
 No crear una navegación de 7+ pestañas en el MVP.
 
@@ -51,3 +51,17 @@ Primero usar estados y datos sintéticos con contrato estable suministrado por C
 - https://developer.android.com/develop/ui/compose/designsystems/material3
 - https://developer.android.com/develop/ui/compose/animation/introduction
 - https://developer.android.com/develop/ui/compose/accessibility
+
+## Renovación extraordinaria UX — 15-10-2026
+
+Esta mejora autorizada después de F4.10 **no crea una fase ni cambia las 123 tareas**. Detalle de decisiones y evidencia: [renovación visual experimental](IMPLEMENTACIONES/UX-renovacion-visual-experimental.md). No declara F6 terminada.
+
+- Memoria tranquila sigue siendo el estilo principal. Material You está activo por defecto en API 31+; se puede elegir teal y tema sistema/claro/oscuro.
+- Ajustes → Apariencia incluye Clásico YERVIS/Cristal experimental, espaciado cómodo/compacto y movimiento del sistema/reducido. Las preferencias se guardan en SharedPreferences local exclusivo, fuera de Room y de la configuración de voz.
+- Cristal utiliza transparencia tonal, borde gradual y elevación ligera solo en barras y paneles destacados. Editor, lectura y evidencia permanecen sólidos. No hay backdrop blur, shaders ni bucles decorativos.
+- Navegación: cuatro destinos con icono y etiqueta; la cápsula toma la altura real de la fila y admite fuente grande. La selección tiene semántica de pestaña; el movimiento respeta RTL y reducción del sistema.
+- Hoy muestra únicamente recuerdos locales reales y su recuento, sin tareas o métricas inventadas. Memoria no presenta búsqueda/filtros hasta que exista su implementación real.
+- Timeline y detalle usan claves y tipos estables, fechas recordadas e historial lazy. El original no se repite cuando coincide con la versión actual.
+- El editor no se envuelve en animaciones de estado. Los parciales de voz no animan el tamaño del panel; permiso y revisión son adaptables y desplazables.
+- Propuestas mantiene las once categorías reales y la honestidad de la demostración debug: editar/confirmar/rechazar localmente no equivale a guardar. Evidencia/fuentes se inspeccionan mediante expansión con estado accesible.
+- Duraciones: navegación 200 ms, expansión localizada 180–200 ms, feedback nativo de controles. Un observador del ajuste Android actualiza la reducción de movimiento sin reiniciar.

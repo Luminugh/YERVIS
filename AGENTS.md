@@ -3,10 +3,10 @@
 > Contexto estable para OpenCode Go y Codex. Mantener conciso. Leer los documentos específicos solo cuando correspondan a la tarea.
 
 ## Propósito
-YERVIS es el nombre temporal del asistente personal de memoria para Android/Samsung: captura por texto o voz, convierte voz a texto **localmente**, conserva el original, organiza tareas/eventos/ideas por fechas y permite recuperar información con privacidad y control del usuario. No es un chatbot genérico ni una app de notas convencional.
+YERVIS es el nombre temporal del asistente personal de memoria para Android/Samsung: captura por texto o voz, convierte voz a texto **localmente**, conserva el original y organiza información con privacidad y control del usuario. Rutinas, eventos, tareas, personas y hechos son ejes principales de la futura sección Agenda; las ideas son complementarias. No es un chatbot genérico ni una app de notas convencional.
 
 ## Estado actual verificado (14-10-2026)
-- Repositorio local del usuario: `C:\Users\Rick\Documents\GitHub\YERVIZ` (directorio renombrado por el usuario).
+- Raíz Git comprobada el 15-10-2026: `C:\Users\Rick\Documents\GitHub\YERVIS`. Las rutas YEZVI/YERVIZ de informes anteriores son históricas.
 - Nombre visible temporal actual: **YERVIS**. Se conserva `applicationId`/namespace `com.yezvi.assistant`, el paquete Kotlin y la identidad de Room para preservar instalaciones, datos y schemas existentes; no renombrarlos como parte de esta actualización de marca.
 - `applicationId`/namespace conservados: `com.yezvi.assistant`.
 - Kotlin + Jetpack Compose + Gradle Kotlin DSL; `assembleDebug`, `testDebugUnitTest` y `assembleDebugAndroidTest` dieron `BUILD SUCCESSFUL` en los ajustes de interfaz del 14-10-2026.
@@ -40,7 +40,7 @@ YERVIS es el nombre temporal del asistente personal de memoria para Android/Sams
 ## Verificación antes de declarar terminado
 - `./gradlew.bat assembleDebug` (Windows PowerShell: `.\gradlew.bat assembleDebug`).
 - Tests correspondientes: `.\gradlew.bat testDebugUnitTest`; `connectedDebugAndroidTest` cuando existan pruebas instrumentadas y emulador disponible.
-- Validación visual en el Pixel 8; informar expresamente si no pudo ejecutarse.
+- Preferencia vigente de pruebas: Samsung físico mediante ADB Wi-Fi; Pixel 8 para las demás pruebas/inspección visual. No exigir USB ni cortar Wi-Fi del Samsung sin una vía manual acordada; informar limitaciones reales. Para documentación sin cambios de código/configuración no ejecutar Gradle ni pruebas de dispositivo innecesarias.
 - Reportar archivos modificados, comportamiento verificado, pruebas realizadas, errores, decisiones y próximo handoff.
 - Antes de iniciar una nueva sesión, leer `docs/ESTADO.md` y la tarea activa de `ROADMAP.md`.
 

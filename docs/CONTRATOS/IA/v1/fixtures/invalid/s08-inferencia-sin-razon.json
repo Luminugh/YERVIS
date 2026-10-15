@@ -1,0 +1,450 @@
+{
+  "schemaVersion": "1.0.0",
+  "requestId": "request-03-patron-observado",
+  "extractionId": "extraction-03-patron-observado",
+  "offsetUnit": "UTF16_CODE_UNIT",
+  "sourceSnapshots": [
+    {
+      "sourceEntryId": "s-observed-0",
+      "revision": {
+        "kind": "ORIGINAL"
+      },
+      "sourceType": "TEXT",
+      "capturedAtEpochMillis": "1791219600000",
+      "timezoneId": "America/Lima",
+      "textSha256": "01dc25c9fa7c8c1fc3e5a10c52bfdda4dc49578fd07eed211c886dff245a283c",
+      "textLengthUtf16": 32,
+      "authorizedRanges": [
+        {
+          "startUtf16": 0,
+          "endUtf16": 32
+        }
+      ]
+    },
+    {
+      "sourceEntryId": "s-observed-1",
+      "revision": {
+        "kind": "ORIGINAL"
+      },
+      "sourceType": "TEXT",
+      "capturedAtEpochMillis": "1791824400000",
+      "timezoneId": "America/Lima",
+      "textSha256": "1a4403ffa69c7125cfe0cfc95f8bdd983de3b03436a37de5ab875390f4d49622",
+      "textLengthUtf16": 32,
+      "authorizedRanges": [
+        {
+          "startUtf16": 0,
+          "endUtf16": 32
+        }
+      ]
+    },
+    {
+      "sourceEntryId": "s-observed-2",
+      "revision": {
+        "kind": "ORIGINAL"
+      },
+      "sourceType": "TEXT",
+      "capturedAtEpochMillis": "1792429200000",
+      "timezoneId": "America/Lima",
+      "textSha256": "23f6f52fc5c8049dd14f99327843de6d314c4fcd2edcaefa7fd3f788ed576841",
+      "textLengthUtf16": 32,
+      "authorizedRanges": [
+        {
+          "startUtf16": 0,
+          "endUtf16": 32
+        }
+      ]
+    }
+  ],
+  "outcome": "COMPLETE",
+  "proposals": [
+    {
+      "proposalId": "patron",
+      "category": "ROUTINE",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "Estudio por la tarde en las tres fechas registradas",
+          "evidence": [
+            {
+              "sourceEntryId": "s-observed-0",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "2026-10-05 estudié por la tarde.",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 32
+              }
+            },
+            {
+              "sourceEntryId": "s-observed-1",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "2026-10-12 estudié por la tarde.",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 32
+              }
+            },
+            {
+              "sourceEntryId": "s-observed-2",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "2026-10-19 estudié por la tarde.",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 32
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "INFERRED",
+            "modality": "UNCERTAIN",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED",
+            "inferenceExplanation": "Síntesis limitada a las fuentes citadas."
+          }
+        },
+        "patternKind": {
+          "value": "OBSERVED",
+          "evidence": [
+            {
+              "sourceEntryId": "s-observed-0",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "2026-10-05 estudié por la tarde.",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 32
+              }
+            },
+            {
+              "sourceEntryId": "s-observed-1",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "2026-10-12 estudié por la tarde.",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 32
+              }
+            },
+            {
+              "sourceEntryId": "s-observed-2",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "2026-10-19 estudié por la tarde.",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 32
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "INFERRED",
+            "modality": "UNCERTAIN",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "recurrence": {
+          "frequency": {
+            "value": "WEEKLY",
+            "evidence": [
+              {
+                "sourceEntryId": "s-observed-0",
+                "revision": {
+                  "kind": "ORIGINAL"
+                },
+                "quote": "2026-10-05 estudié por la tarde.",
+                "range": {
+                  "startUtf16": 0,
+                  "endUtf16": 32
+                }
+              },
+              {
+                "sourceEntryId": "s-observed-1",
+                "revision": {
+                  "kind": "ORIGINAL"
+                },
+                "quote": "2026-10-12 estudié por la tarde.",
+                "range": {
+                  "startUtf16": 0,
+                  "endUtf16": 32
+                }
+              },
+              {
+                "sourceEntryId": "s-observed-2",
+                "revision": {
+                  "kind": "ORIGINAL"
+                },
+                "quote": "2026-10-19 estudié por la tarde.",
+                "range": {
+                  "startUtf16": 0,
+                  "endUtf16": 32
+                }
+              }
+            ],
+            "assessment": {
+              "basis": "INFERRED",
+              "modality": "UNCERTAIN",
+              "polarity": "AFFIRMED",
+              "certaintyValidation": "UNVALIDATED",
+              "inferenceExplanation": "Las fechas explícitas están separadas siete días; no prueba continuidad fuera del periodo."
+            }
+          }
+        },
+        "observedPeriod": {
+          "from": {
+            "expression": {
+              "value": "2026-10-05",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-observed-0",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "2026-10-05",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 10
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "anchor": {
+              "sourceEntryId": "s-observed-0",
+              "revision": {
+                "kind": "ORIGINAL"
+              }
+            },
+            "precision": "DAY",
+            "uncertainty": "UNRESOLVED",
+            "resolved": null
+          },
+          "to": {
+            "expression": {
+              "value": "2026-10-19",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-observed-2",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "2026-10-19",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 10
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "anchor": {
+              "sourceEntryId": "s-observed-2",
+              "revision": {
+                "kind": "ORIGINAL"
+              }
+            },
+            "precision": "DAY",
+            "uncertainty": "UNRESOLVED",
+            "resolved": null
+          }
+        },
+        "occurrences": [
+          {
+            "occurrenceId": "o0",
+            "at": {
+              "expression": {
+                "value": "2026-10-05",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-observed-0",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "2026-10-05",
+                    "range": {
+                      "startUtf16": 0,
+                      "endUtf16": 10
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-observed-0",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "DAY",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            },
+            "state": {
+              "value": "COMPLETED",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-observed-0",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "estudié por la tarde",
+                  "range": {
+                    "startUtf16": 11,
+                    "endUtf16": 31
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            }
+          },
+          {
+            "occurrenceId": "o1",
+            "at": {
+              "expression": {
+                "value": "2026-10-12",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-observed-1",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "2026-10-12",
+                    "range": {
+                      "startUtf16": 0,
+                      "endUtf16": 10
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-observed-1",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "DAY",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            },
+            "state": {
+              "value": "COMPLETED",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-observed-1",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "estudié por la tarde",
+                  "range": {
+                    "startUtf16": 11,
+                    "endUtf16": 31
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            }
+          },
+          {
+            "occurrenceId": "o2",
+            "at": {
+              "expression": {
+                "value": "2026-10-19",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-observed-2",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "2026-10-19",
+                    "range": {
+                      "startUtf16": 0,
+                      "endUtf16": 10
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-observed-2",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "DAY",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            },
+            "state": {
+              "value": "COMPLETED",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-observed-2",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "estudié por la tarde",
+                  "range": {
+                    "startUtf16": 11,
+                    "endUtf16": 31
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "issues": []
+}

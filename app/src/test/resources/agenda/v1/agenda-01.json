@@ -1,0 +1,161 @@
+{
+  "id": "agenda-01",
+  "name": "Hecho anterior a captura",
+  "lane": "A",
+  "sources": [
+    {
+      "sourceEntryId": "s-01",
+      "text": "Ayer entregué el informe.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-01-a",
+      "extractionId": "e-01-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-01",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "bbf24bdce2d216d5c57deb78118232f8ca0083006479e20cd6e839c6d0fb5c56",
+          "textLengthUtf16": 25,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 25
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "p",
+          "category": "FACT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Ayer entregué el informe.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-01",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Ayer entregué el informe.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 25
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "factKind": {
+              "value": "OCCURRENCE",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-01",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Ayer entregué el informe.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 25
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "attribution": {
+              "kind": "CAPTURE_AUTHOR"
+            },
+            "occurredAt": {
+              "expression": {
+                "value": "Ayer",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-01",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "Ayer",
+                    "range": {
+                      "startUtf16": 0,
+                      "endUtf16": 4
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-01",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "UNSPECIFIED",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [
+    {
+      "expression": "Ayer",
+      "status": "RESOLVED",
+      "localDate": "2026-10-14"
+    }
+  ],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Ocurrió el día anterior; captura no equivale a ocurrencia.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

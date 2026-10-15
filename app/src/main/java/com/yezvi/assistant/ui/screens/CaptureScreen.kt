@@ -13,6 +13,8 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -21,14 +23,17 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -37,7 +42,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -47,14 +52,20 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.heading
+import androidx.compose.ui.semantics.LiveRegionMode
+import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.TextRange
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -78,7 +89,10 @@ import com.yezvi.assistant.presentation.capture.resolveMicrophonePermissionStatu
 import com.yezvi.assistant.presentation.capture.shouldOfferMicrophoneSettings
 import com.yezvi.assistant.presentation.actions.AppDestination
 import com.yezvi.assistant.presentation.actions.MemoryUiCallbacks
-import com.yezvi.assistant.ui.navigation.YezviBottomBar
+import com.yezvi.assistant.ui.components.YervisIcon
+import com.yezvi.assistant.ui.components.YervisPanel
+import com.yezvi.assistant.ui.components.YervisSymbol
+import com.yezvi.assistant.ui.theme.LocalVisualMetrics
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -96,8 +110,14 @@ internal fun CaptureScreen(
     viewModel: CaptureViewModel,
     voiceEngineFactory: (Lifecycle, CoroutineScope) -> SpeechToTextEngine,
     voicePermissionCheck: (() -> Boolean)? = null,
+    onNavigationHandlerChanged: (((AppDestination) -> Unit)?) -> Unit = {},
+    onEditorFocusChanged: (Boolean) -> Unit = {},
 ) {
+    val metrics = LocalVisualMetrics.current
     var draft by rememberSaveable { mutableStateOf("") }
+    var editorValue by rememberSaveable(stateSaver = TextFieldValue.Saver) {
+        mutableStateOf(TextFieldValue(""))
+    }
     var reviewInput by remember { mutableStateOf<CaptureInput?>(null) }
     var reviewInputIsVoice by remember { mutableStateOf(false) }
     var reviewInputHasMixedOrigin by remember { mutableStateOf(false) }
@@ -156,7 +176,7 @@ internal fun CaptureScreen(
     val hasVoiceCandidate = voiceState is VoiceTranscriptDraftState.Candidate ||
         voiceState is VoiceTranscriptDraftState.AwaitingTextDraftDecision ||
         voiceState is VoiceTranscriptDraftState.SaveFailed
-    val saveState by viewModel.uiState.collectAsState()
+    val saveState by viewModel.uiState.collectAsStateWithLifecycle()
     val reviewSaveState = if (reviewInputHasMixedOrigin) {
         CaptureSaveState.Idle
     } else {
@@ -177,6 +197,34 @@ internal fun CaptureScreen(
                 }
             }
         }
+    }
+
+    val currentBottomNavigationRequest = rememberUpdatedState<(AppDestination) -> Unit> { destination ->
+        if (!isSaving) {
+            scope.launch {
+                val shouldConfirmDiscard = draft.isNotBlank() || voiceCandidate != null || isVoiceActive
+                if (destination != AppDestination.CAPTURE && shouldConfirmDiscard) {
+                    pendingNavigation = destination
+                    showDiscardDialog = true
+                } else {
+                    if (destination != AppDestination.CAPTURE) {
+                        voiceStartJob?.cancel()
+                        voiceCoordinator.discard()
+                    }
+                    callbacks.onNavigateTo(destination)
+                }
+            }
+        }
+    }
+    val stableBottomNavigationRequest = remember {
+        { destination: AppDestination -> currentBottomNavigationRequest.value(destination) }
+    }
+    SideEffect { onNavigationHandlerChanged(stableBottomNavigationRequest) }
+    DisposableEffect(onNavigationHandlerChanged) {
+        onDispose { onNavigationHandlerChanged(null) }
+    }
+    DisposableEffect(onEditorFocusChanged) {
+        onDispose { onEditorFocusChanged(false) }
     }
 
     DisposableEffect(lifecycleOwner, voiceCoordinator) {
@@ -200,6 +248,15 @@ internal fun CaptureScreen(
     LaunchedEffect(saveState, reviewInput) {
         if (reviewSaveState is CaptureSaveState.Saved) {
             draft = ""
+        }
+    }
+
+    LaunchedEffect(displayedDraft) {
+        if (editorValue.text != displayedDraft) {
+            editorValue = TextFieldValue(
+                text = displayedDraft,
+                selection = TextRange(displayedDraft.length),
+            )
         }
     }
 
@@ -266,12 +323,17 @@ internal fun CaptureScreen(
     if (showDiscardDialog) {
         DiscardDialog(
             onConfirm = {
-                callbacks.onNavigateTo(pendingNavigation ?: AppDestination.TODAY)
-                pendingNavigation = null
-                draft = ""
-                reviewInput = null
-                showReviewDialog = false
-                showDiscardDialog = false
+                scope.launch {
+                    voiceStartJob?.cancel()
+                    voiceCoordinator.discard()
+                    callbacks.onNavigateTo(pendingNavigation ?: AppDestination.TODAY)
+                    pendingNavigation = null
+                    draft = ""
+                    editorValue = TextFieldValue("")
+                    reviewInput = null
+                    showReviewDialog = false
+                    showDiscardDialog = false
+                }
             },
             onDismiss = {
                 pendingNavigation = null
@@ -281,6 +343,7 @@ internal fun CaptureScreen(
     }
 
     Scaffold(
+        containerColor = Color.Transparent,
         topBar = {
             TopAppBar(
                 title = {
@@ -292,8 +355,7 @@ internal fun CaptureScreen(
             )
         },
         bottomBar = {
-            Column(modifier = Modifier.imePadding()) {
-                CaptureActionBar(
+            CaptureActionBar(
                     draft = displayedDraft,
                     clearLabel = if (voiceCandidate != null) {
                         R.string.capture_voice_discard_review
@@ -302,6 +364,8 @@ internal fun CaptureScreen(
                     },
                     enabled = !isSaving && !isVoiceActive && !voiceCancelling && voiceDecision == null,
                     onReview = {
+                        focusManager.clearFocus()
+                        keyboard?.hide()
                         if (voiceCandidate != null) {
                             reviewInput = CaptureInput(
                                 rawText = voiceCandidate.editableText,
@@ -333,33 +397,20 @@ internal fun CaptureScreen(
                             reviewInputHasMixedOrigin = false
                         }
                     },
-                )
-                YezviBottomBar(
-                    currentDestination = AppDestination.CAPTURE,
-                    onNavigateTo = { destination ->
-                        if (!isSaving) {
-                            scope.launch {
-                                if (destination != AppDestination.CAPTURE) {
-                                    voiceStartJob?.cancel()
-                                    voiceCoordinator.discard()
-                                }
-                                if (draft.isNotBlank() && destination != AppDestination.CAPTURE) {
-                                    pendingNavigation = destination
-                                    showDiscardDialog = true
-                                } else {
-                                    callbacks.onNavigateTo(destination)
-                                }
-                            }
-                        }
-                    },
-                )
-            }
+                modifier = Modifier.imePadding(),
+            )
         },
     ) { innerPadding ->
         Column(
             modifier = Modifier.fillMaxSize().padding(innerPadding)
                 .verticalScroll(rememberScrollState()),
         ) {
+            Text(
+                text = stringResource(R.string.ux_capture_subtitle),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(horizontal = metrics.screenPadding, vertical = 4.dp),
+            )
             voiceDecision?.let { pending ->
                 VoiceDraftDecisionDialog(
                     decision = pending,
@@ -385,8 +436,18 @@ internal fun CaptureScreen(
                         keyboard?.hide()
                         voiceStopRequested = false
                         val textSnapshot = draft
+                        val continuation = (voiceState as? VoiceTranscriptDraftState.Candidate)?.draft
+                        val selection = editorValue.selection
                         val job = scope.launch(start = CoroutineStart.LAZY) {
-                            voiceCoordinator.start(existingTextDraft = textSnapshot)
+                            if (continuation != null) {
+                                voiceCoordinator.continueAt(
+                                    draft = continuation,
+                                    selectionStart = selection.min,
+                                    selectionEnd = selection.max,
+                                )
+                            } else {
+                                voiceCoordinator.start(existingTextDraft = textSnapshot)
+                            }
                         }
                         voiceStartJob = job
                         job.start()
@@ -403,7 +464,7 @@ internal fun CaptureScreen(
                 onCancel = cancelVoice,
                 onPause = { scope.launch { voiceCoordinator.pause() } },
                 onResume = { scope.launch { voiceCoordinator.resume() } },
-                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                modifier = Modifier.padding(horizontal = metrics.screenPadding, vertical = 8.dp),
             )
             VoicePermissionControl(
                 hasRecordAudioPermission = { currentPermissionCheck() },
@@ -413,14 +474,15 @@ internal fun CaptureScreen(
                 },
             )
             OutlinedTextField(
-                value = displayedDraft,
+                value = editorValue,
                 onValueChange = {
+                    editorValue = it
                     if (voiceCandidateEditable) {
-                        voiceCoordinator.editText(it)
+                        voiceCoordinator.editText(it.text)
                     } else {
-                        draft = it
+                        draft = it.text
                     }
-                    if (reviewInput?.rawText != it) {
+                    if (reviewInput?.rawText != it.text) {
                         reviewInput = null
                         reviewInputIsVoice = false
                         reviewInputHasMixedOrigin = false
@@ -428,8 +490,8 @@ internal fun CaptureScreen(
                 },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp)
-                    .imePadding()
+                    .padding(horizontal = metrics.screenPadding, vertical = metrics.itemSpacing)
+                    .onFocusChanged { onEditorFocusChanged(it.isFocused) }
                     .testTag("capture_text_field"),
                 enabled = !isSaving && !isVoiceActive && !voiceCancelling &&
                     !showReviewDialog && voiceDecision == null &&
@@ -437,7 +499,15 @@ internal fun CaptureScreen(
                 label = { Text(text = stringResource(R.string.capture_label)) },
                 placeholder = { Text(text = stringResource(R.string.capture_hint)) },
                 supportingText = { Text(text = stringResource(R.string.capture_draft_notice)) },
-                minLines = 6,
+                shape = MaterialTheme.shapes.large,
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedContainerColor = MaterialTheme.colorScheme.surface,
+                    unfocusedContainerColor = MaterialTheme.colorScheme.surface,
+                    disabledContainerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+                    unfocusedBorderColor = MaterialTheme.colorScheme.outlineVariant,
+                ),
+                textStyle = MaterialTheme.typography.bodyLarge,
+                minLines = 7,
                 maxLines = Int.MAX_VALUE,
                 keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Default),
             )
@@ -445,6 +515,7 @@ internal fun CaptureScreen(
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun CaptureActionBar(
     draft: String,
@@ -454,31 +525,32 @@ private fun CaptureActionBar(
     onClear: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Surface(
-        modifier = modifier.fillMaxWidth(),
-        color = MaterialTheme.colorScheme.surfaceContainerHigh,
-        tonalElevation = 2.dp,
+    val metrics = LocalVisualMetrics.current
+    YervisPanel(
+        modifier = modifier.fillMaxWidth().padding(horizontal = metrics.screenPadding, vertical = 8.dp),
+        highlighted = true,
     ) {
-        Row(
+        FlowRow(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 8.dp),
-            horizontalArrangement = Arrangement.spacedBy(16.dp, Alignment.End),
-            verticalAlignment = Alignment.CenterVertically,
+                .padding(horizontal = 12.dp, vertical = 8.dp),
+            horizontalArrangement = Arrangement.spacedBy(12.dp, Alignment.End),
+            verticalArrangement = Arrangement.spacedBy(4.dp),
         ) {
             TextButton(
                 onClick = onClear,
                 enabled = draft.isNotBlank() && enabled,
-                modifier = Modifier.testTag("capture_clear_action"),
+                modifier = Modifier.heightIn(min = 48.dp).testTag("capture_clear_action"),
             ) {
                 Text(text = stringResource(clearLabel))
             }
             Button(
                 onClick = onReview,
                 enabled = draft.isNotBlank() && enabled,
-                modifier = Modifier.testTag("capture_review_action"),
+                modifier = Modifier.heightIn(min = 48.dp).testTag("capture_review_action"),
             ) {
                 Text(text = stringResource(R.string.capture_review))
+                YervisIcon(YervisSymbol.Next, modifier = Modifier.padding(start = 8.dp).size(18.dp))
             }
         }
     }
@@ -490,6 +562,7 @@ private fun VoicePermissionControl(
     persistPermissionHistory: Boolean,
     onPermissionRevoked: () -> Unit,
 ) {
+    val metrics = LocalVisualMetrics.current
     val context = LocalContext.current
     val activity = remember(context) { context.findActivity() }
     val lifecycleOwner = LocalLifecycleOwner.current
@@ -583,21 +656,30 @@ private fun VoicePermissionControl(
         MicrophonePermissionStatus.REVOKED -> R.string.capture_voice_permission_revoked
     }
 
-    Row(
+    Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 4.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-        verticalAlignment = Alignment.CenterVertically,
+            .padding(horizontal = metrics.screenPadding, vertical = 4.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
-        Text(
-            text = stringResource(statusMessage),
-            modifier = Modifier
-                .weight(1f)
-                .testTag("capture_voice_permission_status"),
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalAlignment = Alignment.Top,
+        ) {
+            YervisIcon(
+                YervisSymbol.Shield,
+                modifier = Modifier.size(18.dp),
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Text(
+                text = stringResource(statusMessage),
+                modifier = Modifier.weight(1f).testTag("capture_voice_permission_status").semantics {
+                    liveRegion = LiveRegionMode.Polite
+                },
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
 
         if (permissionStatus != MicrophonePermissionStatus.GRANTED) {
             val actionLabel = when {
@@ -621,7 +703,7 @@ private fun VoicePermissionControl(
                         permissionLauncher.launch(Manifest.permission.RECORD_AUDIO)
                     }
                 },
-                modifier = Modifier.testTag("capture_voice_permission_button"),
+                modifier = Modifier.heightIn(min = 48.dp).testTag("capture_voice_permission_button"),
             ) {
                 Text(text = stringResource(actionLabel))
             }
@@ -662,22 +744,36 @@ private fun ReviewDialog(
     onDismiss: () -> Unit,
 ) {
     val isSaving = saveState is CaptureSaveState.Saving
+    val reviewDate = remember(input.capturedAtEpochMillis, input.timezoneId) {
+        formatReviewDate(input.capturedAtEpochMillis, input.timezoneId)
+    }
+    val statusMessage = when {
+        blockedMessage != null -> R.string.ux_capture_save_blocked
+        else -> when (saveState) {
+            CaptureSaveState.Idle -> R.string.capture_review_notice
+            is CaptureSaveState.Saving -> R.string.capture_saving_status
+            is CaptureSaveState.Saved -> R.string.capture_saved_status
+            is CaptureSaveState.Error -> R.string.capture_failed_status
+        }
+    }
     AlertDialog(
         onDismissRequest = { if (!isSaving) onDismiss() },
         title = { Text(text = stringResource(R.string.capture_review_title)) },
         text = {
-            Column {
-                Text(
-                    text = input.rawText,
-                    style = MaterialTheme.typography.bodyLarge,
-                    modifier = Modifier.testTag("capture_review_body"),
-                )
+            Column(modifier = Modifier.heightIn(max = 420.dp).verticalScroll(rememberScrollState())) {
+                SelectionContainer {
+                    Text(
+                        text = input.rawText,
+                        style = MaterialTheme.typography.bodyLarge,
+                        modifier = Modifier.testTag("capture_review_body"),
+                    )
+                }
                 Spacer(modifier = Modifier.height(16.dp))
                 Text(
                     text = stringResource(
                         R.string.capture_review_meta,
                         sourceLabel,
-                        formatReviewDate(input.capturedAtEpochMillis, input.timezoneId),
+                        reviewDate,
                         input.timezoneId,
                     ),
                     style = MaterialTheme.typography.bodySmall,
@@ -693,22 +789,43 @@ private fun ReviewDialog(
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                 }
-                Text(
-                    text = stringResource(
-                        when {
-                            blockedMessage != null -> R.string.capture_voice_mixed_origin_blocked
-                            else -> when (saveState) {
-                            CaptureSaveState.Idle -> R.string.capture_review_notice
-                            is CaptureSaveState.Saving -> R.string.capture_saving_status
-                            is CaptureSaveState.Saved -> R.string.capture_saved_status
-                            is CaptureSaveState.Error -> R.string.capture_failed_status
-                            }
-                        },
-                    ),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.testTag("capture_save_status"),
-                )
+                Surface(
+                    color = when {
+                        blockedMessage != null || saveState is CaptureSaveState.Error -> MaterialTheme.colorScheme.errorContainer
+                        saveState is CaptureSaveState.Saved -> MaterialTheme.colorScheme.primaryContainer
+                        else -> MaterialTheme.colorScheme.surfaceContainerHigh
+                    },
+                    shape = MaterialTheme.shapes.medium,
+                ) {
+                    Row(
+                        modifier = Modifier.padding(12.dp),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        verticalAlignment = Alignment.Top,
+                    ) {
+                        val statusColor = when {
+                            blockedMessage != null || saveState is CaptureSaveState.Error -> MaterialTheme.colorScheme.onErrorContainer
+                            saveState is CaptureSaveState.Saved -> MaterialTheme.colorScheme.onPrimaryContainer
+                            else -> MaterialTheme.colorScheme.onSurfaceVariant
+                        }
+                        YervisIcon(
+                            when (saveState) {
+                                is CaptureSaveState.Saved -> YervisSymbol.Check
+                                is CaptureSaveState.Saving -> YervisSymbol.Clock
+                                else -> YervisSymbol.Info
+                            },
+                            modifier = Modifier.size(20.dp),
+                            tint = statusColor,
+                        )
+                        Text(
+                            text = stringResource(statusMessage),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = statusColor,
+                            modifier = Modifier.weight(1f).testTag("capture_save_status").semantics {
+                                liveRegion = LiveRegionMode.Polite
+                            },
+                        )
+                    }
+                }
             }
         },
         confirmButton = {
@@ -716,26 +833,26 @@ private fun ReviewDialog(
                 CaptureSaveState.Idle -> Button(
                     onClick = onSave,
                     enabled = canSave,
-                    modifier = Modifier.testTag("capture_save_button"),
+                    modifier = Modifier.heightIn(min = 48.dp).testTag("capture_save_button"),
                 ) {
                     Text(text = stringResource(if (canSave) R.string.capture_save else R.string.capture_save_unavailable))
                 }
                 is CaptureSaveState.Saving -> Button(
                     onClick = {},
                     enabled = false,
-                    modifier = Modifier.testTag("capture_save_button"),
+                    modifier = Modifier.heightIn(min = 48.dp).testTag("capture_save_button"),
                 ) {
                     Text(text = stringResource(R.string.capture_saving_action))
                 }
                 is CaptureSaveState.Saved -> TextButton(
                     onClick = onDismiss,
-                    modifier = Modifier.testTag("capture_finish_button"),
+                    modifier = Modifier.heightIn(min = 48.dp).testTag("capture_finish_button"),
                 ) {
                     Text(text = stringResource(R.string.capture_done))
                 }
                 is CaptureSaveState.Error -> Button(
                     onClick = onRetry,
-                    modifier = Modifier.testTag("capture_retry_button"),
+                    modifier = Modifier.heightIn(min = 48.dp).testTag("capture_retry_button"),
                 ) {
                     Text(text = stringResource(R.string.capture_retry))
                 }
@@ -764,7 +881,10 @@ private fun VoiceDraftDecisionDialog(
         onDismissRequest = onCancel,
         title = { Text(stringResource(R.string.capture_voice_draft_conflict_title)) },
         text = {
-            Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            Column(
+                modifier = Modifier.heightIn(max = 360.dp).verticalScroll(rememberScrollState()),
+                verticalArrangement = Arrangement.spacedBy(12.dp),
+            ) {
                 Text(stringResource(R.string.capture_voice_draft_conflict_message))
                 Text(
                     text = decision.existingTextDraft,

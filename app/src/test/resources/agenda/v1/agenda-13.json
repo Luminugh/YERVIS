@@ -1,0 +1,136 @@
+{
+  "id": "agenda-13",
+  "name": "Cambio de día en America/Lima",
+  "lane": "A",
+  "sources": [
+    {
+      "sourceEntryId": "s-13",
+      "text": "Mañana presento el avance.",
+      "capturedAtEpochMillis": "1792125000000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-13-a",
+      "extractionId": "e-13-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-13",
+          "capturedAtEpochMillis": "1792125000000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "69be9d5085b55dcdf8957a94a6b765652ebe71f1b4fa8b2dff7503628327870c",
+          "textLengthUtf16": 26,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 26
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "p",
+          "category": "EVENT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Mañana presento el avance.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-13",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Mañana presento el avance.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 26
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "startsAt": {
+              "expression": {
+                "value": "Mañana",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-13",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "Mañana",
+                    "range": {
+                      "startUtf16": 0,
+                      "endUtf16": 6
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-13",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "UNSPECIFIED",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [
+    {
+      "expression": "Mañana",
+      "status": "RESOLVED",
+      "localDate": "2026-10-16"
+    }
+  ],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Mismo instante UTC, día local de captura distinto.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

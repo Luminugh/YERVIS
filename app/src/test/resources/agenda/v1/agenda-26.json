@@ -1,0 +1,140 @@
+{
+  "id": "agenda-26",
+  "name": "Expresión en la tarde",
+  "lane": "C",
+  "sources": [
+    {
+      "sourceEntryId": "s-26",
+      "text": "Reunión en la tarde.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-26-a",
+      "extractionId": "e-26-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-26",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "d71cda913ca114888be278070149c850d11fbf2ad1175c5f969ab882d78e4d2a",
+          "textLengthUtf16": 20,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 20
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "p",
+          "category": "EVENT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Reunión en la tarde.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-26",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Reunión en la tarde.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 20
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "startsAt": {
+              "expression": {
+                "value": "en la tarde",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-26",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "en la tarde",
+                    "range": {
+                      "startUtf16": 8,
+                      "endUtf16": 19
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-26",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "UNSPECIFIED",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [
+    {
+      "expression": "en la tarde",
+      "status": "PARTIALLY_RESOLVED",
+      "localDate": null,
+      "reason": "DAY_PART_HAS_NO_CLOCK_TIME",
+      "dayPart": "AFTERNOON"
+    }
+  ],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [
+    "DAY_PART_HAS_NO_CLOCK_TIME"
+  ],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Conservar incertidumbre; no imponer año, política u hora.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": true
+  }
+}

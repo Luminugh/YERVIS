@@ -1,0 +1,159 @@
+{
+  "id": "agenda-04",
+  "name": "Evento con fecha explícita",
+  "lane": "A",
+  "sources": [
+    {
+      "sourceEntryId": "s-04",
+      "text": "Reunión el 2026-10-20 a las 15:00.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-04-a",
+      "extractionId": "e-04-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-04",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "89f239346e8a874b34725d71993595686c18f754fb0c5a08f4285479c3acde8f",
+          "textLengthUtf16": 34,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 34
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "p",
+          "category": "EVENT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Reunión el 2026-10-20 a las 15:00.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-04",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Reunión el 2026-10-20 a las 15:00.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 34
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "state": {
+              "value": "SCHEDULED",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-04",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Reunión el 2026-10-20 a las 15:00.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 34
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "startsAt": {
+              "expression": {
+                "value": "2026-10-20 a las 15:00",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-04",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "2026-10-20 a las 15:00",
+                    "range": {
+                      "startUtf16": 11,
+                      "endUtf16": 33
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-04",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "UNSPECIFIED",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [
+    {
+      "expression": "2026-10-20 a las 15:00",
+      "status": "RESOLVED",
+      "localDate": "2026-10-20",
+      "localTime": "15:00"
+    }
+  ],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Propuesta de evento, sin alarma implícita.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "id": "agenda-22",
+  "name": "DST_OVERLAP Europe/Madrid",
+  "lane": "A",
+  "sources": [
+    {
+      "sourceEntryId": "s-22",
+      "text": "Cita 2026-10-25 02:30.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "Europe/Madrid",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-22-a",
+      "extractionId": "e-22-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-22",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "Europe/Madrid",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "7ce53710e49076f19ed8b8a2ea53151f6b9e2ae17612f38599d168a0b91ffc7d",
+          "textLengthUtf16": 22,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 22
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "p",
+          "category": "EVENT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Cita 2026-10-25 02:30.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-22",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Cita 2026-10-25 02:30.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 22
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "startsAt": {
+              "expression": {
+                "value": "2026-10-25 02:30",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-22",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "2026-10-25 02:30",
+                    "range": {
+                      "startUtf16": 5,
+                      "endUtf16": 21
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-22",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "UNSPECIFIED",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [
+    {
+      "expression": "2026-10-25 02:30",
+      "status": "AMBIGUOUS",
+      "localDate": "2026-10-25",
+      "reason": "DST_OVERLAP"
+    }
+  ],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "No elegir automáticamente un instante inexistente o duplicado.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

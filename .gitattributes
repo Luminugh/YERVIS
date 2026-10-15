@@ -8,3 +8,5 @@ docs/INVESTIGACION/F3.06-confianza-runtime/** -text
 docs/INVESTIGACION/F3.06-confianza-corpus/** -text
 scripts/sherpa-confidence/** -text
 app/src/androidTest/assets/stt-stage2/** -text
+# Keep the canonical proposal fixtures/schema byte-identical for recorded SHA-256 checks.
+docs/CONTRATOS/IA/v1/** -text

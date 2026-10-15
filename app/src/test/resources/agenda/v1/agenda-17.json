@@ -1,0 +1,136 @@
+{
+  "id": "agenda-17",
+  "name": "Fin de año",
+  "lane": "A",
+  "sources": [
+    {
+      "sourceEntryId": "s-17",
+      "text": "La entrega es mañana.",
+      "capturedAtEpochMillis": "1798736400000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-17-a",
+      "extractionId": "e-17-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-17",
+          "capturedAtEpochMillis": "1798736400000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "c727df13862703217fc7019e32bf229c412de96f4a98fc4af8824710bdc678fa",
+          "textLengthUtf16": 21,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 21
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "p",
+          "category": "TASK",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "La entrega es mañana.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-17",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "La entrega es mañana.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 21
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "dueAt": {
+              "expression": {
+                "value": "mañana",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-17",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "mañana",
+                    "range": {
+                      "startUtf16": 14,
+                      "endUtf16": 20
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-17",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "UNSPECIFIED",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [
+    {
+      "expression": "mañana",
+      "status": "RESOLVED",
+      "localDate": "2027-01-01"
+    }
+  ],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Aritmética de calendario anclada a captura histórica.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

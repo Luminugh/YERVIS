@@ -46,7 +46,7 @@
 ## F4 — Organización inteligente con consentimiento
 **Dueño:** Codex; OpenCode representa propuestas editables y estados.
 - `InformationExtractor` como interfaz con implementación simulada y proveedor opcional.
-- Contrato JSON validado: tareas, eventos, ideas, hechos, personas; evidencia literal y nivel de certeza.
+- Taxonomía de [F4.01](docs/IMPLEMENTACIONES/F4.01-taxonomia-informacion.md): once conceptos, con rutinas, eventos, tareas, personas y hechos como ejes principales. [F4.02](docs/IMPLEMENTACIONES/F4.02-esquema-propuestas.md) define JSON 1.0.0 con evidencia por campo/versión, atribución, modalidad, negación y revisión separadas; conclusiones personales limitadas a fuentes/periodo, sin perfilado psicológico.
 - Diferenciar fecha de captura vs. fecha del evento, referencias como «mañana» con zona horaria.
 - Propuesta -> revisión/corrección/aceptación -> persistencia; deduplicación básica y manejo de errores.
 - Selección de modelo y proveedor solo tras pruebas de calidad/coste/privacidad; no claves embebidas en APK.
@@ -57,6 +57,7 @@
 - Búsqueda local por fecha, palabra, estado, persona y proyecto.
 - Consultas del tipo «¿qué dije ayer?» con citas al registro fuente.
 - Relaciones entre registros solo con evidencia; resúmenes etiquetados como derivados.
+- Diseñar el apartado especializado Agenda: hechos pasados, tareas realizadas/pendientes, eventos y rutinas, con personas/proyectos relacionados; sin duplicar originales ni usar fecha de captura como fecha del hecho desconocida.
 - Evaluar búsquedas semánticas locales únicamente si las textuales son insuficientes.
 **Puerta de salida:** una pregunta recupera y enlaza el registro de origen; cambios posteriores son visibles y consistentes.
 

@@ -123,8 +123,8 @@
 
 | ID | Tarea | Responsable | Modelo | Criterio de aceptación mínimo |
 |---|---|---|---|---|
-| **F4.01** | Definir taxonomía: tarea/evento/rutina/hábito/recordatorio/idea/hecho/decisión/objetivo/persona/proyecto | Codex | C-S | Separar patrón declarado/observado, recurrencia y alarma; ejemplos de explícito/inferido, evidencia y excepciones |
-| **F4.02** | Definir esquema versionado de propuestas IA y evidencia por campo | Codex | C-A | JSON con tipo/estado, campos temporales originales+resueltos, zona, fuentes/citas, certeza por campo y recurrencia validable |
+| **F4.01** | Definir taxonomía: tarea/evento/rutina/hábito/recordatorio/idea/hecho/decisión/objetivo/persona/proyecto | Codex | C-S | Rutinas/eventos/tareas/personas/hechos principales para futura Agenda; patrón declarado/observado, atribución, conclusiones acotadas y evidencia; definición en docs/IMPLEMENTACIONES/F4.01-taxonomia-informacion.md |
+| **F4.02** | Definir esquema versionado de propuestas IA y evidencia por campo | Codex | C-A | JSON 1.0.0 estricto: once variantes, fuente+revisión+cita/rango UTF-16 por campo, fechas/recurrencia, modalidad/polaridad separadas de aceptación; Hechos pasados/Agenda sin inventar fecha; docs/IMPLEMENTACIONES/F4.02-esquema-propuestas.md |
 | **F4.03** | Crear interfaz InformationExtractor y fake deterministic | Codex | C-S | Pruebas sin red y sin proveedor |
 | **F4.04** | Implementar validador JSON estricto y límites | Codex | C-A | Rechaza campos/tipos/estados inválidos, recurrencias imposibles y propuestas sin evidencia; JSON válido no basta |
 | **F4.05** | Implementar resolutor de referencias temporales | Codex | C-A | Fechas relativas ancladas al instante/zona de captura; día/semana, cambios de zona y ambigüedad sin inventar hora |
@@ -132,13 +132,13 @@
 | **F4.07** | Diseñar revisión de eventos, tareas y rutinas propuestas | OpenCode | O-D | Mostrar citas y fechas inferidas; editar/rechazar/confirmar por campo; no crear alarma implícita |
 | **F4.08** | Implementar aceptación/rechazo sin mutar originales | Codex | C-S | Datos derivados y sus relaciones versionados, revisables, ligados a varias fuentes si procede |
 | **F4.09** | Deduplicar propuestas y actualizar recurrencias conservadoramente | Codex | C-A | No confundir repetición de evidencia con intención; cambios/excepciones no duplican ni fusionan elementos distintos |
-| **F4.10** | Crear corpus sintético de agenda y patrones semanales | Codex | C-S | Acciones, eventos, hábitos, rutinas, excepciones, negación, horas ambiguas, cambios de zona y falsos positivos de alarmas |
+| **F4.10** | Crear corpus sintético de agenda y patrones semanales | Codex | C-S | Hechos pasados/fecha desconocida, acciones/rutinas/excepciones, negación/tiempo, falsas alarmas y personas: homónimos, atribución, contradicciones, falsas conclusiones de personalidad; partir de F4.01/F4.02 |
 | **F4.11** | Evaluar proveedor/modelo según calidad, RAG y privacidad | Codex | C-A | Coste/cuota/JSON, retención, entrenamiento, región, borrado, uso de fragmentos y proveedor sin fijar hasta validar términos |
 | **F4.12** | Diseñar consentimiento contextual por envío cloud | OpenCode | O-D | Muestra proveedor, consulta y snippets recuperados exactos; permite retirar/editar y cancelar cada petición |
 | **F4.13** | Diseñar custodia de claves y límites de red | Codex | C-A | Sin credenciales maestras embebidas; riesgos registrados |
 | **F4.14** | Implementar adaptador cloud opcional detrás de interfaz | Codex | C-S | Recibe solo texto/snippets consentidos; contrato provider-neutral, sin acceso directo a Room/base completa |
 | **F4.15** | Reintentos idempotentes, límites y borrado de contexto remoto | Codex | C-S | Reintentos no duplican propuestas; expira/quita payload temporal y tolera modo offline |
-| **F4.16** | Probar invención, rutina falsa, alarma falsa y errores cloud | Codex | C-A | Toda propuesta enlaza evidencia; cero alarmas/acciones no confirmadas; falla no pierde notas |
+| **F4.16** | Probar invención, rutina falsa, alarma falsa y errores cloud | Codex | C-A | Evidencia por campo; cero alarmas/acciones no confirmadas, perfiles sensibles inferidos o fusiones arbitrarias de personas; contradicciones explícitas y fallo sin perder notas |
 | **F4.17** | E2E: recuerdo → recuperación RAG → propuesta → revisión | Codex | C-S | Reproduce citas, aceptación/corrección y original intacto; no requiere cloud para captura/consulta local básica |
 
 ### F5 — Búsqueda y memoria contextual
@@ -150,9 +150,9 @@
 | **F5.01** | Definir consultas por tiempo/tipo/estado/recurrencia/persona/proyecto | Codex | C-S | Próximos/pasados, semana, vencidas, ocurrencias y consultas de rutina con zona horaria explícita |
 | **F5.02** | Implementar FTS/índice local y filtros de agenda | Codex | C-S | Resultados útiles offline; ediciones, correcciones y borrados actualizan índice; pruebas con empty DB |
 | **F5.03** | Definir relaciones evidencia/fuentes/revisiones de datos derivados | Codex | C-A | Cita literal y sourceEntryId por campo conservan historial y abren el registro origen |
-| **F5.04** | Implementar vistas de pendientes, eventos y ciclos rutinarios | Codex | C-S | No confunde tarea vencida con evento pasado ni ocurrencia omitida con incumplida |
+| **F5.04** | Implementar apartado Agenda: hechos, tareas, eventos y rutinas | Codex | C-S | Pasado/compromisos/patrones con personas y fuentes; fecha de suceso distinta de captura, desconocida si no consta; sin duplicar completadas ni inferir incumplimiento por ausencia |
 | **F5.05** | Diseñar pantalla búsqueda con filtros y resultados | OpenCode | O-M | Búsqueda accesible, estados vacíos y errores |
-| **F5.06** | Diseñar vistas de contexto personas/proyectos | OpenCode | O-D | Relaciones explicables sin sobrecargar interfaz |
+| **F5.06** | Diseñar vistas de contexto personas/proyectos | OpenCode | O-D | Personas como eje de agenda: relaciones, rutinas, preferencias y afirmaciones atribuidas con fuentes/periodo; resolver homónimos, corregir/retirar conclusiones; sin rasgos psicológicos asumidos |
 | **F5.07** | Implementar consulta natural con recuperación local previa a cloud | Codex | C-A | Filtros duros + FTS primero, top-k mínimo; cloud recibe contexto solo tras consentimiento; no inventa fuentes |
 | **F5.08** | Implementar respuesta breve con citas verificables | Codex | C-A | Valida ID y cita contra evidencia local; cada afirmación y sugerencia abre fuente/revisión correcta |
 | **F5.09** | Diseñar UI de conversación contextual y citas | OpenCode | O-M | No confundir respuesta derivada con hecho confirmado |

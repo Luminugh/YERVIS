@@ -1,0 +1,158 @@
+{
+  "id": "agenda-07",
+  "name": "Hipótesis",
+  "lane": "A",
+  "sources": [
+    {
+      "sourceEntryId": "s-07",
+      "text": "Quizá tenga reunión mañana.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-07-a",
+      "extractionId": "e-07-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-07",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "d2522efbdf5bcc45cdbb40308aa83f8e20f242889000d18e28745281daacb460",
+          "textLengthUtf16": 27,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 27
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "p",
+          "category": "EVENT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Quizá tenga reunión mañana.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-07",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Quizá tenga reunión mañana.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 27
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "POSSIBLE",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "state": {
+              "value": "TENTATIVE",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-07",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Quizá tenga reunión mañana.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 27
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "POSSIBLE",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "startsAt": {
+              "expression": {
+                "value": "mañana",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-07",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "mañana",
+                    "range": {
+                      "startUtf16": 20,
+                      "endUtf16": 26
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-07",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "UNSPECIFIED",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [
+    {
+      "expression": "mañana",
+      "status": "RESOLVED",
+      "localDate": "2026-10-16"
+    }
+  ],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Resolver mañana no confirma un compromiso.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

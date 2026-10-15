@@ -1,0 +1,136 @@
+{
+  "id": "agenda-47",
+  "name": "Fecha sin solicitud de alarma",
+  "lane": "B",
+  "sources": [
+    {
+      "sourceEntryId": "s-47",
+      "text": "Tengo cita mañana. No quiero avisos.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-47-a",
+      "extractionId": "e-47-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-47",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "9c31b0547fb5fa3da06b11ed698b77e770a2394899b4ed933f6ce1f224e751da",
+          "textLengthUtf16": 36,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 36
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "p",
+          "category": "EVENT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Tengo cita mañana. No quiero avisos.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-47",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Tengo cita mañana. No quiero avisos.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 36
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "startsAt": {
+              "expression": {
+                "value": "mañana",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-47",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "mañana",
+                    "range": {
+                      "startUtf16": 11,
+                      "endUtf16": 17
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-47",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "UNSPECIFIED",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [
+    {
+      "expression": "mañana",
+      "status": "RESOLVED",
+      "localDate": "2026-10-16"
+    }
+  ],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "No hay REMINDER; mención temporal y negación de avisos no autorizan alarma.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

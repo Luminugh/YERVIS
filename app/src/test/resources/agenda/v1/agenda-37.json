@@ -1,0 +1,347 @@
+{
+  "id": "agenda-37",
+  "name": "Ocurrencias distintas",
+  "lane": "B",
+  "sources": [
+    {
+      "sourceEntryId": "s-37",
+      "text": "Los lunes estudio. El 2026-10-05 completé; el 2026-10-12 cancelé; el 2026-10-19 pospuse.",
+      "capturedAtEpochMillis": "1792515600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-37-a",
+      "extractionId": "e-37-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-37",
+          "capturedAtEpochMillis": "1792515600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "aee3c0d573b7c0176dac43cb6e0e829bbf1e78a3a1118c6713db532c2302fea4",
+          "textLengthUtf16": 88,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 88
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "p",
+          "category": "ROUTINE",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Los lunes estudio. El 2026-10-05 completé; el 2026-10-12 cancelé; el 2026-10-19 pospuse.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-37",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Los lunes estudio. El 2026-10-05 completé; el 2026-10-12 cancelé; el 2026-10-19 pospuse.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 88
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "patternKind": {
+              "value": "DECLARED",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-37",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Los lunes estudio. El 2026-10-05 completé; el 2026-10-12 cancelé; el 2026-10-19 pospuse.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 88
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "recurrence": {
+              "frequency": {
+                "value": "WEEKLY",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-37",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "Los lunes estudio. El 2026-10-05 completé; el 2026-10-12 cancelé; el 2026-10-19 pospuse.",
+                    "range": {
+                      "startUtf16": 0,
+                      "endUtf16": 88
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "weekdays": [
+                {
+                  "value": "MO",
+                  "evidence": [
+                    {
+                      "sourceEntryId": "s-37",
+                      "revision": {
+                        "kind": "ORIGINAL"
+                      },
+                      "quote": "Los lunes estudio. El 2026-10-05 completé; el 2026-10-12 cancelé; el 2026-10-19 pospuse.",
+                      "range": {
+                        "startUtf16": 0,
+                        "endUtf16": 88
+                      }
+                    }
+                  ],
+                  "assessment": {
+                    "basis": "EXPLICIT",
+                    "modality": "ASSERTED",
+                    "polarity": "AFFIRMED",
+                    "certaintyValidation": "UNVALIDATED"
+                  }
+                }
+              ]
+            },
+            "occurrences": [
+              {
+                "occurrenceId": "o0",
+                "at": {
+                  "expression": {
+                    "value": "2026-10-05",
+                    "evidence": [
+                      {
+                        "sourceEntryId": "s-37",
+                        "revision": {
+                          "kind": "ORIGINAL"
+                        },
+                        "quote": "2026-10-05",
+                        "range": {
+                          "startUtf16": 22,
+                          "endUtf16": 32
+                        }
+                      }
+                    ],
+                    "assessment": {
+                      "basis": "EXPLICIT",
+                      "modality": "ASSERTED",
+                      "polarity": "AFFIRMED",
+                      "certaintyValidation": "UNVALIDATED"
+                    }
+                  },
+                  "anchor": {
+                    "sourceEntryId": "s-37",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    }
+                  },
+                  "precision": "UNSPECIFIED",
+                  "uncertainty": "UNRESOLVED",
+                  "resolved": null
+                },
+                "state": {
+                  "value": "COMPLETED",
+                  "evidence": [
+                    {
+                      "sourceEntryId": "s-37",
+                      "revision": {
+                        "kind": "ORIGINAL"
+                      },
+                      "quote": "Los lunes estudio. El 2026-10-05 completé; el 2026-10-12 cancelé; el 2026-10-19 pospuse.",
+                      "range": {
+                        "startUtf16": 0,
+                        "endUtf16": 88
+                      }
+                    }
+                  ],
+                  "assessment": {
+                    "basis": "EXPLICIT",
+                    "modality": "ASSERTED",
+                    "polarity": "AFFIRMED",
+                    "certaintyValidation": "UNVALIDATED"
+                  }
+                }
+              },
+              {
+                "occurrenceId": "o1",
+                "at": {
+                  "expression": {
+                    "value": "2026-10-12",
+                    "evidence": [
+                      {
+                        "sourceEntryId": "s-37",
+                        "revision": {
+                          "kind": "ORIGINAL"
+                        },
+                        "quote": "2026-10-12",
+                        "range": {
+                          "startUtf16": 46,
+                          "endUtf16": 56
+                        }
+                      }
+                    ],
+                    "assessment": {
+                      "basis": "EXPLICIT",
+                      "modality": "ASSERTED",
+                      "polarity": "AFFIRMED",
+                      "certaintyValidation": "UNVALIDATED"
+                    }
+                  },
+                  "anchor": {
+                    "sourceEntryId": "s-37",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    }
+                  },
+                  "precision": "UNSPECIFIED",
+                  "uncertainty": "UNRESOLVED",
+                  "resolved": null
+                },
+                "state": {
+                  "value": "CANCELLED",
+                  "evidence": [
+                    {
+                      "sourceEntryId": "s-37",
+                      "revision": {
+                        "kind": "ORIGINAL"
+                      },
+                      "quote": "Los lunes estudio. El 2026-10-05 completé; el 2026-10-12 cancelé; el 2026-10-19 pospuse.",
+                      "range": {
+                        "startUtf16": 0,
+                        "endUtf16": 88
+                      }
+                    }
+                  ],
+                  "assessment": {
+                    "basis": "EXPLICIT",
+                    "modality": "ASSERTED",
+                    "polarity": "AFFIRMED",
+                    "certaintyValidation": "UNVALIDATED"
+                  }
+                }
+              },
+              {
+                "occurrenceId": "o2",
+                "at": {
+                  "expression": {
+                    "value": "2026-10-19",
+                    "evidence": [
+                      {
+                        "sourceEntryId": "s-37",
+                        "revision": {
+                          "kind": "ORIGINAL"
+                        },
+                        "quote": "2026-10-19",
+                        "range": {
+                          "startUtf16": 69,
+                          "endUtf16": 79
+                        }
+                      }
+                    ],
+                    "assessment": {
+                      "basis": "EXPLICIT",
+                      "modality": "ASSERTED",
+                      "polarity": "AFFIRMED",
+                      "certaintyValidation": "UNVALIDATED"
+                    }
+                  },
+                  "anchor": {
+                    "sourceEntryId": "s-37",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    }
+                  },
+                  "precision": "UNSPECIFIED",
+                  "uncertainty": "UNRESOLVED",
+                  "resolved": null
+                },
+                "state": {
+                  "value": "POSTPONED",
+                  "evidence": [
+                    {
+                      "sourceEntryId": "s-37",
+                      "revision": {
+                        "kind": "ORIGINAL"
+                      },
+                      "quote": "Los lunes estudio. El 2026-10-05 completé; el 2026-10-12 cancelé; el 2026-10-19 pospuse.",
+                      "range": {
+                        "startUtf16": 0,
+                        "endUtf16": 88
+                      }
+                    }
+                  ],
+                  "assessment": {
+                    "basis": "EXPLICIT",
+                    "modality": "ASSERTED",
+                    "polarity": "AFFIRMED",
+                    "certaintyValidation": "UNVALIDATED"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [
+    "2026-10-05",
+    "2026-10-12",
+    "2026-10-19"
+  ],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Una plantilla, tres ocurrencias explícitas con estados diferentes.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

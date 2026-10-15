@@ -1,0 +1,2557 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:yervis:ai:proposals:1.0.0",
+  "title": "YERVIS AI proposals response v1.0.0",
+  "$comment": "Wire response only. Host metadata must match the authorized request. No acceptance or scheduling authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "requestId": {
+      "$ref": "#/$defs/localId"
+    },
+    "extractionId": {
+      "$ref": "#/$defs/localId"
+    },
+    "offsetUnit": {
+      "const": "UTF16_CODE_UNIT"
+    },
+    "sourceSnapshots": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/sourceSnapshot"
+      },
+      "minItems": 1,
+      "maxItems": 16
+    },
+    "outcome": {
+      "type": "string",
+      "enum": [
+        "COMPLETE",
+        "PARTIAL",
+        "NO_PROPOSALS"
+      ]
+    },
+    "proposals": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/TASKProposal"
+          },
+          {
+            "$ref": "#/$defs/EVENTProposal"
+          },
+          {
+            "$ref": "#/$defs/ROUTINEProposal"
+          },
+          {
+            "$ref": "#/$defs/HABITProposal"
+          },
+          {
+            "$ref": "#/$defs/REMINDERProposal"
+          },
+          {
+            "$ref": "#/$defs/IDEAProposal"
+          },
+          {
+            "$ref": "#/$defs/FACTProposal"
+          },
+          {
+            "$ref": "#/$defs/DECISIONProposal"
+          },
+          {
+            "$ref": "#/$defs/GOALProposal"
+          },
+          {
+            "$ref": "#/$defs/PERSONProposal"
+          },
+          {
+            "$ref": "#/$defs/PROJECTProposal"
+          }
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 32
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/issue"
+      },
+      "minItems": 0,
+      "maxItems": 16
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "requestId",
+    "extractionId",
+    "offsetUnit",
+    "sourceSnapshots",
+    "outcome",
+    "proposals",
+    "issues"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "outcome": {
+            "const": "NO_PROPOSALS"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "proposals": {
+            "maxItems": 0
+          },
+          "issues": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "outcome": {
+            "enum": [
+              "COMPLETE",
+              "PARTIAL"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "proposals": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "outcome": {
+            "const": "PARTIAL"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "issues": {
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "localId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^[a-z][a-z0-9_-]{0,63}$"
+    },
+    "entryId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "\\S"
+    },
+    "int64String": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^(0|-?[1-9][0-9]*)$"
+    },
+    "revision": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "ORIGINAL"
+            }
+          },
+          "required": [
+            "kind"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "CORRECTION"
+            },
+            "correctionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 19,
+              "pattern": "^[1-9][0-9]*$"
+            }
+          },
+          "required": [
+            "kind",
+            "correctionId"
+          ]
+        }
+      ]
+    },
+    "sourceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sourceEntryId": {
+          "$ref": "#/$defs/entryId"
+        },
+        "revision": {
+          "$ref": "#/$defs/revision"
+        }
+      },
+      "required": [
+        "sourceEntryId",
+        "revision"
+      ]
+    },
+    "range": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "startUtf16": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 8192
+        },
+        "endUtf16": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8192
+        }
+      },
+      "required": [
+        "startUtf16",
+        "endUtf16"
+      ]
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sourceEntryId": {
+          "$ref": "#/$defs/entryId"
+        },
+        "revision": {
+          "$ref": "#/$defs/revision"
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
+        },
+        "range": {
+          "$ref": "#/$defs/range"
+        }
+      },
+      "required": [
+        "sourceEntryId",
+        "revision",
+        "quote",
+        "range"
+      ]
+    },
+    "zoneId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9_+/-]+$"
+    },
+    "sourceSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sourceEntryId": {
+          "$ref": "#/$defs/entryId"
+        },
+        "revision": {
+          "$ref": "#/$defs/revision"
+        },
+        "sourceType": {
+          "type": "string",
+          "enum": [
+            "TEXT",
+            "VOICE"
+          ]
+        },
+        "capturedAtEpochMillis": {
+          "$ref": "#/$defs/int64String"
+        },
+        "timezoneId": {
+          "$ref": "#/$defs/zoneId"
+        },
+        "textSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "textLengthUtf16": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8192
+        },
+        "authorizedRanges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/range"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        }
+      },
+      "required": [
+        "sourceEntryId",
+        "revision",
+        "sourceType",
+        "capturedAtEpochMillis",
+        "timezoneId",
+        "textSha256",
+        "textLengthUtf16",
+        "authorizedRanges"
+      ]
+    },
+    "technicalScore": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "number",
+          "minimum": -1000000000,
+          "maximum": 1000000000
+        },
+        "scale": {
+          "type": "string",
+          "enum": [
+            "LOGIT",
+            "LOG_PROBABILITY",
+            "UNNORMALIZED_MODEL_SCORE"
+          ]
+        },
+        "methodId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        }
+      },
+      "required": [
+        "value",
+        "scale",
+        "methodId"
+      ]
+    },
+    "assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "basis": {
+          "type": "string",
+          "enum": [
+            "EXPLICIT",
+            "INFERRED"
+          ]
+        },
+        "modality": {
+          "type": "string",
+          "enum": [
+            "ASSERTED",
+            "DESIRED",
+            "POSSIBLE",
+            "CONDITIONAL",
+            "UNCERTAIN",
+            "QUESTION"
+          ]
+        },
+        "polarity": {
+          "type": "string",
+          "enum": [
+            "AFFIRMED",
+            "NEGATED"
+          ]
+        },
+        "certaintyValidation": {
+          "const": "UNVALIDATED"
+        },
+        "inferenceExplanation": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "technicalScore": {
+          "$ref": "#/$defs/technicalScore"
+        }
+      },
+      "required": [
+        "basis",
+        "modality",
+        "polarity",
+        "certaintyValidation"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "basis": {
+                "const": "INFERRED"
+              }
+            },
+            "required": [
+              "basis"
+            ]
+          },
+          "then": {
+            "required": [
+              "inferenceExplanation"
+            ]
+          }
+        }
+      ]
+    },
+    "textField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "assessment"
+      ]
+    },
+    "shortTextField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "assessment"
+      ]
+    },
+    "refField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "proposalId": {
+              "$ref": "#/$defs/localId"
+            }
+          },
+          "required": [
+            "proposalId"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "assessment"
+      ]
+    },
+    "dateField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 10,
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "format": "date"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "assessment"
+      ]
+    },
+    "timeField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 8,
+          "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9])?$"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "assessment"
+      ]
+    },
+    "zoneField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/zoneId"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "assessment"
+      ]
+    },
+    "epochField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/int64String"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "assessment"
+      ]
+    },
+    "durationField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 31536000
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "assessment"
+      ]
+    },
+    "countField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 366
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "assessment"
+      ]
+    },
+    "monthDayField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 31
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "assessment"
+      ]
+    },
+    "monthField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 12
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "assessment"
+      ]
+    },
+    "weekdayField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "MO",
+            "TU",
+            "WE",
+            "TH",
+            "FR",
+            "SA",
+            "SU"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "assessment"
+      ]
+    },
+    "frequencyField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY",
+            "YEARLY",
+            "FLEXIBLE"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "assessment"
+      ]
+    },
+    "trackingIntentField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "REQUESTED",
+            "DECLINED"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "assessment"
+      ]
+    },
+    "taskStateField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "PENDING",
+            "IN_PROGRESS",
+            "COMPLETED",
+            "CANCELLED",
+            "BLOCKED",
+            "POSTPONED",
+            "UNKNOWN"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "assessment"
+      ]
+    },
+    "eventStateField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "TENTATIVE",
+            "SCHEDULED",
+            "HELD",
+            "CANCELLED",
+            "POSTPONED",
+            "UNKNOWN"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "assessment"
+      ]
+    },
+    "projectStateField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "PROPOSED",
+            "ACTIVE",
+            "PAUSED",
+            "COMPLETED",
+            "CANCELLED",
+            "UNKNOWN"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "assessment"
+      ]
+    },
+    "priorityField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "LOW",
+            "NORMAL",
+            "HIGH",
+            "URGENT"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "assessment"
+      ]
+    },
+    "patternKindField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "DECLARED",
+            "OBSERVED"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "assessment"
+      ]
+    },
+    "occurrenceStateField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "COMPLETED",
+            "SKIPPED_EXPLICITLY",
+            "POSTPONED",
+            "CANCELLED",
+            "UNKNOWN"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "assessment"
+      ]
+    },
+    "exceptionEffectField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "PAUSED",
+            "CANCELLED_OCCURRENCE",
+            "RESCHEDULED",
+            "FREQUENCY_CHANGE"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "assessment"
+      ]
+    },
+    "reminderRequestField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "const": "REQUESTED"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "assessment"
+      ]
+    },
+    "relativeToField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "EVENT_START",
+            "EVENT_END",
+            "TASK_DUE",
+            "TASK_PLANNED",
+            "ROUTINE_OCCURRENCE"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "assessment"
+      ]
+    },
+    "factKindField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "string",
+          "enum": [
+            "OCCURRENCE",
+            "ASSERTION",
+            "PREFERENCE",
+            "PERSONALITY_DESCRIPTION",
+            "BEHAVIOR_OBSERVATION",
+            "BOUNDED_CONCLUSION",
+            "RELATIONSHIP_ASSERTION"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "assessment"
+      ]
+    },
+    "relationField": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "CONTRADICTS",
+                "UPDATES",
+                "SUPPORTS",
+                "RELATED_TO"
+              ]
+            },
+            "targetProposalId": {
+              "$ref": "#/$defs/localId"
+            }
+          },
+          "required": [
+            "kind",
+            "targetProposalId"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      },
+      "required": [
+        "value",
+        "evidence",
+        "assessment"
+      ]
+    },
+    "resolvedTime": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "localDate": {
+          "$ref": "#/$defs/dateField"
+        },
+        "localTime": {
+          "$ref": "#/$defs/timeField"
+        },
+        "timezoneId": {
+          "$ref": "#/$defs/zoneField"
+        },
+        "instantEpochMillis": {
+          "$ref": "#/$defs/epochField"
+        }
+      },
+      "required": [],
+      "minProperties": 1,
+      "dependentRequired": {
+        "instantEpochMillis": [
+          "localDate",
+          "localTime",
+          "timezoneId"
+        ]
+      }
+    },
+    "temporal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "expression": {
+          "$ref": "#/$defs/textField"
+        },
+        "anchor": {
+          "$ref": "#/$defs/sourceRef"
+        },
+        "precision": {
+          "type": "string",
+          "enum": [
+            "UNSPECIFIED",
+            "DAY",
+            "PART_OF_DAY",
+            "MINUTE",
+            "SECOND"
+          ]
+        },
+        "uncertainty": {
+          "type": "string",
+          "enum": [
+            "UNRESOLVED",
+            "AMBIGUOUS",
+            "APPROXIMATE",
+            "NONE_REPORTED"
+          ]
+        },
+        "resolved": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/resolvedTime"
+            }
+          ]
+        }
+      },
+      "required": [
+        "expression",
+        "anchor",
+        "precision",
+        "uncertainty",
+        "resolved"
+      ]
+    },
+    "period": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "from": {
+          "$ref": "#/$defs/temporal"
+        },
+        "to": {
+          "$ref": "#/$defs/temporal"
+        }
+      },
+      "required": [],
+      "minProperties": 1
+    },
+    "recurrence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "frequency": {
+          "$ref": "#/$defs/frequencyField"
+        },
+        "interval": {
+          "$ref": "#/$defs/countField"
+        },
+        "weekdays": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/weekdayField"
+          },
+          "minItems": 1,
+          "maxItems": 7,
+          "uniqueItems": true
+        },
+        "monthDays": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/monthDayField"
+          },
+          "minItems": 1,
+          "maxItems": 31,
+          "uniqueItems": true
+        },
+        "months": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/monthField"
+          },
+          "minItems": 1,
+          "maxItems": 12,
+          "uniqueItems": true
+        },
+        "times": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/timeField"
+          },
+          "minItems": 1,
+          "maxItems": 4
+        },
+        "window": {
+          "$ref": "#/$defs/shortTextField"
+        },
+        "timesPerPeriod": {
+          "$ref": "#/$defs/countField"
+        },
+        "timezoneId": {
+          "$ref": "#/$defs/zoneField"
+        },
+        "validity": {
+          "$ref": "#/$defs/period"
+        }
+      },
+      "required": [
+        "frequency"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "frequency": {
+                "properties": {
+                  "value": {
+                    "const": "DAILY"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "weekdays"
+                  ]
+                },
+                {
+                  "required": [
+                    "monthDays"
+                  ]
+                },
+                {
+                  "required": [
+                    "months"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "frequency": {
+                "properties": {
+                  "value": {
+                    "const": "WEEKLY"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "monthDays"
+                  ]
+                },
+                {
+                  "required": [
+                    "months"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "frequency": {
+                "properties": {
+                  "value": {
+                    "const": "MONTHLY"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "weekdays"
+                  ]
+                },
+                {
+                  "required": [
+                    "months"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "frequency": {
+                "properties": {
+                  "value": {
+                    "const": "YEARLY"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "weekdays"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "frequency": {
+                "properties": {
+                  "value": {
+                    "const": "FLEXIBLE"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "interval"
+                  ]
+                },
+                {
+                  "required": [
+                    "weekdays"
+                  ]
+                },
+                {
+                  "required": [
+                    "monthDays"
+                  ]
+                },
+                {
+                  "required": [
+                    "months"
+                  ]
+                },
+                {
+                  "required": [
+                    "timesPerPeriod"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "occurrence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "occurrenceId": {
+          "$ref": "#/$defs/localId"
+        },
+        "at": {
+          "$ref": "#/$defs/temporal"
+        },
+        "state": {
+          "$ref": "#/$defs/occurrenceStateField"
+        },
+        "linkedProposal": {
+          "$ref": "#/$defs/refField"
+        }
+      },
+      "required": [
+        "occurrenceId",
+        "at",
+        "state"
+      ]
+    },
+    "exception": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "exceptionId": {
+          "$ref": "#/$defs/localId"
+        },
+        "period": {
+          "$ref": "#/$defs/period"
+        },
+        "effect": {
+          "$ref": "#/$defs/exceptionEffectField"
+        },
+        "description": {
+          "$ref": "#/$defs/textField"
+        },
+        "replacementRecurrence": {
+          "$ref": "#/$defs/recurrence"
+        }
+      },
+      "required": [
+        "exceptionId",
+        "period",
+        "effect",
+        "description"
+      ]
+    },
+    "trigger": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "AT"
+            },
+            "at": {
+              "$ref": "#/$defs/temporal"
+            }
+          },
+          "required": [
+            "kind",
+            "at"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "BEFORE"
+            },
+            "relativeTo": {
+              "$ref": "#/$defs/relativeToField"
+            },
+            "secondsBefore": {
+              "$ref": "#/$defs/durationField"
+            }
+          },
+          "required": [
+            "kind",
+            "relativeTo",
+            "secondsBefore"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "CONDITION"
+            },
+            "condition": {
+              "$ref": "#/$defs/textField"
+            }
+          },
+          "required": [
+            "kind",
+            "condition"
+          ]
+        }
+      ]
+    },
+    "attribution": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "CAPTURE_AUTHOR"
+            }
+          },
+          "required": [
+            "kind"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "REPORTED_PERSON"
+            },
+            "speaker": {
+              "$ref": "#/$defs/refField"
+            }
+          },
+          "required": [
+            "kind",
+            "speaker"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "MODEL_CONCLUSION"
+            }
+          },
+          "required": [
+            "kind"
+          ]
+        }
+      ]
+    },
+    "TASK": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "$ref": "#/$defs/textField"
+        },
+        "state": {
+          "$ref": "#/$defs/taskStateField"
+        },
+        "actor": {
+          "$ref": "#/$defs/refField"
+        },
+        "project": {
+          "$ref": "#/$defs/refField"
+        },
+        "dueAt": {
+          "$ref": "#/$defs/temporal"
+        },
+        "plannedAt": {
+          "$ref": "#/$defs/temporal"
+        },
+        "durationSeconds": {
+          "$ref": "#/$defs/durationField"
+        },
+        "priority": {
+          "$ref": "#/$defs/priorityField"
+        },
+        "dependsOn": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/refField"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "location": {
+          "$ref": "#/$defs/shortTextField"
+        },
+        "recurrence": {
+          "$ref": "#/$defs/recurrence"
+        }
+      },
+      "required": [
+        "title"
+      ]
+    },
+    "EVENT": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "$ref": "#/$defs/textField"
+        },
+        "state": {
+          "$ref": "#/$defs/eventStateField"
+        },
+        "participants": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/refField"
+          },
+          "minItems": 1,
+          "maxItems": 16
+        },
+        "project": {
+          "$ref": "#/$defs/refField"
+        },
+        "startsAt": {
+          "$ref": "#/$defs/temporal"
+        },
+        "endsAt": {
+          "$ref": "#/$defs/temporal"
+        },
+        "durationSeconds": {
+          "$ref": "#/$defs/durationField"
+        },
+        "location": {
+          "$ref": "#/$defs/shortTextField"
+        },
+        "recurrence": {
+          "$ref": "#/$defs/recurrence"
+        }
+      },
+      "required": [
+        "title"
+      ]
+    },
+    "ROUTINE": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "$ref": "#/$defs/textField"
+        },
+        "patternKind": {
+          "$ref": "#/$defs/patternKindField"
+        },
+        "person": {
+          "$ref": "#/$defs/refField"
+        },
+        "recurrence": {
+          "$ref": "#/$defs/recurrence"
+        },
+        "observedPeriod": {
+          "$ref": "#/$defs/period"
+        },
+        "occurrences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/occurrence"
+          },
+          "minItems": 1,
+          "maxItems": 16
+        },
+        "exceptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/exception"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "trackingIntent": {
+          "$ref": "#/$defs/trackingIntentField"
+        }
+      },
+      "required": [
+        "title",
+        "patternKind"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "patternKind": {
+                "properties": {
+                  "value": {
+                    "const": "OBSERVED"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "observedPeriod",
+              "occurrences"
+            ],
+            "properties": {
+              "occurrences": {
+                "minItems": 2
+              },
+              "patternKind": {
+                "properties": {
+                  "evidence": {
+                    "minItems": 2
+                  },
+                  "assessment": {
+                    "properties": {
+                      "basis": {
+                        "const": "INFERRED"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "patternKind": {
+                "properties": {
+                  "value": {
+                    "const": "DECLARED"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "patternKind": {
+                "properties": {
+                  "assessment": {
+                    "properties": {
+                      "basis": {
+                        "const": "EXPLICIT"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "HABIT": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "$ref": "#/$defs/textField"
+        },
+        "person": {
+          "$ref": "#/$defs/refField"
+        },
+        "desiredFrequency": {
+          "$ref": "#/$defs/recurrence"
+        },
+        "trackingIntent": {
+          "$ref": "#/$defs/trackingIntentField"
+        },
+        "occurrences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/occurrence"
+          },
+          "minItems": 1,
+          "maxItems": 16
+        },
+        "exceptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/exception"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "goal": {
+          "$ref": "#/$defs/refField"
+        }
+      },
+      "required": [
+        "title"
+      ]
+    },
+    "REMINDER": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "$ref": "#/$defs/textField"
+        },
+        "target": {
+          "$ref": "#/$defs/refField"
+        },
+        "request": {
+          "$ref": "#/$defs/reminderRequestField"
+        },
+        "trigger": {
+          "$ref": "#/$defs/trigger"
+        }
+      },
+      "required": [
+        "title",
+        "target",
+        "request",
+        "trigger"
+      ]
+    },
+    "IDEA": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "$ref": "#/$defs/textField"
+        },
+        "themes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/shortTextField"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/textField"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "project": {
+          "$ref": "#/$defs/refField"
+        }
+      },
+      "required": [
+        "title"
+      ]
+    },
+    "FACT": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "$ref": "#/$defs/textField"
+        },
+        "factKind": {
+          "$ref": "#/$defs/factKindField"
+        },
+        "subject": {
+          "$ref": "#/$defs/refField"
+        },
+        "project": {
+          "$ref": "#/$defs/refField"
+        },
+        "attribution": {
+          "$ref": "#/$defs/attribution"
+        },
+        "scope": {
+          "$ref": "#/$defs/textField"
+        },
+        "occurredAt": {
+          "$ref": "#/$defs/temporal"
+        },
+        "observedPeriod": {
+          "$ref": "#/$defs/period"
+        }
+      },
+      "required": [
+        "title",
+        "factKind",
+        "attribution"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "factKind": {
+                "properties": {
+                  "value": {
+                    "enum": [
+                      "PERSONALITY_DESCRIPTION",
+                      "BOUNDED_CONCLUSION"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "subject",
+              "scope"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "factKind": {
+                "properties": {
+                  "value": {
+                    "const": "BOUNDED_CONCLUSION"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "observedPeriod"
+            ],
+            "properties": {
+              "attribution": {
+                "properties": {
+                  "kind": {
+                    "const": "MODEL_CONCLUSION"
+                  }
+                }
+              },
+              "title": {
+                "properties": {
+                  "evidence": {
+                    "minItems": 2
+                  },
+                  "assessment": {
+                    "properties": {
+                      "basis": {
+                        "const": "INFERRED"
+                      },
+                      "modality": {
+                        "const": "UNCERTAIN"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "DECISION": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "$ref": "#/$defs/textField"
+        },
+        "actor": {
+          "$ref": "#/$defs/refField"
+        },
+        "project": {
+          "$ref": "#/$defs/refField"
+        },
+        "decidedAt": {
+          "$ref": "#/$defs/temporal"
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/textField"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "alternatives": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/textField"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        }
+      },
+      "required": [
+        "title"
+      ]
+    },
+    "GOAL": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "$ref": "#/$defs/textField"
+        },
+        "actor": {
+          "$ref": "#/$defs/refField"
+        },
+        "project": {
+          "$ref": "#/$defs/refField"
+        },
+        "targetAt": {
+          "$ref": "#/$defs/temporal"
+        },
+        "successCriteria": {
+          "$ref": "#/$defs/textField"
+        },
+        "progress": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/refField"
+          },
+          "minItems": 1,
+          "maxItems": 16
+        }
+      },
+      "required": [
+        "title"
+      ]
+    },
+    "PERSON": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "$ref": "#/$defs/textField"
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/shortTextField"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "context": {
+          "$ref": "#/$defs/textField"
+        }
+      },
+      "required": [
+        "title"
+      ]
+    },
+    "PROJECT": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "$ref": "#/$defs/textField"
+        },
+        "state": {
+          "$ref": "#/$defs/projectStateField"
+        },
+        "participants": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/refField"
+          },
+          "minItems": 1,
+          "maxItems": 16
+        },
+        "targetAt": {
+          "$ref": "#/$defs/temporal"
+        },
+        "goal": {
+          "$ref": "#/$defs/refField"
+        }
+      },
+      "required": [
+        "title"
+      ]
+    },
+    "TASKProposal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "proposalId": {
+          "$ref": "#/$defs/localId"
+        },
+        "category": {
+          "const": "TASK"
+        },
+        "proposalStatus": {
+          "const": "PROPOSED"
+        },
+        "data": {
+          "$ref": "#/$defs/TASK"
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/relationField"
+          },
+          "minItems": 1,
+          "maxItems": 16
+        }
+      },
+      "required": [
+        "proposalId",
+        "category",
+        "proposalStatus",
+        "data"
+      ]
+    },
+    "EVENTProposal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "proposalId": {
+          "$ref": "#/$defs/localId"
+        },
+        "category": {
+          "const": "EVENT"
+        },
+        "proposalStatus": {
+          "const": "PROPOSED"
+        },
+        "data": {
+          "$ref": "#/$defs/EVENT"
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/relationField"
+          },
+          "minItems": 1,
+          "maxItems": 16
+        }
+      },
+      "required": [
+        "proposalId",
+        "category",
+        "proposalStatus",
+        "data"
+      ]
+    },
+    "ROUTINEProposal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "proposalId": {
+          "$ref": "#/$defs/localId"
+        },
+        "category": {
+          "const": "ROUTINE"
+        },
+        "proposalStatus": {
+          "const": "PROPOSED"
+        },
+        "data": {
+          "$ref": "#/$defs/ROUTINE"
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/relationField"
+          },
+          "minItems": 1,
+          "maxItems": 16
+        }
+      },
+      "required": [
+        "proposalId",
+        "category",
+        "proposalStatus",
+        "data"
+      ]
+    },
+    "HABITProposal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "proposalId": {
+          "$ref": "#/$defs/localId"
+        },
+        "category": {
+          "const": "HABIT"
+        },
+        "proposalStatus": {
+          "const": "PROPOSED"
+        },
+        "data": {
+          "$ref": "#/$defs/HABIT"
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/relationField"
+          },
+          "minItems": 1,
+          "maxItems": 16
+        }
+      },
+      "required": [
+        "proposalId",
+        "category",
+        "proposalStatus",
+        "data"
+      ]
+    },
+    "REMINDERProposal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "proposalId": {
+          "$ref": "#/$defs/localId"
+        },
+        "category": {
+          "const": "REMINDER"
+        },
+        "proposalStatus": {
+          "const": "PROPOSED"
+        },
+        "data": {
+          "$ref": "#/$defs/REMINDER"
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/relationField"
+          },
+          "minItems": 1,
+          "maxItems": 16
+        }
+      },
+      "required": [
+        "proposalId",
+        "category",
+        "proposalStatus",
+        "data"
+      ]
+    },
+    "IDEAProposal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "proposalId": {
+          "$ref": "#/$defs/localId"
+        },
+        "category": {
+          "const": "IDEA"
+        },
+        "proposalStatus": {
+          "const": "PROPOSED"
+        },
+        "data": {
+          "$ref": "#/$defs/IDEA"
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/relationField"
+          },
+          "minItems": 1,
+          "maxItems": 16
+        }
+      },
+      "required": [
+        "proposalId",
+        "category",
+        "proposalStatus",
+        "data"
+      ]
+    },
+    "FACTProposal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "proposalId": {
+          "$ref": "#/$defs/localId"
+        },
+        "category": {
+          "const": "FACT"
+        },
+        "proposalStatus": {
+          "const": "PROPOSED"
+        },
+        "data": {
+          "$ref": "#/$defs/FACT"
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/relationField"
+          },
+          "minItems": 1,
+          "maxItems": 16
+        }
+      },
+      "required": [
+        "proposalId",
+        "category",
+        "proposalStatus",
+        "data"
+      ]
+    },
+    "DECISIONProposal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "proposalId": {
+          "$ref": "#/$defs/localId"
+        },
+        "category": {
+          "const": "DECISION"
+        },
+        "proposalStatus": {
+          "const": "PROPOSED"
+        },
+        "data": {
+          "$ref": "#/$defs/DECISION"
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/relationField"
+          },
+          "minItems": 1,
+          "maxItems": 16
+        }
+      },
+      "required": [
+        "proposalId",
+        "category",
+        "proposalStatus",
+        "data"
+      ]
+    },
+    "GOALProposal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "proposalId": {
+          "$ref": "#/$defs/localId"
+        },
+        "category": {
+          "const": "GOAL"
+        },
+        "proposalStatus": {
+          "const": "PROPOSED"
+        },
+        "data": {
+          "$ref": "#/$defs/GOAL"
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/relationField"
+          },
+          "minItems": 1,
+          "maxItems": 16
+        }
+      },
+      "required": [
+        "proposalId",
+        "category",
+        "proposalStatus",
+        "data"
+      ]
+    },
+    "PERSONProposal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "proposalId": {
+          "$ref": "#/$defs/localId"
+        },
+        "category": {
+          "const": "PERSON"
+        },
+        "proposalStatus": {
+          "const": "PROPOSED"
+        },
+        "data": {
+          "$ref": "#/$defs/PERSON"
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/relationField"
+          },
+          "minItems": 1,
+          "maxItems": 16
+        }
+      },
+      "required": [
+        "proposalId",
+        "category",
+        "proposalStatus",
+        "data"
+      ]
+    },
+    "PROJECTProposal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "proposalId": {
+          "$ref": "#/$defs/localId"
+        },
+        "category": {
+          "const": "PROJECT"
+        },
+        "proposalStatus": {
+          "const": "PROPOSED"
+        },
+        "data": {
+          "$ref": "#/$defs/PROJECT"
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/relationField"
+          },
+          "minItems": 1,
+          "maxItems": 16
+        }
+      },
+      "required": [
+        "proposalId",
+        "category",
+        "proposalStatus",
+        "data"
+      ]
+    },
+    "issue": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "string",
+          "enum": [
+            "INSUFFICIENT_EVIDENCE",
+            "AMBIGUOUS_IDENTITY",
+            "AMBIGUOUS_TIME",
+            "CONTRADICTION",
+            "UNSUPPORTED_CONTENT",
+            "LIMIT_REACHED",
+            "NEEDS_CLARIFICATION"
+          ]
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "affectedProposalIds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/localId"
+          },
+          "minItems": 0,
+          "maxItems": 16,
+          "uniqueItems": true
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 0,
+          "maxItems": 8
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "affectedProposalIds",
+        "evidence"
+      ]
+    }
+  }
+}

@@ -1,0 +1,253 @@
+{
+  "date": "2026-10-15",
+  "scope": "DESKTOP_SCHEMA_AND_FIXTURE_SANITY_ONLY_NOT_F4_04",
+  "networkBlockedDuringValidation": true,
+  "python": "3.12.14",
+  "validator": {
+    "name": "jsonschema",
+    "version": "4.25.1",
+    "draft": "2020-12",
+    "formatChecker": true
+  },
+  "schemaSha256": "724680a219eade0de966a8ae33bf79531c5b7b3d440c4a21921055703f45d8a5",
+  "cases": [
+    {
+      "file": "fixtures/valid/01-multiple.json",
+      "schemaValid": true,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/valid/02-rutina-semanal.json",
+      "schemaValid": true,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/valid/03-patron-observado.json",
+      "schemaValid": true,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/valid/04-evento-ambiguo.json",
+      "schemaValid": true,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/valid/05-negacion.json",
+      "schemaValid": true,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/valid/06-tarea-completada.json",
+      "schemaValid": true,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/valid/07-recordatorio-explicito.json",
+      "schemaValid": true,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/valid/08-actualizacion-contradictoria.json",
+      "schemaValid": true,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/valid/09-evidencia-insuficiente.json",
+      "schemaValid": true,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/valid/10-idea-decision-objetivo-habito.json",
+      "schemaValid": true,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/valid/11-conclusion-personal-acotada.json",
+      "schemaValid": true,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/valid/12-revision-utf16.json",
+      "schemaValid": true,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/valid/13-descripcion-atribuida.json",
+      "schemaValid": true,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/valid/14-tiempo-resuelto.json",
+      "schemaValid": true,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/invalid/s01-version-desconocida.json",
+      "schemaValid": false,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/invalid/s02-campo-ajeno.json",
+      "schemaValid": false,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/invalid/s03-aceptacion-ia.json",
+      "schemaValid": false,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/invalid/s04-sin-evidencia.json",
+      "schemaValid": false,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/invalid/s05-nulo-no-permitido.json",
+      "schemaValid": false,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/invalid/s06-tipo-cruzado.json",
+      "schemaValid": false,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/invalid/s07-probabilidad-inventada.json",
+      "schemaValid": false,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/invalid/s08-inferencia-sin-razon.json",
+      "schemaValid": false,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/invalid/s09-exceso-propuestas.json",
+      "schemaValid": false,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/invalid/s10-alarma-habilitada.json",
+      "schemaValid": false,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/invalid/s11-observado-sin-periodo.json",
+      "schemaValid": false,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/invalid/s12-categoria-antigua.json",
+      "schemaValid": false,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/invalid/k01-cita-falsa.json",
+      "schemaValid": true,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/invalid/k02-rango-invertido.json",
+      "schemaValid": true,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/invalid/k03-ref-colgante.json",
+      "schemaValid": true,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/invalid/k04-snapshot-alterado.json",
+      "schemaValid": true,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/invalid/k05-id-duplicado.json",
+      "schemaValid": true,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/invalid/k06-recurrencia-duplicada.json",
+      "schemaValid": true,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/invalid/k07-instant-inconsistente.json",
+      "schemaValid": true,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/invalid/k08-fuente-fuera-del-envio.json",
+      "schemaValid": true,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/invalid/k09-id64-desbordado.json",
+      "schemaValid": true,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    },
+    {
+      "file": "fixtures/invalid/k10-unidad-emoji-incorrecta.json",
+      "schemaValid": true,
+      "matchesExpectation": true,
+      "semanticGateExecuted": false
+    }
+  ],
+  "syntaxDocumentsChecked": 40,
+  "metaSchemaValid": true,
+  "fixtureCount": 36,
+  "positiveFixtures": 14,
+  "schemaRejections": 12,
+  "semanticNegativeFixturesOnly": 10,
+  "positiveEvidenceLinksChecked": 98,
+  "positiveCategoriesCovered": [
+    "DECISION",
+    "EVENT",
+    "FACT",
+    "GOAL",
+    "HABIT",
+    "IDEA",
+    "PERSON",
+    "PROJECT",
+    "REMINDER",
+    "ROUTINE",
+    "TASK"
+  ],
+  "largestPositiveFixtureBytes": 13359,
+  "productionKotlinValidationImplemented": false
+}

@@ -1,23 +1,31 @@
 package com.yezvi.assistant.ui.screens
 
 import androidx.compose.animation.Crossfade
-import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
@@ -32,11 +40,15 @@ import com.yezvi.assistant.domain.speech.RecognitionFailureReason
 import com.yezvi.assistant.domain.speech.SpeechToTextError
 import com.yezvi.assistant.domain.speech.SpeechToTextState
 import com.yezvi.assistant.presentation.capture.VoiceTranscriptDraftState
+import com.yezvi.assistant.ui.components.YervisIcon
+import com.yezvi.assistant.ui.components.YervisPanel
+import com.yezvi.assistant.ui.components.YervisSymbol
+import com.yezvi.assistant.ui.theme.LocalVisualMetrics
 import com.yezvi.assistant.ui.theme.Motion
 import com.yezvi.assistant.ui.theme.motionDurationMillis
 import com.yezvi.assistant.ui.theme.rememberReduceMotion
 
-/** Renders actual session snapshots; animation only marks a change of state or text area size. */
+/** Renders actual session snapshots without animating the editor's position for every partial. */
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 internal fun VoiceRecordingPanel(
@@ -53,6 +65,8 @@ internal fun VoiceRecordingPanel(
     onPause: () -> Unit = {},
     onResume: () -> Unit = {},
 ) {
+    val metrics = LocalVisualMetrics.current
+    var showRecognizedText by rememberSaveable { mutableStateOf(false) }
     val recognizing = state as? VoiceTranscriptDraftState.Recognizing
     val speechState = recognizing?.speechState
     val mixedOriginBlocked = when (state) {
@@ -66,15 +80,26 @@ internal fun VoiceRecordingPanel(
         is VoiceTranscriptDraftState.EmptyTranscript,
         is VoiceTranscriptDraftState.RecognitionFailed,
         is VoiceTranscriptDraftState.Saved -> true
+        is VoiceTranscriptDraftState.Candidate -> !state.draft.containsMixedTextAndVoice
         else -> false
     }
     val canStop = recognizing != null && !stopRequested &&
         (speechState is SpeechToTextState.Listening || speechState is SpeechToTextState.Transcribing ||
             speechState is SpeechToTextState.Paused)
     val isPaused = speechState is SpeechToTextState.Paused
+    val hasRecordedSpeech = when (speechState) {
+        is SpeechToTextState.Listening -> speechState.hasVoiceActivity ||
+            !speechState.partialTranscript?.text.isNullOrBlank()
+        is SpeechToTextState.Paused -> speechState.hasVoiceActivity ||
+            !speechState.partialTranscript?.text.isNullOrBlank()
+        is SpeechToTextState.Transcribing -> speechState.hasVoiceActivity ||
+            !speechState.partialTranscript?.text.isNullOrBlank()
+        else -> false
+    }
     val canPause = pauseSupported && recognizing != null && !stopRequested &&
         (speechState is SpeechToTextState.Listening || speechState is SpeechToTextState.Transcribing)
     val toggleLabel = when {
+        canStart && state is VoiceTranscriptDraftState.Candidate -> R.string.capture_voice_continue
         canStart -> R.string.capture_voice_start
         isPaused -> R.string.capture_voice_resume
         canPause -> R.string.capture_voice_pause
@@ -114,7 +139,8 @@ internal fun VoiceRecordingPanel(
                 is SpeechToTextState.Transcribing -> R.string.capture_voice_processing_detail
                 else -> R.string.capture_voice_preparing_detail
             }
-            is VoiceTranscriptDraftState.Candidate,
+            is VoiceTranscriptDraftState.Candidate -> state.continuationError?.messageResource()
+                ?: R.string.capture_voice_result_detail
             is VoiceTranscriptDraftState.AwaitingTextDraftDecision -> R.string.capture_voice_result_detail
             is VoiceTranscriptDraftState.Discarded -> R.string.capture_voice_cancelled_detail
             is VoiceTranscriptDraftState.EmptyTranscript -> R.string.capture_voice_no_speech
@@ -122,8 +148,10 @@ internal fun VoiceRecordingPanel(
             else -> R.string.capture_voice_local_detail
         }
     }
+    val segments = (state as? VoiceTranscriptDraftState.Candidate)?.draft?.recognizedSegments
+    val recognizedSegments = remember(segments) { segments?.joinToString(" ") }
     val transcript = when (state) {
-        is VoiceTranscriptDraftState.Candidate -> state.draft.recognizedText
+        is VoiceTranscriptDraftState.Candidate -> recognizedSegments
         is VoiceTranscriptDraftState.AwaitingTextDraftDecision -> state.draft.recognizedText
         is VoiceTranscriptDraftState.Recognizing -> when (speechState) {
             is SpeechToTextState.Listening -> speechState.partialTranscript?.text
@@ -134,34 +162,58 @@ internal fun VoiceRecordingPanel(
         else -> null
     }
 
-    Surface(
+    val hasError = state is VoiceTranscriptDraftState.RecognitionFailed ||
+        state is VoiceTranscriptDraftState.EmptyTranscript || state is VoiceTranscriptDraftState.SaveFailed ||
+        mixedOriginBlocked
+    val stateSymbol = when {
+        hasError -> YervisSymbol.Info
+        state is VoiceTranscriptDraftState.Saved -> YervisSymbol.Check
+        isPaused -> YervisSymbol.Pause
+        recognizing != null && (stopRequested || speechState is SpeechToTextState.Transcribing) -> YervisSymbol.Clock
+        else -> YervisSymbol.Voice
+    }
+    YervisPanel(
         modifier = modifier.fillMaxWidth(),
-        color = MaterialTheme.colorScheme.surfaceContainer,
-        shape = MaterialTheme.shapes.medium,
+        highlighted = !hasError,
     ) {
         Column(
-            modifier = Modifier
-                .animateContentSize(tween(motionDurationMillis(Motion.ExpandCollapseMillis, reduceMotion)))
-                .padding(16.dp),
+            modifier = Modifier.padding(metrics.panelPadding),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            Text(
-                stringResource(R.string.capture_voice_title),
-                style = MaterialTheme.typography.titleMedium,
-                modifier = Modifier.semantics { heading() },
-            )
-            Crossfade(
-                targetState = status,
-                animationSpec = tween(motionDurationMillis(Motion.StateChangeMillis, reduceMotion)),
-                label = "voice-session-status",
-            ) { statusResource ->
-                Text(
-                    stringResource(statusResource),
-                    style = MaterialTheme.typography.bodyLarge,
-                    modifier = Modifier.testTag("capture_voice_status").semantics {
-                        liveRegion = LiveRegionMode.Polite
-                    },
-                )
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Surface(
+                    color = if (hasError) MaterialTheme.colorScheme.errorContainer
+                        else MaterialTheme.colorScheme.primaryContainer,
+                    contentColor = if (hasError) MaterialTheme.colorScheme.onErrorContainer
+                        else MaterialTheme.colorScheme.onPrimaryContainer,
+                    shape = MaterialTheme.shapes.medium,
+                ) {
+                    YervisIcon(stateSymbol, modifier = Modifier.padding(12.dp).size(24.dp))
+                }
+                Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                    Text(
+                        stringResource(R.string.capture_voice_title),
+                        style = MaterialTheme.typography.labelLarge,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.semantics { heading() },
+                    )
+                    Crossfade(
+                        targetState = status,
+                        animationSpec = tween(motionDurationMillis(Motion.StateChangeMillis, reduceMotion)),
+                        label = "voice-session-status",
+                    ) { statusResource ->
+                        Text(
+                            stringResource(statusResource),
+                            style = MaterialTheme.typography.titleMedium,
+                            modifier = Modifier.testTag("capture_voice_status").semantics {
+                                liveRegion = LiveRegionMode.Polite
+                            },
+                        )
+                    }
+                }
             }
             Text(
                 stringResource(detail),
@@ -169,24 +221,43 @@ internal fun VoiceRecordingPanel(
                     if (mixedOriginBlocked) liveRegion = LiveRegionMode.Polite
                 },
                 style = MaterialTheme.typography.bodyMedium,
-                color = if (state is VoiceTranscriptDraftState.RecognitionFailed || state is VoiceTranscriptDraftState.EmptyTranscript) {
+                color = if (hasError) {
                     MaterialTheme.colorScheme.error
                 } else {
                     MaterialTheme.colorScheme.onSurfaceVariant
                 },
             )
-            if (!transcript.isNullOrBlank() && !cancelling) {
+            if (recognizing != null && !cancelling &&
+                (speechState is SpeechToTextState.Listening || speechState is SpeechToTextState.Paused ||
+                    speechState is SpeechToTextState.Transcribing)
+            ) {
                 SelectionContainer {
                     Text(
-                        transcript,
+                        transcript.orEmpty(),
                         modifier = Modifier.testTag("capture_voice_transcript"),
                         style = MaterialTheme.typography.bodyLarge,
-                        maxLines = 4,
+                        minLines = 2,
+                        maxLines = 2,
                         overflow = TextOverflow.Ellipsis,
                     )
                 }
-                if (recognizing != null) {
-                    Text(stringResource(R.string.capture_voice_partial), style = MaterialTheme.typography.labelMedium)
+                Text(stringResource(R.string.capture_voice_partial), style = MaterialTheme.typography.labelMedium)
+            } else if (!transcript.isNullOrBlank() && !cancelling) {
+                TextButton(
+                    onClick = { showRecognizedText = !showRecognizedText },
+                    modifier = Modifier.heightIn(min = 48.dp).testTag("capture_voice_original_toggle"),
+                ) {
+                    YervisIcon(if (showRecognizedText) YervisSymbol.ExpandLess else YervisSymbol.ExpandMore)
+                    Text(stringResource(R.string.ux_capture_recognized_text), modifier = Modifier.padding(start = 8.dp))
+                }
+                if (showRecognizedText) {
+                    SelectionContainer {
+                        Text(
+                            transcript,
+                            modifier = Modifier.testTag("capture_voice_transcript"),
+                            style = MaterialTheme.typography.bodyMedium,
+                        )
+                    }
                 }
             }
             FlowRow(
@@ -201,13 +272,32 @@ internal fun VoiceRecordingPanel(
                     },
                     enabled = enabled && !cancelling && (canStart || isPaused || canPause),
                     modifier = Modifier.heightIn(min = 48.dp).testTag("capture_voice_start"),
-                ) { Text(stringResource(toggleLabel)) }
-                OutlinedButton(
-                    onClick = onStop,
-                    enabled = enabled && canStop && !cancelling,
-                    modifier = Modifier.heightIn(min = 48.dp).testTag("capture_voice_stop"),
-                ) { Text(stringResource(R.string.capture_voice_stop)) }
-                TextButton(
+                ) {
+                    YervisIcon(when {
+                        isPaused -> YervisSymbol.Play
+                        canPause -> YervisSymbol.Pause
+                        else -> YervisSymbol.Voice
+                    }, modifier = Modifier.size(18.dp))
+                    Text(stringResource(toggleLabel), modifier = Modifier.padding(start = 8.dp))
+                }
+                if (recognizing != null && hasRecordedSpeech) {
+                    Button(
+                        onClick = onStop,
+                        enabled = enabled && canStop && !cancelling,
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                            contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+                        ),
+                        modifier = Modifier.heightIn(min = 48.dp).testTag("capture_voice_stop"),
+                    ) { Text(stringResource(R.string.capture_voice_finish)) }
+                } else if (recognizing != null) {
+                    OutlinedButton(
+                        onClick = onStop,
+                        enabled = enabled && canStop && !cancelling,
+                        modifier = Modifier.heightIn(min = 48.dp).testTag("capture_voice_stop"),
+                    ) { Text(stringResource(R.string.capture_voice_stop)) }
+                }
+                if (canCancel) TextButton(
                     onClick = onCancel,
                     enabled = canCancel && !cancelling,
                     modifier = Modifier.heightIn(min = 48.dp).testTag("capture_voice_cancel"),

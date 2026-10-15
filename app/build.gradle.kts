@@ -13,6 +13,23 @@ room3 {
     schemaDirectory("$projectDir/schemas")
 }
 
+val prepareProposalSchema = tasks.register<Sync>("prepareProposalSchema") {
+    from(rootProject.file("docs/CONTRATOS/IA/v1/proposals.schema.json"))
+    into(layout.buildDirectory.dir("generated/proposalSchema"))
+}
+
+// Synthetic review examples are available only in debug. Keep the canonical fixtures under docs/.
+val prepareProposalReviewDemo = tasks.register<Sync>("prepareProposalReviewDemo") {
+    from(rootProject.file("docs/CONTRATOS/IA/v1/fixtures/sources.json")) {
+        into("proposal-review")
+    }
+    from(rootProject.file("docs/CONTRATOS/IA/v1/fixtures/valid")) {
+        into("proposal-review/fixtures")
+        include("*.json")
+    }
+    into(layout.buildDirectory.dir("generated/proposalReviewDemo"))
+}
+
 android {
     namespace = "com.yezvi.assistant"
     compileSdk {
@@ -31,6 +48,12 @@ android {
     }
 
     buildTypes {
+        debug {
+            // Opt-in target with a separate Android UID; never shares the personal app database.
+            if (providers.gradleProperty("isolatedPersistenceTests").orNull == "true") {
+                applicationIdSuffix = ".persistenceisolated"
+            }
+        }
         release {
             proguardFiles("proguard-rules.pro")
             optimization {
@@ -46,6 +69,16 @@ android {
     buildFeatures {
         compose = true
     }
+    // Package the single canonical exchange schema, never the synthetic fixtures or sources.
+    sourceSets.getByName("main").resources.directories.add(layout.buildDirectory.dir("generated/proposalSchema").get().asFile.path)
+    // The F4.07 review route is an explicitly labeled debug demonstration, never release data.
+    sourceSets.getByName("debug").assets.srcDir(
+        layout.buildDirectory.dir("generated/proposalReviewDemo").get().asFile.path,
+    )
+}
+
+tasks.matching { it.name == "mergeDebugAssets" }.configureEach {
+    dependsOn(prepareProposalReviewDemo)
 }
 
 dependencies {
@@ -120,7 +153,7 @@ val verifyLocalSpeechResources = tasks.register("verifyLocalSpeechResources") {
         }
     }
 }
-tasks.named("preBuild").configure { dependsOn(verifyLocalSpeechResources) }
+tasks.named("preBuild").configure { dependsOn(verifyLocalSpeechResources, prepareProposalSchema) }
 
 val verifyConfidenceRuntime = tasks.register("verifyConfidenceRuntime") {
     val manifestFile = layout.projectDirectory.file("src/debug/assets/stt/confidence-runtime.json")

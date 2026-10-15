@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "1.0.0",
+  "requestId": "request-09-evidencia-insuficiente",
+  "extractionId": "extraction-09-evidencia-insuficiente",
+  "offsetUnit": "UTF16_CODE_UNIT",
+  "sourceSnapshots": [
+    {
+      "sourceEntryId": "s-insufficient",
+      "revision": {
+        "kind": "ORIGINAL"
+      },
+      "sourceType": "TEXT",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "textSha256": "12dda171abb766684ad54b61cccca058a858fff9eb64f47cd3e08c69339852b7",
+      "textLengthUtf16": 15,
+      "authorizedRanges": [
+        {
+          "startUtf16": 0,
+          "endUtf16": 15
+        }
+      ]
+    }
+  ],
+  "outcome": "NO_PROPOSALS",
+  "proposals": [],
+  "issues": [
+    {
+      "code": "INSUFFICIENT_EVIDENCE",
+      "message": "No se puede identificar actor ni acción realizada.",
+      "affectedProposalIds": [],
+      "evidence": [
+        {
+          "sourceEntryId": "s-insufficient",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "quote": "¿Él ya lo hizo?",
+          "range": {
+            "startUtf16": 0,
+            "endUtf16": 15
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,411 @@
+{
+  "id": "agenda-34",
+  "name": "Excepción semanal",
+  "lane": "A",
+  "sources": [
+    {
+      "sourceEntryId": "s-34-old",
+      "text": "Los lunes estudio.",
+      "capturedAtEpochMillis": "1791219600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    },
+    {
+      "sourceEntryId": "s-34-new",
+      "text": "El 2026-10-26 no estudio; es una excepción.",
+      "capturedAtEpochMillis": "1792429200000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-34-a",
+      "extractionId": "e-34-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-34-old",
+          "capturedAtEpochMillis": "1791219600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "c469464e79dd0d6376c8755aa2ae0dacac3cd3a60abae4b9a9420671bfe09022",
+          "textLengthUtf16": 18,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 18
+            }
+          ]
+        },
+        {
+          "sourceEntryId": "s-34-new",
+          "capturedAtEpochMillis": "1792429200000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "887292cbb1f487f1ce542027d4737a8ebbfd6f0107cd05c3fa43ab7b03c15bb9",
+          "textLengthUtf16": 43,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 43
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "antes",
+          "category": "ROUTINE",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Los lunes estudio.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-34-old",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Los lunes estudio.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 18
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "patternKind": {
+              "value": "DECLARED",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-34-old",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Los lunes estudio.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 18
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "recurrence": {
+              "frequency": {
+                "value": "WEEKLY",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-34-old",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "Los lunes estudio.",
+                    "range": {
+                      "startUtf16": 0,
+                      "endUtf16": 18
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "weekdays": [
+                {
+                  "value": "MO",
+                  "evidence": [
+                    {
+                      "sourceEntryId": "s-34-old",
+                      "revision": {
+                        "kind": "ORIGINAL"
+                      },
+                      "quote": "Los lunes estudio.",
+                      "range": {
+                        "startUtf16": 0,
+                        "endUtf16": 18
+                      }
+                    }
+                  ],
+                  "assessment": {
+                    "basis": "EXPLICIT",
+                    "modality": "ASSERTED",
+                    "polarity": "AFFIRMED",
+                    "certaintyValidation": "UNVALIDATED"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "proposalId": "nuevo",
+          "category": "ROUTINE",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "El 2026-10-26 no estudio; es una excepción.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-34-new",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "El 2026-10-26 no estudio; es una excepción.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 43
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "patternKind": {
+              "value": "DECLARED",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-34-new",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "El 2026-10-26 no estudio; es una excepción.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 43
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "exceptions": [
+              {
+                "exceptionId": "ex1",
+                "period": {
+                  "from": {
+                    "expression": {
+                      "value": "2026-10-26",
+                      "evidence": [
+                        {
+                          "sourceEntryId": "s-34-new",
+                          "revision": {
+                            "kind": "ORIGINAL"
+                          },
+                          "quote": "2026-10-26",
+                          "range": {
+                            "startUtf16": 3,
+                            "endUtf16": 13
+                          }
+                        }
+                      ],
+                      "assessment": {
+                        "basis": "EXPLICIT",
+                        "modality": "ASSERTED",
+                        "polarity": "AFFIRMED",
+                        "certaintyValidation": "UNVALIDATED"
+                      }
+                    },
+                    "anchor": {
+                      "sourceEntryId": "s-34-new",
+                      "revision": {
+                        "kind": "ORIGINAL"
+                      }
+                    },
+                    "precision": "UNSPECIFIED",
+                    "uncertainty": "UNRESOLVED",
+                    "resolved": null
+                  },
+                  "to": {
+                    "expression": {
+                      "value": "2026-10-26",
+                      "evidence": [
+                        {
+                          "sourceEntryId": "s-34-new",
+                          "revision": {
+                            "kind": "ORIGINAL"
+                          },
+                          "quote": "2026-10-26",
+                          "range": {
+                            "startUtf16": 3,
+                            "endUtf16": 13
+                          }
+                        }
+                      ],
+                      "assessment": {
+                        "basis": "EXPLICIT",
+                        "modality": "ASSERTED",
+                        "polarity": "AFFIRMED",
+                        "certaintyValidation": "UNVALIDATED"
+                      }
+                    },
+                    "anchor": {
+                      "sourceEntryId": "s-34-new",
+                      "revision": {
+                        "kind": "ORIGINAL"
+                      }
+                    },
+                    "precision": "UNSPECIFIED",
+                    "uncertainty": "UNRESOLVED",
+                    "resolved": null
+                  }
+                },
+                "effect": {
+                  "value": "CANCELLED_OCCURRENCE",
+                  "evidence": [
+                    {
+                      "sourceEntryId": "s-34-new",
+                      "revision": {
+                        "kind": "ORIGINAL"
+                      },
+                      "quote": "El 2026-10-26 no estudio; es una excepción.",
+                      "range": {
+                        "startUtf16": 0,
+                        "endUtf16": 43
+                      }
+                    }
+                  ],
+                  "assessment": {
+                    "basis": "EXPLICIT",
+                    "modality": "ASSERTED",
+                    "polarity": "AFFIRMED",
+                    "certaintyValidation": "UNVALIDATED"
+                  }
+                },
+                "description": {
+                  "value": "El 2026-10-26 no estudio; es una excepción.",
+                  "evidence": [
+                    {
+                      "sourceEntryId": "s-34-new",
+                      "revision": {
+                        "kind": "ORIGINAL"
+                      },
+                      "quote": "El 2026-10-26 no estudio; es una excepción.",
+                      "range": {
+                        "startUtf16": 0,
+                        "endUtf16": 43
+                      }
+                    }
+                  ],
+                  "assessment": {
+                    "basis": "EXPLICIT",
+                    "modality": "ASSERTED",
+                    "polarity": "AFFIRMED",
+                    "certaintyValidation": "UNVALIDATED"
+                  }
+                }
+              }
+            ]
+          },
+          "relations": [
+            {
+              "value": {
+                "kind": "UPDATES",
+                "targetProposalId": "antes"
+              },
+              "evidence": [
+                {
+                  "sourceEntryId": "s-34-new",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "El 2026-10-26 no estudio; es una excepción.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 43
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            }
+          ]
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [],
+  "comparisons": [
+    {
+      "leftDocument": 0,
+      "rightDocument": 0,
+      "left": "antes",
+      "right": "nuevo",
+      "expected": "EXCEPTION_PROPOSED",
+      "temporalUncertainty": false,
+      "knownLimitation": {
+        "observedKind": "CONFLICT_REQUIRES_REVIEW",
+        "explanation": "patternKind compara también evidencia de otra fuente; conserva conflicto revisable en vez del subtipo esperado."
+      }
+    }
+  ],
+  "expectedRelations": [
+    {
+      "source": "nuevo",
+      "target": "antes",
+      "kind": "UPDATES"
+    }
+  ],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [
+    "2026-10-05",
+    "2026-10-19"
+  ],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Vínculo anterior→nuevo; conserva fuentes/versiones, no cambia estados automáticamente.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

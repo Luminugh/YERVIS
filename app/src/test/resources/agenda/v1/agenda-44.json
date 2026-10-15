@@ -1,0 +1,199 @@
+{
+  "id": "agenda-44",
+  "name": "Preferencia atribuida sin perfil permanente",
+  "lane": "C",
+  "sources": [
+    {
+      "sourceEntryId": "s-44",
+      "text": "Creo que Ana prefiere resúmenes en las reuniones del curso.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-44-a",
+      "extractionId": "e-44-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-44",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "537ca5c608c6ee6656335d681c6bbf00b61fa86b9ad1ac26b1a7f37a098118bc",
+          "textLengthUtf16": 59,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 59
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "ana",
+          "category": "PERSON",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Ana",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-44",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Ana",
+                  "range": {
+                    "startUtf16": 9,
+                    "endUtf16": 12
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            }
+          }
+        },
+        {
+          "proposalId": "preferencia",
+          "category": "FACT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Creo que Ana prefiere resúmenes en las reuniones del curso.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-44",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Creo que Ana prefiere resúmenes en las reuniones del curso.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 59
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "UNCERTAIN",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "factKind": {
+              "value": "PREFERENCE",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-44",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Creo que Ana prefiere resúmenes en las reuniones del curso.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 59
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "attribution": {
+              "kind": "CAPTURE_AUTHOR"
+            },
+            "subject": {
+              "value": {
+                "proposalId": "ana"
+              },
+              "evidence": [
+                {
+                  "sourceEntryId": "s-44",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Ana",
+                  "range": {
+                    "startUtf16": 9,
+                    "endUtf16": 12
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "scope": {
+              "value": "reuniones del curso",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-44",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "reuniones del curso",
+                  "range": {
+                    "startUtf16": 39,
+                    "endUtf16": 58
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [
+    "Preferencia contextual no probada"
+  ],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Observación incierta, no diagnóstico ni personalidad estable.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": true
+  }
+}

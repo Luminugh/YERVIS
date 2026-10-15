@@ -1,0 +1,304 @@
+{
+  "id": "agenda-31",
+  "name": "Reextracción con otro transporte",
+  "lane": "A",
+  "sources": [
+    {
+      "sourceEntryId": "s-31",
+      "text": "Los lunes estudio.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-31-a",
+      "extractionId": "e-31-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-31",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "c469464e79dd0d6376c8755aa2ae0dacac3cd3a60abae4b9a9420671bfe09022",
+          "textLengthUtf16": 18,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 18
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "p",
+          "category": "ROUTINE",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Los lunes estudio.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-31",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Los lunes estudio.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 18
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "patternKind": {
+              "value": "DECLARED",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-31",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Los lunes estudio.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 18
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "recurrence": {
+              "frequency": {
+                "value": "WEEKLY",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-31",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "Los lunes estudio.",
+                    "range": {
+                      "startUtf16": 0,
+                      "endUtf16": 18
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "weekdays": [
+                {
+                  "value": "MO",
+                  "evidence": [
+                    {
+                      "sourceEntryId": "s-31",
+                      "revision": {
+                        "kind": "ORIGINAL"
+                      },
+                      "quote": "Los lunes estudio.",
+                      "range": {
+                        "startUtf16": 0,
+                        "endUtf16": 18
+                      }
+                    }
+                  ],
+                  "assessment": {
+                    "basis": "EXPLICIT",
+                    "modality": "ASSERTED",
+                    "polarity": "AFFIRMED",
+                    "certaintyValidation": "UNVALIDATED"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "issues": []
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-31-b",
+      "extractionId": "e-31-b",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-31",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "c469464e79dd0d6376c8755aa2ae0dacac3cd3a60abae4b9a9420671bfe09022",
+          "textLengthUtf16": 18,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 18
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "p",
+          "category": "ROUTINE",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Los lunes estudio.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-31",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Los lunes estudio.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 18
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "patternKind": {
+              "value": "DECLARED",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-31",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Los lunes estudio.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 18
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "recurrence": {
+              "frequency": {
+                "value": "WEEKLY",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-31",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "Los lunes estudio.",
+                    "range": {
+                      "startUtf16": 0,
+                      "endUtf16": 18
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "weekdays": [
+                {
+                  "value": "MO",
+                  "evidence": [
+                    {
+                      "sourceEntryId": "s-31",
+                      "revision": {
+                        "kind": "ORIGINAL"
+                      },
+                      "quote": "Los lunes estudio.",
+                      "range": {
+                        "startUtf16": 0,
+                        "endUtf16": 18
+                      }
+                    }
+                  ],
+                  "assessment": {
+                    "basis": "EXPLICIT",
+                    "modality": "ASSERTED",
+                    "polarity": "AFFIRMED",
+                    "certaintyValidation": "UNVALIDATED"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [],
+  "comparisons": [
+    {
+      "leftDocument": 0,
+      "rightDocument": 1,
+      "left": "p",
+      "right": "p",
+      "expected": "TECHNICAL_DUPLICATE",
+      "temporalUncertainty": false
+    }
+  ],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Misma fuente/revisión/contenido; cambia solicitud/extracción.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

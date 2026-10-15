@@ -1,0 +1,329 @@
+{
+  "schemaVersion": "1.0.0",
+  "requestId": "request-11-conclusion-personal-acota",
+  "extractionId": "extraction-11-conclusion-personal-acota",
+  "offsetUnit": "UTF16_CODE_UNIT",
+  "sourceSnapshots": [
+    {
+      "sourceEntryId": "s-person-0",
+      "revision": {
+        "kind": "ORIGINAL"
+      },
+      "sourceType": "TEXT",
+      "capturedAtEpochMillis": "1791219600000",
+      "timezoneId": "America/Lima",
+      "textSha256": "029c62af0e651246cb3a5067fc9d954579edd7a7e16d7a65a871e41eaeebacac",
+      "textLengthUtf16": 59,
+      "authorizedRanges": [
+        {
+          "startUtf16": 0,
+          "endUtf16": 59
+        }
+      ]
+    },
+    {
+      "sourceEntryId": "s-person-1",
+      "revision": {
+        "kind": "ORIGINAL"
+      },
+      "sourceType": "TEXT",
+      "capturedAtEpochMillis": "1791824400000",
+      "timezoneId": "America/Lima",
+      "textSha256": "7a5323985d3184fe4be898b51b8708ce78cb14826e0d2963f68df903c266f160",
+      "textLengthUtf16": 59,
+      "authorizedRanges": [
+        {
+          "startUtf16": 0,
+          "endUtf16": 59
+        }
+      ]
+    },
+    {
+      "sourceEntryId": "s-person-2",
+      "revision": {
+        "kind": "ORIGINAL"
+      },
+      "sourceType": "TEXT",
+      "capturedAtEpochMillis": "1792429200000",
+      "timezoneId": "America/Lima",
+      "textSha256": "19cbe66c9780f922108120463b1049a96bc76ca73d7a77438be331871ff29971",
+      "textLengthUtf16": 59,
+      "authorizedRanges": [
+        {
+          "startUtf16": 0,
+          "endUtf16": 59
+        }
+      ]
+    }
+  ],
+  "outcome": "COMPLETE",
+  "proposals": [
+    {
+      "proposalId": "ana",
+      "category": "PERSON",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "Ana",
+          "evidence": [
+            {
+              "sourceEntryId": "s-person-0",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Ana",
+              "range": {
+                "startUtf16": 30,
+                "endUtf16": 33
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        }
+      }
+    },
+    {
+      "proposalId": "preferencia",
+      "category": "FACT",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "En las tres reuniones registradas, Ana pidió resumen escrito",
+          "evidence": [
+            {
+              "sourceEntryId": "s-person-0",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "En la reunión del 2026-10-05, Ana pidió un resumen escrito.",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 59
+              }
+            },
+            {
+              "sourceEntryId": "s-person-1",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "En la reunión del 2026-10-12, Ana pidió un resumen escrito.",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 59
+              }
+            },
+            {
+              "sourceEntryId": "s-person-2",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "En la reunión del 2026-10-19, Ana pidió un resumen escrito.",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 59
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "INFERRED",
+            "modality": "UNCERTAIN",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED",
+            "inferenceExplanation": "Síntesis limitada a las fuentes citadas."
+          }
+        },
+        "factKind": {
+          "value": "BOUNDED_CONCLUSION",
+          "evidence": [
+            {
+              "sourceEntryId": "s-person-0",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "En la reunión del 2026-10-05, Ana pidió un resumen escrito.",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 59
+              }
+            },
+            {
+              "sourceEntryId": "s-person-1",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "En la reunión del 2026-10-12, Ana pidió un resumen escrito.",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 59
+              }
+            },
+            {
+              "sourceEntryId": "s-person-2",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "En la reunión del 2026-10-19, Ana pidió un resumen escrito.",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 59
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "INFERRED",
+            "modality": "UNCERTAIN",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED",
+            "inferenceExplanation": "Síntesis limitada a las fuentes citadas."
+          }
+        },
+        "subject": {
+          "value": {
+            "proposalId": "ana"
+          },
+          "evidence": [
+            {
+              "sourceEntryId": "s-person-0",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Ana",
+              "range": {
+                "startUtf16": 30,
+                "endUtf16": 33
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "attribution": {
+          "kind": "MODEL_CONCLUSION"
+        },
+        "scope": {
+          "value": "Solo las tres reuniones citadas, sin generalizar personalidad",
+          "evidence": [
+            {
+              "sourceEntryId": "s-person-0",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "En la reunión del 2026-10-05, Ana pidió un resumen escrito.",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 59
+              }
+            },
+            {
+              "sourceEntryId": "s-person-1",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "En la reunión del 2026-10-12, Ana pidió un resumen escrito.",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 59
+              }
+            },
+            {
+              "sourceEntryId": "s-person-2",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "En la reunión del 2026-10-19, Ana pidió un resumen escrito.",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 59
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "INFERRED",
+            "modality": "UNCERTAIN",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED",
+            "inferenceExplanation": "Síntesis limitada a las fuentes citadas."
+          }
+        },
+        "observedPeriod": {
+          "from": {
+            "expression": {
+              "value": "2026-10-05",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-person-0",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "2026-10-05",
+                  "range": {
+                    "startUtf16": 18,
+                    "endUtf16": 28
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "anchor": {
+              "sourceEntryId": "s-person-0",
+              "revision": {
+                "kind": "ORIGINAL"
+              }
+            },
+            "precision": "DAY",
+            "uncertainty": "UNRESOLVED",
+            "resolved": null
+          },
+          "to": {
+            "expression": {
+              "value": "2026-10-19",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-person-2",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "2026-10-19",
+                  "range": {
+                    "startUtf16": 18,
+                    "endUtf16": 28
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "anchor": {
+              "sourceEntryId": "s-person-2",
+              "revision": {
+                "kind": "ORIGINAL"
+              }
+            },
+            "precision": "DAY",
+            "uncertainty": "UNRESOLVED",
+            "resolved": null
+          }
+        }
+      }
+    }
+  ],
+  "issues": []
+}

@@ -1,0 +1,199 @@
+{
+  "schemaVersion": "1.0.0",
+  "requestId": "request-07-recordatorio-explicito",
+  "extractionId": "extraction-07-recordatorio-explicito",
+  "offsetUnit": "UTF16_CODE_UNIT",
+  "sourceSnapshots": [
+    {
+      "sourceEntryId": "s-reminder",
+      "revision": {
+        "kind": "ORIGINAL"
+      },
+      "sourceType": "TEXT",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "textSha256": "ce20768a132b8d38d8223fc1a9e856a202caf3ba7737964ffa3ffbcf8fac6d69",
+      "textLengthUtf16": 31,
+      "authorizedRanges": [
+        {
+          "startUtf16": 0,
+          "endUtf16": 31
+        }
+      ]
+    }
+  ],
+  "outcome": "COMPLETE",
+  "proposals": [
+    {
+      "proposalId": "ana",
+      "category": "PERSON",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "Ana",
+          "evidence": [
+            {
+              "sourceEntryId": "s-reminder",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Ana",
+              "range": {
+                "startUtf16": 20,
+                "endUtf16": 23
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        }
+      }
+    },
+    {
+      "proposalId": "llamar",
+      "category": "TASK",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "llamar a Ana",
+          "evidence": [
+            {
+              "sourceEntryId": "s-reminder",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "llamar a Ana",
+              "range": {
+                "startUtf16": 11,
+                "endUtf16": 23
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        }
+      }
+    },
+    {
+      "proposalId": "aviso",
+      "category": "REMINDER",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "Recuérdame llamar a Ana",
+          "evidence": [
+            {
+              "sourceEntryId": "s-reminder",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Recuérdame llamar a Ana",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 23
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "target": {
+          "value": {
+            "proposalId": "llamar"
+          },
+          "evidence": [
+            {
+              "sourceEntryId": "s-reminder",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Recuérdame llamar a Ana",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 23
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "request": {
+          "value": "REQUESTED",
+          "evidence": [
+            {
+              "sourceEntryId": "s-reminder",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Recuérdame",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 10
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "trigger": {
+          "kind": "AT",
+          "at": {
+            "expression": {
+              "value": "mañana",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-reminder",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "mañana",
+                  "range": {
+                    "startUtf16": 24,
+                    "endUtf16": 30
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "anchor": {
+              "sourceEntryId": "s-reminder",
+              "revision": {
+                "kind": "ORIGINAL"
+              }
+            },
+            "precision": "UNSPECIFIED",
+            "uncertainty": "UNRESOLVED",
+            "resolved": null
+          }
+        },
+        "enabled": true
+      }
+    }
+  ],
+  "issues": []
+}

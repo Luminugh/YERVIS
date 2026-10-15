@@ -1,0 +1,229 @@
+{
+  "id": "agenda-46",
+  "name": "Persona proyecto y tarea vinculados",
+  "lane": "B",
+  "sources": [
+    {
+      "sourceEntryId": "s-46",
+      "text": "Ana participa en Atlas. Ana debe preparar el informe de Atlas.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-46-a",
+      "extractionId": "e-46-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-46",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "7c963f468451df0354a8e6fbcd63997dc78638b4c8981daa5793b57aa2c14baf",
+          "textLengthUtf16": 62,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 62
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "ana",
+          "category": "PERSON",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Ana",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-46",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Ana",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 3
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            }
+          }
+        },
+        {
+          "proposalId": "atlas",
+          "category": "PROJECT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Atlas",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-46",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Atlas",
+                  "range": {
+                    "startUtf16": 17,
+                    "endUtf16": 22
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "participants": [
+              {
+                "value": {
+                  "proposalId": "ana"
+                },
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-46",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "Ana participa en Atlas",
+                    "range": {
+                      "startUtf16": 0,
+                      "endUtf16": 22
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "proposalId": "tarea",
+          "category": "TASK",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "preparar el informe de Atlas",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-46",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "preparar el informe de Atlas",
+                  "range": {
+                    "startUtf16": 33,
+                    "endUtf16": 61
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "project": {
+              "value": {
+                "proposalId": "atlas"
+              },
+              "evidence": [
+                {
+                  "sourceEntryId": "s-46",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "informe de Atlas",
+                  "range": {
+                    "startUtf16": 45,
+                    "endUtf16": 61
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "actor": {
+              "value": {
+                "proposalId": "ana"
+              },
+              "evidence": [
+                {
+                  "sourceEntryId": "s-46",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Ana debe preparar",
+                  "range": {
+                    "startUtf16": 24,
+                    "endUtf16": 41
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Participante y responsable expresos; enlaces a persona/proyecto con evidencia.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

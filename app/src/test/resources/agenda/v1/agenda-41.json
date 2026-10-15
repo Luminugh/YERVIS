@@ -1,0 +1,248 @@
+{
+  "id": "agenda-41",
+  "name": "Contradicción posterior",
+  "lane": "B",
+  "sources": [
+    {
+      "sourceEntryId": "s-41-old",
+      "text": "El 2026-10-01 trabajé por la mañana.",
+      "capturedAtEpochMillis": "1791219600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    },
+    {
+      "sourceEntryId": "s-41-new",
+      "text": "Corrijo: el 2026-10-01 trabajé por la tarde, no por la mañana.",
+      "capturedAtEpochMillis": "1792429200000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-41-a",
+      "extractionId": "e-41-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-41-old",
+          "capturedAtEpochMillis": "1791219600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "660a071258603ef23a04f06d2a7a4de8cb235a50719515697fe6427b7c1084a1",
+          "textLengthUtf16": 36,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 36
+            }
+          ]
+        },
+        {
+          "sourceEntryId": "s-41-new",
+          "capturedAtEpochMillis": "1792429200000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "1282379cd2cf40a095bffdbd2c403b6b4718535019e487aaf8006c602bda8388",
+          "textLengthUtf16": 62,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 62
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "antes",
+          "category": "FACT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "El 2026-10-01 trabajé por la mañana.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-41-old",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "El 2026-10-01 trabajé por la mañana.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 36
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "factKind": {
+              "value": "ASSERTION",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-41-old",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "El 2026-10-01 trabajé por la mañana.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 36
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "attribution": {
+              "kind": "CAPTURE_AUTHOR"
+            }
+          }
+        },
+        {
+          "proposalId": "nuevo",
+          "category": "FACT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Corrijo: el 2026-10-01 trabajé por la tarde, no por la mañana.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-41-new",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Corrijo: el 2026-10-01 trabajé por la tarde, no por la mañana.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 62
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "factKind": {
+              "value": "ASSERTION",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-41-new",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Corrijo: el 2026-10-01 trabajé por la tarde, no por la mañana.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 62
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "attribution": {
+              "kind": "CAPTURE_AUTHOR"
+            }
+          },
+          "relations": [
+            {
+              "value": {
+                "kind": "CONTRADICTS",
+                "targetProposalId": "antes"
+              },
+              "evidence": [
+                {
+                  "sourceEntryId": "s-41-new",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Corrijo: el 2026-10-01 trabajé por la tarde, no por la mañana.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 62
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            }
+          ]
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [],
+  "comparisons": [
+    {
+      "leftDocument": 0,
+      "rightDocument": 0,
+      "left": "antes",
+      "right": "nuevo",
+      "expected": "CONFLICT_REQUIRES_REVIEW",
+      "temporalUncertainty": false
+    }
+  ],
+  "expectedRelations": [
+    {
+      "source": "nuevo",
+      "target": "antes",
+      "kind": "CONTRADICTS"
+    }
+  ],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [
+    "2026-10-05",
+    "2026-10-19"
+  ],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Vínculo anterior→nuevo; conserva fuentes/versiones, no cambia estados automáticamente.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

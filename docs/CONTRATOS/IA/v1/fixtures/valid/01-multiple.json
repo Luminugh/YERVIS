@@ -1,0 +1,361 @@
+{
+  "schemaVersion": "1.0.0",
+  "requestId": "request-01-multiple",
+  "extractionId": "extraction-01-multiple",
+  "offsetUnit": "UTF16_CODE_UNIT",
+  "sourceSnapshots": [
+    {
+      "sourceEntryId": "s-multiple",
+      "revision": {
+        "kind": "ORIGINAL"
+      },
+      "sourceType": "TEXT",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "textSha256": "af8ea2e4c2d8ab65506bc22bfd81439525944a589caf7fb9933877ec4dec0440",
+      "textLengthUtf16": 111,
+      "authorizedRanges": [
+        {
+          "startUtf16": 0,
+          "endUtf16": 111
+        }
+      ]
+    }
+  ],
+  "outcome": "COMPLETE",
+  "proposals": [
+    {
+      "proposalId": "ana",
+      "category": "PERSON",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "Ana",
+          "evidence": [
+            {
+              "sourceEntryId": "s-multiple",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Ana",
+              "range": {
+                "startUtf16": 70,
+                "endUtf16": 73
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        }
+      }
+    },
+    {
+      "proposalId": "atlas",
+      "category": "PROJECT",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "Atlas",
+          "evidence": [
+            {
+              "sourceEntryId": "s-multiple",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "proyecto Atlas",
+              "range": {
+                "startUtf16": 29,
+                "endUtf16": 43
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        }
+      }
+    },
+    {
+      "proposalId": "entrega",
+      "category": "FACT",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "entregué el informe",
+          "evidence": [
+            {
+              "sourceEntryId": "s-multiple",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "entregué el informe",
+              "range": {
+                "startUtf16": 5,
+                "endUtf16": 24
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "factKind": {
+          "value": "OCCURRENCE",
+          "evidence": [
+            {
+              "sourceEntryId": "s-multiple",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Ayer entregué el informe",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 24
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "attribution": {
+          "kind": "CAPTURE_AUTHOR"
+        },
+        "project": {
+          "value": {
+            "proposalId": "atlas"
+          },
+          "evidence": [
+            {
+              "sourceEntryId": "s-multiple",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "informe del proyecto Atlas",
+              "range": {
+                "startUtf16": 17,
+                "endUtf16": 43
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "occurredAt": {
+          "expression": {
+            "value": "Ayer",
+            "evidence": [
+              {
+                "sourceEntryId": "s-multiple",
+                "revision": {
+                  "kind": "ORIGINAL"
+                },
+                "quote": "Ayer",
+                "range": {
+                  "startUtf16": 0,
+                  "endUtf16": 4
+                }
+              }
+            ],
+            "assessment": {
+              "basis": "EXPLICIT",
+              "modality": "ASSERTED",
+              "polarity": "AFFIRMED",
+              "certaintyValidation": "UNVALIDATED"
+            }
+          },
+          "anchor": {
+            "sourceEntryId": "s-multiple",
+            "revision": {
+              "kind": "ORIGINAL"
+            }
+          },
+          "precision": "UNSPECIFIED",
+          "uncertainty": "UNRESOLVED",
+          "resolved": null
+        }
+      }
+    },
+    {
+      "proposalId": "reunion",
+      "category": "EVENT",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "reunión con Ana",
+          "evidence": [
+            {
+              "sourceEntryId": "s-multiple",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "reunión con Ana",
+              "range": {
+                "startUtf16": 58,
+                "endUtf16": 73
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "participants": [
+          {
+            "value": {
+              "proposalId": "ana"
+            },
+            "evidence": [
+              {
+                "sourceEntryId": "s-multiple",
+                "revision": {
+                  "kind": "ORIGINAL"
+                },
+                "quote": "reunión con Ana",
+                "range": {
+                  "startUtf16": 58,
+                  "endUtf16": 73
+                }
+              }
+            ],
+            "assessment": {
+              "basis": "EXPLICIT",
+              "modality": "ASSERTED",
+              "polarity": "AFFIRMED",
+              "certaintyValidation": "UNVALIDATED"
+            }
+          }
+        ],
+        "startsAt": {
+          "expression": {
+            "value": "Mañana",
+            "evidence": [
+              {
+                "sourceEntryId": "s-multiple",
+                "revision": {
+                  "kind": "ORIGINAL"
+                },
+                "quote": "Mañana",
+                "range": {
+                  "startUtf16": 45,
+                  "endUtf16": 51
+                }
+              }
+            ],
+            "assessment": {
+              "basis": "EXPLICIT",
+              "modality": "ASSERTED",
+              "polarity": "AFFIRMED",
+              "certaintyValidation": "UNVALIDATED"
+            }
+          },
+          "anchor": {
+            "sourceEntryId": "s-multiple",
+            "revision": {
+              "kind": "ORIGINAL"
+            }
+          },
+          "precision": "UNSPECIFIED",
+          "uncertainty": "UNRESOLVED",
+          "resolved": null
+        }
+      }
+    },
+    {
+      "proposalId": "resumen",
+      "category": "TASK",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "preparar el resumen",
+          "evidence": [
+            {
+              "sourceEntryId": "s-multiple",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "preparar el resumen",
+              "range": {
+                "startUtf16": 80,
+                "endUtf16": 99
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "state": {
+          "value": "PENDING",
+          "evidence": [
+            {
+              "sourceEntryId": "s-multiple",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Debo preparar el resumen",
+              "range": {
+                "startUtf16": 75,
+                "endUtf16": 99
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "project": {
+          "value": {
+            "proposalId": "atlas"
+          },
+          "evidence": [
+            {
+              "sourceEntryId": "s-multiple",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "resumen para Atlas",
+              "range": {
+                "startUtf16": 92,
+                "endUtf16": 110
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        }
+      }
+    }
+  ],
+  "issues": []
+}

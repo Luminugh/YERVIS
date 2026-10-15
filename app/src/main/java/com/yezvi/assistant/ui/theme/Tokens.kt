@@ -23,4 +23,5 @@ val YervisShapes = Shapes(
 object Motion {
     const val StateChangeMillis = 200
     const val ExpandCollapseMillis = 300
+    const val NavigationMillis = 200
 }

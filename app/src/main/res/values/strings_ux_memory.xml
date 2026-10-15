@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ux_memory_subtitle">Tus recuerdos, ordenados por día</string>
+    <string name="ux_memory_selected">Seleccionado</string>
+    <string name="ux_memory_not_selected">No seleccionado</string>
+    <string name="ux_memory_show_more">Ampliar texto</string>
+    <string name="ux_memory_show_less">Contraer texto</string>
+    <string name="ux_memory_original_preserved">La captura original se conserva sin cambios.</string>
+</resources>

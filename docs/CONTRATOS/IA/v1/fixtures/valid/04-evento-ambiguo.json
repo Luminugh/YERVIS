@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "1.0.0",
+  "requestId": "request-04-evento-ambiguo",
+  "extractionId": "extraction-04-evento-ambiguo",
+  "offsetUnit": "UTF16_CODE_UNIT",
+  "sourceSnapshots": [
+    {
+      "sourceEntryId": "s-ambiguous",
+      "revision": {
+        "kind": "ORIGINAL"
+      },
+      "sourceType": "TEXT",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "textSha256": "bd3959fce2df8adfd6185f90549645fa576a17046e0119021add5bba1139fe0a",
+      "textLengthUtf16": 44,
+      "authorizedRanges": [
+        {
+          "startUtf16": 0,
+          "endUtf16": 44
+        }
+      ]
+    }
+  ],
+  "outcome": "PARTIAL",
+  "proposals": [
+    {
+      "proposalId": "reunion",
+      "category": "EVENT",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "reunión",
+          "evidence": [
+            {
+              "sourceEntryId": "s-ambiguous",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Quizá tenga reunión",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 19
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "POSSIBLE",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "state": {
+          "value": "TENTATIVE",
+          "evidence": [
+            {
+              "sourceEntryId": "s-ambiguous",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Quizá tenga reunión",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 19
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "POSSIBLE",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "startsAt": {
+          "expression": {
+            "value": "el viernes por la tarde",
+            "evidence": [
+              {
+                "sourceEntryId": "s-ambiguous",
+                "revision": {
+                  "kind": "ORIGINAL"
+                },
+                "quote": "el viernes por la tarde",
+                "range": {
+                  "startUtf16": 20,
+                  "endUtf16": 43
+                }
+              }
+            ],
+            "assessment": {
+              "basis": "EXPLICIT",
+              "modality": "ASSERTED",
+              "polarity": "AFFIRMED",
+              "certaintyValidation": "UNVALIDATED"
+            }
+          },
+          "anchor": {
+            "sourceEntryId": "s-ambiguous",
+            "revision": {
+              "kind": "ORIGINAL"
+            }
+          },
+          "precision": "PART_OF_DAY",
+          "uncertainty": "AMBIGUOUS",
+          "resolved": null
+        }
+      }
+    }
+  ],
+  "issues": [
+    {
+      "code": "AMBIGUOUS_TIME",
+      "message": "No hay fecha ni hora confirmadas.",
+      "affectedProposalIds": [
+        "reunion"
+      ],
+      "evidence": [
+        {
+          "sourceEntryId": "s-ambiguous",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "quote": "el viernes por la tarde",
+          "range": {
+            "startUtf16": 20,
+            "endUtf16": 43
+          }
+        }
+      ]
+    }
+  ]
+}

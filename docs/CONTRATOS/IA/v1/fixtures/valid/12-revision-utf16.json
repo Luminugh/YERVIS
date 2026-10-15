@@ -1,0 +1,121 @@
+{
+  "schemaVersion": "1.0.0",
+  "requestId": "request-12-revision-utf16",
+  "extractionId": "extraction-12-revision-utf16",
+  "offsetUnit": "UTF16_CODE_UNIT",
+  "sourceSnapshots": [
+    {
+      "sourceEntryId": "s-corrected",
+      "revision": {
+        "kind": "CORRECTION",
+        "correctionId": "9007199254740993"
+      },
+      "sourceType": "VOICE",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "textSha256": "f6f9e56b05d2d403de99eb1e2b95c320777923eae9b49c35f08ae0a2863ded5e",
+      "textLengthUtf16": 41,
+      "authorizedRanges": [
+        {
+          "startUtf16": 0,
+          "endUtf16": 41
+        }
+      ]
+    }
+  ],
+  "outcome": "COMPLETE",
+  "proposals": [
+    {
+      "proposalId": "envio",
+      "category": "FACT",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "envié el informe",
+          "evidence": [
+            {
+              "sourceEntryId": "s-corrected",
+              "revision": {
+                "kind": "CORRECTION",
+                "correctionId": "9007199254740993"
+              },
+              "quote": "envié el informe",
+              "range": {
+                "startUtf16": 8,
+                "endUtf16": 24
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "factKind": {
+          "value": "OCCURRENCE",
+          "evidence": [
+            {
+              "sourceEntryId": "s-corrected",
+              "revision": {
+                "kind": "CORRECTION",
+                "correctionId": "9007199254740993"
+              },
+              "quote": "Ayer envié el informe",
+              "range": {
+                "startUtf16": 3,
+                "endUtf16": 24
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "attribution": {
+          "kind": "CAPTURE_AUTHOR"
+        },
+        "occurredAt": {
+          "expression": {
+            "value": "el sábado",
+            "evidence": [
+              {
+                "sourceEntryId": "s-corrected",
+                "revision": {
+                  "kind": "CORRECTION",
+                  "correctionId": "9007199254740993"
+                },
+                "quote": "el sábado",
+                "range": {
+                  "startUtf16": 31,
+                  "endUtf16": 40
+                }
+              }
+            ],
+            "assessment": {
+              "basis": "EXPLICIT",
+              "modality": "ASSERTED",
+              "polarity": "AFFIRMED",
+              "certaintyValidation": "UNVALIDATED"
+            }
+          },
+          "anchor": {
+            "sourceEntryId": "s-corrected",
+            "revision": {
+              "kind": "CORRECTION",
+              "correctionId": "9007199254740993"
+            }
+          },
+          "precision": "DAY",
+          "uncertainty": "AMBIGUOUS",
+          "resolved": null
+        }
+      }
+    }
+  ],
+  "issues": []
+}

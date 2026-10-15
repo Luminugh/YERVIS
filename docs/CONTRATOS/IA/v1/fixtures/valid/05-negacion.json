@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "1.0.0",
+  "requestId": "request-05-negacion",
+  "extractionId": "extraction-05-negacion",
+  "offsetUnit": "UTF16_CODE_UNIT",
+  "sourceSnapshots": [
+    {
+      "sourceEntryId": "s-negation",
+      "revision": {
+        "kind": "ORIGINAL"
+      },
+      "sourceType": "TEXT",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "textSha256": "7cbc3fb21ee7d16c7c87c29f23c044603a75a00850c69a17ebcd7c5968c3154f",
+      "textLengthUtf16": 28,
+      "authorizedRanges": [
+        {
+          "startUtf16": 0,
+          "endUtf16": 28
+        }
+      ]
+    }
+  ],
+  "outcome": "COMPLETE",
+  "proposals": [
+    {
+      "proposalId": "negada",
+      "category": "EVENT",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "reunión",
+          "evidence": [
+            {
+              "sourceEntryId": "s-negation",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "No tengo reunión",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 16
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "NEGATED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "startsAt": {
+          "expression": {
+            "value": "el viernes",
+            "evidence": [
+              {
+                "sourceEntryId": "s-negation",
+                "revision": {
+                  "kind": "ORIGINAL"
+                },
+                "quote": "el viernes",
+                "range": {
+                  "startUtf16": 17,
+                  "endUtf16": 27
+                }
+              }
+            ],
+            "assessment": {
+              "basis": "EXPLICIT",
+              "modality": "ASSERTED",
+              "polarity": "AFFIRMED",
+              "certaintyValidation": "UNVALIDATED"
+            }
+          },
+          "anchor": {
+            "sourceEntryId": "s-negation",
+            "revision": {
+              "kind": "ORIGINAL"
+            }
+          },
+          "precision": "DAY",
+          "uncertainty": "AMBIGUOUS",
+          "resolved": null
+        }
+      }
+    }
+  ],
+  "issues": []
+}

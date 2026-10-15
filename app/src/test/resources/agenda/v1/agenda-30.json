@@ -1,0 +1,168 @@
+{
+  "id": "agenda-30",
+  "name": "Revisión y emoji UTF-16",
+  "lane": "A",
+  "sources": [
+    {
+      "sourceEntryId": "s-30",
+      "text": "📝 Ayer envié el resumen corregido.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "VOICE",
+      "revision": {
+        "kind": "CORRECTION",
+        "correctionId": "17"
+      },
+      "originalText": "📝 Ayer envié el resumen inicial."
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-30-a",
+      "extractionId": "e-30-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-30",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "VOICE",
+          "revision": {
+            "kind": "CORRECTION",
+            "correctionId": "17"
+          },
+          "textSha256": "450da893068c154262fa7a43003cc7e6ab7c3498c6de295111c074d507a8802d",
+          "textLengthUtf16": 35,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 35
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "p",
+          "category": "FACT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "📝 Ayer envié el resumen corregido.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-30",
+                  "revision": {
+                    "kind": "CORRECTION",
+                    "correctionId": "17"
+                  },
+                  "quote": "📝 Ayer envié el resumen corregido.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 35
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "factKind": {
+              "value": "OCCURRENCE",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-30",
+                  "revision": {
+                    "kind": "CORRECTION",
+                    "correctionId": "17"
+                  },
+                  "quote": "📝 Ayer envié el resumen corregido.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 35
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "attribution": {
+              "kind": "CAPTURE_AUTHOR"
+            },
+            "occurredAt": {
+              "expression": {
+                "value": "Ayer",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-30",
+                    "revision": {
+                      "kind": "CORRECTION",
+                      "correctionId": "17"
+                    },
+                    "quote": "Ayer",
+                    "range": {
+                      "startUtf16": 3,
+                      "endUtf16": 7
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-30",
+                "revision": {
+                  "kind": "CORRECTION",
+                  "correctionId": "17"
+                }
+              },
+              "precision": "UNSPECIFIED",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [
+    {
+      "expression": "Ayer",
+      "status": "RESOLVED",
+      "localDate": "2026-10-14"
+    }
+  ],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Evidencia en revisión 17, emoji ocupa dos unidades.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

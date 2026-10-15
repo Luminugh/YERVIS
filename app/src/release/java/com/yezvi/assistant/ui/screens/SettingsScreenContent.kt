@@ -12,11 +12,16 @@ import androidx.compose.ui.unit.dp
 internal fun SettingsScreenContent(
     modifier: Modifier = Modifier,
     voiceSettings: @Composable () -> Unit,
+    appearanceSettings: @Composable () -> Unit = {},
+    proposalReview: @Composable () -> Unit = {},
 ) {
     Column(
         modifier = modifier.verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.spacedBy(20.dp),
     ) {
+        appearanceSettings()
         voiceSettings()
+        proposalReview()
+        PrivacySettingsSummary()
     }
 }

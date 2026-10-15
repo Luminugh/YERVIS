@@ -1,0 +1,119 @@
+{
+  "id": "agenda-05",
+  "name": "Evento cancelado",
+  "lane": "A",
+  "sources": [
+    {
+      "sourceEntryId": "s-05",
+      "text": "Cancelé la reunión.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-05-a",
+      "extractionId": "e-05-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-05",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "252de6ceb321a85e7b289cd10109030341499be7c3e293eb727630cc1b4e7d19",
+          "textLengthUtf16": 19,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 19
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "p",
+          "category": "EVENT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Cancelé la reunión.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-05",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Cancelé la reunión.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 19
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "state": {
+              "value": "CANCELLED",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-05",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Cancelé la reunión.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 19
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Cancelar no crea otro evento ni elimina el historial.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

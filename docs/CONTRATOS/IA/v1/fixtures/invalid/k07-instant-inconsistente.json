@@ -1,0 +1,181 @@
+{
+  "schemaVersion": "1.0.0",
+  "requestId": "request-14-tiempo-resuelto",
+  "extractionId": "extraction-14-tiempo-resuelto",
+  "offsetUnit": "UTF16_CODE_UNIT",
+  "sourceSnapshots": [
+    {
+      "sourceEntryId": "s-resolved",
+      "revision": {
+        "kind": "ORIGINAL"
+      },
+      "sourceType": "TEXT",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "textSha256": "4fafce55c84faa807fd68fdf2cc214cbd5e59fecb4214c3d07bb7fdd6c590fa5",
+      "textLengthUtf16": 38,
+      "authorizedRanges": [
+        {
+          "startUtf16": 0,
+          "endUtf16": 38
+        }
+      ]
+    }
+  ],
+  "outcome": "COMPLETE",
+  "proposals": [
+    {
+      "proposalId": "reunion",
+      "category": "EVENT",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "Reunión",
+          "evidence": [
+            {
+              "sourceEntryId": "s-resolved",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Reunión",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 7
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "startsAt": {
+          "expression": {
+            "value": "2026-10-20 15:00 America/Lima",
+            "evidence": [
+              {
+                "sourceEntryId": "s-resolved",
+                "revision": {
+                  "kind": "ORIGINAL"
+                },
+                "quote": "2026-10-20 15:00 America/Lima",
+                "range": {
+                  "startUtf16": 8,
+                  "endUtf16": 37
+                }
+              }
+            ],
+            "assessment": {
+              "basis": "EXPLICIT",
+              "modality": "ASSERTED",
+              "polarity": "AFFIRMED",
+              "certaintyValidation": "UNVALIDATED"
+            }
+          },
+          "anchor": {
+            "sourceEntryId": "s-resolved",
+            "revision": {
+              "kind": "ORIGINAL"
+            }
+          },
+          "precision": "MINUTE",
+          "uncertainty": "NONE_REPORTED",
+          "resolved": {
+            "localDate": {
+              "value": "2026-10-20",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-resolved",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "2026-10-20",
+                  "range": {
+                    "startUtf16": 8,
+                    "endUtf16": 18
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "localTime": {
+              "value": "15:00",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-resolved",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "15:00",
+                  "range": {
+                    "startUtf16": 19,
+                    "endUtf16": 24
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "timezoneId": {
+              "value": "America/Lima",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-resolved",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "America/Lima",
+                  "range": {
+                    "startUtf16": 25,
+                    "endUtf16": 37
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "instantEpochMillis": {
+              "value": "0",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-resolved",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "2026-10-20 15:00 America/Lima",
+                  "range": {
+                    "startUtf16": 8,
+                    "endUtf16": 37
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "INFERRED",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED",
+                "inferenceExplanation": "Instante de fixture precomputado con UTC-05:00; no es un resolutor implementado."
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "issues": []
+}

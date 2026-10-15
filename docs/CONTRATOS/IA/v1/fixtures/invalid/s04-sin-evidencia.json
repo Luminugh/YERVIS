@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "1.0.0",
+  "requestId": "request-06-tarea-completada",
+  "extractionId": "extraction-06-tarea-completada",
+  "offsetUnit": "UTF16_CODE_UNIT",
+  "sourceSnapshots": [
+    {
+      "sourceEntryId": "s-completed",
+      "revision": {
+        "kind": "ORIGINAL"
+      },
+      "sourceType": "TEXT",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "textSha256": "842aeb73acc20b8916571b512248c7ec31cacbfdf6bd5b1c280e6a9edfda2a5f",
+      "textLengthUtf16": 22,
+      "authorizedRanges": [
+        {
+          "startUtf16": 0,
+          "endUtf16": 22
+        }
+      ]
+    }
+  ],
+  "outcome": "COMPLETE",
+  "proposals": [
+    {
+      "proposalId": "informe",
+      "category": "TASK",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "el informe",
+          "evidence": [
+            {
+              "sourceEntryId": "s-completed",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "el informe",
+              "range": {
+                "startUtf16": 11,
+                "endUtf16": 21
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "state": {
+          "value": "COMPLETED",
+          "evidence": [],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        }
+      }
+    }
+  ],
+  "issues": []
+}

@@ -23,13 +23,18 @@ import com.yezvi.assistant.developer.LocalSpeechDiagnosticsActivity
 internal fun SettingsScreenContent(
     modifier: Modifier = Modifier,
     voiceSettings: @Composable () -> Unit,
+    appearanceSettings: @Composable () -> Unit = {},
+    proposalReview: @Composable () -> Unit = {},
 ) {
     val context = LocalContext.current
     Column(
         modifier = modifier.verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.spacedBy(20.dp),
     ) {
+        appearanceSettings()
         voiceSettings()
+        proposalReview()
+        PrivacySettingsSummary()
         Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
             Text(
                 text = "Desarrollador",

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ux_proposal_entry_description">Explora once tipos de información con ejemplos sintéticos. Revisa sus campos, fechas y evidencia.</string>
+    <string name="ux_proposal_demo_description">Revisa ejemplos sintéticos validados. Las correcciones y decisiones se quedan en esta sesión.</string>
+    <string name="ux_proposal_no_actions">No se guardan en Memoria ni activan alarmas o seguimiento.</string>
+    <string name="ux_proposal_action_scope">La decisión se aplica a toda la propuesta, solo en esta demostración.</string>
+    <string name="ux_proposal_show_evidence">Ver evidencia</string>
+    <string name="ux_proposal_hide_evidence">Ocultar evidencia</string>
+    <string name="ux_proposal_show_sources">Ver fuentes y contexto</string>
+    <string name="ux_proposal_hide_sources">Ocultar fuentes y contexto</string>
+    <string name="ux_proposal_expanded">Expandido</string>
+    <string name="ux_proposal_collapsed">Contraído</string>
+    <string name="ux_proposal_temporal_expression">Expresión original: %1$s</string>
+    <string name="ux_proposal_temporal_known">Información disponible: %1$s</string>
+    <string name="ux_proposal_temporal_end">Fin del intervalo: %1$s</string>
+    <string name="ux_proposal_related_field">Información relacionada</string>
+    <string name="ux_proposal_array_item">Elemento</string>
+</resources>

@@ -1,0 +1,158 @@
+{
+  "schemaVersion": "1.0.0",
+  "requestId": "request-13-descripcion-atribuida",
+  "extractionId": "extraction-13-descripcion-atribuida",
+  "offsetUnit": "UTF16_CODE_UNIT",
+  "sourceSnapshots": [
+    {
+      "sourceEntryId": "s-personality",
+      "revision": {
+        "kind": "ORIGINAL"
+      },
+      "sourceType": "TEXT",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "textSha256": "bd258639528253101bb74b218ffecc686d3f6f9a445a9b1e2fc1bffb1aee5fd6",
+      "textLengthUtf16": 53,
+      "authorizedRanges": [
+        {
+          "startUtf16": 0,
+          "endUtf16": 53
+        }
+      ]
+    }
+  ],
+  "outcome": "COMPLETE",
+  "proposals": [
+    {
+      "proposalId": "ana",
+      "category": "PERSON",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "Ana",
+          "evidence": [
+            {
+              "sourceEntryId": "s-personality",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Ana",
+              "range": {
+                "startUtf16": 9,
+                "endUtf16": 12
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        }
+      }
+    },
+    {
+      "proposalId": "descripcion",
+      "category": "FACT",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "Ana es reservada",
+          "evidence": [
+            {
+              "sourceEntryId": "s-personality",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Creo que Ana es reservada",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 25
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "UNCERTAIN",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "factKind": {
+          "value": "PERSONALITY_DESCRIPTION",
+          "evidence": [
+            {
+              "sourceEntryId": "s-personality",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Creo que Ana es reservada",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 25
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "UNCERTAIN",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "subject": {
+          "value": {
+            "proposalId": "ana"
+          },
+          "evidence": [
+            {
+              "sourceEntryId": "s-personality",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Ana",
+              "range": {
+                "startUtf16": 9,
+                "endUtf16": 12
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "attribution": {
+          "kind": "CAPTURE_AUTHOR"
+        },
+        "scope": {
+          "value": "en las reuniones del curso",
+          "evidence": [
+            {
+              "sourceEntryId": "s-personality",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "en las reuniones del curso",
+              "range": {
+                "startUtf16": 26,
+                "endUtf16": 52
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        }
+      }
+    }
+  ],
+  "issues": []
+}

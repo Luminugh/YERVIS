@@ -1,0 +1,119 @@
+{
+  "id": "agenda-03",
+  "name": "Tarea completada",
+  "lane": "A",
+  "sources": [
+    {
+      "sourceEntryId": "s-03",
+      "text": "Ya terminé el informe ayer.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-03-a",
+      "extractionId": "e-03-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-03",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "98af5806f32d9c63b05658ad09607093d1ce59433a5d4d68ae11402aa56f7416",
+          "textLengthUtf16": 27,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 27
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "p",
+          "category": "TASK",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Ya terminé el informe ayer.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-03",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Ya terminé el informe ayer.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 27
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "state": {
+              "value": "COMPLETED",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-03",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Ya terminé el informe ayer.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 27
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "No recrear una tarea pendiente a partir de una finalizada.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

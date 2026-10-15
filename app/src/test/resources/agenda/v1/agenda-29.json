@@ -1,0 +1,254 @@
+{
+  "id": "agenda-29",
+  "name": "Inicio de evento y aviso distinto",
+  "lane": "A",
+  "sources": [
+    {
+      "sourceEntryId": "s-29",
+      "text": "Cita mañana a las 15:00. Recuérdame mañana a las 14:00.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-29-a",
+      "extractionId": "e-29-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-29",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "1a2ca8a7e7924089eaa185989019a39aa0b0f62dadd0f63ad97a587c87a24fdb",
+          "textLengthUtf16": 55,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 55
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "cita",
+          "category": "EVENT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Cita mañana a las 15:00. Recuérdame mañana a las 14:00.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-29",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Cita mañana a las 15:00. Recuérdame mañana a las 14:00.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 55
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "startsAt": {
+              "expression": {
+                "value": "mañana a las 15:00",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-29",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "mañana a las 15:00",
+                    "range": {
+                      "startUtf16": 5,
+                      "endUtf16": 23
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-29",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "UNSPECIFIED",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            }
+          }
+        },
+        {
+          "proposalId": "aviso",
+          "category": "REMINDER",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Cita mañana a las 15:00. Recuérdame mañana a las 14:00.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-29",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Cita mañana a las 15:00. Recuérdame mañana a las 14:00.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 55
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "request": {
+              "value": "REQUESTED",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-29",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Recuérdame",
+                  "range": {
+                    "startUtf16": 25,
+                    "endUtf16": 35
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "target": {
+              "value": {
+                "proposalId": "cita"
+              },
+              "evidence": [
+                {
+                  "sourceEntryId": "s-29",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Cita",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 4
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "trigger": {
+              "kind": "AT",
+              "at": {
+                "expression": {
+                  "value": "mañana a las 14:00",
+                  "evidence": [
+                    {
+                      "sourceEntryId": "s-29",
+                      "revision": {
+                        "kind": "ORIGINAL"
+                      },
+                      "quote": "mañana a las 14:00",
+                      "range": {
+                        "startUtf16": 36,
+                        "endUtf16": 54
+                      }
+                    }
+                  ],
+                  "assessment": {
+                    "basis": "EXPLICIT",
+                    "modality": "ASSERTED",
+                    "polarity": "AFFIRMED",
+                    "certaintyValidation": "UNVALIDATED"
+                  }
+                },
+                "anchor": {
+                  "sourceEntryId": "s-29",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  }
+                },
+                "precision": "UNSPECIFIED",
+                "uncertainty": "UNRESOLVED",
+                "resolved": null
+              }
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [
+    {
+      "expression": "mañana a las 15:00",
+      "status": "RESOLVED",
+      "localDate": "2026-10-16",
+      "localTime": "15:00"
+    },
+    {
+      "expression": "mañana a las 14:00",
+      "status": "RESOLVED",
+      "localDate": "2026-10-16",
+      "localTime": "14:00"
+    }
+  ],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Aviso separado y pendiente de autorización.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

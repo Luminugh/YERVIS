@@ -1,0 +1,174 @@
+{
+  "id": "agenda-28",
+  "name": "Planificación distinta de vencimiento",
+  "lane": "A",
+  "sources": [
+    {
+      "sourceEntryId": "s-28",
+      "text": "Prepararé el informe hoy; vence pasado mañana.",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-28-a",
+      "extractionId": "e-28-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-28",
+          "capturedAtEpochMillis": "1792083600000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "fa3283ad1f19ab3eb3c8dd59da1bd3ba1b0254efb8dce6eac8a64d1ae6efb734",
+          "textLengthUtf16": 46,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 46
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "p",
+          "category": "TASK",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "Prepararé el informe hoy; vence pasado mañana.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-28",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "Prepararé el informe hoy; vence pasado mañana.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 46
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "plannedAt": {
+              "expression": {
+                "value": "hoy",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-28",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "hoy",
+                    "range": {
+                      "startUtf16": 21,
+                      "endUtf16": 24
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-28",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "UNSPECIFIED",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            },
+            "dueAt": {
+              "expression": {
+                "value": "pasado mañana",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-28",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "pasado mañana",
+                    "range": {
+                      "startUtf16": 32,
+                      "endUtf16": 45
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-28",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "UNSPECIFIED",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [
+    {
+      "expression": "hoy",
+      "status": "RESOLVED",
+      "localDate": "2026-10-15"
+    },
+    {
+      "expression": "pasado mañana",
+      "status": "RESOLVED",
+      "localDate": "2026-10-17"
+    }
+  ],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [],
+  "sequence": [],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Dos roles temporales diferentes.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}

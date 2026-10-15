@@ -1,0 +1,303 @@
+{
+  "schemaVersion": "1.0.0",
+  "requestId": "request-08-actualizacion-contradicto",
+  "extractionId": "extraction-08-actualizacion-contradicto",
+  "offsetUnit": "UTF16_CODE_UNIT",
+  "sourceSnapshots": [
+    {
+      "sourceEntryId": "s-change-old",
+      "revision": {
+        "kind": "ORIGINAL"
+      },
+      "sourceType": "TEXT",
+      "capturedAtEpochMillis": "1791651600000",
+      "timezoneId": "America/Lima",
+      "textSha256": "cef1aa570973bb256b10038da10ffec74c72ce5abfcf97d0cff8a9dc6bc6172b",
+      "textLengthUtf16": 26,
+      "authorizedRanges": [
+        {
+          "startUtf16": 0,
+          "endUtf16": 26
+        }
+      ]
+    },
+    {
+      "sourceEntryId": "s-change-new",
+      "revision": {
+        "kind": "ORIGINAL"
+      },
+      "sourceType": "TEXT",
+      "capturedAtEpochMillis": "1792083600000",
+      "timezoneId": "America/Lima",
+      "textSha256": "bdec395626cfd7f9b95d1fe3a62475346db36b4a1ace02c25ddb5de8ccf982a5",
+      "textLengthUtf16": 34,
+      "authorizedRanges": [
+        {
+          "startUtf16": 0,
+          "endUtf16": 34
+        }
+      ]
+    }
+  ],
+  "outcome": "PARTIAL",
+  "proposals": [
+    {
+      "proposalId": "ana",
+      "category": "PERSON",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "Ana",
+          "evidence": [
+            {
+              "sourceEntryId": "s-change-old",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Ana",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 3
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        }
+      }
+    },
+    {
+      "proposalId": "manana",
+      "category": "FACT",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "Ana trabaja por la mañana",
+          "evidence": [
+            {
+              "sourceEntryId": "s-change-old",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Ana trabaja por la mañana",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 25
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "factKind": {
+          "value": "ASSERTION",
+          "evidence": [
+            {
+              "sourceEntryId": "s-change-old",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Ana trabaja por la mañana",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 25
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "subject": {
+          "value": {
+            "proposalId": "ana"
+          },
+          "evidence": [
+            {
+              "sourceEntryId": "s-change-old",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Ana",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 3
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "attribution": {
+          "kind": "CAPTURE_AUTHOR"
+        }
+      }
+    },
+    {
+      "proposalId": "tarde",
+      "category": "FACT",
+      "proposalStatus": "PROPOSED",
+      "data": {
+        "title": {
+          "value": "Ana trabaja por la tarde",
+          "evidence": [
+            {
+              "sourceEntryId": "s-change-new",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Creo que Ana trabaja por la tarde",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 33
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "UNCERTAIN",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "factKind": {
+          "value": "ASSERTION",
+          "evidence": [
+            {
+              "sourceEntryId": "s-change-new",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Creo que Ana trabaja por la tarde",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 33
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "subject": {
+          "value": {
+            "proposalId": "ana"
+          },
+          "evidence": [
+            {
+              "sourceEntryId": "s-change-new",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Ana",
+              "range": {
+                "startUtf16": 9,
+                "endUtf16": 12
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "EXPLICIT",
+            "modality": "ASSERTED",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED"
+          }
+        },
+        "attribution": {
+          "kind": "CAPTURE_AUTHOR"
+        }
+      },
+      "relations": [
+        {
+          "value": {
+            "kind": "CONTRADICTS",
+            "targetProposalId": "manana"
+          },
+          "evidence": [
+            {
+              "sourceEntryId": "s-change-old",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Ana trabaja por la mañana",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 25
+              }
+            },
+            {
+              "sourceEntryId": "s-change-new",
+              "revision": {
+                "kind": "ORIGINAL"
+              },
+              "quote": "Creo que Ana trabaja por la tarde",
+              "range": {
+                "startUtf16": 0,
+                "endUtf16": 33
+              }
+            }
+          ],
+          "assessment": {
+            "basis": "INFERRED",
+            "modality": "UNCERTAIN",
+            "polarity": "AFFIRMED",
+            "certaintyValidation": "UNVALIDATED",
+            "inferenceExplanation": "Síntesis limitada a las fuentes citadas."
+          }
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "CONTRADICTION",
+      "message": "Las fuentes reportan horarios distintos; no hay cambio confirmado.",
+      "affectedProposalIds": [
+        "manana",
+        "tarde"
+      ],
+      "evidence": [
+        {
+          "sourceEntryId": "s-change-old",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "quote": "Ana trabaja por la mañana.",
+          "range": {
+            "startUtf16": 0,
+            "endUtf16": 26
+          }
+        },
+        {
+          "sourceEntryId": "s-change-new",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "quote": "Creo que Ana trabaja por la tarde.",
+          "range": {
+            "startUtf16": 0,
+            "endUtf16": 34
+          }
+        }
+      ]
+    }
+  ]
+}

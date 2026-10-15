@@ -35,9 +35,19 @@ data class FinalTranscript(val text: String)
 sealed interface SpeechToTextState {
     data object Idle : SpeechToTextState
     data object Preparing : SpeechToTextState
-    data class Listening(val partialTranscript: PartialTranscript? = null) : SpeechToTextState
-    data class Paused(val partialTranscript: PartialTranscript? = null) : SpeechToTextState
-    data class Transcribing(val partialTranscript: PartialTranscript? = null) : SpeechToTextState
+    data class Listening(
+        val partialTranscript: PartialTranscript? = null,
+        /** True once the local engine's VAD detects voice activity in captured PCM. */
+        val hasVoiceActivity: Boolean = false,
+    ) : SpeechToTextState
+    data class Paused(
+        val partialTranscript: PartialTranscript? = null,
+        val hasVoiceActivity: Boolean = false,
+    ) : SpeechToTextState
+    data class Transcribing(
+        val partialTranscript: PartialTranscript? = null,
+        val hasVoiceActivity: Boolean = false,
+    ) : SpeechToTextState
     data class Result(val transcript: FinalTranscript) : SpeechToTextState
     data object Cancelled : SpeechToTextState
     data class Error(val cause: SpeechToTextError) : SpeechToTextState

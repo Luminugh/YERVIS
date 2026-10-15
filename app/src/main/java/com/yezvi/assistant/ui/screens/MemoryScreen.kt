@@ -1,5 +1,7 @@
 package com.yezvi.assistant.ui.screens
 
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -10,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.BorderStroke
@@ -31,9 +34,13 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.pluralStringResource
@@ -47,12 +54,16 @@ import androidx.compose.ui.unit.dp
 import com.yezvi.assistant.R
 import com.yezvi.assistant.domain.memory.CaptureSourceType
 import com.yezvi.assistant.domain.memory.MemoryEntry
-import com.yezvi.assistant.presentation.actions.AppDestination
 import com.yezvi.assistant.presentation.actions.MemoryUiCallbacks
 import com.yezvi.assistant.presentation.memory.MemoryUiState
 import com.yezvi.assistant.presentation.memory.MemorySelectionUiState
 import com.yezvi.assistant.presentation.memory.MemoryDeleteSelectionStatus
-import com.yezvi.assistant.ui.navigation.YezviBottomBar
+import com.yezvi.assistant.ui.components.YervisIcon
+import com.yezvi.assistant.ui.components.YervisSymbol
+import com.yezvi.assistant.ui.theme.LocalVisualMetrics
+import com.yezvi.assistant.ui.theme.Motion
+import com.yezvi.assistant.ui.theme.motionDurationMillis
+import com.yezvi.assistant.ui.theme.rememberReduceMotion
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -74,20 +85,30 @@ internal fun MemoryScreen(
 ) {
     val entries = (state as? MemoryUiState.Content)?.entries.orEmpty()
     val grouped = remember(entries) { groupEntriesByDate(entries) }
+    val allIds = remember(entries) { entries.mapTo(linkedSetOf()) { it.id } }
+    val metrics = LocalVisualMetrics.current
 
     Scaffold(
+        containerColor = Color.Transparent,
         topBar = {
             Column {
                 TopAppBar(
                     title = {
-                        Text(
-                            text = stringResource(R.string.nav_memory),
-                            modifier = Modifier.semantics { heading() },
-                        )
+                        Column {
+                            Text(
+                                text = stringResource(R.string.nav_memory),
+                                style = MaterialTheme.typography.headlineSmall,
+                                modifier = Modifier.semantics { heading() },
+                            )
+                            Text(
+                                text = stringResource(R.string.ux_memory_subtitle),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
                     },
                 )
                 if (selectionState.selectedIds.isNotEmpty()) {
-                    val allIds = entries.mapTo(linkedSetOf()) { it.id }
                     SelectionActions(
                         count = selectionState.selectedIds.size,
                         allSelected = allIds.isNotEmpty() && selectionState.selectedIds.containsAll(allIds),
@@ -98,12 +119,6 @@ internal fun MemoryScreen(
                     )
                 }
             }
-        },
-        bottomBar = {
-            YezviBottomBar(
-                currentDestination = AppDestination.MEMORY,
-                onNavigateTo = callbacks.onNavigateTo,
-            )
         },
     ) { innerPadding ->
         LazyColumn(
@@ -117,22 +132,22 @@ internal fun MemoryScreen(
                     },
                 ),
             contentPadding = PaddingValues(
-                start = 16.dp,
-                end = 16.dp,
+                start = metrics.screenPadding,
+                end = metrics.screenPadding,
                 top = innerPadding.calculateTopPadding() + 8.dp,
                 bottom = innerPadding.calculateBottomPadding() + 8.dp,
             ),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(metrics.itemSpacing),
         ) {
             when (state) {
-                MemoryUiState.Loading -> item { LoadingTimelineState() }
-                MemoryUiState.Empty -> item { EmptyTimelineState() }
-                MemoryUiState.Error -> item { ErrorTimelineState(onRetry = onRetry) }
+                MemoryUiState.Loading -> item(key = "loading", contentType = "state") { LoadingTimelineState() }
+                MemoryUiState.Empty -> item(key = "empty", contentType = "state") { EmptyTimelineState() }
+                MemoryUiState.Error -> item(key = "error", contentType = "state") { ErrorTimelineState(onRetry = onRetry) }
                 is MemoryUiState.Content -> grouped.forEach { (dateKey, dayEntries) ->
-                    stickyHeader(key = dateKey) {
-                        DateHeader(dateKey = dateKey)
+                    stickyHeader(key = "day_$dateKey", contentType = "day") {
+                        DateHeader(dateKey = dateKey, count = dayEntries.size)
                     }
-                    items(dayEntries, key = { it.id }) { entry ->
+                    items(dayEntries, key = { it.id }, contentType = { "memory" }) { entry ->
                         TimelineItemCard(
                             entry = entry,
                             displayText = state.currentTextById[entry.id] ?: entry.rawText,
@@ -280,24 +295,30 @@ internal fun groupEntriesByDate(
                 it.second.first().capturedAtEpochMillis
             }.thenByDescending { it.second.first().id },
         )
-        .map { (_, dayEntries) ->
-            val representative = dayEntries.first()
-            keyFormatter.timeZone = TimeZone.getTimeZone(representative.timezoneId)
-            keyFormatter.format(Date(representative.capturedAtEpochMillis)) to dayEntries
-        }
 }
 
 @Composable
-private fun DateHeader(dateKey: String, modifier: Modifier = Modifier) {
+private fun DateHeader(dateKey: String, count: Int, modifier: Modifier = Modifier) {
     val text = remember(dateKey) { formatDateHeader(dateKey) }
-    Text(
-        text = text,
-        style = MaterialTheme.typography.titleMedium,
-        fontWeight = FontWeight.SemiBold,
-        modifier = modifier
-            .padding(top = 16.dp, bottom = 8.dp)
-            .semantics { heading() },
-    )
+    Surface(color = MaterialTheme.colorScheme.background, modifier = modifier.fillMaxWidth()) {
+        Row(
+            modifier = Modifier.padding(top = 12.dp, bottom = 8.dp),
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text(
+                text = text,
+                style = MaterialTheme.typography.titleSmall,
+                fontWeight = FontWeight.SemiBold,
+                modifier = Modifier.weight(1f).semantics { heading() },
+            )
+            Text(
+                text = count.toString(),
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    }
 }
 
 private fun formatDateHeader(dateKey: String): String {
@@ -323,6 +344,14 @@ private fun TimelineItemCard(
     onEntryLongClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val time = remember(entry.capturedAtEpochMillis, entry.timezoneId) {
+        formatEntryTime(entry.capturedAtEpochMillis, entry.timezoneId)
+    }
+    var expanded by rememberSaveable(entry.id) { mutableStateOf(false) }
+    var hasOverflow by remember(displayText) { mutableStateOf(false) }
+    val reduceMotion = rememberReduceMotion()
+    val metrics = LocalVisualMetrics.current
+    val selectedLabel = stringResource(if (selected) R.string.ux_memory_selected else R.string.ux_memory_not_selected)
     Card(
         modifier = modifier
             .fillMaxWidth()
@@ -334,7 +363,7 @@ private fun TimelineItemCard(
                 onLongClick = onEntryLongClick,
             )
             .semantics(mergeDescendants = true) {
-                stateDescription = if (selected) "Seleccionado" else "No seleccionado"
+                stateDescription = selectedLabel
             },
         colors = CardDefaults.cardColors(containerColor = if (selected) {
             MaterialTheme.colorScheme.secondaryContainer
@@ -343,15 +372,16 @@ private fun TimelineItemCard(
         }),
     ) {
         Row(
-            modifier = Modifier.fillMaxWidth().padding(16.dp),
+            modifier = Modifier.fillMaxWidth().padding(metrics.panelPadding),
             verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             Column(modifier = Modifier.weight(1f)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     SourceBadge(entry.sourceType)
                     Spacer(Modifier.width(8.dp))
                     Text(
-                        text = formatEntryTime(entry.capturedAtEpochMillis, entry.timezoneId),
+                        text = time,
                         style = MaterialTheme.typography.labelLarge,
                         color = MaterialTheme.colorScheme.primary,
                     )
@@ -360,11 +390,29 @@ private fun TimelineItemCard(
                 Text(
                     text = displayText,
                     style = MaterialTheme.typography.bodyLarge,
-                    maxLines = 2,
+                    maxLines = if (expanded) Int.MAX_VALUE else 3,
                     overflow = TextOverflow.Ellipsis,
+                    onTextLayout = { if (!expanded) hasOverflow = it.hasVisualOverflow },
+                    modifier = Modifier.animateContentSize(
+                        animationSpec = tween(motionDurationMillis(Motion.StateChangeMillis, reduceMotion)),
+                    ),
                 )
+                if ((hasOverflow || expanded) && !selecting) {
+                    TextButton(
+                        onClick = { expanded = !expanded },
+                        modifier = Modifier.heightIn(min = 48.dp).testTag("timeline_expand_${entry.id}"),
+                        contentPadding = PaddingValues(horizontal = 0.dp, vertical = 4.dp),
+                    ) {
+                        Text(stringResource(if (expanded) R.string.ux_memory_show_less else R.string.ux_memory_show_more))
+                        YervisIcon(
+                            symbol = if (expanded) YervisSymbol.ExpandLess else YervisSymbol.ExpandMore,
+                            modifier = Modifier.padding(start = 4.dp).size(18.dp),
+                        )
+                    }
+                }
             }
             if (selecting) Checkbox(checked = selected, onCheckedChange = null)
+            else YervisIcon(YervisSymbol.Next, modifier = Modifier.size(20.dp), tint = MaterialTheme.colorScheme.onSurfaceVariant)
         }
     }
 }
@@ -383,14 +431,23 @@ internal fun SourceBadge(sourceType: CaptureSourceType, modifier: Modifier = Mod
         contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
         shape = MaterialTheme.shapes.small,
     ) {
-        Text(
-            text = when (sourceType) {
-                CaptureSourceType.TEXT -> stringResource(R.string.memory_source_text)
-                CaptureSourceType.VOICE -> stringResource(R.string.memory_source_voice)
-            },
-            style = MaterialTheme.typography.labelMedium,
-            modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
-        )
+        Row(
+            modifier = Modifier.padding(horizontal = 8.dp, vertical = 5.dp),
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            YervisIcon(
+                symbol = if (sourceType == CaptureSourceType.VOICE) YervisSymbol.Voice else YervisSymbol.Text,
+                modifier = Modifier.size(14.dp),
+            )
+            Text(
+                text = when (sourceType) {
+                    CaptureSourceType.TEXT -> stringResource(R.string.memory_source_text)
+                    CaptureSourceType.VOICE -> stringResource(R.string.memory_source_voice)
+                },
+                style = MaterialTheme.typography.labelMedium,
+            )
+        }
     }
 }
 
@@ -422,6 +479,8 @@ private fun EmptyTimelineState(modifier: Modifier = Modifier) {
             .testTag("memory_empty"),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
+        YervisIcon(YervisSymbol.Memory, modifier = Modifier.size(36.dp), tint = MaterialTheme.colorScheme.primary)
+        Spacer(Modifier.height(16.dp))
         Text(
             text = stringResource(R.string.memory_empty_title),
             style = MaterialTheme.typography.titleMedium,

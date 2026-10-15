@@ -1,0 +1,389 @@
+{
+  "id": "agenda-35",
+  "name": "Repeticiones sin declarar rutina",
+  "lane": "B",
+  "sources": [
+    {
+      "sourceEntryId": "s-35-0",
+      "text": "El 2026-09-07 caminé en el parque.",
+      "capturedAtEpochMillis": "1788800400000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    },
+    {
+      "sourceEntryId": "s-35-1",
+      "text": "El 2026-09-14 caminé en el parque.",
+      "capturedAtEpochMillis": "1789405200000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    },
+    {
+      "sourceEntryId": "s-35-2",
+      "text": "El 2026-09-28 caminé en el parque.",
+      "capturedAtEpochMillis": "1790614800000",
+      "timezoneId": "America/Lima",
+      "sourceType": "TEXT",
+      "revision": {
+        "kind": "ORIGINAL"
+      }
+    }
+  ],
+  "goldenDocuments": [
+    {
+      "schemaVersion": "1.0.0",
+      "requestId": "r-35-a",
+      "extractionId": "e-35-a",
+      "offsetUnit": "UTF16_CODE_UNIT",
+      "sourceSnapshots": [
+        {
+          "sourceEntryId": "s-35-0",
+          "capturedAtEpochMillis": "1788800400000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "136e69471da3d95bfd9a1cf112858bc2efd628790d3640fd66bb8cd06afcdce2",
+          "textLengthUtf16": 34,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 34
+            }
+          ]
+        },
+        {
+          "sourceEntryId": "s-35-1",
+          "capturedAtEpochMillis": "1789405200000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "4cb0a96e7c82645e2f9f3b8586544db3ea53a6d1904dc31b30237485602d3cc1",
+          "textLengthUtf16": 34,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 34
+            }
+          ]
+        },
+        {
+          "sourceEntryId": "s-35-2",
+          "capturedAtEpochMillis": "1790614800000",
+          "timezoneId": "America/Lima",
+          "sourceType": "TEXT",
+          "revision": {
+            "kind": "ORIGINAL"
+          },
+          "textSha256": "16408c14d629bf0843de08cf0d64822d358c2ade960b862f6ee15bf51f969466",
+          "textLengthUtf16": 34,
+          "authorizedRanges": [
+            {
+              "startUtf16": 0,
+              "endUtf16": 34
+            }
+          ]
+        }
+      ],
+      "outcome": "COMPLETE",
+      "proposals": [
+        {
+          "proposalId": "hecho0",
+          "category": "FACT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "El 2026-09-07 caminé en el parque.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-35-0",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "El 2026-09-07 caminé en el parque.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 34
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "factKind": {
+              "value": "OCCURRENCE",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-35-0",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "El 2026-09-07 caminé en el parque.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 34
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "attribution": {
+              "kind": "CAPTURE_AUTHOR"
+            },
+            "occurredAt": {
+              "expression": {
+                "value": "2026-09-07",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-35-0",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "2026-09-07",
+                    "range": {
+                      "startUtf16": 3,
+                      "endUtf16": 13
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-35-0",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "UNSPECIFIED",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            }
+          }
+        },
+        {
+          "proposalId": "hecho1",
+          "category": "FACT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "El 2026-09-14 caminé en el parque.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-35-1",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "El 2026-09-14 caminé en el parque.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 34
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "factKind": {
+              "value": "OCCURRENCE",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-35-1",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "El 2026-09-14 caminé en el parque.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 34
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "attribution": {
+              "kind": "CAPTURE_AUTHOR"
+            },
+            "occurredAt": {
+              "expression": {
+                "value": "2026-09-14",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-35-1",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "2026-09-14",
+                    "range": {
+                      "startUtf16": 3,
+                      "endUtf16": 13
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-35-1",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "UNSPECIFIED",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            }
+          }
+        },
+        {
+          "proposalId": "hecho2",
+          "category": "FACT",
+          "proposalStatus": "PROPOSED",
+          "data": {
+            "title": {
+              "value": "El 2026-09-28 caminé en el parque.",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-35-2",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "El 2026-09-28 caminé en el parque.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 34
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "factKind": {
+              "value": "OCCURRENCE",
+              "evidence": [
+                {
+                  "sourceEntryId": "s-35-2",
+                  "revision": {
+                    "kind": "ORIGINAL"
+                  },
+                  "quote": "El 2026-09-28 caminé en el parque.",
+                  "range": {
+                    "startUtf16": 0,
+                    "endUtf16": 34
+                  }
+                }
+              ],
+              "assessment": {
+                "basis": "EXPLICIT",
+                "modality": "ASSERTED",
+                "polarity": "AFFIRMED",
+                "certaintyValidation": "UNVALIDATED"
+              }
+            },
+            "attribution": {
+              "kind": "CAPTURE_AUTHOR"
+            },
+            "occurredAt": {
+              "expression": {
+                "value": "2026-09-28",
+                "evidence": [
+                  {
+                    "sourceEntryId": "s-35-2",
+                    "revision": {
+                      "kind": "ORIGINAL"
+                    },
+                    "quote": "2026-09-28",
+                    "range": {
+                      "startUtf16": 3,
+                      "endUtf16": 13
+                    }
+                  }
+                ],
+                "assessment": {
+                  "basis": "EXPLICIT",
+                  "modality": "ASSERTED",
+                  "polarity": "AFFIRMED",
+                  "certaintyValidation": "UNVALIDATED"
+                }
+              },
+              "anchor": {
+                "sourceEntryId": "s-35-2",
+                "revision": {
+                  "kind": "ORIGINAL"
+                }
+              },
+              "precision": "UNSPECIFIED",
+              "uncertainty": "UNRESOLVED",
+              "resolved": null
+            }
+          }
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "expectedTemporal": [],
+  "comparisons": [],
+  "expectedRelations": [],
+  "unknownDates": [],
+  "ambiguity": [
+    "Patrón opcional, no confirmado"
+  ],
+  "sequence": [
+    "2026-09-07",
+    "2026-09-14",
+    "2026-09-28"
+  ],
+  "forbiddenActions": [
+    "AUTO_CONFIRM",
+    "AUTO_MERGE",
+    "SCHEDULE_ALARM",
+    "WRITE_ORIGINAL",
+    "INFER_MISSED_FROM_ABSENCE",
+    "SEND_CLOUD"
+  ],
+  "rationale": "Tres hechos no prueban rutina confirmada; patrón sería hipótesis adicional revisable.",
+  "evaluation": {
+    "componentChecks": true,
+    "providerEvaluation": "NOT_RUN",
+    "humanReviewRequired": false
+  }
+}
