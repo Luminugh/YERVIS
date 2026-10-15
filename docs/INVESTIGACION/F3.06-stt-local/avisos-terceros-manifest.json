@@ -1,0 +1,256 @@
+{
+  "date": "2026-10-12",
+  "scope": "Supplementary license/notice retrieval for already downloaded sherpa-onnx 1.13.8 static-link AAR; no ASR evaluation, build, native execution or source reconstruction",
+  "sherpaRevision": "11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf",
+  "aarSha256": "b22c3fc1b6a45666d28892bb2f7694beeb77a8362d7ebd77c1a5431ec9435471",
+  "distributionAuditComplete": false,
+  "buildEvidence": [
+    "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/CMakeLists.txt",
+    "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/sherpa-onnx/csrc/CMakeLists.txt",
+    "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/sherpa-onnx/jni/CMakeLists.txt",
+    "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/.github/workflows/android-static.yaml",
+    "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/build-android-arm64-v8a.sh",
+    "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/cmake/kaldi-native-fbank.cmake",
+    "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/cmake/kaldi-decoder.cmake",
+    "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/cmake/simple-sentencepiece.cmake",
+    "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/cmake/json.cmake",
+    "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/cmake/hclust-cpp.cmake",
+    "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/cmake/espeak-ng-for-piper.cmake",
+    "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/cmake/piper-phonemize.cmake"
+  ],
+  "transitiveEvidence": [
+    "https://raw.githubusercontent.com/csukuangfj/kaldi-native-fbank/b09e686fe2084732ddd30d1ef80acfc0f13eaf01/cmake/kissfft.cmake",
+    "https://raw.githubusercontent.com/k2-fsa/kaldi-decoder/62fda2d74246a90db9570e46fb16b012f813fae7/cmake/kaldifst.cmake",
+    "https://raw.githubusercontent.com/k2-fsa/kaldifst/ab5bdd013bdf13921e6aeee77db5722ebf9955fb/cmake/openfst.cmake",
+    "https://raw.githubusercontent.com/csukuangfj/piper-phonemize/f3ff95afc03640bc1399e113e83361192a2fafb4/CMakeLists.txt",
+    "https://raw.githubusercontent.com/csukuangfj/espeak-ng/ed530aa113046142eb5115cf2fc9157854d0ffe1/README.md"
+  ],
+  "artifacts": [
+    {
+      "path": ".gradle/yezvi-stt-research/licenses/kaldi-native-fbank-1.22.3-LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/csukuangfj/kaldi-native-fbank/b09e686fe2084732ddd30d1ef80acfc0f13eaf01/LICENSE",
+      "revision": "b09e686fe2084732ddd30d1ef80acfc0f13eaf01",
+      "license": "Apache-2.0",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "checksumBasis": "local SHA-256 of exact upstream license text; not an independent publisher checksum",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/licenses/kaldi-decoder-0.3.0-LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/k2-fsa/kaldi-decoder/62fda2d74246a90db9570e46fb16b012f813fae7/LICENSE",
+      "revision": "62fda2d74246a90db9570e46fb16b012f813fae7",
+      "license": "Apache-2.0",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "checksumBasis": "local SHA-256 of exact upstream license text; not an independent publisher checksum",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/licenses/kaldifst-1.8.0-LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/k2-fsa/kaldifst/ab5bdd013bdf13921e6aeee77db5722ebf9955fb/LICENSE",
+      "revision": "ab5bdd013bdf13921e6aeee77db5722ebf9955fb",
+      "license": "Apache-2.0",
+      "bytes": 11728,
+      "sha256": "a682d6efd1ee5dee08a8e405c233c2c198ea70ae0718129daa83ab58cfe31c5d",
+      "checksumBasis": "local SHA-256 of exact upstream license text; not an independent publisher checksum",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/licenses/simple-sentencepiece-0.7-LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/pkufool/simple-sentencepiece/62dd423df1d51da5ea06f1c3a046fc04f01b4f39/LICENSE",
+      "revision": "62dd423df1d51da5ea06f1c3a046fc04f01b4f39",
+      "license": "Apache-2.0",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "checksumBasis": "local SHA-256 of exact upstream license text; not an independent publisher checksum",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/licenses/openfst-1.8.5-2026-04-10-COPYING.txt",
+      "url": "https://raw.githubusercontent.com/csukuangfj/openfst/b3b4c7aa57e65ac32faec5648f45da9061490ddb/COPYING",
+      "revision": "b3b4c7aa57e65ac32faec5648f45da9061490ddb",
+      "license": "Apache-2.0 attribution",
+      "bytes": 559,
+      "sha256": "4300529197035fd3452350718a0b8cee984e9412c9932d7f35fcde849fc97a4b",
+      "checksumBasis": "local SHA-256 of exact upstream license text; not an independent publisher checksum",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/licenses/kissfft-febd4ca-COPYING.txt",
+      "url": "https://raw.githubusercontent.com/mborgerding/kissfft/febd4caeed32e33ad8b2e0bb5ea77542c40f18ec/COPYING",
+      "revision": "febd4caeed32e33ad8b2e0bb5ea77542c40f18ec",
+      "license": "BSD-3-Clause attribution",
+      "bytes": 246,
+      "sha256": "a2840585f8411be8e6826a31ef15ae65c950bd74a2437a73b013398a934ad0c6",
+      "checksumBasis": "local SHA-256 of exact upstream license text; not an independent publisher checksum",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/licenses/kissfft-febd4ca-BSD-3-Clause.txt",
+      "url": "https://raw.githubusercontent.com/mborgerding/kissfft/febd4caeed32e33ad8b2e0bb5ea77542c40f18ec/LICENSES/BSD-3-Clause",
+      "revision": "febd4caeed32e33ad8b2e0bb5ea77542c40f18ec",
+      "license": "BSD-3-Clause",
+      "bytes": 1830,
+      "sha256": "4d6bcab46f27d6d0c878e8305d4bdcfe040d52bf6656b9771f04c9fb9902c0ed",
+      "checksumBasis": "local SHA-256 of exact upstream license text; not an independent publisher checksum",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/licenses/json-3.12.0-LICENSE.MIT.txt",
+      "url": "https://raw.githubusercontent.com/nlohmann/json/55f93686c01528224f448c19128836e7df245f72/LICENSE.MIT",
+      "revision": "55f93686c01528224f448c19128836e7df245f72",
+      "license": "MIT",
+      "bytes": 1076,
+      "sha256": "46a65cffd1ea955132d95a8dd921640714a8d6b537d2e4e482d31145ae95b603",
+      "checksumBasis": "local SHA-256 of exact upstream license text; not an independent publisher checksum",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/licenses/json-3.12.0-third-party-license.md",
+      "url": "https://raw.githubusercontent.com/nlohmann/json/55f93686c01528224f448c19128836e7df245f72/docs/mkdocs/docs/home/license.md",
+      "revision": "55f93686c01528224f448c19128836e7df245f72",
+      "license": "MIT notices; Hedley CC0 reference",
+      "bytes": 1995,
+      "sha256": "d4b7ed0261c2c840e9ccc7d483b3b659bfddc8be797f3007da080f0c4a78d960",
+      "checksumBasis": "local SHA-256 of exact upstream license text; not an independent publisher checksum",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/licenses/hclust-cpp-2026-02-25-LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/csukuangfj/hclust-cpp/db76039198979ce8d03632ab6ef14fe6accb127c/LICENSE",
+      "revision": "db76039198979ce8d03632ab6ef14fe6accb127c",
+      "license": "BSD-2-Clause",
+      "bytes": 1483,
+      "sha256": "e361d842da1d290351860ad6dcce2673a1e42e4f873a3ae1ff4eb92c6adaa882",
+      "checksumBasis": "local SHA-256 of exact upstream license text; not an independent publisher checksum",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/licenses/espeak-ng-ed530aa-COPYING-GPL3.txt",
+      "url": "https://raw.githubusercontent.com/csukuangfj/espeak-ng/ed530aa113046142eb5115cf2fc9157854d0ffe1/COPYING",
+      "revision": "ed530aa113046142eb5115cf2fc9157854d0ffe1",
+      "license": "GPL-3.0-or-later per README",
+      "bytes": 35147,
+      "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+      "checksumBasis": "local SHA-256 of exact upstream license text; not an independent publisher checksum",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/licenses/espeak-ng-ed530aa-COPYING.APACHE.txt",
+      "url": "https://raw.githubusercontent.com/csukuangfj/espeak-ng/ed530aa113046142eb5115cf2fc9157854d0ffe1/COPYING.APACHE",
+      "revision": "ed530aa113046142eb5115cf2fc9157854d0ffe1",
+      "license": "Apache-2.0 supplied exception notice",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "checksumBasis": "local SHA-256 of exact upstream license text; not an independent publisher checksum",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/licenses/espeak-ng-ed530aa-COPYING.BSD2.txt",
+      "url": "https://raw.githubusercontent.com/csukuangfj/espeak-ng/ed530aa113046142eb5115cf2fc9157854d0ffe1/COPYING.BSD2",
+      "revision": "ed530aa113046142eb5115cf2fc9157854d0ffe1",
+      "license": "BSD-2-Clause supplied Windows getopt notice",
+      "bytes": 1244,
+      "sha256": "a8b0c1c7d7af6c0415c068be8cf373799d1a42b0707b79dc4ccfcaf593cd902d",
+      "checksumBasis": "local SHA-256 of exact upstream license text; not an independent publisher checksum",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/licenses/espeak-ng-ed530aa-COPYING.UCD.txt",
+      "url": "https://raw.githubusercontent.com/csukuangfj/espeak-ng/ed530aa113046142eb5115cf2fc9157854d0ffe1/COPYING.UCD",
+      "revision": "ed530aa113046142eb5115cf2fc9157854d0ffe1",
+      "license": "Unicode data license",
+      "bytes": 2788,
+      "sha256": "be029c50df83105a810e391778b6edcb522d6cb4b4e142332aca54437a499bf7",
+      "checksumBasis": "local SHA-256 of exact upstream license text; not an independent publisher checksum",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/licenses/espeak-ng-ed530aa-ucd-tools-COPYING.txt",
+      "url": "https://raw.githubusercontent.com/csukuangfj/espeak-ng/ed530aa113046142eb5115cf2fc9157854d0ffe1/src/ucd-tools/COPYING",
+      "revision": "ed530aa113046142eb5115cf2fc9157854d0ffe1",
+      "license": "GPL-3.0",
+      "bytes": 35147,
+      "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+      "checksumBasis": "local SHA-256 of exact upstream license text; not an independent publisher checksum",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/licenses/espeak-ng-ed530aa-ucd-tools-COPYING.UCD.txt",
+      "url": "https://raw.githubusercontent.com/csukuangfj/espeak-ng/ed530aa113046142eb5115cf2fc9157854d0ffe1/src/ucd-tools/COPYING.UCD",
+      "revision": "ed530aa113046142eb5115cf2fc9157854d0ffe1",
+      "license": "Unicode data license",
+      "bytes": 2788,
+      "sha256": "be029c50df83105a810e391778b6edcb522d6cb4b4e142332aca54437a499bf7",
+      "checksumBasis": "local SHA-256 of exact upstream license text; not an independent publisher checksum",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/licenses/piper-phonemize-f3ff95a-LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/csukuangfj/piper-phonemize/f3ff95afc03640bc1399e113e83361192a2fafb4/LICENSE.md",
+      "revision": "f3ff95afc03640bc1399e113e83361192a2fafb4",
+      "license": "MIT",
+      "bytes": 1071,
+      "sha256": "13746d509d74e55ea2265fbef204bb7cdbf84a8315b0207e988326cb54387028",
+      "checksumBasis": "local SHA-256 of exact upstream license text; not an independent publisher checksum",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/licenses/piper-phonemize-f3ff95a-uni-algo-LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/csukuangfj/piper-phonemize/f3ff95afc03640bc1399e113e83361192a2fafb4/licenses/uni-algo/LICENSE.md",
+      "revision": "f3ff95afc03640bc1399e113e83361192a2fafb4",
+      "license": "Public domain plus MIT alternative",
+      "bytes": 2208,
+      "sha256": "c55648b02873556d6ab2de14938998101fda3a0f293337542af9196435def318",
+      "checksumBasis": "local SHA-256 of exact upstream license text; not an independent publisher checksum",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/licenses/simple-sentencepiece-0.7-darts-BSD2-NOTICE.txt",
+      "url": "https://raw.githubusercontent.com/pkufool/simple-sentencepiece/62dd423df1d51da5ea06f1c3a046fc04f01b4f39/ssentencepiece/csrc/darts.h",
+      "revision": "62dd423df1d51da5ea06f1c3a046fc04f01b4f39",
+      "license": "BSD-2-Clause",
+      "bytes": 1315,
+      "sha256": "30704ed1913ec07b4090a1eaeafd4aa37af4efe83eebbc3b5a85cedb238e0666",
+      "checksumBasis": "local hash of license comment extracted from darts.h; UTF-8 LF, no code retained",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/licenses/json-3.12.0-hedley-SPDX-NOTICE.txt",
+      "url": "https://raw.githubusercontent.com/nlohmann/json/55f93686c01528224f448c19128836e7df245f72/include/nlohmann/thirdparty/hedley/hedley.hpp",
+      "revision": "55f93686c01528224f448c19128836e7df245f72",
+      "license": "MIT per shipped header (documentation additionally says CC0-1.0)",
+      "bytes": 180,
+      "sha256": "2852385028857c2bd17e932901a5bc6d2e330975bbce65e838e8db8b8159c8cc",
+      "checksumBasis": "local hash of SPDX notice lines extracted from shipped hedley header; no code retained",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/licenses/onnxruntime-1.28.2-ThirdPartyNotices.txt",
+      "url": "https://raw.githubusercontent.com/microsoft/onnxruntime/v1.28.2/ThirdPartyNotices.txt",
+      "revision": "v1.28.2",
+      "license": "upstream aggregated third-party notices, a superset rather than binary SBOM",
+      "bytes": 325054,
+      "sha256": "0e07b95f3a8d6230037707c5c4a2b554d12c4cb67369669ac255635528ffcee2",
+      "checksumBasis": "local SHA-256; recovered by parent agent and verified against recorded hash",
+      "executed": false
+    }
+  ],
+  "findings": [
+    "The fixed sherpa core links kaldi-native-fbank-core (not kaldifeat), kaldi-decoder-core, ssentencepiece_core, ONNX Runtime, fst and fstfar. kaldi-native-fbank pulls the pinned kissfft commit; kaldi-decoder pulls kaldifst, which pulls OpenFST. JSON is included as headers.",
+    "The Android static release workflow sets BUILD_SHARED_LIBS=OFF and invokes the Android scripts. The inspected ARM64 script defaults TTS and diarization to ON, disables PortAudio and tests, and links libc++ statically by default.",
+    "With TTS enabled, sherpa core links piper_phonemize, which links espeak-ng and ucd. The exact espeak-ng fork README declares GPL version 3 or later; ucd-tools supplies GPL version 3 COPYING. MIT for piper-phonemize does not remove these dependencies.",
+    "Read-only scan of the downloaded ARM64 JNI library found /tmp/espeakXXXXXX and OfflineSpeakerDiarization JNI strings. This is supporting static evidence; no native code was executed.",
+    "GitHub recursive tree inspection found no root or nested NOTICE file in the fixed sherpa repository or identified dependency repositories; supplied COPYING and LICENSE variants were preserved.",
+    "Hedley shipped header declares MIT and authors Niels Lohmann and Evan Nemerson, while the JSON license documentation says CC0-1.0 for Hedley. Both supplied notices were preserved without silently resolving that difference.",
+    "The Android-specific simple-sentencepiece CMake patch removes threading/ThreadPool code; darts-clone BSD-2-Clause embedded license remains relevant and was extracted verbatim."
+  ],
+  "limits": [
+    "This is not a complete binary SBOM or an attestation of the exact publisher build. Dependencies were inferred from fixed release build sources and supported by limited read-only binary strings.",
+    "Supplying licenses alone does not satisfy all GPL distribution obligations such as corresponding source/build and installation information where applicable. No distribution approval or choice of application license is made here. A separate ASR-only runtime build with SHERPA_ONNX_ENABLE_TTS=OFF is a possible future artifact, not the current AAR.",
+    "The workflow uses ANDROID_NDK_LATEST_HOME rather than a pinned NDK revision; exact libc++/libc++abi toolchain notices cannot be certified from available release sources. ONNX Runtime aggregated notices include LLVM notices but do not establish the exact NDK runtime license inventory.",
+    "No source archives, toolchains or native dependencies were downloaded. Only small license/notice files were recovered. No scripts were executed, and assets/Gradle/application code/state documents were not changed.",
+    "The existing sherpa, ORT MIT, Silero MIT and NVIDIA CC-BY-4.0 texts/attribution remain separately required; this manifest supplements rather than replaces recursos-manifest.json and fuentes-manifest.json."
+  ]
+}

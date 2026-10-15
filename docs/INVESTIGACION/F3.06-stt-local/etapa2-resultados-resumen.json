@@ -1,0 +1,136 @@
+{
+  "date": "2026-10-12",
+  "unitTests": {
+    "tests": 87,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "newVocabularyTests": 11,
+    "newAdapterTests": 8
+  },
+  "instrumentation": {
+    "distinctTests": 3,
+    "passed": 3,
+    "skipped": 0,
+    "fullFocalizedSeconds": 74.468,
+    "updatedUserCaseSeconds": 45.501,
+    "updatedUserCasePassed": 1,
+    "completeProjectSuiteRun": false
+  },
+  "privateUserAudio": {
+    "durationMs": 66010,
+    "reference": "Approximate supplied by user; no definitive WER; filename does not describe its content",
+    "recordingAndTranscriptPublished": false,
+    "runs": [
+      {
+        "profile": "baseline",
+        "hotwords": [],
+        "hotwordsScore": 1.5,
+        "audioDurationMs": 66010,
+        "inferenceMs": 8489.6537,
+        "initializationMs": 2490.4206,
+        "exactWordMentionsIgnoreCase": {
+          "Discord": 0,
+          "CPU": 0,
+          "Edge": 0,
+          "YEZVI": 0,
+          "Kotlin": 0,
+          "Jetpack Compose": 0,
+          "Nalvero": 0
+        }
+      },
+      {
+        "profile": "bias-1",
+        "hotwords": [
+          "Discord",
+          "CPU",
+          "Edge",
+          "YEZVI",
+          "Kotlin",
+          "Jetpack Compose",
+          "Nalvero"
+        ],
+        "hotwordsScore": 1,
+        "audioDurationMs": 66010,
+        "inferenceMs": 8230.0569,
+        "initializationMs": 1691.0871,
+        "exactWordMentionsIgnoreCase": {
+          "Discord": 0,
+          "CPU": 0,
+          "Edge": 0,
+          "YEZVI": 0,
+          "Kotlin": 0,
+          "Jetpack Compose": 0,
+          "Nalvero": 0
+        }
+      },
+      {
+        "profile": "bias-1.5",
+        "hotwords": [
+          "Discord",
+          "CPU",
+          "Edge",
+          "YEZVI",
+          "Kotlin",
+          "Jetpack Compose",
+          "Nalvero"
+        ],
+        "hotwordsScore": 1.5,
+        "audioDurationMs": 66010,
+        "inferenceMs": 7253.5287,
+        "initializationMs": 1707.7285,
+        "exactWordMentionsIgnoreCase": {
+          "Discord": 0,
+          "CPU": 0,
+          "Edge": 0,
+          "YEZVI": 0,
+          "Kotlin": 0,
+          "Jetpack Compose": 0,
+          "Nalvero": 0
+        }
+      },
+      {
+        "profile": "bias-2",
+        "hotwords": [
+          "Discord",
+          "CPU",
+          "Edge",
+          "YEZVI",
+          "Kotlin",
+          "Jetpack Compose",
+          "Nalvero"
+        ],
+        "hotwordsScore": 2,
+        "audioDurationMs": 66010,
+        "inferenceMs": 7422.4539,
+        "initializationMs": 1884.1059,
+        "exactWordMentionsIgnoreCase": {
+          "Discord": 0,
+          "CPU": 1,
+          "Edge": 0,
+          "YEZVI": 0,
+          "Kotlin": 0,
+          "Jetpack Compose": 0,
+          "Nalvero": 0
+        }
+      }
+    ]
+  },
+  "mainApk": {
+    "bytes": 220095209,
+    "sha256": "c6ab59ab14d75ebcf26126ad508aa89f2abd4442d269bf43fc0c22ad25207e9f",
+    "stage2TestAudioIncluded": false
+  },
+  "networkRestored": {
+    "airplane": 0,
+    "wifi": 1,
+    "activeDefaultNetwork": 118
+  },
+  "preservation": {
+    "sentinelUnchanged": true,
+    "roomDatabaseInode": 573937,
+    "roomDatabaseBytes": 12288,
+    "schemaDiff": false,
+    "gitIndexChanged": false
+  }
+}

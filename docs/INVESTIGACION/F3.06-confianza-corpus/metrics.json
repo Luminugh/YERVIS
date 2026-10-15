@@ -1,0 +1,274 @@
+{
+  "version": 1,
+  "metric": "minimum unbiased emitted-token log probability per lexical BPE word",
+  "interpretation": "Uncalibrated uncertainty heuristic; no per-word accuracy probability is inferred.",
+  "normalization": "Lowercase, punctuation and diacritics ignored; word order retained; no aliases/number rewriting.",
+  "selection": "Adjustment only: maximize recall with precision>=0.85 and coverage<=0.15; lower threshold wins ties.",
+  "calibrationThreshold": -1.0763946,
+  "recommendedRuntimeThreshold": null,
+  "automaticSuggestionsEnabled": false,
+  "gates": {
+    "corpusComplete": true,
+    "exactPublicReferencesOnly": true,
+    "sentenceAndReferenceDisjoint": true,
+    "thousandReferenceWordsPerSplit": true,
+    "noInvalidScoreFiles": true,
+    "adjustmentThresholdFound": true,
+    "evaluationPrecisionAtLeast80Percent": false,
+    "evaluationAtLeast30Alerts": false,
+    "evaluationAtLeast50DetectableErrors": true
+  },
+  "missingCorpusFiles": 0,
+  "invalidScoreReasons": {},
+  "summaries": {
+    "adjustment": {
+      "referenceWords": 1333,
+      "hypothesisWords": 1328,
+      "substitutions": 55,
+      "deletions": 12,
+      "insertions": 7,
+      "files": 51,
+      "invalidScoreFiles": 0,
+      "wer": 0.0555138784696174,
+      "alerts": {
+        "words": 1328,
+        "detectableErrors": 62,
+        "flags": 2,
+        "trueAlerts": 2,
+        "falseAlerts": 0,
+        "precision": 1.0,
+        "recall": 0.03225806451612903,
+        "coverage": 0.0015060240963855422
+      },
+      "scoreDistribution": {
+        "count": 1328,
+        "minimum": -1.6046062,
+        "median": -0.0092844965,
+        "p95": -9.8228455e-05,
+        "maximum": -9.536743e-07
+      }
+    },
+    "evaluation": {
+      "referenceWords": 1329,
+      "hypothesisWords": 1341,
+      "substitutions": 60,
+      "deletions": 12,
+      "insertions": 24,
+      "files": 54,
+      "invalidScoreFiles": 0,
+      "wer": 0.07223476297968397,
+      "alerts": {
+        "words": 1341,
+        "detectableErrors": 84,
+        "flags": 5,
+        "trueAlerts": 2,
+        "falseAlerts": 3,
+        "precision": 0.4,
+        "recall": 0.023809523809523808,
+        "coverage": 0.0037285607755406414
+      },
+      "scoreDistribution": {
+        "count": 1341,
+        "minimum": -1.9109721,
+        "median": -0.010051727,
+        "p95": -9.441376e-05,
+        "maximum": -3.8146973e-06
+      }
+    }
+  },
+  "timing": {
+    "loadMs": {
+      "count": 105,
+      "minimum": 3365.3451,
+      "median": 3365.3451,
+      "p95": 3365.3451,
+      "maximum": 3365.3451
+    },
+    "inferenceMs": {
+      "count": 105,
+      "minimum": 475.7543,
+      "median": 995.1041,
+      "p95": 1735.9427,
+      "maximum": 2639.5892
+    },
+    "scoreReadMs": {
+      "count": 105,
+      "minimum": 0.0226,
+      "median": 0.0354,
+      "p95": 0.0567,
+      "maximum": 0.4977
+    },
+    "cpuMs": {
+      "count": 105,
+      "minimum": 476,
+      "median": 995,
+      "p95": 1709,
+      "maximum": 2642
+    }
+  },
+  "benchmark": {
+    "enabled": {
+      "runs": 30,
+      "inferenceMs": {
+        "count": 30,
+        "minimum": 998.9152,
+        "median": 1094.4882499999999,
+        "p95": 1826.3959,
+        "maximum": 2021.0059
+      },
+      "scoreReadMs": {
+        "count": 30,
+        "minimum": 0.023,
+        "median": 0.03425,
+        "p95": 0.0592,
+        "maximum": 0.639
+      },
+      "wordAnalysisMs": {
+        "count": 30,
+        "minimum": 0.5529,
+        "median": 0.65245,
+        "p95": 3.5441,
+        "maximum": 5.132
+      },
+      "totalMeasuredMs": {
+        "count": 30,
+        "minimum": 999.5829,
+        "median": 1095.18925,
+        "p95": 1827.0654,
+        "maximum": 2024.6048
+      },
+      "cpuMs": {
+        "count": 30,
+        "minimum": 997,
+        "median": 1086.0,
+        "p95": 1358,
+        "maximum": 1462
+      },
+      "nativeHeapBytes": null,
+      "pssBytes": {
+        "count": 30,
+        "minimum": 570364928,
+        "median": 573199360.0,
+        "p95": 575795200,
+        "maximum": 576377856
+      },
+      "analysisUnavailableRuns": 0,
+      "analysisWords": {
+        "count": 30,
+        "minimum": 29,
+        "median": 29.0,
+        "p95": 29,
+        "maximum": 29
+      }
+    },
+    "disabled": {
+      "runs": 30,
+      "inferenceMs": {
+        "count": 30,
+        "minimum": 990.93,
+        "median": 1068.64635,
+        "p95": 2162.4886,
+        "maximum": 2172.5371
+      },
+      "scoreReadMs": {
+        "count": 30,
+        "minimum": 0,
+        "median": 0.0,
+        "p95": 0,
+        "maximum": 0
+      },
+      "wordAnalysisMs": {
+        "count": 30,
+        "minimum": 0,
+        "median": 0.0,
+        "p95": 0,
+        "maximum": 0
+      },
+      "totalMeasuredMs": {
+        "count": 30,
+        "minimum": 990.93,
+        "median": 1068.64635,
+        "p95": 2162.4886,
+        "maximum": 2172.5371
+      },
+      "cpuMs": {
+        "count": 30,
+        "minimum": 989,
+        "median": 1057.0,
+        "p95": 1305,
+        "maximum": 1350
+      },
+      "nativeHeapBytes": null,
+      "pssBytes": {
+        "count": 30,
+        "minimum": 570336256,
+        "median": 573303808.0,
+        "p95": 575488000,
+        "maximum": 575807488
+      },
+      "analysisUnavailableRuns": 0,
+      "analysisWords": {
+        "count": 30,
+        "minimum": 0,
+        "median": 0.0,
+        "p95": 0,
+        "maximum": 0
+      }
+    },
+    "medianInferenceRatio": 1.024181900775687,
+    "medianTotalMeasuredRatio": 1.024837870826022,
+    "thirtyRunsEachMode": true,
+    "pairedIdentity": {
+      "completePairs": 30,
+      "incompletePairs": 0,
+      "changedTextPairs": 0,
+      "changedTokenPairs": 0,
+      "changedTimestampPairs": 0
+    },
+    "pairedTotalOverheadMs": {
+      "count": 30,
+      "minimum": -658.9787000000001,
+      "median": 4.684150000000045,
+      "p95": 551.1406999999999,
+      "maximum": 632.1014000000002
+    },
+    "pairedTotalOverheadFraction": {
+      "count": 30,
+      "minimum": -0.32720574836160954,
+      "median": 0.004721392907487965,
+      "p95": 0.5242943144856262,
+      "maximum": 0.5498277584204314
+    },
+    "pairedCpuOverheadMs": {
+      "count": 30,
+      "minimum": -217,
+      "median": 13.0,
+      "p95": 339,
+      "maximum": 340
+    },
+    "pairedPssDifferenceBytes": {
+      "count": 30,
+      "minimum": -1249280,
+      "median": 20480.0,
+      "p95": 1228800,
+      "maximum": 1228800
+    },
+    "phoneBudgetVerified": false,
+    "interpretation": "AVD/host timing is descriptive. ARM64 phone latency/RAM/thermal gates require physical measurements."
+  },
+  "limitations": [
+    "Omitted words have no emitted token to highlight and are counted separately.",
+    "Speaker independence is not established by FLEURS metadata.",
+    "No extrapolation to conversational speech, technical vocabulary, or Samsung accuracy."
+  ],
+  "baselineComparison": {
+    "expectedFiles": 105,
+    "comparedFiles": 105,
+    "baselineComplete": true,
+    "candidateComplete": true,
+    "changedTextFiles": 0,
+    "changedTokenFiles": 0,
+    "changedTimestampFiles": 0,
+    "interpretation": "Exact identity only; independent runs are not a controlled latency benchmark."
+  }
+}

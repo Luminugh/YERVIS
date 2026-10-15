@@ -1,0 +1,80 @@
+--- a/sherpa-onnx/csrc/offline-transducer-modified-beam-search-nemo-decoder.cc
++++ b/sherpa-onnx/csrc/offline-transducer-modified-beam-search-nemo-decoder.cc
+@@ -1,6 +1,8 @@
+ // sherpa-onnx/csrc/offline-transducer-modified-beam-search-nemo-decoder.cc
+ //
+ // Copyright (c)  2026  (authors: github.com/nefastosaturo, github.com/nullbio)
++// Modified 2026 by YEZVI contributors; Apache-2.0.
++// Preserve pre-hotword token scores as experimental metadata only.
+ 
+ #include "sherpa-onnx/csrc/offline-transducer-modified-beam-search-nemo-decoder.h"
+ 
+@@ -122,6 +124,10 @@
+   }
+ 
+   std::vector<OfflineTransducerDecoderResult> results(batch_size);
++
++  // Reused for all hypotheses/frames: ~4 KiB for the Spanish 1025-token model.
++  // This metadata never participates in ranking, context scores or decoding.
++  std::vector<float> unbiased_token_log_probs(vocab_size);
+ 
+   // Process each utterance independently (simpler for TDT with variable frame
+   // positions)
+@@ -260,6 +266,19 @@
+         // Compute log softmax for tokens only
+         LogSoftmax(token_logits, token_vocab_size, 1);
+ 
++        // Keep raw post-log-softmax values before mutating logits for hotwords.
++        // Skip the copy when no context boost can be applied.
++        const bool has_context_boost =
++            context_graphs[b] != nullptr && hyp.context_state != nullptr;
++        if (has_context_boost) {
++          if (unbiased_token_log_probs.size() <
++              static_cast<size_t>(token_vocab_size)) {
++            unbiased_token_log_probs.resize(token_vocab_size);
++          }
++          std::copy_n(token_logits, token_vocab_size,
++                      unbiased_token_log_probs.begin());
++        }
++
+         // Apply context boosting BEFORE top-k selection so hotword tokens
+         // have a chance to be selected even if their base probability is low
+         if (context_graphs[b] != nullptr && hyp.context_state != nullptr) {
+@@ -325,7 +344,9 @@
+             // Non-blank: add token, use new decoder state
+             new_hyp.ys.push_back(token);
+             new_hyp.timestamps.push_back(hyp.frame_offset);
+-            new_hyp.ys_probs.push_back(token_logits[token]);
++            new_hyp.ys_probs.push_back(
++                has_context_boost ? unbiased_token_log_probs[token]
++                                  : token_logits[token]);
+             if (is_tdt_) {
+               new_hyp.durations.push_back(predicted_skip);
+             }
+--- a/sherpa-onnx/jni/CMakeLists.txt
++++ b/sherpa-onnx/jni/CMakeLists.txt
+@@ -1,3 +1,5 @@
++# Modified 2026 by YEZVI contributors; Apache-2.0.
++# Add only the bounded experimental token-score JNI bridge.
+ include_directories(${PROJECT_SOURCE_DIR})
+ 
+ if(NOT DEFINED ANDROID_ABI)
+@@ -18,6 +20,7 @@
+   offline-diacritization.cc
+   offline-punctuation.cc
+   offline-recognizer.cc
++  yezvi-token-scores.cc
+   offline-speech-denoiser.cc
+   offline-stream.cc
+   online-speech-denoiser.cc
+--- a/sherpa-onnx/jni/sherpa-onnx-symbols.lds
++++ b/sherpa-onnx/jni/sherpa-onnx-symbols.lds
+@@ -1,6 +1,8 @@
++/* Modified 2026 by YEZVI contributors; Apache-2.0. */
+ {
+   global:
+     Java_com_k2fsa_sherpa_onnx*;
++    Java_com_yezvi_assistant_data_speech_SherpaTokenScores_readTokenLogProbabilities;
+   local:
+     *;
+ };

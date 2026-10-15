@@ -1,0 +1,243 @@
+{
+  "apk": "app\\build\\outputs\\apk\\debug\\app-debug.apk",
+  "bytes": 220095209,
+  "sha256": "9f0c962266592077fd7aa1f9af554460d677fbaf6cc066c777e0d16e56f382dc",
+  "assets": [
+    {
+      "path": "assets/stt/silero_vad.onnx",
+      "bytes": 643854,
+      "compressedBytes": 512910,
+      "sha256": "9e2449e1087496d8d4caba907f23e0bd3f78d91fa552479bb9c23ac09cbb1fd6"
+    },
+    {
+      "path": "assets/stt/nemo-es-rnnt-int8/encoder.int8.onnx",
+      "bytes": 131113475,
+      "compressedBytes": 101951812,
+      "sha256": "17bde3c5005f7a9d0614336ea13db7d2c3c1c4efcacfa380e962b36d768b907e"
+    },
+    {
+      "path": "assets/stt/nemo-es-rnnt-int8/decoder.int8.onnx",
+      "bytes": 3955863,
+      "compressedBytes": 3163406,
+      "sha256": "e759e0c04faa31526c34a96927bd8c69574e9b5e83360559b4f924be98f89f0e"
+    },
+    {
+      "path": "assets/stt/nemo-es-rnnt-int8/joiner.int8.onnx",
+      "bytes": 1408182,
+      "compressedBytes": 1025915,
+      "sha256": "78f941bcda8d7e3d43b89a8fd805a8e77e99d06bde4c6ceedc9ec423ee4d04bd"
+    },
+    {
+      "path": "assets/stt/nemo-es-rnnt-int8/tokens.txt",
+      "bytes": 10871,
+      "compressedBytes": 5520,
+      "sha256": "6191b4853e3654f053c42f6fd184ca53b402987aefdd6ff6baa68034d803ee85"
+    },
+    {
+      "path": "assets/stt/nemo-es-rnnt-int8/bpe.vocab",
+      "bytes": 11981,
+      "compressedBytes": 3819,
+      "sha256": "99fa642e935e8eb5ce835cf1e4fbd238afafb10f6cbcbbe3f1511650124f5597"
+    }
+  ],
+  "nativeLibraries": [
+    {
+      "path": "lib/arm64-v8a/libandroidx.graphics.path.so",
+      "bytes": 10096,
+      "compression": 0,
+      "sha256": "41e9a793c43a0f4fddb19e33f346bace464f30f888ba7b9eaf96294ea115bfb6",
+      "loadSegments": [
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        },
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        },
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        }
+      ],
+      "loadAlignment16KB": true
+    },
+    {
+      "path": "lib/arm64-v8a/libsherpa-onnx-jni.so",
+      "bytes": 24169352,
+      "compression": 0,
+      "sha256": "b4a53d915c19cb6d09b1cdc9a8084be54419b647aab9097ffdfb46f30c3c4dd8",
+      "loadSegments": [
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        },
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        },
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        }
+      ],
+      "loadAlignment16KB": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libandroidx.graphics.path.so",
+      "bytes": 7252,
+      "compression": 0,
+      "sha256": "41399eba6fc2a60f6f14642375c1824f3cf25eb8fec7397d753730a3ceda3e2b",
+      "loadSegments": [
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        },
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        },
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        }
+      ],
+      "loadAlignment16KB": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libsherpa-onnx-jni.so",
+      "bytes": 16437284,
+      "compression": 0,
+      "sha256": "2c0350f9c23dda60318c0d195fcc02d505f05cdbfba89492a4468d2c4276be28",
+      "loadSegments": [
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        },
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        },
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        }
+      ],
+      "loadAlignment16KB": true
+    },
+    {
+      "path": "lib/x86/libandroidx.graphics.path.so",
+      "bytes": 9284,
+      "compression": 0,
+      "sha256": "eb0570b41fd3bff25d8204a967c03bd7550719e768b791f680cc40cbe35f29af",
+      "loadSegments": [
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        },
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        },
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        }
+      ],
+      "loadAlignment16KB": true
+    },
+    {
+      "path": "lib/x86/libonnxruntime.so",
+      "bytes": 26491148,
+      "compression": 0,
+      "sha256": "fcb6cd80415f7951e58fdd8158a238946dce3710d5fee492b67174d5131f9eee",
+      "loadSegments": [
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        },
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        },
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        },
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        }
+      ],
+      "loadAlignment16KB": true
+    },
+    {
+      "path": "lib/x86/libsherpa-onnx-jni.so",
+      "bytes": 5540732,
+      "compression": 0,
+      "sha256": "914ce3d8e77c4ec13b178a8657b2bb9d6187ea6deddbdd519be0373c71eb681d",
+      "loadSegments": [
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        },
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        },
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        }
+      ],
+      "loadAlignment16KB": true
+    },
+    {
+      "path": "lib/x86_64/libandroidx.graphics.path.so",
+      "bytes": 10760,
+      "compression": 0,
+      "sha256": "4e56c996f13670e70082658de7880c4020eabf4f25e43387f88ed78a713fc9f0",
+      "loadSegments": [
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        },
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        },
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        }
+      ],
+      "loadAlignment16KB": true
+    },
+    {
+      "path": "lib/x86_64/libsherpa-onnx-jni.so",
+      "bytes": 27359872,
+      "compression": 0,
+      "sha256": "968e24f61d1e4dae0d5e7860aded42fee45b0f804e1c5a42dfa49186864cefc4",
+      "loadSegments": [
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        },
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        },
+        {
+          "alignment": 16384,
+          "congruent16KB": true
+        }
+      ],
+      "loadAlignment16KB": true
+    }
+  ],
+  "nativeRuntimeLibrariesMatchingAar": 5,
+  "supplementaryNoticesVerified": 21,
+  "baseLicensesVerified": 4,
+  "zipalign16KBExitCode": 0,
+  "devicePageSizeBytes": 4096
+}

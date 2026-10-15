@@ -1,0 +1,1550 @@
+{
+  "format": 1,
+  "scope": "Debug-only runtime, native/source identity and privacy checks",
+  "distributionApproved": false,
+  "legalCertification": false,
+  "runtime": {
+    "bytes": 41222198,
+    "sha256": "29f4800294ed2492c5e503e48249f2e80a253c0b3f9eab9499b03f83006e02c6"
+  },
+  "libraries": {
+    "jni/arm64-v8a/libonnxruntime.so": {
+      "path": "jni/arm64-v8a/libonnxruntime.so",
+      "abi": "arm64-v8a",
+      "library": "libonnxruntime.so",
+      "bytes": 22249560,
+      "sha256": "33847ad43bffe204699fd4a27f7f3603452a8cdaf2f9a44983a0bc31ffcf2da1",
+      "bits": 64,
+      "machine": 183,
+      "needed": [
+        "libc.so",
+        "libdl.so",
+        "liblog.so",
+        "libm.so"
+      ],
+      "exportCount": 7,
+      "pageAlignment": {
+        "applicable": true,
+        "loadSegments": [
+          {
+            "offset": 0,
+            "vaddr": 0,
+            "filesz": 5536600,
+            "memsz": 5536600,
+            "align": 16384,
+            "aligned16k": true
+          },
+          {
+            "offset": 5536608,
+            "vaddr": 5552992,
+            "filesz": 16234464,
+            "memsz": 16234464,
+            "align": 16384,
+            "aligned16k": true
+          },
+          {
+            "offset": 21771072,
+            "vaddr": 21803840,
+            "filesz": 471968,
+            "memsz": 474304,
+            "align": 16384,
+            "aligned16k": true
+          },
+          {
+            "offset": 22243040,
+            "vaddr": 22292192,
+            "filesz": 4232,
+            "memsz": 38792,
+            "align": 16384,
+            "aligned16k": true
+          }
+        ],
+        "relro": [
+          {
+            "vaddr": 21803840,
+            "memsz": 474304,
+            "end": 22278144,
+            "endAligned16k": false
+          }
+        ],
+        "relroPresent": true,
+        "passed": false
+      },
+      "excludedExports": []
+    },
+    "jni/arm64-v8a/libsherpa-onnx-jni.so": {
+      "path": "jni/arm64-v8a/libsherpa-onnx-jni.so",
+      "abi": "arm64-v8a",
+      "library": "libsherpa-onnx-jni.so",
+      "bytes": 3667664,
+      "sha256": "9aab96d918559ae94940c933dc4d199fed87a4100adb3c65f7c558a746ce764b",
+      "bits": 64,
+      "machine": 183,
+      "needed": [
+        "libandroid.so",
+        "libc.so",
+        "libdl.so",
+        "liblog.so",
+        "libm.so",
+        "libonnxruntime.so"
+      ],
+      "exportCount": 118,
+      "pageAlignment": {
+        "applicable": true,
+        "loadSegments": [
+          {
+            "offset": 0,
+            "vaddr": 0,
+            "filesz": 3611296,
+            "memsz": 3611296,
+            "align": 16384,
+            "aligned16k": true
+          },
+          {
+            "offset": 3611296,
+            "vaddr": 3627680,
+            "filesz": 53416,
+            "memsz": 58720,
+            "align": 16384,
+            "aligned16k": true
+          },
+          {
+            "offset": 3664712,
+            "vaddr": 3697480,
+            "filesz": 504,
+            "memsz": 16128,
+            "align": 16384,
+            "aligned16k": true
+          }
+        ],
+        "relro": [
+          {
+            "vaddr": 3627680,
+            "memsz": 58720,
+            "end": 3686400,
+            "endAligned16k": true
+          }
+        ],
+        "relroPresent": true,
+        "passed": true
+      },
+      "excludedExports": []
+    },
+    "jni/armeabi-v7a/libonnxruntime.so": {
+      "path": "jni/armeabi-v7a/libonnxruntime.so",
+      "abi": "armeabi-v7a",
+      "library": "libonnxruntime.so",
+      "bytes": 15359592,
+      "sha256": "7a8f17a707e52e0ac3a026be319272876d9eae61f4bb19585292772d785f7744",
+      "bits": 32,
+      "machine": 40,
+      "needed": [
+        "libc.so",
+        "libdl.so",
+        "liblog.so",
+        "libm.so"
+      ],
+      "exportCount": 5,
+      "pageAlignment": {
+        "applicable": false,
+        "reason": "16 KB ELF gate applies to 64-bit libraries here",
+        "loadSegments": [
+          {
+            "offset": 0,
+            "vaddr": 0,
+            "filesz": 3241068,
+            "memsz": 3241068,
+            "align": 16384
+          },
+          {
+            "offset": 3241072,
+            "vaddr": 3257456,
+            "filesz": 11881552,
+            "memsz": 11881552,
+            "align": 16384
+          },
+          {
+            "offset": 15122624,
+            "vaddr": 15155392,
+            "filesz": 233552,
+            "memsz": 237376,
+            "align": 16384
+          },
+          {
+            "offset": 15356176,
+            "vaddr": 15405328,
+            "filesz": 1688,
+            "memsz": 18700,
+            "align": 16384
+          }
+        ],
+        "relro": [
+          {
+            "vaddr": 15155392,
+            "memsz": 237376,
+            "end": 15392768
+          }
+        ]
+      },
+      "excludedExports": []
+    },
+    "jni/armeabi-v7a/libsherpa-onnx-jni.so": {
+      "path": "jni/armeabi-v7a/libsherpa-onnx-jni.so",
+      "abi": "armeabi-v7a",
+      "library": "libsherpa-onnx-jni.so",
+      "bytes": 2493932,
+      "sha256": "e14ae8c47cc9c3485fd628ca549b4be6c6366d3c0068b53eb4a372bad2a3f924",
+      "bits": 32,
+      "machine": 40,
+      "needed": [
+        "libandroid.so",
+        "libc.so",
+        "libdl.so",
+        "liblog.so",
+        "libm.so",
+        "libonnxruntime.so"
+      ],
+      "exportCount": 118,
+      "pageAlignment": {
+        "applicable": false,
+        "reason": "16 KB ELF gate applies to 64-bit libraries here",
+        "loadSegments": [
+          {
+            "offset": 0,
+            "vaddr": 0,
+            "filesz": 2464656,
+            "memsz": 2464656,
+            "align": 16384
+          },
+          {
+            "offset": 2464656,
+            "vaddr": 2481040,
+            "filesz": 27212,
+            "memsz": 42096,
+            "align": 16384
+          },
+          {
+            "offset": 2491872,
+            "vaddr": 2524640,
+            "filesz": 180,
+            "memsz": 7153,
+            "align": 16384
+          }
+        ],
+        "relro": [
+          {
+            "vaddr": 2481040,
+            "memsz": 42096,
+            "end": 2523136
+          }
+        ]
+      },
+      "excludedExports": []
+    },
+    "jni/x86/libonnxruntime.so": {
+      "path": "jni/x86/libonnxruntime.so",
+      "abi": "x86",
+      "library": "libonnxruntime.so",
+      "bytes": 26491148,
+      "sha256": "fcb6cd80415f7951e58fdd8158a238946dce3710d5fee492b67174d5131f9eee",
+      "bits": 32,
+      "machine": 3,
+      "needed": [
+        "libc.so",
+        "libdl.so",
+        "liblog.so",
+        "libm.so"
+      ],
+      "exportCount": 5,
+      "pageAlignment": {
+        "applicable": false,
+        "reason": "16 KB ELF gate applies to 64-bit libraries here",
+        "loadSegments": [
+          {
+            "offset": 0,
+            "vaddr": 0,
+            "filesz": 5920628,
+            "memsz": 5920628,
+            "align": 16384
+          },
+          {
+            "offset": 5920640,
+            "vaddr": 5937024,
+            "filesz": 20334384,
+            "memsz": 20334384,
+            "align": 16384
+          },
+          {
+            "offset": 26255024,
+            "vaddr": 26287792,
+            "filesz": 232560,
+            "memsz": 233808,
+            "align": 16384
+          },
+          {
+            "offset": 26487584,
+            "vaddr": 26536736,
+            "filesz": 1952,
+            "memsz": 20892,
+            "align": 16384
+          }
+        ],
+        "relro": [
+          {
+            "vaddr": 26287792,
+            "memsz": 233808,
+            "end": 26521600
+          }
+        ]
+      },
+      "excludedExports": []
+    },
+    "jni/x86/libsherpa-onnx-jni.so": {
+      "path": "jni/x86/libsherpa-onnx-jni.so",
+      "abi": "x86",
+      "library": "libsherpa-onnx-jni.so",
+      "bytes": 3907428,
+      "sha256": "a827a49913eddedac2f23b746add6b8d4c9be3c29e292cb3999fbb44f1f4bf4a",
+      "bits": 32,
+      "machine": 3,
+      "needed": [
+        "libandroid.so",
+        "libc.so",
+        "libdl.so",
+        "liblog.so",
+        "libm.so",
+        "libonnxruntime.so"
+      ],
+      "exportCount": 118,
+      "pageAlignment": {
+        "applicable": false,
+        "reason": "16 KB ELF gate applies to 64-bit libraries here",
+        "loadSegments": [
+          {
+            "offset": 0,
+            "vaddr": 0,
+            "filesz": 3878176,
+            "memsz": 3878176,
+            "align": 16384
+          },
+          {
+            "offset": 3878176,
+            "vaddr": 3894560,
+            "filesz": 27244,
+            "memsz": 37600,
+            "align": 16384
+          },
+          {
+            "offset": 3905424,
+            "vaddr": 3938192,
+            "filesz": 232,
+            "memsz": 8448,
+            "align": 16384
+          }
+        ],
+        "relro": [
+          {
+            "vaddr": 3894560,
+            "memsz": 37600,
+            "end": 3932160
+          }
+        ]
+      },
+      "excludedExports": []
+    },
+    "jni/x86_64/libonnxruntime.so": {
+      "path": "jni/x86_64/libonnxruntime.so",
+      "abi": "x86_64",
+      "library": "libonnxruntime.so",
+      "bytes": 25581120,
+      "sha256": "087e84297cad64acb823c3d901d6e0cc934e91add7cdb20da802cd1c0bea5c3e",
+      "bits": 64,
+      "machine": 62,
+      "needed": [
+        "libc.so",
+        "libdl.so",
+        "liblog.so",
+        "libm.so"
+      ],
+      "exportCount": 7,
+      "pageAlignment": {
+        "applicable": true,
+        "loadSegments": [
+          {
+            "offset": 0,
+            "vaddr": 0,
+            "filesz": 5745632,
+            "memsz": 5745632,
+            "align": 16384,
+            "aligned16k": true
+          },
+          {
+            "offset": 5745632,
+            "vaddr": 5762016,
+            "filesz": 19363904,
+            "memsz": 19363904,
+            "align": 16384,
+            "aligned16k": true
+          },
+          {
+            "offset": 25109536,
+            "vaddr": 25142304,
+            "filesz": 465616,
+            "memsz": 465888,
+            "align": 16384,
+            "aligned16k": true
+          },
+          {
+            "offset": 25575152,
+            "vaddr": 25624304,
+            "filesz": 3680,
+            "memsz": 37648,
+            "align": 16384,
+            "aligned16k": true
+          }
+        ],
+        "relro": [
+          {
+            "vaddr": 25142304,
+            "memsz": 465888,
+            "end": 25608192,
+            "endAligned16k": true
+          }
+        ],
+        "relroPresent": true,
+        "passed": true
+      },
+      "excludedExports": []
+    },
+    "jni/x86_64/libsherpa-onnx-jni.so": {
+      "path": "jni/x86_64/libsherpa-onnx-jni.so",
+      "abi": "x86_64",
+      "library": "libsherpa-onnx-jni.so",
+      "bytes": 3901200,
+      "sha256": "ffeb57a316bf5a0e55d7ba351c7b0d2958caf50c1c0aa27183c7b78896e05cba",
+      "bits": 64,
+      "machine": 62,
+      "needed": [
+        "libandroid.so",
+        "libc.so",
+        "libdl.so",
+        "liblog.so",
+        "libm.so",
+        "libonnxruntime.so"
+      ],
+      "exportCount": 118,
+      "pageAlignment": {
+        "applicable": true,
+        "loadSegments": [
+          {
+            "offset": 0,
+            "vaddr": 0,
+            "filesz": 3846336,
+            "memsz": 3846336,
+            "align": 16384,
+            "aligned16k": true
+          },
+          {
+            "offset": 3846336,
+            "vaddr": 3862720,
+            "filesz": 51912,
+            "memsz": 53056,
+            "align": 16384,
+            "aligned16k": true
+          },
+          {
+            "offset": 3898248,
+            "vaddr": 3931016,
+            "filesz": 504,
+            "memsz": 16136,
+            "align": 16384,
+            "aligned16k": true
+          }
+        ],
+        "relro": [
+          {
+            "vaddr": 3862720,
+            "memsz": 53056,
+            "end": 3915776,
+            "endAligned16k": true
+          }
+        ],
+        "relroPresent": true,
+        "passed": true
+      },
+      "excludedExports": []
+    }
+  },
+  "nativeIdentity": [
+    {
+      "abi": "armeabi-v7a",
+      "library": "libsherpa-onnx-jni.so",
+      "sha256": "e14ae8c47cc9c3485fd628ca549b4be6c6366d3c0068b53eb4a372bad2a3f924",
+      "debugApkIdentity": true,
+      "bridgeExported": true
+    },
+    {
+      "abi": "armeabi-v7a",
+      "library": "libonnxruntime.so",
+      "sha256": "7a8f17a707e52e0ac3a026be319272876d9eae61f4bb19585292772d785f7744",
+      "debugApkIdentity": true,
+      "unchangedFromBaseline": true
+    },
+    {
+      "abi": "arm64-v8a",
+      "library": "libsherpa-onnx-jni.so",
+      "sha256": "9aab96d918559ae94940c933dc4d199fed87a4100adb3c65f7c558a746ce764b",
+      "debugApkIdentity": true,
+      "bridgeExported": true
+    },
+    {
+      "abi": "arm64-v8a",
+      "library": "libonnxruntime.so",
+      "sha256": "33847ad43bffe204699fd4a27f7f3603452a8cdaf2f9a44983a0bc31ffcf2da1",
+      "debugApkIdentity": true,
+      "unchangedFromBaseline": true
+    },
+    {
+      "abi": "x86",
+      "library": "libsherpa-onnx-jni.so",
+      "sha256": "a827a49913eddedac2f23b746add6b8d4c9be3c29e292cb3999fbb44f1f4bf4a",
+      "debugApkIdentity": true,
+      "bridgeExported": true
+    },
+    {
+      "abi": "x86",
+      "library": "libonnxruntime.so",
+      "sha256": "fcb6cd80415f7951e58fdd8158a238946dce3710d5fee492b67174d5131f9eee",
+      "debugApkIdentity": true,
+      "unchangedFromBaseline": true
+    },
+    {
+      "abi": "x86_64",
+      "library": "libsherpa-onnx-jni.so",
+      "sha256": "ffeb57a316bf5a0e55d7ba351c7b0d2958caf50c1c0aa27183c7b78896e05cba",
+      "debugApkIdentity": true,
+      "bridgeExported": true
+    },
+    {
+      "abi": "x86_64",
+      "library": "libonnxruntime.so",
+      "sha256": "087e84297cad64acb823c3d901d6e0cc934e91add7cdb20da802cd1c0bea5c3e",
+      "debugApkIdentity": true,
+      "unchangedFromBaseline": true
+    }
+  ],
+  "retainedNotices": 27,
+  "sourcePacket": {
+    "README.md": {
+      "sha256": "b749e703a04512f83ebd7ac66c547d39e146f1720c67881bb87938aba871bcb7",
+      "matchesLocalSource": true
+    },
+    "LICENSE": {
+      "sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+      "matchesLocalSource": true
+    },
+    "source-manifest.json": {
+      "sha256": "ca30f6bd3c82ca1a4f0d75e4dc85c85355fa3c041bd25a9023f31310b1468497",
+      "matchesLocalSource": true
+    },
+    "sherpa-1.13.8-confidence.patch": {
+      "sha256": "27699515005af79815bf47e41f0cd2cb2598c8f39062f81222a63521fe72dd3a",
+      "matchesLocalSource": true
+    },
+    "yezvi-token-scores.cc": {
+      "sha256": "bb1c3cb40baf3520b7ef31aa00ec2a8f86acc4aab423ad070589876731441c99",
+      "matchesLocalSource": true
+    }
+  },
+  "permissions": [
+    "android.permission.RECORD_AUDIO",
+    "com.yezvi.assistant.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+  ],
+  "sourceExclusion": {
+    "status": "passed",
+    "abis": [
+      {
+        "abi": "armeabi-v7a",
+        "directory": "C:\\Users\\Rick\\Documents\\GitHub\\YEZVI\\.gradle\\yezvi-stt-research\\asr-only\\confidence\\build\\armeabi-v7a",
+        "status": "passed",
+        "cacheSha256": "dcc07e0241bb7d30f402bdba44fdf6139f9064c9c5d66512d5c6c6488a33612f",
+        "configuration": {
+          "SHERPA_ONNX_ENABLE_TTS": "OFF",
+          "SHERPA_ONNX_ENABLE_SPEAKER_DIARIZATION": "OFF",
+          "ANDROID_ABI": "armeabi-v7a",
+          "ANDROID_PLATFORM": "android-24",
+          "BUILD_SHARED_LIBS": "OFF",
+          "ANDROID_STL": "c++_static"
+        },
+        "compileCommandsSha256": "c484187d49ced82c11e0de0c2195690f59d35ca8490dfca6125a3c778a27bfda",
+        "compiledSources": 260,
+        "linkedObjectReferences": 573,
+        "maps": [
+          {
+            "path": "C:\\Users\\Rick\\Documents\\GitHub\\YEZVI\\.gradle\\yezvi-stt-research\\asr-only\\confidence\\build\\armeabi-v7a\\sherpa-jni.map",
+            "sha256": "1739b78ab7cfee0243fa3bbd01967d6a5502ff293d215af4b314eccd04e3f5bd",
+            "objectReferenceCount": 573
+          }
+        ]
+      },
+      {
+        "abi": "arm64-v8a",
+        "directory": "C:\\Users\\Rick\\Documents\\GitHub\\YEZVI\\.gradle\\yezvi-stt-research\\asr-only\\confidence\\build\\arm64-v8a",
+        "status": "passed",
+        "cacheSha256": "38a67fd5beaad03f04b83980d7242203bc8a308fe2f6b9f818278f175f4fe0d8",
+        "configuration": {
+          "SHERPA_ONNX_ENABLE_TTS": "OFF",
+          "SHERPA_ONNX_ENABLE_SPEAKER_DIARIZATION": "OFF",
+          "ANDROID_ABI": "arm64-v8a",
+          "ANDROID_PLATFORM": "android-24",
+          "BUILD_SHARED_LIBS": "OFF",
+          "ANDROID_STL": "c++_static"
+        },
+        "compileCommandsSha256": "f23523d3ece57311c3119524a0ddfda5915a678a5c402aeb3abfa16600c568a4",
+        "compiledSources": 260,
+        "linkedObjectReferences": 547,
+        "maps": [
+          {
+            "path": "C:\\Users\\Rick\\Documents\\GitHub\\YEZVI\\.gradle\\yezvi-stt-research\\asr-only\\confidence\\build\\arm64-v8a\\sherpa-jni.map",
+            "sha256": "05ebf8e80a7ce66062aa5a7b8fd417d39cb4a4f389c67cd39769466a656ace69",
+            "objectReferenceCount": 547
+          }
+        ]
+      },
+      {
+        "abi": "x86",
+        "directory": "C:\\Users\\Rick\\Documents\\GitHub\\YEZVI\\.gradle\\yezvi-stt-research\\asr-only\\confidence\\build\\x86",
+        "status": "passed",
+        "cacheSha256": "719c9d843aff3b3cebf515e3d0140483c11320c72f52b8d1f31d07f754ac9915",
+        "configuration": {
+          "SHERPA_ONNX_ENABLE_TTS": "OFF",
+          "SHERPA_ONNX_ENABLE_SPEAKER_DIARIZATION": "OFF",
+          "ANDROID_ABI": "x86",
+          "ANDROID_PLATFORM": "android-24",
+          "BUILD_SHARED_LIBS": "OFF",
+          "ANDROID_STL": "c++_static"
+        },
+        "compileCommandsSha256": "1f08b27a4192c7eed625b07bfcd92ae35bbabf96dd26cfe50e2f1baeba71228f",
+        "compiledSources": 260,
+        "linkedObjectReferences": 543,
+        "maps": [
+          {
+            "path": "C:\\Users\\Rick\\Documents\\GitHub\\YEZVI\\.gradle\\yezvi-stt-research\\asr-only\\confidence\\build\\x86\\sherpa-jni.map",
+            "sha256": "fab05280f67cdc8decb7093bff956b8eec0da3f62f6f30f279dd87dacbaa885e",
+            "objectReferenceCount": 543
+          }
+        ]
+      },
+      {
+        "abi": "x86_64",
+        "directory": "C:\\Users\\Rick\\Documents\\GitHub\\YEZVI\\.gradle\\yezvi-stt-research\\asr-only\\confidence\\build\\x86_64",
+        "status": "passed",
+        "cacheSha256": "9acc36bbdf4c91a6e53d1236af6c9caba5e767eeab5bdc24d973018eff10fa54",
+        "configuration": {
+          "SHERPA_ONNX_ENABLE_TTS": "OFF",
+          "SHERPA_ONNX_ENABLE_SPEAKER_DIARIZATION": "OFF",
+          "ANDROID_ABI": "x86_64",
+          "ANDROID_PLATFORM": "android-24",
+          "BUILD_SHARED_LIBS": "OFF",
+          "ANDROID_STL": "c++_static"
+        },
+        "compileCommandsSha256": "be837608d712b1e5bd3b9aa8baf9f54b5566f34a1f19e1782c282c2c36a29571",
+        "compiledSources": 260,
+        "linkedObjectReferences": 537,
+        "maps": [
+          {
+            "path": "C:\\Users\\Rick\\Documents\\GitHub\\YEZVI\\.gradle\\yezvi-stt-research\\asr-only\\confidence\\build\\x86_64\\sherpa-jni.map",
+            "sha256": "f7f6443cce160938ad1e959f108e6b55a2efd9311280f7c1f03988037d35d9bf",
+            "objectReferenceCount": 537
+          }
+        ]
+      }
+    ],
+    "limitation": "Compilation/link identity and flags are evidence, not bit-for-bit reproducibility or proof of every incorporated header license"
+  },
+  "checks": [
+    {
+      "check": "Original ASR-only runtime is untouched",
+      "status": "passed",
+      "evidence": {
+        "baselineSha256": "afaf0053ec5a94513cbfb08c4b5e7b2d995cad3d07f5dbd93ac4d8c59c506396"
+      }
+    },
+    {
+      "check": "Official classes.jar is unchanged",
+      "status": "passed",
+      "evidence": {
+        "sha256": "8af5aa647494ec9cb6596959d6d20864377cf4a9dedf1c1b178d936bfb7cea95"
+      }
+    },
+    {
+      "check": "AAR native paths are unique",
+      "status": "passed",
+      "evidence": {
+        "duplicates": []
+      }
+    },
+    {
+      "check": "AAR excludes removed native components",
+      "status": "passed",
+      "evidence": []
+    },
+    {
+      "check": "AAR jni/arm64-v8a/libonnxruntime.so matches its ABI",
+      "status": "passed",
+      "evidence": {
+        "bits": 64,
+        "machine": 183,
+        "expected": [
+          64,
+          183
+        ]
+      }
+    },
+    {
+      "check": "AAR jni/arm64-v8a/libonnxruntime.so excludes callable removed components",
+      "status": "passed",
+      "evidence": {
+        "exports": [],
+        "needed": [
+          "libc.so",
+          "libdl.so",
+          "liblog.so",
+          "libm.so"
+        ]
+      }
+    },
+    {
+      "check": "AAR jni/arm64-v8a/libonnxruntime.so exports ORT C API",
+      "status": "passed",
+      "evidence": {
+        "OrtGetApiBase": true
+      }
+    },
+    {
+      "check": "AAR jni/arm64-v8a/libsherpa-onnx-jni.so matches its ABI",
+      "status": "passed",
+      "evidence": {
+        "bits": 64,
+        "machine": 183,
+        "expected": [
+          64,
+          183
+        ]
+      }
+    },
+    {
+      "check": "AAR jni/arm64-v8a/libsherpa-onnx-jni.so excludes callable removed components",
+      "status": "passed",
+      "evidence": {
+        "exports": [],
+        "needed": [
+          "libandroid.so",
+          "libc.so",
+          "libdl.so",
+          "liblog.so",
+          "libm.so",
+          "libonnxruntime.so"
+        ]
+      }
+    },
+    {
+      "check": "AAR jni/arm64-v8a/libsherpa-onnx-jni.so retains ASR/VAD and dynamic ORT",
+      "status": "passed",
+      "evidence": {
+        "requiredExportsPresent": {
+          "Java_com_k2fsa_sherpa_onnx_OfflineRecognizer_newFromFile": true,
+          "Java_com_k2fsa_sherpa_onnx_Vad_compute": true
+        },
+        "needed": [
+          "libandroid.so",
+          "libc.so",
+          "libdl.so",
+          "liblog.so",
+          "libm.so",
+          "libonnxruntime.so"
+        ]
+      }
+    },
+    {
+      "check": "AAR jni/armeabi-v7a/libonnxruntime.so matches its ABI",
+      "status": "passed",
+      "evidence": {
+        "bits": 32,
+        "machine": 40,
+        "expected": [
+          32,
+          40
+        ]
+      }
+    },
+    {
+      "check": "AAR jni/armeabi-v7a/libonnxruntime.so excludes callable removed components",
+      "status": "passed",
+      "evidence": {
+        "exports": [],
+        "needed": [
+          "libc.so",
+          "libdl.so",
+          "liblog.so",
+          "libm.so"
+        ]
+      }
+    },
+    {
+      "check": "AAR jni/armeabi-v7a/libonnxruntime.so exports ORT C API",
+      "status": "passed",
+      "evidence": {
+        "OrtGetApiBase": true
+      }
+    },
+    {
+      "check": "AAR jni/armeabi-v7a/libsherpa-onnx-jni.so matches its ABI",
+      "status": "passed",
+      "evidence": {
+        "bits": 32,
+        "machine": 40,
+        "expected": [
+          32,
+          40
+        ]
+      }
+    },
+    {
+      "check": "AAR jni/armeabi-v7a/libsherpa-onnx-jni.so excludes callable removed components",
+      "status": "passed",
+      "evidence": {
+        "exports": [],
+        "needed": [
+          "libandroid.so",
+          "libc.so",
+          "libdl.so",
+          "liblog.so",
+          "libm.so",
+          "libonnxruntime.so"
+        ]
+      }
+    },
+    {
+      "check": "AAR jni/armeabi-v7a/libsherpa-onnx-jni.so retains ASR/VAD and dynamic ORT",
+      "status": "passed",
+      "evidence": {
+        "requiredExportsPresent": {
+          "Java_com_k2fsa_sherpa_onnx_OfflineRecognizer_newFromFile": true,
+          "Java_com_k2fsa_sherpa_onnx_Vad_compute": true
+        },
+        "needed": [
+          "libandroid.so",
+          "libc.so",
+          "libdl.so",
+          "liblog.so",
+          "libm.so",
+          "libonnxruntime.so"
+        ]
+      }
+    },
+    {
+      "check": "AAR jni/x86/libonnxruntime.so matches its ABI",
+      "status": "passed",
+      "evidence": {
+        "bits": 32,
+        "machine": 3,
+        "expected": [
+          32,
+          3
+        ]
+      }
+    },
+    {
+      "check": "AAR jni/x86/libonnxruntime.so excludes callable removed components",
+      "status": "passed",
+      "evidence": {
+        "exports": [],
+        "needed": [
+          "libc.so",
+          "libdl.so",
+          "liblog.so",
+          "libm.so"
+        ]
+      }
+    },
+    {
+      "check": "AAR jni/x86/libonnxruntime.so exports ORT C API",
+      "status": "passed",
+      "evidence": {
+        "OrtGetApiBase": true
+      }
+    },
+    {
+      "check": "AAR jni/x86/libsherpa-onnx-jni.so matches its ABI",
+      "status": "passed",
+      "evidence": {
+        "bits": 32,
+        "machine": 3,
+        "expected": [
+          32,
+          3
+        ]
+      }
+    },
+    {
+      "check": "AAR jni/x86/libsherpa-onnx-jni.so excludes callable removed components",
+      "status": "passed",
+      "evidence": {
+        "exports": [],
+        "needed": [
+          "libandroid.so",
+          "libc.so",
+          "libdl.so",
+          "liblog.so",
+          "libm.so",
+          "libonnxruntime.so"
+        ]
+      }
+    },
+    {
+      "check": "AAR jni/x86/libsherpa-onnx-jni.so retains ASR/VAD and dynamic ORT",
+      "status": "passed",
+      "evidence": {
+        "requiredExportsPresent": {
+          "Java_com_k2fsa_sherpa_onnx_OfflineRecognizer_newFromFile": true,
+          "Java_com_k2fsa_sherpa_onnx_Vad_compute": true
+        },
+        "needed": [
+          "libandroid.so",
+          "libc.so",
+          "libdl.so",
+          "liblog.so",
+          "libm.so",
+          "libonnxruntime.so"
+        ]
+      }
+    },
+    {
+      "check": "AAR jni/x86_64/libonnxruntime.so matches its ABI",
+      "status": "passed",
+      "evidence": {
+        "bits": 64,
+        "machine": 62,
+        "expected": [
+          64,
+          62
+        ]
+      }
+    },
+    {
+      "check": "AAR jni/x86_64/libonnxruntime.so excludes callable removed components",
+      "status": "passed",
+      "evidence": {
+        "exports": [],
+        "needed": [
+          "libc.so",
+          "libdl.so",
+          "liblog.so",
+          "libm.so"
+        ]
+      }
+    },
+    {
+      "check": "AAR jni/x86_64/libonnxruntime.so exports ORT C API",
+      "status": "passed",
+      "evidence": {
+        "OrtGetApiBase": true
+      }
+    },
+    {
+      "check": "AAR jni/x86_64/libsherpa-onnx-jni.so matches its ABI",
+      "status": "passed",
+      "evidence": {
+        "bits": 64,
+        "machine": 62,
+        "expected": [
+          64,
+          62
+        ]
+      }
+    },
+    {
+      "check": "AAR jni/x86_64/libsherpa-onnx-jni.so excludes callable removed components",
+      "status": "passed",
+      "evidence": {
+        "exports": [],
+        "needed": [
+          "libandroid.so",
+          "libc.so",
+          "libdl.so",
+          "liblog.so",
+          "libm.so",
+          "libonnxruntime.so"
+        ]
+      }
+    },
+    {
+      "check": "AAR jni/x86_64/libsherpa-onnx-jni.so retains ASR/VAD and dynamic ORT",
+      "status": "passed",
+      "evidence": {
+        "requiredExportsPresent": {
+          "Java_com_k2fsa_sherpa_onnx_OfflineRecognizer_newFromFile": true,
+          "Java_com_k2fsa_sherpa_onnx_Vad_compute": true
+        },
+        "needed": [
+          "libandroid.so",
+          "libc.so",
+          "libdl.so",
+          "liblog.so",
+          "libm.so",
+          "libonnxruntime.so"
+        ]
+      }
+    },
+    {
+      "check": "AAR includes exactly one armeabi-v7a/libsherpa-onnx-jni.so",
+      "status": "passed",
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "check": "AAR includes exactly one armeabi-v7a/libonnxruntime.so",
+      "status": "passed",
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "check": "AAR includes exactly one arm64-v8a/libsherpa-onnx-jni.so",
+      "status": "passed",
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "check": "AAR includes exactly one arm64-v8a/libonnxruntime.so",
+      "status": "passed",
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "check": "AAR includes exactly one x86/libsherpa-onnx-jni.so",
+      "status": "passed",
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "check": "AAR includes exactly one x86/libonnxruntime.so",
+      "status": "passed",
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "check": "AAR includes exactly one x86_64/libsherpa-onnx-jni.so",
+      "status": "passed",
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "check": "AAR includes exactly one x86_64/libonnxruntime.so",
+      "status": "passed",
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "check": "ASR-only AAR contains only the two intended native libraries per ABI",
+      "status": "passed",
+      "evidence": []
+    },
+    {
+      "check": "Debug APK ships the experimental armeabi-v7a/libsherpa-onnx-jni.so",
+      "status": "passed",
+      "evidence": {
+        "abi": "armeabi-v7a",
+        "library": "libsherpa-onnx-jni.so",
+        "sha256": "e14ae8c47cc9c3485fd628ca549b4be6c6366d3c0068b53eb4a372bad2a3f924",
+        "debugApkIdentity": true,
+        "bridgeExported": true
+      }
+    },
+    {
+      "check": "Token-score JNI is exported for armeabi-v7a",
+      "status": "passed",
+      "evidence": {
+        "abi": "armeabi-v7a",
+        "library": "libsherpa-onnx-jni.so",
+        "sha256": "e14ae8c47cc9c3485fd628ca549b4be6c6366d3c0068b53eb4a372bad2a3f924",
+        "debugApkIdentity": true,
+        "bridgeExported": true
+      }
+    },
+    {
+      "check": "Debug APK ships the experimental armeabi-v7a/libonnxruntime.so",
+      "status": "passed",
+      "evidence": {
+        "abi": "armeabi-v7a",
+        "library": "libonnxruntime.so",
+        "sha256": "7a8f17a707e52e0ac3a026be319272876d9eae61f4bb19585292772d785f7744",
+        "debugApkIdentity": true,
+        "unchangedFromBaseline": true
+      }
+    },
+    {
+      "check": "ORT is unchanged for armeabi-v7a",
+      "status": "passed",
+      "evidence": {
+        "abi": "armeabi-v7a",
+        "library": "libonnxruntime.so",
+        "sha256": "7a8f17a707e52e0ac3a026be319272876d9eae61f4bb19585292772d785f7744",
+        "debugApkIdentity": true,
+        "unchangedFromBaseline": true
+      }
+    },
+    {
+      "check": "Debug APK ships the experimental arm64-v8a/libsherpa-onnx-jni.so",
+      "status": "passed",
+      "evidence": {
+        "abi": "arm64-v8a",
+        "library": "libsherpa-onnx-jni.so",
+        "sha256": "9aab96d918559ae94940c933dc4d199fed87a4100adb3c65f7c558a746ce764b",
+        "debugApkIdentity": true,
+        "bridgeExported": true
+      }
+    },
+    {
+      "check": "Token-score JNI is exported for arm64-v8a",
+      "status": "passed",
+      "evidence": {
+        "abi": "arm64-v8a",
+        "library": "libsherpa-onnx-jni.so",
+        "sha256": "9aab96d918559ae94940c933dc4d199fed87a4100adb3c65f7c558a746ce764b",
+        "debugApkIdentity": true,
+        "bridgeExported": true
+      }
+    },
+    {
+      "check": "Debug APK ships the experimental arm64-v8a/libonnxruntime.so",
+      "status": "passed",
+      "evidence": {
+        "abi": "arm64-v8a",
+        "library": "libonnxruntime.so",
+        "sha256": "33847ad43bffe204699fd4a27f7f3603452a8cdaf2f9a44983a0bc31ffcf2da1",
+        "debugApkIdentity": true,
+        "unchangedFromBaseline": true
+      }
+    },
+    {
+      "check": "ORT is unchanged for arm64-v8a",
+      "status": "passed",
+      "evidence": {
+        "abi": "arm64-v8a",
+        "library": "libonnxruntime.so",
+        "sha256": "33847ad43bffe204699fd4a27f7f3603452a8cdaf2f9a44983a0bc31ffcf2da1",
+        "debugApkIdentity": true,
+        "unchangedFromBaseline": true
+      }
+    },
+    {
+      "check": "Debug APK ships the experimental x86/libsherpa-onnx-jni.so",
+      "status": "passed",
+      "evidence": {
+        "abi": "x86",
+        "library": "libsherpa-onnx-jni.so",
+        "sha256": "a827a49913eddedac2f23b746add6b8d4c9be3c29e292cb3999fbb44f1f4bf4a",
+        "debugApkIdentity": true,
+        "bridgeExported": true
+      }
+    },
+    {
+      "check": "Token-score JNI is exported for x86",
+      "status": "passed",
+      "evidence": {
+        "abi": "x86",
+        "library": "libsherpa-onnx-jni.so",
+        "sha256": "a827a49913eddedac2f23b746add6b8d4c9be3c29e292cb3999fbb44f1f4bf4a",
+        "debugApkIdentity": true,
+        "bridgeExported": true
+      }
+    },
+    {
+      "check": "Debug APK ships the experimental x86/libonnxruntime.so",
+      "status": "passed",
+      "evidence": {
+        "abi": "x86",
+        "library": "libonnxruntime.so",
+        "sha256": "fcb6cd80415f7951e58fdd8158a238946dce3710d5fee492b67174d5131f9eee",
+        "debugApkIdentity": true,
+        "unchangedFromBaseline": true
+      }
+    },
+    {
+      "check": "ORT is unchanged for x86",
+      "status": "passed",
+      "evidence": {
+        "abi": "x86",
+        "library": "libonnxruntime.so",
+        "sha256": "fcb6cd80415f7951e58fdd8158a238946dce3710d5fee492b67174d5131f9eee",
+        "debugApkIdentity": true,
+        "unchangedFromBaseline": true
+      }
+    },
+    {
+      "check": "Debug APK ships the experimental x86_64/libsherpa-onnx-jni.so",
+      "status": "passed",
+      "evidence": {
+        "abi": "x86_64",
+        "library": "libsherpa-onnx-jni.so",
+        "sha256": "ffeb57a316bf5a0e55d7ba351c7b0d2958caf50c1c0aa27183c7b78896e05cba",
+        "debugApkIdentity": true,
+        "bridgeExported": true
+      }
+    },
+    {
+      "check": "Token-score JNI is exported for x86_64",
+      "status": "passed",
+      "evidence": {
+        "abi": "x86_64",
+        "library": "libsherpa-onnx-jni.so",
+        "sha256": "ffeb57a316bf5a0e55d7ba351c7b0d2958caf50c1c0aa27183c7b78896e05cba",
+        "debugApkIdentity": true,
+        "bridgeExported": true
+      }
+    },
+    {
+      "check": "Debug APK ships the experimental x86_64/libonnxruntime.so",
+      "status": "passed",
+      "evidence": {
+        "abi": "x86_64",
+        "library": "libonnxruntime.so",
+        "sha256": "087e84297cad64acb823c3d901d6e0cc934e91add7cdb20da802cd1c0bea5c3e",
+        "debugApkIdentity": true,
+        "unchangedFromBaseline": true
+      }
+    },
+    {
+      "check": "ORT is unchanged for x86_64",
+      "status": "passed",
+      "evidence": {
+        "abi": "x86_64",
+        "library": "libonnxruntime.so",
+        "sha256": "087e84297cad64acb823c3d901d6e0cc934e91add7cdb20da802cd1c0bea5c3e",
+        "debugApkIdentity": true,
+        "unchangedFromBaseline": true
+      }
+    },
+    {
+      "check": "All baseline runtime notices are retained",
+      "status": "passed",
+      "evidence": {
+        "count": 27,
+        "byteIdentical": true
+      }
+    },
+    {
+      "check": "Experimental source/license packet matches README.md",
+      "status": "passed",
+      "evidence": {
+        "sha256": "b749e703a04512f83ebd7ac66c547d39e146f1720c67881bb87938aba871bcb7",
+        "matchesLocalSource": true
+      }
+    },
+    {
+      "check": "Experimental source/license packet matches LICENSE",
+      "status": "passed",
+      "evidence": {
+        "sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+        "matchesLocalSource": true
+      }
+    },
+    {
+      "check": "Experimental source/license packet matches source-manifest.json",
+      "status": "passed",
+      "evidence": {
+        "sha256": "ca30f6bd3c82ca1a4f0d75e4dc85c85355fa3c041bd25a9023f31310b1468497",
+        "matchesLocalSource": true
+      }
+    },
+    {
+      "check": "Experimental source/license packet matches sherpa-1.13.8-confidence.patch",
+      "status": "passed",
+      "evidence": {
+        "sha256": "27699515005af79815bf47e41f0cd2cb2598c8f39062f81222a63521fe72dd3a",
+        "matchesLocalSource": true
+      }
+    },
+    {
+      "check": "Experimental source/license packet matches yezvi-token-scores.cc",
+      "status": "passed",
+      "evidence": {
+        "sha256": "bb1c3cb40baf3520b7ef31aa00ec2a8f86acc4aab423ad070589876731441c99",
+        "matchesLocalSource": true
+      }
+    },
+    {
+      "check": "Debug runtime inventory is complete and matches its AAR",
+      "status": "passed",
+      "evidence": {
+        "format": 1,
+        "sourceCommit": "11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf",
+        "experimental": true,
+        "completeAbiSet": true,
+        "purpose": "Debug-only uncalibrated pre-context token scores; release uses the original ASR-only runtime",
+        "bytes": 41222198,
+        "sha256": "29f4800294ed2492c5e503e48249f2e80a253c0b3f9eab9499b03f83006e02c6",
+        "patchSha256": "27699515005af79815bf47e41f0cd2cb2598c8f39062f81222a63521fe72dd3a",
+        "bridgeSha256": "bb1c3cb40baf3520b7ef31aa00ec2a8f86acc4aab423ad070589876731441c99",
+        "nativeAbis": [
+          "arm64-v8a",
+          "armeabi-v7a",
+          "x86",
+          "x86_64"
+        ]
+      }
+    },
+    {
+      "check": "Application does not request Internet permission",
+      "status": "passed",
+      "evidence": [
+        "android.permission.RECORD_AUDIO",
+        "com.yezvi.assistant.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+      ]
+    },
+    {
+      "check": "armeabi-v7a disables TTS/diarization in effective CMake cache",
+      "status": "passed",
+      "evidence": {
+        "SHERPA_ONNX_ENABLE_TTS": "OFF",
+        "SHERPA_ONNX_ENABLE_SPEAKER_DIARIZATION": "OFF",
+        "ANDROID_ABI": "armeabi-v7a",
+        "ANDROID_PLATFORM": "android-24",
+        "BUILD_SHARED_LIBS": "OFF",
+        "ANDROID_STL": "c++_static"
+      }
+    },
+    {
+      "check": "armeabi-v7a targets Android API 24",
+      "status": "passed",
+      "evidence": {
+        "SHERPA_ONNX_ENABLE_TTS": "OFF",
+        "SHERPA_ONNX_ENABLE_SPEAKER_DIARIZATION": "OFF",
+        "ANDROID_ABI": "armeabi-v7a",
+        "ANDROID_PLATFORM": "android-24",
+        "BUILD_SHARED_LIBS": "OFF",
+        "ANDROID_STL": "c++_static"
+      }
+    },
+    {
+      "check": "armeabi-v7a actual compiler inputs omit eSpeak/Piper/UCD/hclust",
+      "status": "passed",
+      "evidence": {
+        "compiledSourceCount": 260,
+        "excludedSourceInputs": [],
+        "compileCommandsSha256": "c484187d49ced82c11e0de0c2195690f59d35ca8490dfca6125a3c778a27bfda"
+      }
+    },
+    {
+      "check": "armeabi-v7a compiler triples target API 24",
+      "status": "passed",
+      "evidence": {
+        "observedApiLevels": [
+          24
+        ]
+      }
+    },
+    {
+      "check": "armeabi-v7a actual linked objects omit eSpeak/Piper/UCD/hclust",
+      "status": "passed",
+      "evidence": {
+        "maps": [
+          {
+            "path": "C:\\Users\\Rick\\Documents\\GitHub\\YEZVI\\.gradle\\yezvi-stt-research\\asr-only\\confidence\\build\\armeabi-v7a\\sherpa-jni.map",
+            "sha256": "1739b78ab7cfee0243fa3bbd01967d6a5502ff293d215af4b314eccd04e3f5bd",
+            "objectReferenceCount": 573
+          }
+        ],
+        "objectReferenceCount": 573,
+        "excludedObjectReferences": []
+      }
+    },
+    {
+      "check": "arm64-v8a disables TTS/diarization in effective CMake cache",
+      "status": "passed",
+      "evidence": {
+        "SHERPA_ONNX_ENABLE_TTS": "OFF",
+        "SHERPA_ONNX_ENABLE_SPEAKER_DIARIZATION": "OFF",
+        "ANDROID_ABI": "arm64-v8a",
+        "ANDROID_PLATFORM": "android-24",
+        "BUILD_SHARED_LIBS": "OFF",
+        "ANDROID_STL": "c++_static"
+      }
+    },
+    {
+      "check": "arm64-v8a targets Android API 24",
+      "status": "passed",
+      "evidence": {
+        "SHERPA_ONNX_ENABLE_TTS": "OFF",
+        "SHERPA_ONNX_ENABLE_SPEAKER_DIARIZATION": "OFF",
+        "ANDROID_ABI": "arm64-v8a",
+        "ANDROID_PLATFORM": "android-24",
+        "BUILD_SHARED_LIBS": "OFF",
+        "ANDROID_STL": "c++_static"
+      }
+    },
+    {
+      "check": "arm64-v8a actual compiler inputs omit eSpeak/Piper/UCD/hclust",
+      "status": "passed",
+      "evidence": {
+        "compiledSourceCount": 260,
+        "excludedSourceInputs": [],
+        "compileCommandsSha256": "f23523d3ece57311c3119524a0ddfda5915a678a5c402aeb3abfa16600c568a4"
+      }
+    },
+    {
+      "check": "arm64-v8a compiler triples target API 24",
+      "status": "passed",
+      "evidence": {
+        "observedApiLevels": [
+          24
+        ]
+      }
+    },
+    {
+      "check": "arm64-v8a actual linked objects omit eSpeak/Piper/UCD/hclust",
+      "status": "passed",
+      "evidence": {
+        "maps": [
+          {
+            "path": "C:\\Users\\Rick\\Documents\\GitHub\\YEZVI\\.gradle\\yezvi-stt-research\\asr-only\\confidence\\build\\arm64-v8a\\sherpa-jni.map",
+            "sha256": "05ebf8e80a7ce66062aa5a7b8fd417d39cb4a4f389c67cd39769466a656ace69",
+            "objectReferenceCount": 547
+          }
+        ],
+        "objectReferenceCount": 547,
+        "excludedObjectReferences": []
+      }
+    },
+    {
+      "check": "x86 disables TTS/diarization in effective CMake cache",
+      "status": "passed",
+      "evidence": {
+        "SHERPA_ONNX_ENABLE_TTS": "OFF",
+        "SHERPA_ONNX_ENABLE_SPEAKER_DIARIZATION": "OFF",
+        "ANDROID_ABI": "x86",
+        "ANDROID_PLATFORM": "android-24",
+        "BUILD_SHARED_LIBS": "OFF",
+        "ANDROID_STL": "c++_static"
+      }
+    },
+    {
+      "check": "x86 targets Android API 24",
+      "status": "passed",
+      "evidence": {
+        "SHERPA_ONNX_ENABLE_TTS": "OFF",
+        "SHERPA_ONNX_ENABLE_SPEAKER_DIARIZATION": "OFF",
+        "ANDROID_ABI": "x86",
+        "ANDROID_PLATFORM": "android-24",
+        "BUILD_SHARED_LIBS": "OFF",
+        "ANDROID_STL": "c++_static"
+      }
+    },
+    {
+      "check": "x86 actual compiler inputs omit eSpeak/Piper/UCD/hclust",
+      "status": "passed",
+      "evidence": {
+        "compiledSourceCount": 260,
+        "excludedSourceInputs": [],
+        "compileCommandsSha256": "1f08b27a4192c7eed625b07bfcd92ae35bbabf96dd26cfe50e2f1baeba71228f"
+      }
+    },
+    {
+      "check": "x86 compiler triples target API 24",
+      "status": "passed",
+      "evidence": {
+        "observedApiLevels": [
+          24
+        ]
+      }
+    },
+    {
+      "check": "x86 actual linked objects omit eSpeak/Piper/UCD/hclust",
+      "status": "passed",
+      "evidence": {
+        "maps": [
+          {
+            "path": "C:\\Users\\Rick\\Documents\\GitHub\\YEZVI\\.gradle\\yezvi-stt-research\\asr-only\\confidence\\build\\x86\\sherpa-jni.map",
+            "sha256": "fab05280f67cdc8decb7093bff956b8eec0da3f62f6f30f279dd87dacbaa885e",
+            "objectReferenceCount": 543
+          }
+        ],
+        "objectReferenceCount": 543,
+        "excludedObjectReferences": []
+      }
+    },
+    {
+      "check": "x86_64 disables TTS/diarization in effective CMake cache",
+      "status": "passed",
+      "evidence": {
+        "SHERPA_ONNX_ENABLE_TTS": "OFF",
+        "SHERPA_ONNX_ENABLE_SPEAKER_DIARIZATION": "OFF",
+        "ANDROID_ABI": "x86_64",
+        "ANDROID_PLATFORM": "android-24",
+        "BUILD_SHARED_LIBS": "OFF",
+        "ANDROID_STL": "c++_static"
+      }
+    },
+    {
+      "check": "x86_64 targets Android API 24",
+      "status": "passed",
+      "evidence": {
+        "SHERPA_ONNX_ENABLE_TTS": "OFF",
+        "SHERPA_ONNX_ENABLE_SPEAKER_DIARIZATION": "OFF",
+        "ANDROID_ABI": "x86_64",
+        "ANDROID_PLATFORM": "android-24",
+        "BUILD_SHARED_LIBS": "OFF",
+        "ANDROID_STL": "c++_static"
+      }
+    },
+    {
+      "check": "x86_64 actual compiler inputs omit eSpeak/Piper/UCD/hclust",
+      "status": "passed",
+      "evidence": {
+        "compiledSourceCount": 260,
+        "excludedSourceInputs": [],
+        "compileCommandsSha256": "be837608d712b1e5bd3b9aa8baf9f54b5566f34a1f19e1782c282c2c36a29571"
+      }
+    },
+    {
+      "check": "x86_64 compiler triples target API 24",
+      "status": "passed",
+      "evidence": {
+        "observedApiLevels": [
+          24
+        ]
+      }
+    },
+    {
+      "check": "x86_64 actual linked objects omit eSpeak/Piper/UCD/hclust",
+      "status": "passed",
+      "evidence": {
+        "maps": [
+          {
+            "path": "C:\\Users\\Rick\\Documents\\GitHub\\YEZVI\\.gradle\\yezvi-stt-research\\asr-only\\confidence\\build\\x86_64\\sherpa-jni.map",
+            "sha256": "f7f6443cce160938ad1e959f108e6b55a2efd9311280f7c1f03988037d35d9bf",
+            "objectReferenceCount": 537
+          }
+        ],
+        "objectReferenceCount": 537,
+        "excludedObjectReferences": []
+      }
+    }
+  ],
+  "technicalIssues": [],
+  "technicalChecksPassed": true,
+  "limits": [
+    "No execution on ARM64, API24, Samsung or 16KB pages is inferred from an ELF audit",
+    "Existing ORT provenance/license closure and 16KB gates remain open",
+    "No calibrated accuracy, battery or peak-memory guarantee follows from these checks"
+  ]
+}

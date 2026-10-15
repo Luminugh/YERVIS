@@ -1,0 +1,133 @@
+{
+  "date": "2026-10-12",
+  "workspace": "C:/Users/Rick/Documents/GitHub/YEZVI",
+  "artifacts": [
+    {
+      "path": ".gradle/yezvi-stt-research/sherpa-onnx-static-link-onnxruntime-1.13.8.aar",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.13.8/sherpa-onnx-static-link-onnxruntime-1.13.8.aar",
+      "version": "sherpa 1.13.8; ORT 1.28.2",
+      "license": "Apache-2.0 sherpa; MIT ONNX Runtime; preserve third-party notices",
+      "bytes": 38691998,
+      "sha256": "b22c3fc1b6a45666d28892bb2f7694beeb77a8362d7ebd77c1a5431ec9435471",
+      "checksumBasis": "GitHub publisher SHA-256 verified",
+      "role": "recommended runtime",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/sherpa-onnx-nemo-fast-conformer-transducer-es-1424-int8.tar.bz2",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-fast-conformer-transducer-es-1424-int8.tar.bz2",
+      "version": "asset 411038476, updated 2026-05-03; pinned by SHA-256",
+      "license": "NVIDIA upstream CC-BY-4.0; converted/quantized by sherpa",
+      "bytes": 107246685,
+      "sha256": "d6d29ffd560c366da1b177b71e79d8733a9a9910dd1ace282d9bfae94e056210",
+      "checksumBasis": "GitHub publisher SHA-256 verified",
+      "role": "recommended Spanish RNNT model archive",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/silero_vad.onnx",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx",
+      "version": "asr-models asset pinned by SHA-256, not an inferred upstream version",
+      "license": "MIT upstream Silero VAD",
+      "bytes": 643854,
+      "sha256": "9e2449e1087496d8d4caba907f23e0bd3f78d91fa552479bb9c23ac09cbb1fd6",
+      "checksumBasis": "GitHub publisher SHA-256 verified",
+      "role": "recommended VAD",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/sherpa-onnx-nemo-fast-conformer-transducer-es-1424-int8/encoder.int8.onnx",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-fast-conformer-transducer-es-1424-int8.tar.bz2",
+      "version": "same verified RNNT archive",
+      "license": "CC-BY-4.0 derived model vocabulary/weights",
+      "bytes": 131113475,
+      "sha256": "17bde3c5005f7a9d0614336ea13db7d2c3c1c4efcacfa380e962b36d768b907e",
+      "checksumBasis": "extracted from verified publisher archive; per-file SHA-256 calculated locally",
+      "role": "recommended model component",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/sherpa-onnx-nemo-fast-conformer-transducer-es-1424-int8/decoder.int8.onnx",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-fast-conformer-transducer-es-1424-int8.tar.bz2",
+      "version": "same verified RNNT archive",
+      "license": "CC-BY-4.0 derived model vocabulary/weights",
+      "bytes": 3955863,
+      "sha256": "e759e0c04faa31526c34a96927bd8c69574e9b5e83360559b4f924be98f89f0e",
+      "checksumBasis": "extracted from verified publisher archive; per-file SHA-256 calculated locally",
+      "role": "recommended model component",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/sherpa-onnx-nemo-fast-conformer-transducer-es-1424-int8/joiner.int8.onnx",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-fast-conformer-transducer-es-1424-int8.tar.bz2",
+      "version": "same verified RNNT archive",
+      "license": "CC-BY-4.0 derived model vocabulary/weights",
+      "bytes": 1408182,
+      "sha256": "78f941bcda8d7e3d43b89a8fd805a8e77e99d06bde4c6ceedc9ec423ee4d04bd",
+      "checksumBasis": "extracted from verified publisher archive; per-file SHA-256 calculated locally",
+      "role": "recommended model component",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/sherpa-onnx-nemo-fast-conformer-transducer-es-1424-int8/tokens.txt",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-fast-conformer-transducer-es-1424-int8.tar.bz2",
+      "version": "same verified RNNT archive",
+      "license": "CC-BY-4.0 derived model vocabulary/weights",
+      "bytes": 10871,
+      "sha256": "6191b4853e3654f053c42f6fd184ca53b402987aefdd6ff6baa68034d803ee85",
+      "checksumBasis": "extracted from verified publisher archive; per-file SHA-256 calculated locally",
+      "role": "recommended model component",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/sherpa-onnx-nemo-fast-conformer-transducer-es-1424-int8/bpe.vocab",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/blob/v1.13.8/nodejs-addon-examples/test_asr_non_streaming_nemo_parakeet_tdt_v2_hotwords.js",
+      "version": "same verified RNNT archive",
+      "license": "CC-BY-4.0 derived model vocabulary/weights",
+      "bytes": 11981,
+      "sha256": "99fa642e935e8eb5ce835cf1e4fbd238afafb10f6cbcbbe3f1511650124f5597",
+      "checksumBasis": "locally derived from tokens.txt: token, TAB, -1.0, LF; 1025 rows",
+      "role": "recommended model component",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/whisper-base-int8-bb53ee2/base-encoder.int8.onnx",
+      "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-base/resolve/bb53ee204431c90d314c1cc08d28d23e5b7927cc/base-encoder.int8.onnx",
+      "version": "bb53ee204431c90d314c1cc08d28d23e5b7927cc",
+      "license": "MIT upstream OpenAI Whisper code and weights; converted by sherpa",
+      "bytes": 29120534,
+      "sha256": "0b8fb1304b6109976038efff5ace81720e00386f3ff6b54ee8c75291ca0a1e11",
+      "checksumBasis": "Hugging Face LFS SHA-256 verified",
+      "role": "comparison baseline only, not part of recommended APK",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/whisper-base-int8-bb53ee2/base-decoder.int8.onnx",
+      "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-base/resolve/bb53ee204431c90d314c1cc08d28d23e5b7927cc/base-decoder.int8.onnx",
+      "version": "bb53ee204431c90d314c1cc08d28d23e5b7927cc",
+      "license": "MIT upstream OpenAI Whisper code and weights; converted by sherpa",
+      "bytes": 130672026,
+      "sha256": "9759d217388a01b3a4c7c15533201067b48ae819c4daafc8624e64b9409dc02d",
+      "checksumBasis": "Hugging Face LFS SHA-256 verified",
+      "role": "comparison baseline only, not part of recommended APK",
+      "executed": false
+    },
+    {
+      "path": ".gradle/yezvi-stt-research/whisper-base-int8-bb53ee2/base-tokens.txt",
+      "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-base/resolve/bb53ee204431c90d314c1cc08d28d23e5b7927cc/base-tokens.txt",
+      "version": "bb53ee204431c90d314c1cc08d28d23e5b7927cc",
+      "license": "MIT upstream OpenAI Whisper code and weights; converted by sherpa",
+      "bytes": 816730,
+      "sha256": "b34b360dbb493e781e479794586d661700670d65564001f23024971d1f2fa126",
+      "checksumBasis": "local SHA-256; ordinary Git file has no published LFS SHA-256",
+      "role": "comparison baseline only, not part of recommended APK",
+      "executed": false
+    }
+  ],
+  "notes": [
+    "Resources under .gradle are ignored by Git and can be lost on cache cleanup; this manifest retains pinned URLs and hashes.",
+    "No native library/model was executed. No remote script was executed.",
+    "The archive contains a public sample es-spanish.wav; it was inventoried but not extracted, played, tested or licensed for APK inclusion.",
+    "No individual download/model exceeds 200,000,000 bytes. The Whisper base tarball was not downloaded."
+  ]
+}

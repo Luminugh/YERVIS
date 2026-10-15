@@ -1,0 +1,9 @@
+{
+  "checked_on": "2026-10-13",
+  "official_url": "https://alphacephei.com/vosk/models",
+  "snapshot_row_html": "<tr>\n      <td><a href=\"https://alphacephei.com/vosk/models/vosk-model-small-es-0.42.zip\">vosk-model-small-es-0.42</a></td>\n      <td>39M</td>\n      <td>16.02 (cv test) 16.72 (mtedx test) 11.21 (mls)</td>\n      <td>Lightweight wideband model for Android and RPi</td>\n      <td>Apache 2.0</td>\n    </tr>",
+  "row_sha256": "7aaeeff16727e768c728ad6ca40404676990a5fb076d6bcc13e26dd9b0cc0425",
+  "license_declared": "Apache 2.0",
+  "archive_readme_copyright_preserved": "Copyright 2022-2050 AC Technologies LLC",
+  "upstream_hash_availability": "No .zip.sha256 or .zip.sha1 at tested official URLs (HTTP404); stored local SHA256 is a reproducibility pin, not an upstream signature."
+}

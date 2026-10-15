@@ -1,0 +1,687 @@
+{
+  "schema_version": 1,
+  "checked_on": "2026-10-14",
+  "scope": "Source/dependency and notice inventory of the authorized ASR/VAD runtime rebuild; x86_64 configure snapshot, not complete binary or whole-app SBOM",
+  "distributionAuditComplete": false,
+  "sherpa": {
+    "version": "1.13.8",
+    "revision": "11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf",
+    "repository_url": "https://github.com/k2-fsa/sherpa-onnx",
+    "source_directory": ".gradle/yezvi-stt-research/asr-only/source/sherpa-onnx",
+    "license": "Apache-2.0 for own code; dependencies retain own conditions",
+    "source_snapshot_limit": "Materialized source tree supplied by integration; critical file identities recorded below; this inventory does not claim a verified complete original source archive or bit-for-bit reproducible final binary",
+    "file_evidence": [
+      {
+        "source_url": "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/CMakeLists.txt",
+        "local_file": {
+          "path": ".gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/CMakeLists.txt",
+          "bytes": 24440,
+          "sha256": "763819c222325293caad220d1c1f6944e3598ebc7f200dccfa85be3ce7aeaddf"
+        }
+      },
+      {
+        "source_url": "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/cmake/eigen.cmake",
+        "local_file": {
+          "path": ".gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/cmake/eigen.cmake",
+          "bytes": 1455,
+          "sha256": "14c666c72e638a7887539318598fa55205d7d900dd601332d823fb4bb830f857"
+        }
+      },
+      {
+        "source_url": "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/cmake/openfst.cmake",
+        "local_file": {
+          "path": ".gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/cmake/openfst.cmake",
+          "bytes": 2562,
+          "sha256": "a23f2dc03b28913c5423077927d4d58d7c66dd4d996b7583ab953b96b025c777"
+        }
+      },
+      {
+        "source_url": "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/cmake/onnxruntime.cmake",
+        "local_file": {
+          "path": ".gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/cmake/onnxruntime.cmake",
+          "bytes": 9855,
+          "sha256": "686fa1d6387156e90d23919ab251206bf9edbb192d0af3dc9e61ea2a235876d2"
+        }
+      },
+      {
+        "source_url": "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/cmake/simple-sentencepiece.cmake",
+        "local_file": {
+          "path": ".gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/cmake/simple-sentencepiece.cmake",
+          "bytes": 7872,
+          "sha256": "02d1c24f061209c99cde6ad8bf2252cbae9cd7771ba72142308ca0232732626e"
+        }
+      },
+      {
+        "source_url": "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/cmake/espeak-ng-for-piper.cmake",
+        "local_file": {
+          "path": ".gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/cmake/espeak-ng-for-piper.cmake",
+          "bytes": 3733,
+          "sha256": "56aa7aa6d1c4676dd06a471396857671a97de4765af6afe4aaa9efe333f01f17"
+        }
+      },
+      {
+        "source_url": "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/cmake/piper-phonemize.cmake",
+        "local_file": {
+          "path": ".gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/cmake/piper-phonemize.cmake",
+          "bytes": 2531,
+          "sha256": "318090ca46c178de2297a38bb1fa0ccd604adf106f33d0b92bdb1d6a38da5c99"
+        }
+      },
+      {
+        "source_url": "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/cmake/hclust-cpp.cmake",
+        "local_file": {
+          "path": ".gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/cmake/hclust-cpp.cmake",
+          "bytes": 2195,
+          "sha256": "782cd84db98c9eee6f6b405a513a7ea31fc63f4c84a7295bc1ad52f46f3419a1"
+        }
+      },
+      {
+        "source_url": "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/sherpa-onnx/csrc/CMakeLists.txt",
+        "local_file": {
+          "path": ".gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/CMakeLists.txt",
+          "bytes": 28469,
+          "sha256": "ae5d3081ab2a4fdf681c12a686a11cb53e56ac341dee7db497aecb65665645ea"
+        }
+      },
+      {
+        "source_url": "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/sherpa-onnx/jni/CMakeLists.txt",
+        "local_file": {
+          "path": ".gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/jni/CMakeLists.txt",
+          "bytes": 1830,
+          "sha256": "752628cfeefd79981e1feae77bdf89a546344a8a533f0fb211ca03d79d0bddb3"
+        }
+      },
+      {
+        "source_url": "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/sherpa-onnx/csrc/math.cc",
+        "local_file": {
+          "path": ".gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/math.cc",
+          "bytes": 5071,
+          "sha256": "6399c4783e531e665b3f479740ba9cab3794d99c6c612fc1afd625ea3f55f4c8"
+        }
+      },
+      {
+        "source_url": "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/sherpa-onnx/csrc/math.h",
+        "local_file": {
+          "path": ".gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/math.h",
+          "bytes": 5283,
+          "sha256": "f38aa0fd03ff58b5d204e28beedab12ad74d2fafd52952cb34b4652f61719548"
+        }
+      }
+    ]
+  },
+  "configuration_observed": {
+    "abi": "x86_64",
+    "min_sdk_target": 24,
+    "cache": {
+      "path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/CMakeCache.txt",
+      "bytes": 34611,
+      "sha256": "b5f481655df409cb895666d862f5ff1c3bcfee65d63f9d630b6e0d0c29f23b03"
+    },
+    "SHERPA_ONNX_ENABLE_TTS": "OFF",
+    "SHERPA_ONNX_ENABLE_SPEAKER_DIARIZATION": "OFF",
+    "SHERPA_ONNX_ENABLE_JNI": "ON",
+    "SHERPA_ONNX_ENABLE_C_API": "OFF",
+    "SHERPA_ONNX_ENABLE_BINARY": "OFF",
+    "SHERPA_ONNX_ENABLE_PORTAUDIO": "OFF",
+    "SHERPA_ONNX_ENABLE_WEBSOCKET": "OFF",
+    "BUILD_SHARED_LIBS": "OFF",
+    "ANDROID_STL": "c++_static",
+    "ORT_mode": "External dynamic prebuilt supplied by SHERPA_ONNXRUNTIME paths; BUILD_SHARED_LIBS=OFF does not turn that prebuilt into a static runtime",
+    "linker_flags": "-Wl,-z,max-page-size=16384 -Wl,-z,common-page-size=16384 -Wl,-Map,sherpa-jni.map"
+  },
+  "dependencies": [
+    {
+      "name": "kaldi-native-fbank",
+      "version_or_revision": "v1.22.3",
+      "url": "https://github.com/csukuangfj/kaldi-native-fbank/archive/refs/tags/v1.22.3.tar.gz",
+      "declared_sha256": "9176cc66fc7ce1edf85cf355b06e320c57db6297df74277f575183468893cf61",
+      "observed_archive": {
+        "path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldi_native_fbank-subbuild/kaldi_native_fbank-populate-prefix/src/v1.22.3.tar.gz",
+        "bytes": 71144,
+        "sha256": "9176cc66fc7ce1edf85cf355b06e320c57db6297df74277f575183468893cf61"
+      },
+      "checksum_basis": "Local archive SHA-256 recalculated and matches pinned upstream CMake URL_HASH; hash is content identity, not publisher signature",
+      "license": "Apache-2.0",
+      "selection_recipe": {
+        "path": ".gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/cmake/kaldi-native-fbank.cmake",
+        "bytes": 3098,
+        "sha256": "fcb1c7da8413a8e629e5cce4b4a2ce5cb18b896cb5cc9dc5ae8dfab6998bcf14"
+      }
+    },
+    {
+      "name": "KissFFT",
+      "version_or_revision": "febd4caeed32e33ad8b2e0bb5ea77542c40f18ec",
+      "url": "https://github.com/mborgerding/kissfft/archive/febd4caeed32e33ad8b2e0bb5ea77542c40f18ec.zip",
+      "declared_sha256": "497103e664168ebe39580b757adbe616f6cf85a16572af581ca7bc42d0ab13fd",
+      "observed_archive": {
+        "path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kissfft-subbuild/kissfft-populate-prefix/src/febd4caeed32e33ad8b2e0bb5ea77542c40f18ec.zip",
+        "bytes": 74252,
+        "sha256": "497103e664168ebe39580b757adbe616f6cf85a16572af581ca7bc42d0ab13fd"
+      },
+      "checksum_basis": "Local archive SHA-256 recalculated and matches pinned upstream CMake URL_HASH; hash is content identity, not publisher signature",
+      "license": "BSD-3-Clause",
+      "selection_recipe": {
+        "path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldi_native_fbank-src/cmake/kissfft.cmake",
+        "bytes": 2377,
+        "sha256": "f6038500a227a48df0e309b9490bd9c8cec8ee376008d7211e3fc96f0c689580"
+      }
+    },
+    {
+      "name": "kaldi-decoder",
+      "version_or_revision": "v0.3.0",
+      "url": "https://github.com/k2-fsa/kaldi-decoder/archive/refs/tags/v0.3.0.tar.gz",
+      "declared_sha256": "b9f34cfb4fd3b1344100eead79ef4d37aa15962274b9e3056de345021f76a1b0",
+      "observed_archive": {
+        "path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldi_decoder-subbuild/kaldi_decoder-populate-prefix/src/v0.3.0.tar.gz",
+        "bytes": 51199,
+        "sha256": "b9f34cfb4fd3b1344100eead79ef4d37aa15962274b9e3056de345021f76a1b0"
+      },
+      "checksum_basis": "Local archive SHA-256 recalculated and matches pinned upstream CMake URL_HASH; hash is content identity, not publisher signature",
+      "license": "Apache-2.0",
+      "selection_recipe": {
+        "path": ".gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/cmake/kaldi-decoder.cmake",
+        "bytes": 2757,
+        "sha256": "59c946fc6467cd630f0c8102317c3e0421c4e3d3d9ed85980631c578f470794e"
+      }
+    },
+    {
+      "name": "kaldifst",
+      "version_or_revision": "v1.8.0",
+      "url": "https://github.com/k2-fsa/kaldifst/archive/refs/tags/v1.8.0.tar.gz",
+      "declared_sha256": "3f247b7e5a2409071202f5e2bc6200060f66728c0a3443c03923ad2723e040b3",
+      "observed_archive": {
+        "path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldifst-subbuild/kaldifst-populate-prefix/src/v1.8.0.tar.gz",
+        "bytes": 172147,
+        "sha256": "3f247b7e5a2409071202f5e2bc6200060f66728c0a3443c03923ad2723e040b3"
+      },
+      "checksum_basis": "Local archive SHA-256 recalculated and matches pinned upstream CMake URL_HASH; hash is content identity, not publisher signature",
+      "license": "Apache-2.0",
+      "selection_recipe": {
+        "path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldi_decoder-src/cmake/kaldifst.cmake",
+        "bytes": 2113,
+        "sha256": "3fc84cb97584d944ad23cccacfcb958f163873ffae62a0764d8e75930f9a8bb3"
+      }
+    },
+    {
+      "name": "OpenFst fork",
+      "version_or_revision": "v1.8.5-2026-07-09",
+      "url": "https://github.com/csukuangfj/openfst/archive/refs/tags/v1.8.5-2026-07-09.tar.gz",
+      "declared_sha256": "2ff712a32952fcb01d351121a6bc8ccf4fdc6b2aa06ce8df2b3095dedd518c0e",
+      "observed_archive": {
+        "path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/openfst-subbuild/openfst-populate-prefix/src/v1.8.5-2026-07-09.tar.gz",
+        "bytes": 1501685,
+        "sha256": "2ff712a32952fcb01d351121a6bc8ccf4fdc6b2aa06ce8df2b3095dedd518c0e"
+      },
+      "checksum_basis": "Local archive SHA-256 recalculated and matches pinned upstream CMake URL_HASH; hash is content identity, not publisher signature",
+      "license": "Apache-2.0",
+      "selection_recipe": {
+        "path": ".gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/cmake/openfst.cmake",
+        "bytes": 2562,
+        "sha256": "a23f2dc03b28913c5423077927d4d58d7c66dd4d996b7583ab953b96b025c777"
+      }
+    },
+    {
+      "name": "simple-sentencepiece",
+      "version_or_revision": "v0.7",
+      "url": "https://github.com/pkufool/simple-sentencepiece/archive/refs/tags/v0.7.tar.gz",
+      "declared_sha256": "1748a822060a35baa9f6609f84efc8eb54dc0e74b9ece3d82367b7119fdc75af",
+      "observed_archive": {
+        "path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/simple-sentencepiece-subbuild/simple-sentencepiece-populate-prefix/src/v0.7.tar.gz",
+        "bytes": 355335,
+        "sha256": "1748a822060a35baa9f6609f84efc8eb54dc0e74b9ece3d82367b7119fdc75af"
+      },
+      "checksum_basis": "Local archive SHA-256 recalculated and matches pinned upstream CMake URL_HASH; hash is content identity, not publisher signature",
+      "license": "Apache-2.0 AND BSD-2-Clause (darts.h)",
+      "selection_recipe": {
+        "path": ".gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/cmake/simple-sentencepiece.cmake",
+        "bytes": 7872,
+        "sha256": "02d1c24f061209c99cde6ad8bf2252cbae9cd7771ba72142308ca0232732626e"
+      }
+    },
+    {
+      "name": "nlohmann/json",
+      "version_or_revision": "v3.12.0",
+      "url": "https://github.com/nlohmann/json/archive/refs/tags/v3.12.0.tar.gz",
+      "declared_sha256": "4b92eb0c06d10683f7447ce9406cb97cd4b453be18d7279320f7b2f025c10187",
+      "observed_archive": {
+        "path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/json-subbuild/json-populate-prefix/src/v3.12.0.tar.gz",
+        "bytes": 9678593,
+        "sha256": "4b92eb0c06d10683f7447ce9406cb97cd4b453be18d7279320f7b2f025c10187"
+      },
+      "checksum_basis": "Local archive SHA-256 recalculated and matches pinned upstream CMake URL_HASH; hash is content identity, not publisher signature",
+      "license": "MIT; preserve Hedley header/docs notices",
+      "selection_recipe": {
+        "path": ".gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/cmake/json.cmake",
+        "bytes": 1526,
+        "sha256": "b259802ab62762fbae41a9ebc96308e76f114e5493147b529c66eb63b4e3d5a6"
+      }
+    },
+    {
+      "name": "Eigen",
+      "version_or_revision": "5.0.1",
+      "url": "https://gitlab.com/libeigen/eigen/-/archive/5.0.1/eigen-5.0.1.tar.gz",
+      "declared_sha256": "e9c326dc8c05cd1e044c71f30f1b2e34a6161a3b6ecf445d56b53ff1669e3dec",
+      "observed_archive": {
+        "path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/eigen-subbuild/eigen-populate-prefix/src/eigen-5.0.1.tar.gz",
+        "bytes": 2967272,
+        "sha256": "e9c326dc8c05cd1e044c71f30f1b2e34a6161a3b6ecf445d56b53ff1669e3dec"
+      },
+      "checksum_basis": "Local archive SHA-256 recalculated and matches pinned upstream CMake URL_HASH; hash is content identity, not publisher signature",
+      "license": "MPL-2.0 plus per-file compatible third-party licenses",
+      "selection_recipe": {
+        "path": ".gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/cmake/eigen.cmake",
+        "bytes": 1455,
+        "sha256": "14c666c72e638a7887539318598fa55205d7d900dd601332d823fb4bb830f857"
+      }
+    }
+  ],
+  "onnxruntime": {
+    "version": "1.28.2",
+    "publisher": "csukuangfj/onnxruntime-libs",
+    "url": "https://github.com/csukuangfj/onnxruntime-libs/releases/download/v1.28.2/onnxruntime-android-1.28.2.zip",
+    "archive": {
+      "path": ".gradle/yezvi-stt-research/asr-only/onnxruntime-android-1.28.2.zip",
+      "bytes": 33765715,
+      "sha256": "01518867f78241138b6aa25925802e843a4fa9085af8d303d49e35bbb52aff4d"
+    },
+    "license": "MIT plus incorporated dependency conditions",
+    "checksum_basis": "Local SHA-256 matches pinned publisher/source CMake value 01518867...",
+    "embedded_notices_in_download": "No license/notice/third-party filename entry found in inspected ZIP; upstream MIT/ThirdPartyNotices retained separately",
+    "limits": "Dynamic runtime was not rebuilt here; exact source/configuration and toolchain of this prebuilt require separate provenance audit"
+  },
+  "toolchain": {
+    "ndk": {
+      "release": "r28c",
+      "revision": "28.2.13676358",
+      "url": "https://dl.google.com/android/repository/android-ndk-r28c-windows.zip",
+      "archive": {
+        "path": ".gradle/yezvi-stt-research/asr-only/toolchain/android-ndk-r28c-windows.zip",
+        "bytes": 748118221,
+        "sha256": "6bec98ac2354d8a919760889a1a41d020132e5e8cfa1b1fe51610a72c36a466b"
+      },
+      "source_properties": {
+        "path": ".gradle/yezvi-stt-research/asr-only/toolchain/ndk/android-ndk-r28c/source.properties",
+        "bytes": 108,
+        "sha256": "c00aa236fdb205e9be9edd9e2169763e48aca52735efff4e16f34205d49783b5"
+      },
+      "clang_version": "19.0.1",
+      "android_clang_revision": "r530567e",
+      "llvm_base_revision": "3b5e7c83a6e226d5bd7ed2e9b67449b64812074c",
+      "android_patch_revision": "e727bfb014bd436f581a66a450c939a6983a1fc3",
+      "source_info": {
+        "path": ".gradle/yezvi-stt-research/asr-only/toolchain/ndk/android-ndk-r28c/toolchains/llvm/prebuilt/windows-x86_64/clang_source_info.md",
+        "bytes": 11370,
+        "sha256": "8ffa6ebc4941a0f0de492584444c08b65ce96ba32d824d674fd35aa0398f1454"
+      }
+    },
+    "cmake": {
+      "version": "3.22.1",
+      "publisher": "Android SDK",
+      "url": "https://dl.google.com/android/repository/cmake-3.22.1-windows.zip",
+      "archive": {
+        "path": ".gradle/yezvi-stt-research/asr-only/toolchain/cmake-3.22.1-windows.zip",
+        "bytes": 16116742,
+        "sha256": "c9a9d568452a20cf27d703cb21ef9529dd67bda6be048c4d4b884acb3ac3a2b8"
+      },
+      "role": "Build-only CMake/Ninja; not packaged as runtime in APK"
+    }
+  },
+  "excluded_by_source_configuration": [
+    {
+      "component": "Piper phonemize/eSpeak NG/UCD",
+      "condition": "SHERPA_ONNX_ENABLE_TTS=OFF",
+      "evidence": [
+        "Root CMakeLists.txt:569-574 does not include espeak/piper",
+        "Core CMakeLists.txt:287-321 omits TTS files; 479-482 omits piper_phonemize link",
+        "JNI CMakeLists.txt:37-41 omits offline-tts.cc"
+      ],
+      "prior_eSpeak_revision": "ed530aa113046142eb5115cf2fc9157854d0ffe1",
+      "prior_license": "GPL-3.0-or-later eSpeak/UCD; MIT Piper",
+      "binary_exclusion_validation": "Must still inspect actual link maps, archive members, ELF exports/strings and final packaged APK for each ABI"
+    },
+    {
+      "component": "hclust-cpp and offline speaker diarization",
+      "condition": "SHERPA_ONNX_ENABLE_SPEAKER_DIARIZATION=OFF",
+      "evidence": [
+        "Root CMakeLists.txt:576-578 skips hclust-cpp",
+        "Core CMakeLists.txt:335-346 omits diarization sources",
+        "JNI CMakeLists.txt:43-47 omits offline-speaker-diarization.cc"
+      ],
+      "prior_license": "BSD-2-Clause hclust; exclusion reduces unused code, not the reason GPL TTS is removed",
+      "binary_exclusion_validation": "Pending per-ABI link map and ELF checks"
+    }
+  ],
+  "required_notice_files": [
+    {
+      "component": "sherpa-onnx",
+      "license": "Apache-2.0",
+      "source_path": ".gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/LICENSE",
+      "source_url": "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/LICENSE",
+      "distribution_scope": "Runtime own code; preserve copyright/header notices and modifications",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/sherpa-1.13.8-LICENSE.txt",
+        "bytes": 11560,
+        "sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5"
+      }
+    },
+    {
+      "component": "kaldi-native-fbank-1.22.3-LICENSE.txt",
+      "license": "Apache-2.0",
+      "source_path": ".gradle/yezvi-stt-research/licenses/kaldi-native-fbank-1.22.3-LICENSE.txt",
+      "source_url": "https://raw.githubusercontent.com/csukuangfj/kaldi-native-fbank/b09e686fe2084732ddd30d1ef80acfc0f13eaf01/LICENSE",
+      "distribution_scope": "Retained notice from fixed existing inventory; component inclusion must be tied to actual linked objects; ORT ThirdPartyNotices is a superset",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/kaldi-native-fbank-1.22.3-LICENSE.txt",
+        "bytes": 11358,
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+      }
+    },
+    {
+      "component": "kaldi-decoder-0.3.0-LICENSE.txt",
+      "license": "Apache-2.0",
+      "source_path": ".gradle/yezvi-stt-research/licenses/kaldi-decoder-0.3.0-LICENSE.txt",
+      "source_url": "https://raw.githubusercontent.com/k2-fsa/kaldi-decoder/62fda2d74246a90db9570e46fb16b012f813fae7/LICENSE",
+      "distribution_scope": "Retained notice from fixed existing inventory; component inclusion must be tied to actual linked objects; ORT ThirdPartyNotices is a superset",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/kaldi-decoder-0.3.0-LICENSE.txt",
+        "bytes": 11358,
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+      }
+    },
+    {
+      "component": "kaldifst-1.8.0-LICENSE.txt",
+      "license": "Apache-2.0",
+      "source_path": ".gradle/yezvi-stt-research/licenses/kaldifst-1.8.0-LICENSE.txt",
+      "source_url": "https://raw.githubusercontent.com/k2-fsa/kaldifst/ab5bdd013bdf13921e6aeee77db5722ebf9955fb/LICENSE",
+      "distribution_scope": "Retained notice from fixed existing inventory; component inclusion must be tied to actual linked objects; ORT ThirdPartyNotices is a superset",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/kaldifst-1.8.0-LICENSE.txt",
+        "bytes": 11728,
+        "sha256": "a682d6efd1ee5dee08a8e405c233c2c198ea70ae0718129daa83ab58cfe31c5d"
+      }
+    },
+    {
+      "component": "kissfft-febd4ca-COPYING.txt",
+      "license": "BSD-3-Clause attribution",
+      "source_path": ".gradle/yezvi-stt-research/licenses/kissfft-febd4ca-COPYING.txt",
+      "source_url": "https://raw.githubusercontent.com/mborgerding/kissfft/febd4caeed32e33ad8b2e0bb5ea77542c40f18ec/COPYING",
+      "distribution_scope": "Retained notice from fixed existing inventory; component inclusion must be tied to actual linked objects; ORT ThirdPartyNotices is a superset",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/kissfft-febd4ca-COPYING.txt",
+        "bytes": 246,
+        "sha256": "a2840585f8411be8e6826a31ef15ae65c950bd74a2437a73b013398a934ad0c6"
+      }
+    },
+    {
+      "component": "kissfft-febd4ca-BSD-3-Clause.txt",
+      "license": "BSD-3-Clause",
+      "source_path": ".gradle/yezvi-stt-research/licenses/kissfft-febd4ca-BSD-3-Clause.txt",
+      "source_url": "https://raw.githubusercontent.com/mborgerding/kissfft/febd4caeed32e33ad8b2e0bb5ea77542c40f18ec/LICENSES/BSD-3-Clause",
+      "distribution_scope": "Retained notice from fixed existing inventory; component inclusion must be tied to actual linked objects; ORT ThirdPartyNotices is a superset",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/kissfft-febd4ca-BSD-3-Clause.txt",
+        "bytes": 1830,
+        "sha256": "4d6bcab46f27d6d0c878e8305d4bdcfe040d52bf6656b9771f04c9fb9902c0ed"
+      }
+    },
+    {
+      "component": "simple-sentencepiece-0.7-LICENSE.txt",
+      "license": "Apache-2.0",
+      "source_path": ".gradle/yezvi-stt-research/licenses/simple-sentencepiece-0.7-LICENSE.txt",
+      "source_url": "https://raw.githubusercontent.com/pkufool/simple-sentencepiece/62dd423df1d51da5ea06f1c3a046fc04f01b4f39/LICENSE",
+      "distribution_scope": "Retained notice from fixed existing inventory; component inclusion must be tied to actual linked objects; ORT ThirdPartyNotices is a superset",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/simple-sentencepiece-0.7-LICENSE.txt",
+        "bytes": 11357,
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      }
+    },
+    {
+      "component": "simple-sentencepiece-0.7-darts-BSD2-NOTICE.txt",
+      "license": "BSD-2-Clause",
+      "source_path": ".gradle/yezvi-stt-research/licenses/simple-sentencepiece-0.7-darts-BSD2-NOTICE.txt",
+      "source_url": "https://raw.githubusercontent.com/pkufool/simple-sentencepiece/62dd423df1d51da5ea06f1c3a046fc04f01b4f39/ssentencepiece/csrc/darts.h",
+      "distribution_scope": "Retained notice from fixed existing inventory; component inclusion must be tied to actual linked objects; ORT ThirdPartyNotices is a superset",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/simple-sentencepiece-0.7-darts-BSD2-NOTICE.txt",
+        "bytes": 1315,
+        "sha256": "30704ed1913ec07b4090a1eaeafd4aa37af4efe83eebbc3b5a85cedb238e0666"
+      }
+    },
+    {
+      "component": "json-3.12.0-LICENSE.MIT.txt",
+      "license": "MIT",
+      "source_path": ".gradle/yezvi-stt-research/licenses/json-3.12.0-LICENSE.MIT.txt",
+      "source_url": "https://raw.githubusercontent.com/nlohmann/json/55f93686c01528224f448c19128836e7df245f72/LICENSE.MIT",
+      "distribution_scope": "Retained notice from fixed existing inventory; component inclusion must be tied to actual linked objects; ORT ThirdPartyNotices is a superset",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/json-3.12.0-LICENSE.MIT.txt",
+        "bytes": 1076,
+        "sha256": "46a65cffd1ea955132d95a8dd921640714a8d6b537d2e4e482d31145ae95b603"
+      }
+    },
+    {
+      "component": "json-3.12.0-third-party-license.md",
+      "license": "MIT notices; Hedley CC0 reference",
+      "source_path": ".gradle/yezvi-stt-research/licenses/json-3.12.0-third-party-license.md",
+      "source_url": "https://raw.githubusercontent.com/nlohmann/json/55f93686c01528224f448c19128836e7df245f72/docs/mkdocs/docs/home/license.md",
+      "distribution_scope": "Retained notice from fixed existing inventory; component inclusion must be tied to actual linked objects; ORT ThirdPartyNotices is a superset",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/json-3.12.0-third-party-license.md",
+        "bytes": 1995,
+        "sha256": "d4b7ed0261c2c840e9ccc7d483b3b659bfddc8be797f3007da080f0c4a78d960"
+      }
+    },
+    {
+      "component": "json-3.12.0-hedley-SPDX-NOTICE.txt",
+      "license": "MIT per shipped header (documentation additionally says CC0-1.0)",
+      "source_path": ".gradle/yezvi-stt-research/licenses/json-3.12.0-hedley-SPDX-NOTICE.txt",
+      "source_url": "https://raw.githubusercontent.com/nlohmann/json/55f93686c01528224f448c19128836e7df245f72/include/nlohmann/thirdparty/hedley/hedley.hpp",
+      "distribution_scope": "Retained notice from fixed existing inventory; component inclusion must be tied to actual linked objects; ORT ThirdPartyNotices is a superset",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/json-3.12.0-hedley-SPDX-NOTICE.txt",
+        "bytes": 180,
+        "sha256": "2852385028857c2bd17e932901a5bc6d2e330975bbce65e838e8db8b8159c8cc"
+      }
+    },
+    {
+      "component": "onnxruntime-1.28.2-ThirdPartyNotices.txt",
+      "license": "upstream aggregated third-party notices, a superset rather than binary SBOM",
+      "source_path": ".gradle/yezvi-stt-research/licenses/onnxruntime-1.28.2-ThirdPartyNotices.txt",
+      "source_url": "https://raw.githubusercontent.com/microsoft/onnxruntime/v1.28.2/ThirdPartyNotices.txt",
+      "distribution_scope": "Retained notice from fixed existing inventory; component inclusion must be tied to actual linked objects; ORT ThirdPartyNotices is a superset",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/onnxruntime-1.28.2-ThirdPartyNotices.txt",
+        "bytes": 325054,
+        "sha256": "0e07b95f3a8d6230037707c5c4a2b554d12c4cb67369669ac255635528ffcee2"
+      }
+    },
+    {
+      "component": "ONNX Runtime",
+      "license": "MIT",
+      "source_path": "docs/INVESTIGACION/F3.06-stt-local/onnxruntime-LICENSE.txt",
+      "source_url": "https://raw.githubusercontent.com/microsoft/onnxruntime/v1.28.2/LICENSE",
+      "distribution_scope": "Dynamic prebuilt runtime; publisher build provenance not reconstructed",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/onnxruntime-1.28.2-LICENSE.txt",
+        "bytes": 1073,
+        "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c"
+      }
+    },
+    {
+      "component": "OpenFst fork July 2026",
+      "license": "Apache-2.0 attribution",
+      "source_path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/openfst-src/COPYING",
+      "source_url": "https://raw.githubusercontent.com/csukuangfj/openfst/v1.8.5-2026-07-09/COPYING",
+      "distribution_scope": "Actual selected July source, not old April notice",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/openfst-1.8.5-2026-07-09-COPYING.txt",
+        "bytes": 559,
+        "sha256": "4300529197035fd3452350718a0b8cee984e9412c9932d7f35fcde849fc97a4b"
+      }
+    },
+    {
+      "component": "Eigen",
+      "license": "MPL-2.0; other compatible per-file licenses as specified by notice",
+      "source_path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/eigen-src/LICENSE",
+      "source_url": "https://gitlab.com/libeigen/eigen/-/raw/5.0.1/LICENSE",
+      "distribution_scope": "Preserved full notice set; map included headers from compiler dependencies; MPL covered source must be made available",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/eigen-5.0.1-LICENSE.txt",
+        "bytes": 16725,
+        "sha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5"
+      }
+    },
+    {
+      "component": "Eigen",
+      "license": "MPL-2.0; other compatible per-file licenses as specified by notice",
+      "source_path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/eigen-src/COPYING.README",
+      "source_url": "https://gitlab.com/libeigen/eigen/-/raw/5.0.1/COPYING.README",
+      "distribution_scope": "Preserved full notice set; map included headers from compiler dependencies; MPL covered source must be made available",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/eigen-5.0.1-COPYING.README.txt",
+        "bytes": 264,
+        "sha256": "db640ff2bd90c6abd6a4d3fbb351e0ee4d555417cf840492054d1cbb2ea85644"
+      }
+    },
+    {
+      "component": "Eigen",
+      "license": "MPL-2.0; other compatible per-file licenses as specified by notice",
+      "source_path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/eigen-src/COPYING.MPL2",
+      "source_url": "https://gitlab.com/libeigen/eigen/-/raw/5.0.1/COPYING.MPL2",
+      "distribution_scope": "Preserved full notice set; map included headers from compiler dependencies; MPL covered source must be made available",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/eigen-5.0.1-COPYING.MPL2.txt",
+        "bytes": 16727,
+        "sha256": "66a3107d5ad6a058aab753eaac2047ccb2ed0e39465dd0fe5844da3e300d5172"
+      }
+    },
+    {
+      "component": "Eigen",
+      "license": "MPL-2.0; other compatible per-file licenses as specified by notice",
+      "source_path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/eigen-src/COPYING.APACHE",
+      "source_url": "https://gitlab.com/libeigen/eigen/-/raw/5.0.1/COPYING.APACHE",
+      "distribution_scope": "Preserved full notice set; map included headers from compiler dependencies; MPL covered source must be made available",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/eigen-5.0.1-COPYING.APACHE.txt",
+        "bytes": 11362,
+        "sha256": "03379001a7b12a2ec997a25554247d985270b353c10d5bafee9ac8d6519820b7"
+      }
+    },
+    {
+      "component": "Eigen",
+      "license": "MPL-2.0; other compatible per-file licenses as specified by notice",
+      "source_path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/eigen-src/COPYING.BSD",
+      "source_url": "https://gitlab.com/libeigen/eigen/-/raw/5.0.1/COPYING.BSD",
+      "distribution_scope": "Preserved full notice set; map included headers from compiler dependencies; MPL covered source must be made available",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/eigen-5.0.1-COPYING.BSD.txt",
+        "bytes": 1517,
+        "sha256": "51928dce36213c5333ba3172e847d735d4c6e9b7ff2722a326c49067155b82eb"
+      }
+    },
+    {
+      "component": "Eigen",
+      "license": "MPL-2.0; other compatible per-file licenses as specified by notice",
+      "source_path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/eigen-src/COPYING.MINPACK",
+      "source_url": "https://gitlab.com/libeigen/eigen/-/raw/5.0.1/COPYING.MINPACK",
+      "distribution_scope": "Preserved full notice set; map included headers from compiler dependencies; MPL covered source must be made available",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/eigen-5.0.1-COPYING.MINPACK.txt",
+        "bytes": 2193,
+        "sha256": "c87b7f8ee88f6195e91743820c00354833583aef091b72e2d4a49c8e28e798a0"
+      }
+    },
+    {
+      "component": "Android NDK runtime/header notices",
+      "license": "Multiple component licenses; see exact notice",
+      "source_path": ".gradle/yezvi-stt-research/asr-only/toolchain/ndk/android-ndk-r28c/NOTICE",
+      "source_url": "https://dl.google.com/android/repository/android-ndk-r28c-windows.zip",
+      "distribution_scope": "Conservative notice superset; NDK compiler itself is not shipped in APK",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/ndk-r28c-NOTICE.txt",
+        "bytes": 516438,
+        "sha256": "faf0dc52cf6ce9ab09a04b0c074a378dd2565ee1ed9bc1179d83793bcdba012e"
+      }
+    },
+    {
+      "component": "Clang/libc++/libc++abi/compiler-rt",
+      "license": "Apache-2.0 WITH LLVM-exception plus per-file legacy/other notices",
+      "source_path": ".gradle/yezvi-stt-research/asr-only/toolchain/ndk/android-ndk-r28c/NOTICE.toolchain",
+      "source_url": "https://dl.google.com/android/repository/android-ndk-r28c-windows.zip",
+      "distribution_scope": "Static c++ runtime linked by current build; retain exact NDK notices, no license assigned to entire toolchain by analogy",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/ndk-r28c-NOTICE.toolchain.txt",
+        "bytes": 799639,
+        "sha256": "789714a9076571c580cf531bdcebec776a4d889c12c3c1108adafc6e4338710a"
+      }
+    },
+    {
+      "component": "Configured source and embedded header copyright supplement",
+      "license": "Per-file notices, see contents and full license texts",
+      "source_path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/compile_commands.json",
+      "source_url": "https://github.com/k2-fsa/sherpa-onnx/tree/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf",
+      "distribution_scope": "Derived exact leading-comment excerpts from 263 configured source/header files; superset, not an actual linked-object or complete reachable-header audit",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/configured-source-copyright-headers.txt",
+        "bytes": 99987,
+        "sha256": "ec76e50f5417ee8ebe5afffc56adf0571d9746ff0dd398e496d5f1acbfdfbca1"
+      }
+    },
+    {
+      "component": "silero-LICENSE.txt",
+      "license": "MIT",
+      "source_path": "docs/INVESTIGACION/F3.06-stt-local/silero-LICENSE.txt",
+      "source_url": "https://raw.githubusercontent.com/snakers4/silero-vad/1e261b036686cd0017d500ee96acd1c4ba572a9d/LICENSE",
+      "distribution_scope": "Associated model/VAD weights and derived vocabulary, not code licensed by the runtime nor proof weights are inside the AAR; retain attribution/conversion statements with actual model distribution",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/silero-LICENSE.txt",
+        "bytes": 1075,
+        "sha256": "2e63e9a38b6e8fc0c7bc37ce174caca1862870856c6daf5697cfb785e925520b"
+      }
+    },
+    {
+      "component": "nvidia-spanish-model-card.md",
+      "license": "CC-BY-4.0 (model card/upstream weights)",
+      "source_path": "docs/INVESTIGACION/F3.06-stt-local/nvidia-spanish-model-card.md",
+      "source_url": "https://huggingface.co/nvidia/stt_es_fastconformer_hybrid_large_pc/raw/d3fcff82e2ddec13517256402aa5da86400c5893/README.md",
+      "distribution_scope": "Associated model/VAD weights and derived vocabulary, not code licensed by the runtime nor proof weights are inside the AAR; retain attribution/conversion statements with actual model distribution",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/nvidia-spanish-model-card.md",
+        "bytes": 10592,
+        "sha256": "0e6fe139bab54767e9f3c8dc56a5210a005f0a7b119c3d4058c1fa73edb0cdfa"
+      }
+    },
+    {
+      "component": "CC-BY-4.0-legalcode.txt",
+      "license": "CC-BY-4.0 legal text",
+      "source_path": "docs/INVESTIGACION/F3.06-stt-local/CC-BY-4.0-legalcode.txt",
+      "source_url": "https://creativecommons.org/licenses/by/4.0/legalcode.txt",
+      "distribution_scope": "Associated model/VAD weights and derived vocabulary, not code licensed by the runtime nor proof weights are inside the AAR; retain attribution/conversion statements with actual model distribution",
+      "notice": {
+        "path": "docs/INVESTIGACION/F3.06-asr-only/licenses/CC-BY-4.0-legalcode.txt",
+        "bytes": 18657,
+        "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+      }
+    }
+  ],
+  "eigen_source_availability": {
+    "license": "MPL-2.0",
+    "url": "https://gitlab.com/libeigen/eigen/-/archive/5.0.1/eigen-5.0.1.tar.gz",
+    "sha256": "e9c326dc8c05cd1e044c71f30f1b2e34a6161a3b6ecf445d56b53ff1669e3dec",
+    "own_modifications": "None introduced by this inventory; actual integration must retain any changes made later",
+    "requirement": "When distributing executable containing Eigen covered code, inform recipients how to obtain corresponding MPL source/headers and license under MPL terms; archive exact revision and supply a durable source access notice; Larger Work may retain other terms subject to MPL covered-file requirements",
+    "included_header_mapping": "Eigen/Dense included by sherpa core/math.cc and math.h even with diarization OFF; inspect compiler dependency files for exact reachable per-file licenses"
+  },
+  "limits": [
+    "This inventory alone does not approve distribution or establish final APK/AAB identity",
+    "No build, benchmark, model inference or microphone test was run by this audit task",
+    "CMake flags and source branches support exclusion; final native and package checks remain required for every shipped ABI",
+    "No all-Apache/MIT claim: Eigen is principally MPL-2.0 and LLVM runtime has exceptions/legacy notices",
+    "ORT prebuilt transitive source/build provenance remains separate from own sherpa rebuild provenance",
+    "Whole-app native AndroidX graphics-path and other existing SOs need independent 16 KB LOAD/RELRO and execution checks; rebuilding sherpa alone cannot certify the whole app",
+    "No source bundle published and no commit/push; public source availability and channel terms still require release-gate evidence",
+    "Models/tokens/VAD retain separate NVIDIA CC-BY-4.0/Silero MIT conditions in existing inventories; this code inventory does not replace those notices",
+    "No private WAV/reference/transcription included in this inventory or notice packet"
+  ]
+}

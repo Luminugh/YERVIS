@@ -1,0 +1,129 @@
+{
+  "checked_on": "2026-10-13",
+  "scope": "STT Vosk alternative; audit of all final APK components remains required",
+  "jna_license_selected": "Apache-2.0",
+  "source_provenance_limit": "Prebuilt AAR build script does not pin Kaldi/OpenFst commit IDs; observed source snapshots are license evidence, not proof of exact binary source reproducibility. LLVM exact toolchain code provenance unconfirmed.",
+  "notices": [
+    {
+      "component": "Vosk API",
+      "license": "Apache-2.0",
+      "source_url": "https://raw.githubusercontent.com/alphacep/vosk-api/625e44c62607a3b48fec6d72a30118448909e83f/COPYING",
+      "source_revision": "625e44c62607a3b48fec6d72a30118448909e83f",
+      "file": "docs/INVESTIGACION/F3.06-vosk/licenses/VOSK-APACHE-2.0.txt",
+      "size_bytes": 10173,
+      "sha256": "bb618af833c817ab01c1564bd3ec75ba4b4f9cf30910a4a2168e30a674ee8cc6"
+    },
+    {
+      "component": "Kaldi fork",
+      "license": "Apache-2.0",
+      "source_url": "https://raw.githubusercontent.com/alphacep/kaldi/8b7fecf92b329b7253d9d1cd97898c8b13f9aef3/COPYING",
+      "source_revision": "8b7fecf92b329b7253d9d1cd97898c8b13f9aef3",
+      "file": "docs/INVESTIGACION/F3.06-vosk/licenses/KALDI-COPYING.txt",
+      "size_bytes": 17264,
+      "sha256": "3fd3dd523b1717f1fb2ae40896df943d767fa5e664e46156c2dba7094f0d7172"
+    },
+    {
+      "component": "OpenFst fork",
+      "license": "Apache-2.0",
+      "source_url": "https://raw.githubusercontent.com/alphacep/openfst/18e94e63870ebcf79ebb42b7035cd3cb626ec090/COPYING",
+      "source_revision": "18e94e63870ebcf79ebb42b7035cd3cb626ec090",
+      "file": "docs/INVESTIGACION/F3.06-vosk/licenses/OPENFST-COPYING.txt",
+      "size_bytes": 559,
+      "sha256": "dd0c6c9378a98b6a0e96b559b285c8506434fe2691eeeef151e8a8c1c492778e"
+    },
+    {
+      "component": "OpenBLAS",
+      "license": "BSD-3-Clause",
+      "source_url": "https://raw.githubusercontent.com/xianyi/OpenBLAS/v0.3.20/LICENSE",
+      "source_revision": "v0.3.20",
+      "file": "docs/INVESTIGACION/F3.06-vosk/licenses/OPENBLAS-LICENSE.txt",
+      "size_bytes": 1548,
+      "sha256": "190b5a9c8d9723fe958ad33916bd7346d96fab3c5ea90832bb02d854f620fcff"
+    },
+    {
+      "component": "CLAPACK",
+      "license": "BSD-3-Clause",
+      "source_url": "https://raw.githubusercontent.com/alphacep/clapack/v3.2.1/COPYING",
+      "source_revision": "v3.2.1",
+      "file": "docs/INVESTIGACION/F3.06-vosk/licenses/CLAPACK-COPYING.txt",
+      "size_bytes": 1607,
+      "sha256": "23014869214a231525b38c39fdb5f82364fa24154ac80fdcab2a79671460fd09"
+    },
+    {
+      "component": "libf2c",
+      "license": "permissive AT&T Lucent Bellcore notice",
+      "source_url": "https://raw.githubusercontent.com/alphacep/clapack/v3.2.1/F2CLIBS/libf2c/Notice",
+      "source_revision": "v3.2.1 CLAPACK",
+      "file": "docs/INVESTIGACION/F3.06-vosk/licenses/F2C-NOTICE.txt",
+      "size_bytes": 1212,
+      "sha256": "44561c447e91203ddc747beeca5cc2794d95ee982c17c578670e4f0408bc3904"
+    },
+    {
+      "component": "JNA license choice",
+      "license": "Apache-2.0 OR LGPL-2.1-or-later",
+      "source_url": "https://raw.githubusercontent.com/java-native-access/jna/5.18.1/LICENSE",
+      "source_revision": "5.18.1",
+      "file": "docs/INVESTIGACION/F3.06-vosk/licenses/JNA-LICENSE-CHOICE.txt",
+      "size_bytes": 797,
+      "sha256": "07c938b23950ab7d47a24ef35f9f5da3a05ae164278dc959ad6994135ed59ff1"
+    },
+    {
+      "component": "JNA selected license",
+      "license": "Apache-2.0",
+      "source_url": "https://raw.githubusercontent.com/java-native-access/jna/5.18.1/AL2.0",
+      "source_revision": "5.18.1",
+      "file": "docs/INVESTIGACION/F3.06-vosk/licenses/JNA-APACHE-2.0.txt",
+      "size_bytes": 10174,
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+    },
+    {
+      "component": "libffi via JNA",
+      "license": "MIT",
+      "source_url": "https://raw.githubusercontent.com/java-native-access/jna/5.18.1/native/libffi/LICENSE",
+      "source_revision": "bundled JNA5.18.1",
+      "file": "docs/INVESTIGACION/F3.06-vosk/licenses/LIBFFI-LICENSE.txt",
+      "size_bytes": 1132,
+      "sha256": "2c9c2acb9743e6b007b91350475308aee44691d96aa20eacef8e199988c8c388"
+    },
+    {
+      "component": "LLVM libc++ runtime notice reference",
+      "license": "Apache-2.0 WITH LLVM-exception plus legacy notices",
+      "source_url": "https://raw.githubusercontent.com/llvm/llvm-project/llvmorg-19.1.7/libcxx/LICENSE.TXT",
+      "source_revision": "llvmorg-19.1.7; exact prebuilt toolchain unconfirmed",
+      "file": "docs/INVESTIGACION/F3.06-vosk/licenses/LIBCXX-LICENSE.txt",
+      "size_bytes": 16703,
+      "sha256": "539dd7aed86e8a4f12cbdd0e6c50c189c7d74847e4fecc64ce2c6ee3a01da38b"
+    },
+    {
+      "component": "LLVM compiler runtime notice reference",
+      "license": "Apache-2.0 WITH LLVM-exception",
+      "source_url": "https://raw.githubusercontent.com/llvm/llvm-project/llvmorg-19.1.7/compiler-rt/LICENSE.TXT",
+      "source_revision": "llvmorg-19.1.7; exact prebuilt toolchain unconfirmed",
+      "file": "docs/INVESTIGACION/F3.06-vosk/licenses/COMPILER-RT-LICENSE.txt",
+      "size_bytes": 16708,
+      "sha256": "1a8f1058753f1ba890de984e48f0242a3a5c29a6a8f2ed9fd813f36985387e8d"
+    },
+    {
+      "component": "SimpleJSON embedded header",
+      "license": "WTFPL; version not specified in upstream header",
+      "source_url": "https://raw.githubusercontent.com/alphacep/vosk-api/625e44c62607a3b48fec6d72a30118448909e83f/src/json.h",
+      "source_revision": "625e44c62607a3b48fec6d72a30118448909e83f",
+      "file": "docs/INVESTIGACION/F3.06-vosk/licenses/SIMPLEJSON-LICENSE-HEADER.txt",
+      "size_bytes": 143,
+      "sha256": "72f90c990bca4c105d81a5664a0e558172544e53e3c7e6fceadca06cf865883c",
+      "full_source_sha256": "0f829ed9c5faed9067899fec4056ec361312e71c83db143da7146efc399dbd02"
+    },
+    {
+      "component": "Vosk Spanish model",
+      "license": "Apache-2.0 declared in official model catalog, not restated in archive README",
+      "source_url": "https://alphacephei.com/vosk/models",
+      "download_url": "https://alphacephei.com/vosk/models/vosk-model-small-es-0.42.zip",
+      "source_revision": "vosk-model-small-es-0.42",
+      "file": "docs/INVESTIGACION/F3.06-vosk/licenses/VOSK-SMALL-ES-0.42-README.txt",
+      "sha256": "94132a6f5334701d8c0b4d25ef6890f74972909d8824c6c5974c41bca0542d88",
+      "archive_sha256": "09b239888f633ef2f0b4e09736e3d9936acfd810bc65d53fad45261762c6511f",
+      "archive_bytes": 39817833,
+      "uncompressed_bytes": 60286598
+    }
+  ]
+}

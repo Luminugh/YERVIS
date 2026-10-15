@@ -1,0 +1,388 @@
+{
+  "normalization": "word edit distance; lowercase, punctuation and diacritics ignored; no numeric/technical aliases",
+  "device": "Pixel 8 AVD API35 x86_64, 4096-byte pages; not Samsung/16KB/microphone",
+  "voskPreparationMs": 0,
+  "sherpaPreparationMs": 2165.5231,
+  "rows": [
+    {
+      "fixture": "fleurs-es_419-san_pedro.wav",
+      "round": 0,
+      "engine": "rnnt-greedy",
+      "samples": 155520,
+      "durationMs": 9720,
+      "loadMs": 2119.7955,
+      "inferenceMs": 1704.9365,
+      "referenceWords": 22,
+      "hypothesisWords": 22,
+      "S": 0,
+      "D": 0,
+      "I": 0,
+      "wer": 0.0,
+      "rtf": 0.17540498971193416
+    },
+    {
+      "fixture": "fleurs-es_419-san_pedro.wav",
+      "round": 1,
+      "engine": "rnnt-greedy",
+      "samples": 155520,
+      "durationMs": 9720,
+      "loadMs": 2023.4348,
+      "inferenceMs": 505.8383,
+      "referenceWords": 22,
+      "hypothesisWords": 22,
+      "S": 0,
+      "D": 0,
+      "I": 0,
+      "wer": 0.0,
+      "rtf": 0.052040977366255146
+    },
+    {
+      "fixture": "fleurs-es_419-san_pedro.wav",
+      "round": 2,
+      "engine": "rnnt-greedy",
+      "samples": 155520,
+      "durationMs": 9720,
+      "loadMs": 1686.8122,
+      "inferenceMs": 505.5536,
+      "referenceWords": 22,
+      "hypothesisWords": 22,
+      "S": 0,
+      "D": 0,
+      "I": 0,
+      "wer": 0.0,
+      "rtf": 0.05201168724279836
+    },
+    {
+      "fixture": "fleurs-es_419-negative_tierra.wav",
+      "round": 0,
+      "engine": "rnnt-greedy",
+      "samples": 137280,
+      "durationMs": 8580,
+      "loadMs": 2030.3725,
+      "inferenceMs": 448.3381,
+      "referenceWords": 15,
+      "hypothesisWords": 15,
+      "S": 0,
+      "D": 0,
+      "I": 0,
+      "wer": 0.0,
+      "rtf": 0.05225385780885781
+    },
+    {
+      "fixture": "fleurs-es_419-negative_tierra.wav",
+      "round": 1,
+      "engine": "rnnt-greedy",
+      "samples": 137280,
+      "durationMs": 8580,
+      "loadMs": 1726.2309,
+      "inferenceMs": 434.2158,
+      "referenceWords": 15,
+      "hypothesisWords": 15,
+      "S": 0,
+      "D": 0,
+      "I": 0,
+      "wer": 0.0,
+      "rtf": 0.0506079020979021
+    },
+    {
+      "fixture": "fleurs-es_419-negative_tierra.wav",
+      "round": 2,
+      "engine": "rnnt-greedy",
+      "samples": 137280,
+      "durationMs": 8580,
+      "loadMs": 1731.5449,
+      "inferenceMs": 447.5135,
+      "referenceWords": 15,
+      "hypothesisWords": 15,
+      "S": 0,
+      "D": 0,
+      "I": 0,
+      "wer": 0.0,
+      "rtf": 0.05215775058275059
+    },
+    {
+      "fixture": "fleurs-es_419-carpanedo.wav",
+      "round": 0,
+      "engine": "rnnt-greedy",
+      "samples": 169920,
+      "durationMs": 10620,
+      "loadMs": 1691.0913,
+      "inferenceMs": 527.1294,
+      "referenceWords": 14,
+      "hypothesisWords": 14,
+      "S": 1,
+      "D": 0,
+      "I": 0,
+      "wer": 0.07142857142857142,
+      "rtf": 0.04963553672316384
+    },
+    {
+      "fixture": "fleurs-es_419-carpanedo.wav",
+      "round": 1,
+      "engine": "rnnt-greedy",
+      "samples": 169920,
+      "durationMs": 10620,
+      "loadMs": 1940.4058,
+      "inferenceMs": 561.0497,
+      "referenceWords": 14,
+      "hypothesisWords": 14,
+      "S": 1,
+      "D": 0,
+      "I": 0,
+      "wer": 0.07142857142857142,
+      "rtf": 0.05282953860640301
+    },
+    {
+      "fixture": "fleurs-es_419-carpanedo.wav",
+      "round": 2,
+      "engine": "rnnt-greedy",
+      "samples": 169920,
+      "durationMs": 10620,
+      "loadMs": 1730.1883,
+      "inferenceMs": 536.7192,
+      "referenceWords": 14,
+      "hypothesisWords": 14,
+      "S": 1,
+      "D": 0,
+      "I": 0,
+      "wer": 0.07142857142857142,
+      "rtf": 0.05053853107344633
+    },
+    {
+      "fixture": "fleurs-es_419-luna.wav",
+      "round": 0,
+      "engine": "rnnt-greedy",
+      "samples": 90240,
+      "durationMs": 5640,
+      "loadMs": 1673.0694,
+      "inferenceMs": 289.5921,
+      "referenceWords": 9,
+      "hypothesisWords": 9,
+      "S": 0,
+      "D": 0,
+      "I": 0,
+      "wer": 0.0,
+      "rtf": 0.051346117021276595
+    },
+    {
+      "fixture": "fleurs-es_419-luna.wav",
+      "round": 1,
+      "engine": "rnnt-greedy",
+      "samples": 90240,
+      "durationMs": 5640,
+      "loadMs": 1819.3786,
+      "inferenceMs": 288.75,
+      "referenceWords": 9,
+      "hypothesisWords": 9,
+      "S": 0,
+      "D": 0,
+      "I": 0,
+      "wer": 0.0,
+      "rtf": 0.0511968085106383
+    },
+    {
+      "fixture": "fleurs-es_419-luna.wav",
+      "round": 2,
+      "engine": "rnnt-greedy",
+      "samples": 90240,
+      "durationMs": 5640,
+      "loadMs": 1706.4491,
+      "inferenceMs": 465.7316,
+      "referenceWords": 9,
+      "hypothesisWords": 9,
+      "S": 0,
+      "D": 0,
+      "I": 0,
+      "wer": 0.0,
+      "rtf": 0.08257652482269504
+    },
+    {
+      "fixture": "authorized-private-recording",
+      "round": 0,
+      "engine": "rnnt-greedy",
+      "samples": 1056160,
+      "durationMs": 66010,
+      "loadMs": 1682.2611,
+      "inferenceMs": 13556.8398,
+      "referenceWords": 201,
+      "hypothesisWords": 201,
+      "S": 25,
+      "D": 12,
+      "I": 12,
+      "wer": 0.24378109452736318,
+      "rtf": 0.20537554612937434,
+      "technicalTokenOccurrences": {
+        "discord": {
+          "reference": 3,
+          "recognized": 1
+        },
+        "cpu": {
+          "reference": 3,
+          "recognized": 0
+        },
+        "edge": {
+          "reference": 1,
+          "recognized": 0
+        },
+        "8792": {
+          "reference": 1,
+          "recognized": 0
+        },
+        "4668": {
+          "reference": 1,
+          "recognized": 0
+        },
+        "yezvi": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "kotlin": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "compose": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "nalbero": {
+          "reference": 0,
+          "recognized": 0
+        }
+      }
+    },
+    {
+      "fixture": "authorized-private-recording",
+      "round": 1,
+      "engine": "rnnt-greedy",
+      "samples": 1056160,
+      "durationMs": 66010,
+      "loadMs": 2616.6507,
+      "inferenceMs": 9191.5817,
+      "referenceWords": 201,
+      "hypothesisWords": 201,
+      "S": 25,
+      "D": 12,
+      "I": 12,
+      "wer": 0.24378109452736318,
+      "rtf": 0.13924529162248145,
+      "technicalTokenOccurrences": {
+        "discord": {
+          "reference": 3,
+          "recognized": 1
+        },
+        "cpu": {
+          "reference": 3,
+          "recognized": 0
+        },
+        "edge": {
+          "reference": 1,
+          "recognized": 0
+        },
+        "8792": {
+          "reference": 1,
+          "recognized": 0
+        },
+        "4668": {
+          "reference": 1,
+          "recognized": 0
+        },
+        "yezvi": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "kotlin": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "compose": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "nalbero": {
+          "reference": 0,
+          "recognized": 0
+        }
+      }
+    },
+    {
+      "fixture": "authorized-private-recording",
+      "round": 2,
+      "engine": "rnnt-greedy",
+      "samples": 1056160,
+      "durationMs": 66010,
+      "loadMs": 1646.2172,
+      "inferenceMs": 5070.8342,
+      "referenceWords": 201,
+      "hypothesisWords": 201,
+      "S": 25,
+      "D": 12,
+      "I": 12,
+      "wer": 0.24378109452736318,
+      "rtf": 0.07681918194212999,
+      "technicalTokenOccurrences": {
+        "discord": {
+          "reference": 3,
+          "recognized": 1
+        },
+        "cpu": {
+          "reference": 3,
+          "recognized": 0
+        },
+        "edge": {
+          "reference": 1,
+          "recognized": 0
+        },
+        "8792": {
+          "reference": 1,
+          "recognized": 0
+        },
+        "4668": {
+          "reference": 1,
+          "recognized": 0
+        },
+        "yezvi": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "kotlin": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "compose": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "nalbero": {
+          "reference": 0,
+          "recognized": 0
+        }
+      }
+    }
+  ],
+  "aggregates": [
+    {
+      "dataset": "public",
+      "engine": "rnnt-greedy",
+      "runs": 12,
+      "wer": 0.016666666666666666,
+      "werMin": 0.0,
+      "werMax": 0.07142857142857142,
+      "medianInferenceMs": 485.6426,
+      "totalInferenceMs": 6715.3678,
+      "medianLoadMs": 1730.8666,
+      "medianRtf": 0.05202633230452675
+    },
+    {
+      "dataset": "private-approximate-reference",
+      "engine": "rnnt-greedy",
+      "runs": 3,
+      "wer": 0.24378109452736318,
+      "werMin": 0.24378109452736318,
+      "werMax": 0.24378109452736318,
+      "medianInferenceMs": 9191.5817,
+      "totalInferenceMs": 27819.2557,
+      "medianLoadMs": 1682.2611,
+      "medianRtf": 0.13924529162248145
+    }
+  ]
+}

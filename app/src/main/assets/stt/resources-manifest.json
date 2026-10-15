@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-14",
+  "runtime": "YEZVI sherpa-onnx 1.13.8 without TTS/diarization; one shared ORT 1.28.2 per ABI",
+  "resources": [
+    {
+      "path": "app/libs/sherpa-onnx-asr-only-1.13.8-yezvi.aar",
+      "cachePath": ".gradle/yezvi-stt-research/asr-only/sherpa-onnx-asr-only-1.13.8-yezvi.aar",
+      "bytes": 41208011,
+      "sha256": "afaf0053ec5a94513cbfb08c4b5e7b2d995cad3d07f5dbd93ac4d8c59c506396",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/tree/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf",
+      "version": "YEZVI build sherpa1.13.8; shared ORT1.28.2",
+      "license": "Apache-2.0/BSD/MIT, Eigen MPL-2.0, LLVM exceptions; retain exact notices",
+      "checksumBasis": "Own build receipt; official sources/toolchain/ORT archive pinned and verified",
+      "preparation": "scripts/Build-SherpaAsrOnly.ps1; no prebuilt custom artifact download"
+    },
+    {
+      "path": "app/src/main/assets/stt/silero_vad.onnx",
+      "cachePath": ".gradle/yezvi-stt-research/silero_vad.onnx",
+      "bytes": 643854,
+      "sha256": "9e2449e1087496d8d4caba907f23e0bd3f78d91fa552479bb9c23ac09cbb1fd6",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx",
+      "version": "asr-models asset pinned by SHA-256, not an inferred upstream version",
+      "license": "MIT upstream Silero VAD",
+      "checksumBasis": "GitHub publisher SHA-256 verified"
+    },
+    {
+      "path": "app/src/main/assets/stt/nemo-es-rnnt-int8/encoder.int8.onnx",
+      "cachePath": ".gradle/yezvi-stt-research/sherpa-onnx-nemo-fast-conformer-transducer-es-1424-int8/encoder.int8.onnx",
+      "bytes": 131113475,
+      "sha256": "17bde3c5005f7a9d0614336ea13db7d2c3c1c4efcacfa380e962b36d768b907e",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-fast-conformer-transducer-es-1424-int8.tar.bz2",
+      "version": "same verified RNNT archive",
+      "license": "CC-BY-4.0 derived model vocabulary/weights",
+      "checksumBasis": "extracted from verified publisher archive; per-file SHA-256 calculated locally"
+    },
+    {
+      "path": "app/src/main/assets/stt/nemo-es-rnnt-int8/decoder.int8.onnx",
+      "cachePath": ".gradle/yezvi-stt-research/sherpa-onnx-nemo-fast-conformer-transducer-es-1424-int8/decoder.int8.onnx",
+      "bytes": 3955863,
+      "sha256": "e759e0c04faa31526c34a96927bd8c69574e9b5e83360559b4f924be98f89f0e",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-fast-conformer-transducer-es-1424-int8.tar.bz2",
+      "version": "same verified RNNT archive",
+      "license": "CC-BY-4.0 derived model vocabulary/weights",
+      "checksumBasis": "extracted from verified publisher archive; per-file SHA-256 calculated locally"
+    },
+    {
+      "path": "app/src/main/assets/stt/nemo-es-rnnt-int8/joiner.int8.onnx",
+      "cachePath": ".gradle/yezvi-stt-research/sherpa-onnx-nemo-fast-conformer-transducer-es-1424-int8/joiner.int8.onnx",
+      "bytes": 1408182,
+      "sha256": "78f941bcda8d7e3d43b89a8fd805a8e77e99d06bde4c6ceedc9ec423ee4d04bd",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-fast-conformer-transducer-es-1424-int8.tar.bz2",
+      "version": "same verified RNNT archive",
+      "license": "CC-BY-4.0 derived model vocabulary/weights",
+      "checksumBasis": "extracted from verified publisher archive; per-file SHA-256 calculated locally"
+    },
+    {
+      "path": "app/src/main/assets/stt/nemo-es-rnnt-int8/tokens.txt",
+      "cachePath": ".gradle/yezvi-stt-research/sherpa-onnx-nemo-fast-conformer-transducer-es-1424-int8/tokens.txt",
+      "bytes": 10871,
+      "sha256": "6191b4853e3654f053c42f6fd184ca53b402987aefdd6ff6baa68034d803ee85",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-fast-conformer-transducer-es-1424-int8.tar.bz2",
+      "version": "same verified RNNT archive",
+      "license": "CC-BY-4.0 derived model vocabulary/weights",
+      "checksumBasis": "extracted from verified publisher archive; per-file SHA-256 calculated locally"
+    },
+    {
+      "path": "app/src/main/assets/stt/nemo-es-rnnt-int8/bpe.vocab",
+      "cachePath": ".gradle/yezvi-stt-research/sherpa-onnx-nemo-fast-conformer-transducer-es-1424-int8/bpe.vocab",
+      "bytes": 11981,
+      "sha256": "99fa642e935e8eb5ce835cf1e4fbd238afafb10f6cbcbbe3f1511650124f5597",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/blob/v1.13.8/nodejs-addon-examples/test_asr_non_streaming_nemo_parakeet_tdt_v2_hotwords.js",
+      "version": "same verified RNNT archive",
+      "license": "CC-BY-4.0 derived model vocabulary/weights",
+      "checksumBasis": "locally derived from tokens.txt: token, TAB, -1.0, LF; 1025 rows"
+    }
+  ]
+}

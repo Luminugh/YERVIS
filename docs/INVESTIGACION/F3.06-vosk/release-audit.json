@@ -1,0 +1,346 @@
+{
+  "apk": "app\\build\\outputs\\apk\\release\\app-release-unsigned.apk",
+  "bytes": 82040275,
+  "sha256": "77372dd44d58397e0de5826ec8551b13b2199e3b9617378a139bd283055209ce",
+  "jnaLicenseChoice": "Apache-2.0",
+  "permissions": [
+    "android.permission.RECORD_AUDIO",
+    "com.yezvi.assistant.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+  ],
+  "researchComponents": [],
+  "noticeCount": 13,
+  "nativeLibraries": [
+    {
+      "path": "lib/arm64-v8a/libandroidx.graphics.path.so",
+      "sha256": "41e9a793c43a0f4fddb19e33f346bace464f30f888ba7b9eaf96294ea115bfb6",
+      "matchesInspectedArtifact": false
+    },
+    {
+      "path": "lib/arm64-v8a/libjnidispatch.so",
+      "sha256": "abc26e994517bcaa3309acdb0a27373864086c7569c89d3087b8626fada9ef06",
+      "matchesInspectedArtifact": true,
+      "loadSegments": [
+        {
+          "p_align": 16384,
+          "file_offset": 0,
+          "virtual_address": 0,
+          "mod16k_congruent": true
+        },
+        {
+          "p_align": 16384,
+          "file_offset": 162712,
+          "virtual_address": 179096,
+          "mod16k_congruent": true
+        }
+      ],
+      "gnuRelro": [
+        {
+          "virtual_address": 179096,
+          "memory_size": 1128,
+          "end_mod_16384": 0
+        }
+      ],
+      "needed": [
+        "libc.so",
+        "libdl.so",
+        "libm.so"
+      ]
+    },
+    {
+      "path": "lib/arm64-v8a/libvosk.so",
+      "sha256": "06965ebb4e5eb3a9e4a815755e178d9553392e3fe8d3d368ac46952ad3694173",
+      "matchesInspectedArtifact": true,
+      "loadSegments": [
+        {
+          "p_align": 16384,
+          "file_offset": 0,
+          "virtual_address": 0,
+          "mod16k_congruent": true
+        },
+        {
+          "p_align": 16384,
+          "file_offset": 4223296,
+          "virtual_address": 4239680,
+          "mod16k_congruent": true
+        },
+        {
+          "p_align": 16384,
+          "file_offset": 9881040,
+          "virtual_address": 9913808,
+          "mod16k_congruent": true
+        },
+        {
+          "p_align": 16384,
+          "file_offset": 10037352,
+          "virtual_address": 10086504,
+          "mod16k_congruent": true
+        }
+      ],
+      "gnuRelro": [
+        {
+          "virtual_address": 9913808,
+          "memory_size": 158256,
+          "end_mod_16384": 12288
+        }
+      ],
+      "needed": [
+        "liblog.so",
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ]
+    },
+    {
+      "path": "lib/armeabi-v7a/libandroidx.graphics.path.so",
+      "sha256": "41399eba6fc2a60f6f14642375c1824f3cf25eb8fec7397d753730a3ceda3e2b",
+      "matchesInspectedArtifact": false
+    },
+    {
+      "path": "lib/armeabi-v7a/libjnidispatch.so",
+      "sha256": "9652282ef31834281229370a354d56c1522fe36e93625169df99b3e346f76092",
+      "matchesInspectedArtifact": true,
+      "loadSegments": [
+        {
+          "p_align": 16384,
+          "file_offset": 0,
+          "virtual_address": 0,
+          "mod16k_congruent": true
+        },
+        {
+          "p_align": 16384,
+          "file_offset": 114072,
+          "virtual_address": 130456,
+          "mod16k_congruent": true
+        }
+      ],
+      "gnuRelro": [
+        {
+          "virtual_address": 130456,
+          "memory_size": 616,
+          "end_mod_16384": 0
+        }
+      ],
+      "needed": [
+        "libc.so",
+        "libdl.so",
+        "libm.so"
+      ]
+    },
+    {
+      "path": "lib/armeabi-v7a/libvosk.so",
+      "sha256": "a89defe2b093be392c793fd9fe21c65dd0a86818de9e42eef51b76db92549181",
+      "matchesInspectedArtifact": true,
+      "loadSegments": [
+        {
+          "p_align": 4096,
+          "file_offset": 0,
+          "virtual_address": 0,
+          "mod16k_congruent": true
+        },
+        {
+          "p_align": 4096,
+          "file_offset": 3113920,
+          "virtual_address": 3118016,
+          "mod16k_congruent": false
+        },
+        {
+          "p_align": 4096,
+          "file_offset": 8904128,
+          "virtual_address": 8912320,
+          "mod16k_congruent": false
+        },
+        {
+          "p_align": 4096,
+          "file_offset": 8981632,
+          "virtual_address": 8993920,
+          "mod16k_congruent": false
+        }
+      ],
+      "gnuRelro": [
+        {
+          "virtual_address": 8912320,
+          "memory_size": 78400,
+          "end_mod_16384": 12288
+        }
+      ],
+      "needed": [
+        "liblog.so",
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ]
+    },
+    {
+      "path": "lib/x86/libandroidx.graphics.path.so",
+      "sha256": "eb0570b41fd3bff25d8204a967c03bd7550719e768b791f680cc40cbe35f29af",
+      "matchesInspectedArtifact": false
+    },
+    {
+      "path": "lib/x86/libjnidispatch.so",
+      "sha256": "d10fcc75029621a88fa6020807e7ba82ff434a01ead396cf0e36c50e6c393118",
+      "matchesInspectedArtifact": true,
+      "loadSegments": [
+        {
+          "p_align": 16384,
+          "file_offset": 0,
+          "virtual_address": 0,
+          "mod16k_congruent": true
+        },
+        {
+          "p_align": 16384,
+          "file_offset": 114144,
+          "virtual_address": 130528,
+          "mod16k_congruent": true
+        }
+      ],
+      "gnuRelro": [
+        {
+          "virtual_address": 130528,
+          "memory_size": 544,
+          "end_mod_16384": 0
+        }
+      ],
+      "needed": [
+        "libc.so",
+        "libdl.so",
+        "libm.so"
+      ]
+    },
+    {
+      "path": "lib/x86/libvosk.so",
+      "sha256": "ecc56ef0a441f2bab6ff34401f4b6935576fd58e9f41d207026efabd748b3982",
+      "matchesInspectedArtifact": true,
+      "loadSegments": [
+        {
+          "p_align": 4096,
+          "file_offset": 0,
+          "virtual_address": 0,
+          "mod16k_congruent": true
+        },
+        {
+          "p_align": 4096,
+          "file_offset": 3714512,
+          "virtual_address": 3718608,
+          "mod16k_congruent": false
+        },
+        {
+          "p_align": 4096,
+          "file_offset": 10315968,
+          "virtual_address": 10324160,
+          "mod16k_congruent": false
+        },
+        {
+          "p_align": 4096,
+          "file_offset": 10393544,
+          "virtual_address": 10405832,
+          "mod16k_congruent": false
+        }
+      ],
+      "gnuRelro": [
+        {
+          "virtual_address": 10324160,
+          "memory_size": 79680,
+          "end_mod_16384": 0
+        }
+      ],
+      "needed": [
+        "liblog.so",
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ]
+    },
+    {
+      "path": "lib/x86_64/libandroidx.graphics.path.so",
+      "sha256": "4e56c996f13670e70082658de7880c4020eabf4f25e43387f88ed78a713fc9f0",
+      "matchesInspectedArtifact": false
+    },
+    {
+      "path": "lib/x86_64/libjnidispatch.so",
+      "sha256": "3809247e9b804a05ed8377b87d545cf5b5e97f960f75e725bc8497b40260e417",
+      "matchesInspectedArtifact": true,
+      "loadSegments": [
+        {
+          "p_align": 16384,
+          "file_offset": 0,
+          "virtual_address": 0,
+          "mod16k_congruent": true
+        },
+        {
+          "p_align": 16384,
+          "file_offset": 113408,
+          "virtual_address": 129792,
+          "mod16k_congruent": true
+        }
+      ],
+      "gnuRelro": [
+        {
+          "virtual_address": 129792,
+          "memory_size": 1280,
+          "end_mod_16384": 0
+        }
+      ],
+      "needed": [
+        "libc.so",
+        "libdl.so",
+        "libm.so"
+      ]
+    },
+    {
+      "path": "lib/x86_64/libvosk.so",
+      "sha256": "139c42691fae9f5a65c390c0a1311fac1fc9119be662469f32e1af6cefbe496f",
+      "matchesInspectedArtifact": true,
+      "loadSegments": [
+        {
+          "p_align": 16384,
+          "file_offset": 0,
+          "virtual_address": 0,
+          "mod16k_congruent": true
+        },
+        {
+          "p_align": 16384,
+          "file_offset": 4045312,
+          "virtual_address": 4061696,
+          "mod16k_congruent": true
+        },
+        {
+          "p_align": 16384,
+          "file_offset": 10172944,
+          "virtual_address": 10205712,
+          "mod16k_congruent": true
+        },
+        {
+          "p_align": 16384,
+          "file_offset": 10329568,
+          "virtual_address": 10378720,
+          "mod16k_congruent": true
+        }
+      ],
+      "gnuRelro": [
+        {
+          "virtual_address": 10205712,
+          "memory_size": 157168,
+          "end_mod_16384": 8192
+        }
+      ],
+      "needed": [
+        "liblog.so",
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ]
+    }
+  ],
+  "identifiedLicenseFinding": "No incompatible/GPL component identified in the Vosk route; original notices packaged",
+  "publicationReady": false,
+  "publicationBlockers": [
+    "Unknown or transformed native library: lib/arm64-v8a/libandroidx.graphics.path.so",
+    "16 KB ELF compatibility unresolved: lib/arm64-v8a/libvosk.so",
+    "Unknown or transformed native library: lib/armeabi-v7a/libandroidx.graphics.path.so",
+    "Unknown or transformed native library: lib/x86/libandroidx.graphics.path.so",
+    "Unknown or transformed native library: lib/x86_64/libandroidx.graphics.path.so",
+    "16 KB ELF compatibility unresolved: lib/x86_64/libvosk.so",
+    "Exact prebuilt native Kaldi/OpenFst/NDK build traceability remains unresolved"
+  ],
+  "scope": "STT artifacts only; not a legal certification of all app dependencies"
+}

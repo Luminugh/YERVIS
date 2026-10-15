@@ -1,0 +1,17 @@
+{
+  "format": 1,
+  "sourceCommit": "11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf",
+  "experimental": true,
+  "completeAbiSet": true,
+  "purpose": "Debug-only uncalibrated pre-context token scores; release uses the original ASR-only runtime",
+  "bytes": 41222198,
+  "sha256": "29f4800294ed2492c5e503e48249f2e80a253c0b3f9eab9499b03f83006e02c6",
+  "patchSha256": "27699515005af79815bf47e41f0cd2cb2598c8f39062f81222a63521fe72dd3a",
+  "bridgeSha256": "bb1c3cb40baf3520b7ef31aa00ec2a8f86acc4aab423ad070589876731441c99",
+  "nativeAbis": [
+    "arm64-v8a",
+    "armeabi-v7a",
+    "x86",
+    "x86_64"
+  ]
+}

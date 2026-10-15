@@ -1,0 +1,413 @@
+{
+  "date": "2026-10-12",
+  "source": "simple-sentencepiece v0.7, same version fixed by sherpa-onnx1.13.8 CMake",
+  "method": "Original C++ sources compiled unmodified with existing Unity bundled Android NDK; locally authored probe mimics sherpa per-word EncodeHotwords processing and verifies piece IDs against actual tokens.txt",
+  "target": "x86_64-linux-android24",
+  "executionDevice": "emulator-5554 Pixel_8 API35",
+  "compiler": "Existing Unity6000.6.0f1 bundled NDK clang++",
+  "sources": [
+    {
+      "path": "ssentencepiece\\csrc\\darts.h",
+      "url": "https://raw.githubusercontent.com/pkufool/simple-sentencepiece/v0.7/ssentencepiece/csrc/darts.h",
+      "bytes": 53998,
+      "sha256": "a0ff15abf69e2651dedef5acacf474b7b8d20ace8cd5dd79dd201e99ccfee91d"
+    },
+    {
+      "path": "ssentencepiece\\csrc\\ssentencepiece.cc",
+      "url": "https://raw.githubusercontent.com/pkufool/simple-sentencepiece/v0.7/ssentencepiece/csrc/ssentencepiece.cc",
+      "bytes": 8088,
+      "sha256": "57a65cc7620f7fc8973e5c57d59459a1a6c1ad3b4c8321d931e9afaf3421e9b7"
+    },
+    {
+      "path": "ssentencepiece\\csrc\\ssentencepiece.h",
+      "url": "https://raw.githubusercontent.com/pkufool/simple-sentencepiece/v0.7/ssentencepiece/csrc/ssentencepiece.h",
+      "bytes": 3238,
+      "sha256": "16478b55035aee9d345636596997e9fa8c7c01a916d732b1d70a4b13cc32f8e3"
+    },
+    {
+      "path": "ssentencepiece\\csrc\\threadpool.h",
+      "url": "https://raw.githubusercontent.com/pkufool/simple-sentencepiece/v0.7/ssentencepiece/csrc/threadpool.h",
+      "bytes": 3255,
+      "sha256": "a0737647480c4fbab218b3540b4be0cb35edf9b4e869e275f56f79f0d25d2830"
+    }
+  ],
+  "probeSha256": "bbfe8f79d7ec2aead0be7812a1e632a05e0b86c2d634be7083704c66f2b94089",
+  "executableSha256": "a89ae9f311e4d46f9727c939394dd2df210c2368f15f6b535d444676d02a72a1",
+  "nativeProbeExitCode": 0,
+  "bpeVocabSha256": "99fa642e935e8eb5ce835cf1e4fbd238afafb10f6cbcbbe3f1511650124f5597",
+  "tokensSha256": "6191b4853e3654f053c42f6fd184ca53b402987aefdd6ff6baa68034d803ee85",
+  "limitations": [
+    "Standalone native tokenizer, not an AAR Kotlin standalone encoder API (none exposed)",
+    "No original Unigram tokenizer model/scores/normalizer provided or compared",
+    "Native segmentation uses byte DAG/DP with all -1.0 scores; not proved identical to original Unigram",
+    "No acoustic accuracy inference from representability"
+  ],
+  "results": [
+    {
+      "term": "YEZVI",
+      "pieces": [
+        "▁Y",
+        "E",
+        "Z",
+        "V",
+        "I"
+      ],
+      "ids": [
+        108,
+        832,
+        851,
+        1010,
+        1006
+      ],
+      "contains_unknown": false
+    },
+    {
+      "term": "yezvi",
+      "pieces": [
+        "▁",
+        "ye",
+        "z",
+        "vi"
+      ],
+      "ids": [
+        12,
+        411,
+        96,
+        77
+      ],
+      "contains_unknown": false
+    },
+    {
+      "term": "Kotlin",
+      "pieces": [
+        "▁K",
+        "o",
+        "t",
+        "li",
+        "n"
+      ],
+      "ids": [
+        733,
+        24,
+        80,
+        69,
+        10
+      ],
+      "contains_unknown": false
+    },
+    {
+      "term": "Jetpack",
+      "pieces": [
+        "▁",
+        "J",
+        "e",
+        "t",
+        "pa",
+        "c",
+        "k"
+      ],
+      "ids": [
+        12,
+        732,
+        18,
+        80,
+        121,
+        31,
+        265
+      ],
+      "contains_unknown": false
+    },
+    {
+      "term": "Compose",
+      "pieces": [
+        "▁Co",
+        "m",
+        "po",
+        "se"
+      ],
+      "ids": [
+        309,
+        73,
+        163,
+        64
+      ],
+      "contains_unknown": false
+    },
+    {
+      "term": "Jetpack Compose",
+      "pieces": [
+        "▁",
+        "J",
+        "e",
+        "t",
+        "pa",
+        "c",
+        "k",
+        "▁Co",
+        "m",
+        "po",
+        "se"
+      ],
+      "ids": [
+        12,
+        732,
+        18,
+        80,
+        121,
+        31,
+        265,
+        309,
+        73,
+        163,
+        64
+      ],
+      "contains_unknown": false
+    },
+    {
+      "term": "Nalvero",
+      "pieces": [
+        "▁Na",
+        "l",
+        "v",
+        "ero"
+      ],
+      "ids": [
+        550,
+        15,
+        324,
+        377
+      ],
+      "contains_unknown": false
+    },
+    {
+      "term": "Névara",
+      "pieces": [
+        "▁",
+        "N",
+        "é",
+        "va",
+        "ra"
+      ],
+      "ids": [
+        12,
+        721,
+        95,
+        125,
+        23
+      ],
+      "contains_unknown": false
+    },
+    {
+      "term": "Carpanedo",
+      "pieces": [
+        "▁C",
+        "ar",
+        "pa",
+        "ne",
+        "do"
+      ],
+      "ids": [
+        192,
+        152,
+        121,
+        123,
+        19
+      ],
+      "contains_unknown": false
+    },
+    {
+      "term": "Plaza",
+      "pieces": [
+        "▁P",
+        "la",
+        "za"
+      ],
+      "ids": [
+        201,
+        36,
+        106
+      ],
+      "contains_unknown": false
+    },
+    {
+      "term": "de",
+      "pieces": [
+        "▁de"
+      ],
+      "ids": [
+        3
+      ],
+      "contains_unknown": false
+    },
+    {
+      "term": "San",
+      "pieces": [
+        "▁San"
+      ],
+      "ids": [
+        463
+      ],
+      "contains_unknown": false
+    },
+    {
+      "term": "Pedro",
+      "pieces": [
+        "▁Pe",
+        "d",
+        "ro"
+      ],
+      "ids": [
+        490,
+        46,
+        58
+      ],
+      "contains_unknown": false
+    },
+    {
+      "term": "Plaza de San Pedro",
+      "pieces": [
+        "▁P",
+        "la",
+        "za",
+        "▁de",
+        "▁San",
+        "▁Pe",
+        "d",
+        "ro"
+      ],
+      "ids": [
+        201,
+        36,
+        106,
+        3,
+        463,
+        490,
+        46,
+        58
+      ],
+      "contains_unknown": false
+    },
+    {
+      "term": "Luna",
+      "pieces": [
+        "▁L",
+        "u",
+        "na"
+      ],
+      "ids": [
+        517,
+        37,
+        38
+      ],
+      "contains_unknown": false
+    },
+    {
+      "term": "Tierra",
+      "pieces": [
+        "▁T",
+        "i",
+        "e",
+        "rra"
+      ],
+      "ids": [
+        239,
+        27,
+        18,
+        475
+      ],
+      "contains_unknown": false
+    },
+    {
+      "term": "Luna Tierra",
+      "pieces": [
+        "▁L",
+        "u",
+        "na",
+        "▁T",
+        "i",
+        "e",
+        "rra"
+      ],
+      "ids": [
+        517,
+        37,
+        38,
+        239,
+        27,
+        18,
+        475
+      ],
+      "contains_unknown": false
+    },
+    {
+      "term": "中文",
+      "pieces": [
+        "▁",
+        "<unk>",
+        "<unk>",
+        "<unk>",
+        "<unk>",
+        "<unk>",
+        "<unk>"
+      ],
+      "ids": [
+        12,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "contains_unknown": true
+    },
+    {
+      "term": "Névara",
+      "pieces": [
+        "▁Ne",
+        "<unk>",
+        "<unk>",
+        "va",
+        "ra"
+      ],
+      "ids": [
+        881,
+        0,
+        0,
+        125,
+        23
+      ],
+      "contains_unknown": true
+    },
+    {
+      "term": "  Jetpack\t Compose  ",
+      "pieces": [
+        "▁",
+        "J",
+        "e",
+        "t",
+        "pa",
+        "c",
+        "k",
+        "▁Co",
+        "m",
+        "po",
+        "se"
+      ],
+      "ids": [
+        12,
+        732,
+        18,
+        80,
+        121,
+        31,
+        265,
+        309,
+        73,
+        163,
+        64
+      ],
+      "contains_unknown": false
+    }
+  ]
+}

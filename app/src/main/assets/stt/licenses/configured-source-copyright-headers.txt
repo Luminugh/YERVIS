@@ -1,0 +1,2126 @@
+Leading source comments from configured translation units and selected embedded headers.
+Snapshot 2026-10-14. This is a conservative notice supplement, not proof that each configured object was linked.
+No source code beyond leading comments is reproduced. Full license texts are provided separately.
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/eigen-src/Eigen/Core
+FILE-SHA256: 267988e70f30e9a4e27b41541e162c4d0610480f63649994156c135d8a1e658f
+// This file is part of Eigen, a lightweight C++ template library
+// for linear algebra.
+//
+// Copyright (C) 2008 Gael Guennebaud <gael.guennebaud@inria.fr>
+// Copyright (C) 2007-2011 Benoit Jacob <jacob.benoit.1@gmail.com>
+//
+// This Source Code Form is subject to the terms of the Mozilla
+// Public License v. 2.0. If a copy of the MPL was not distributed
+// with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/eigen-src/Eigen/src/Core/util/Macros.h
+FILE-SHA256: 11b6bb8f172be235e46573c99fdd6482b5fac6c6f12434a3d85392851aa01819
+// This file is part of Eigen, a lightweight C++ template library
+// for linear algebra.
+//
+// Copyright (C) 2008-2015 Gael Guennebaud <gael.guennebaud@inria.fr>
+// Copyright (C) 2006-2008 Benoit Jacob <jacob.benoit.1@gmail.com>
+//
+// This Source Code Form is subject to the terms of the Mozilla
+// Public License v. 2.0. If a copy of the MPL was not distributed
+// with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/json-src/include/nlohmann/thirdparty/hedley/hedley.hpp
+FILE-SHA256: 1547b367895f8be9f8283ae21f583182db572ad990236220002b632a15238712
+//     __ _____ _____ _____
+//  __|  |   __|     |   | |  JSON for Modern C++
+// |  |  |__   |  |  | | | |  version 3.12.0
+// |_____|_____|_____|_|___|  https://github.com/nlohmann/json
+//
+// SPDX-FileCopyrightText: 2013 - 2025 Niels Lohmann <https://nlohmann.me>
+// SPDX-FileCopyrightText: 2016 - 2021 Evan Nemerson <evan@nemerson.com>
+// SPDX-License-Identifier: MIT
+
+/* Hedley - https://nemequ.github.io/hedley
+ * Created by Evan Nemerson <evan@nemerson.com>
+ */
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/simple-sentencepiece-src/ssentencepiece/csrc/darts.h
+FILE-SHA256: a0ff15abf69e2651dedef5acacf474b7b8d20ace8cd5dd79dd201e99ccfee91d
+// The code is taken from
+// https://github.com/s-yata/darts-clone/blob/master/include/darts.h
+
+/*
+The BSD 2-clause license
+
+Copyright (c) 2008-2014, Susumu Yata All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+Redistributions of source code must retain the above copyright notice, this list
+of conditions and the following disclaimer.
+
+Redistributions in binary form must reproduce the above copyright notice, this
+list of conditions and the following disclaimer in the documentation and/or
+other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldi_decoder-src/kaldi-decoder/csrc/decodable-ctc.cc
+FILE-SHA256: 005197dd451c7264139400341221da7de5d7744f5578e844c4cc2e00bddba46b
+// kaldi-decoder/csrc/decodable-ctc.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldi_decoder-src/kaldi-decoder/csrc/eigen.cc
+FILE-SHA256: a607f41d428a7b9fbbf8409c84f1db2baf34bc77d27fd8de3f9675cab6748f61
+// kaldi-decoder/csrc/eigen.cc
+
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldi_decoder-src/kaldi-decoder/csrc/faster-decoder.cc
+FILE-SHA256: 110a14b8f65f875ad45d89fed01440f92c882f9ddbd87d327c1c97af215effaa
+// kaldi-decoder/csrc/faster-decoder.cc
+
+// Copyright 2009-2011 Microsoft Corporation
+//           2012-2013 Johns Hopkins University (author: Daniel Povey)
+// Copyright (c)  2023 Xiaomi Corporation
+
+// this file is copied and modified from
+// kaldi/src/decoder/faster-decoder.cc
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldi_decoder-src/kaldi-decoder/csrc/lattice-faster-decoder.cc
+FILE-SHA256: bd7c2910f5ad579269492141be1aae3f9e77715e73cd0177271dccdfe958e619
+// kaldi-decoder/csrc/lattice-faster-decoder.cc
+
+// Copyright 2009-2012  Microsoft Corporation  Mirko Hannemann
+//           2013-2018  Johns Hopkins University (Author: Daniel Povey)
+//                2014  Guoguo Chen
+//                2018  Zhehuai Chen
+// Copyright (c)  2023  Xiaomi Corporation
+
+// this file is copied and modified from
+// kaldi/src/decoder/lattice-faster-decoder.cc
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldi_decoder-src/kaldi-decoder/csrc/lattice-simple-decoder.cc
+FILE-SHA256: eea0ee141fa8af2bbe855b4ef7746321780beeece3095b51bf02e77aff2c56d5
+// kaldi-decoder/csrc/lattice-simple-decoder.cc
+
+// Copyright 2009-2012  Microsoft Corporation
+//           2013-2014  Johns Hopkins University (Author: Daniel Povey)
+//                2014  Guoguo Chen
+// Copyright (c)  2023  Xiaomi Corporation
+
+// this file is copied and modified from
+// kaldi/src/decoder/lattice-simple-decoder.cc
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldi_decoder-src/kaldi-decoder/csrc/simple-decoder.cc
+FILE-SHA256: 2a91d69700cb27540a206929ac509bab6aca2acacdda00ff3de43c7b31fbdff3
+// kaldi-decoder/csrc/simple-decoder.cc
+
+// Copyright 2009-2011 Microsoft Corporation
+//           2012-2013 Johns Hopkins University (author: Daniel Povey)
+// Copyright (c)  2023 Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldi_native_fbank-src/kaldi-native-fbank/csrc/feature-fbank.cc
+FILE-SHA256: 6c9edabf3b2479f31392aec9490688f59262e6f86c85cc648cfa8987387814c1
+/**
+ * Copyright (c)  2022  Xiaomi Corporation (authors: Fangjun Kuang)
+ *
+ * See LICENSE for clarification regarding multiple authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+// This file is copied/modified from kaldi/src/feat/feature-fbank.cc
+//
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldi_native_fbank-src/kaldi-native-fbank/csrc/feature-functions.cc
+FILE-SHA256: a95d7563981e4b416597a00758d9da1d51c5351e254c35bb58578acf4ead923f
+/**
+ * Copyright (c)  2022  Xiaomi Corporation (authors: Fangjun Kuang)
+ *
+ * See LICENSE for clarification regarding multiple authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+// This file is copied/modified from kaldi/src/feat/feature-functions.cc
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldi_native_fbank-src/kaldi-native-fbank/csrc/feature-mfcc.cc
+FILE-SHA256: 0dc0c7594723efa880c9d707dd66515893e58f0badc0132b25b0f971732706a4
+/**
+ * Copyright (c)  2022  Xiaomi Corporation (authors: Fangjun Kuang)
+ *
+ * See LICENSE for clarification regarding multiple authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+// This file is copied/modified from kaldi/src/feat/feature-mfcc.cc
+//
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldi_native_fbank-src/kaldi-native-fbank/csrc/feature-raw-audio-samples.cc
+FILE-SHA256: 3631bf7eb29dbefd6653321d5b69c9ad31cd541ef2761d8e587dbcc03cbd4b95
+/**
+ * Copyright (c)  2025  Xiaomi Corporation (authors: Fangjun Kuang)
+ *
+ * See LICENSE for clarification regarding multiple authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldi_native_fbank-src/kaldi-native-fbank/csrc/feature-window.cc
+FILE-SHA256: cac43e0def16acb3032491ea65d4cdfc9e2523ef18d8202524a58b43b7fe67d2
+// kaldi-native-fbank/csrc/feature-window.cc
+//
+// Copyright (c)  2022  Xiaomi Corporation (authors: Fangjun Kuang)
+
+// This file is copied/modified from kaldi/src/feat/feature-window.cc
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldi_native_fbank-src/kaldi-native-fbank/csrc/istft.cc
+FILE-SHA256: ac4c08e3cf1826478d88264e839c286f6908c33f8fd5ed577072c1977ec69e44
+/**
+ * Copyright (c)  2025  Xiaomi Corporation (authors: Fangjun Kuang)
+ *
+ * See LICENSE for clarification regarding multiple authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldi_native_fbank-src/kaldi-native-fbank/csrc/kaldi-math.cc
+FILE-SHA256: 11b57da15d691a94e61b8a3471c7dbad5318125412b00456aa10e4f6af30d47d
+// kaldi-native-fbank/csrc/kaldi-math.cc
+//
+// Copyright (c)  2024  Brno University of Technology (authors: Karel Vesely)
+
+// This file is an excerpt from kaldi/src/base/kaldi-math.cc
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldi_native_fbank-src/kaldi-native-fbank/csrc/mel-computations.cc
+FILE-SHA256: 8d02d0edc209295bfa76d1a1a08def51f634a1458fac4408fefd4bdbb7b57e43
+/**
+ * Copyright (c)  2022  Xiaomi Corporation (authors: Fangjun Kuang)
+ *
+ * See LICENSE for clarification regarding multiple authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+// This file is copied/modified from kaldi/src/feat/mel-computations.cc
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldi_native_fbank-src/kaldi-native-fbank/csrc/online-feature.cc
+FILE-SHA256: d74de946a0ccdeec7b5d44bf31d7038d72d5c36b7aa328f842ac89ebfa86ccd1
+/**
+ * Copyright (c)  2022  Xiaomi Corporation (authors: Fangjun Kuang)
+ *
+ * See LICENSE for clarification regarding multiple authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+// The content in this file is copied/modified from
+// This file is copied/modified from kaldi/src/feat/online-feature.cc
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldi_native_fbank-src/kaldi-native-fbank/csrc/rfft.cc
+FILE-SHA256: 7b4497124cad27d1f1324a3c944c9cbe98b022aa27ef6b0ef011987a07d025cb
+/**
+ * Copyright (c)  2022  Xiaomi Corporation (authors: Fangjun Kuang)
+ *
+ * See LICENSE for clarification regarding multiple authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldi_native_fbank-src/kaldi-native-fbank/csrc/stft.cc
+FILE-SHA256: bb7f38ac5f41e6d3b8125b7fd83a3a8a54b0a2f3be72fa566353192717aa3d93
+/**
+ * Copyright (c)  2025  Xiaomi Corporation (authors: Fangjun Kuang)
+ *
+ * See LICENSE for clarification regarding multiple authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldi_native_fbank-src/kaldi-native-fbank/csrc/whisper-feature.cc
+FILE-SHA256: 191a0ffb1fbeaf8da31094bdc3a7dc1de9ae72b33ac711b224612f4981e27cb7
+/**
+ * Copyright (c)  2023  Xiaomi Corporation (authors: Fangjun Kuang)
+ *
+ * See LICENSE for clarification regarding multiple authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldifst-src/kaldifst/csrc/context-fst.cc
+FILE-SHA256: c0f8fcbfaceadf6ac0049d02d2facf4437023f36e3288fc96aa041d9fa5d1434
+// kaldifst/csrc/context-fst.cc
+//
+// This file is copied/modified from
+// https://github.com/kaldi-asr/kaldi/blob/master/src/fstext/context-fst.cc
+
+// Copyright      2018  Johns Hopkins University (author: Daniel Povey)
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldifst-src/kaldifst/csrc/kaldi-fst-io.cc
+FILE-SHA256: 0477f366a27765d71c99c8e63a5e0713d8b9dd1d63fbe11974e113a1d93be444
+// kaldifst/csrc/kaldi-fst-io.cc
+//
+// This file is copied/modified from
+// https://github.com/kaldi-asr/kaldi/blob/master/src/fstext/kaldi-fst-io.cc
+
+// Copyright 2009-2011  Microsoft Corporation
+//           2012-2015  Johns Hopkins University (Author: Daniel Povey)
+//                2013  Guoguo Chen
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldifst-src/kaldifst/csrc/kaldi-holder.cc
+FILE-SHA256: c2e0b054b6f0b9cce004ba49f2479726b57c8b186fe996e806312ddaff8df478
+// kaldifst/csrc/kaldi-holder.cc
+//
+// This file is copied/modified from
+// https://github.com/kaldi-asr/kaldi/blob/master/src/util/kaldi-holder.cc
+
+// Copyright 2009-2011     Microsoft Corporation
+//                2016     Xiaohui Zhang
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldifst-src/kaldifst/csrc/kaldi-io.cc
+FILE-SHA256: b87dae3202f3a7e8d4b576f10d1b7ea74da9fa236c7a581f4ffe067331222cc2
+// kaldifst/csrc/kaldi-io.cc
+//
+// This file is copied/modified from
+// https://github.com/kaldi-asr/kaldi/blob/master/src/util/kaldi-io.cc
+
+// Copyright 2009-2011  Microsoft Corporation;  Jan Silovsky
+//                2016  Xiaohui Zhang
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldifst-src/kaldifst/csrc/kaldi-math.cc
+FILE-SHA256: c35c2948828601875b215b865abb33bb8c31a121be73caa2c55ffe4b304dc145
+// kaldifst/csrc/kaldi-math.cc
+//
+// This file is copied/modified from
+// https://github.com/kaldi-asr/kaldi/blob/master/src/base/kaldi-math.cc
+//
+// Copyright 2009-2011  Ondrej Glembek;  Microsoft Corporation;  Yanmin Qian;
+//                      Jan Silovsky;  Saarland University
+//
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldifst-src/kaldifst/csrc/kaldi-semaphore.cc
+FILE-SHA256: 50c1d0c79ba19a3db4427c95e6e727b7f844a588b620de276f7523aea328d5b8
+// kaldifst/csrc/kaldi-semaphore.cc
+
+// Copyright 2012  Karel Vesely (Brno University of Technology)
+//           2017  Dogan Can (University of Southern California)
+
+// See ../../COPYING for clarification regarding multiple authors
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+// THIS CODE IS PROVIDED *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+// KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+// WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+// MERCHANTABLITY OR NON-INFRINGEMENT.
+// See the Apache 2 License for the specific language governing permissions and
+// limitations under the License.
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldifst-src/kaldifst/csrc/kaldi-table.cc
+FILE-SHA256: 59be25ebef8bc00897b39cd3ad11e020fa1cd5d7b7f8b73758466a93236a0026
+// kaldifst/csrc/kaldi-table.cc
+//
+// This file is copied/modified from
+// https://github.com/kaldi-asr/kaldi/blob/master/src/util/kaldi-table.cc
+
+// Copyright 2009-2011  Microsoft Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldifst-src/kaldifst/csrc/parse-options.cc
+FILE-SHA256: 3ed93f7f8f74ebfdec0289e22fb5245a525e30f2a103cf6c53a2f86dad2e58d4
+// kaldifst/csrc/parse-options.h
+//
+// This file is copied/modified from
+// https://github.com/kaldi-asr/kaldi/blob/master/src/util/parse-options.cc
+
+// Copyright 2009-2011  Karel Vesely;  Microsoft Corporation;
+//                      Saarland University (Author: Arnab Ghoshal);
+// Copyright 2012-2013  Johns Hopkins University (Author: Daniel Povey);
+//                      Frantisek Skala;  Arnab Ghoshal
+// Copyright 2013       Tanel Alumae
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldifst-src/kaldifst/csrc/text-normalizer.cc
+FILE-SHA256: 84d84501e04bb1a9cccd86fedd0a10295cbcad47f0002f6275c80b4e163cde03
+// kaldifst/csrc/text-normalizer.cc
+//
+// Copyright (c)  2023 Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kaldifst-src/kaldifst/csrc/text-utils.cc
+FILE-SHA256: 31e8d2744843fd8287b0809b60023e3bfee82696f87fc564aea80cf7283d5096
+// kaldifst/csrc/text-utils.cc
+//
+// This file is copied/modified from
+// https://github.com/kaldi-asr/kaldi/blob/master/src/util/text-utils.cc
+
+// Copyright 2009-2011  Saarland University;  Microsoft Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kissfft-src/kfc.c
+FILE-SHA256: 979e5a4257bb8e7d08092db10ae252f50a00276545ed70a81330015cd55eacf2
+/*
+ *  Copyright (c) 2003-2004, Mark Borgerding. All rights reserved.
+ *  This file is part of KISS FFT - https://github.com/mborgerding/kissfft
+ *
+ *  SPDX-License-Identifier: BSD-3-Clause
+ *  See COPYING file for more information.
+ */
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kissfft-src/kiss_fft.c
+FILE-SHA256: 3e8af99313c7e94f952ac12db46d3d5c5dd4a9bf93e0c32d43efa5fe39724051
+/*
+ *  Copyright (c) 2003-2010, Mark Borgerding. All rights reserved.
+ *  This file is part of KISS FFT - https://github.com/mborgerding/kissfft
+ *
+ *  SPDX-License-Identifier: BSD-3-Clause
+ *  See COPYING file for more information.
+ */
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kissfft-src/kiss_fftnd.c
+FILE-SHA256: fdbdd7db054852093cd74a179cac569a523757bb1b7ba9ec3525995512f15b96
+/*
+ *  Copyright (c) 2003-2004, Mark Borgerding. All rights reserved.
+ *  This file is part of KISS FFT - https://github.com/mborgerding/kissfft
+ *
+ *  SPDX-License-Identifier: BSD-3-Clause
+ *  See COPYING file for more information.
+ */
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kissfft-src/kiss_fftndr.c
+FILE-SHA256: f4395cdbc88e9f25bc8d4aac1a0bc34606ad367ae01d4b903fb364bee77c430c
+/*
+ *  Copyright (c) 2003-2004, Mark Borgerding. All rights reserved.
+ *  This file is part of KISS FFT - https://github.com/mborgerding/kissfft
+ *
+ *  SPDX-License-Identifier: BSD-3-Clause
+ *  See COPYING file for more information.
+ */
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/kissfft-src/kiss_fftr.c
+FILE-SHA256: 128b651120725e8d55f6b9edf5d44b06dc022b260894eac078c6ff8aa7159561
+/*
+ *  Copyright (c) 2003-2004, Mark Borgerding. All rights reserved.
+ *  This file is part of KISS FFT - https://github.com/mborgerding/kissfft
+ *
+ *  SPDX-License-Identifier: BSD-3-Clause
+ *  See COPYING file for more information.
+ */
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/openfst-src/src/extensions/far/far.cc
+FILE-SHA256: c043091a9fee06b6cde23780bc96579b5c52b61828d3390e1862e92b7f9197f3
+// Copyright 2005-2024 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the 'License');
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an 'AS IS' BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/openfst-src/src/extensions/far/stlist.cc
+FILE-SHA256: 46ae3d4abc0ea0f343f37a4a3aff20ffd6d19757eb25f4b9ca4e74354cb37c45
+// Copyright 2005-2024 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the 'License');
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an 'AS IS' BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+// See www.openfst.org for extensive documentation on this weighted
+// finite-state transducer library.
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/openfst-src/src/extensions/far/sttable.cc
+FILE-SHA256: b94982f7da1ea40e2a93b454491543cc949312a1b5e06c6874b1c2231ebad7cd
+// Copyright 2005-2024 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the 'License');
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an 'AS IS' BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+// See www.openfst.org for extensive documentation on this weighted
+// finite-state transducer library.
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/openfst-src/src/lib/compat.cc
+FILE-SHA256: b74008fed45674facaba246a21cabb1988600aa03a4a688a2a9e5491435fb7eb
+// Copyright 2005-2024 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the 'License');
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an 'AS IS' BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+// Google compatibility definitions.
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/openfst-src/src/lib/encode.cc
+FILE-SHA256: 4e6949825093e830a54e3c9209343b23f9540977b998f76d2d46c0745b736696
+// Copyright 2005-2024 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the 'License');
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an 'AS IS' BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+// See www.openfst.org for extensive documentation on this weighted
+// finite-state transducer library.
+//
+// Definitions for encode table header.
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/openfst-src/src/lib/flags.cc
+FILE-SHA256: e6db682c12de13bdcd30582cc0bfb27ff6a03b08215c6c47b2b5543c6e7efd42
+// Copyright 2005-2024 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the 'License');
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an 'AS IS' BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+// Google-style flag handling definitions.
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/openfst-src/src/lib/fst-types.cc
+FILE-SHA256: 30700283444fd00e918c37f07fecf36cccfe20f9b6ac9f8d71ffd45523070fcf
+// Copyright 2005-2024 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the 'License');
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an 'AS IS' BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+// See www.openfst.org for extensive documentation on this weighted
+// finite-state transducer library.
+//
+// Registration of common FST and arc types.
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/openfst-src/src/lib/fst.cc
+FILE-SHA256: d3f51c2c2966e81c72d6fd8930165cf83b37d8858c217a575786bf18187d0093
+// Copyright 2005-2024 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the 'License');
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an 'AS IS' BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+// See www.openfst.org for extensive documentation on this weighted
+// finite-state transducer library.
+//
+// FST definitions.
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/openfst-src/src/lib/mapped-file.cc
+FILE-SHA256: e1b42cdc381caaa3c86c95712d597003807b73e9c19ae3799bd4e4c1f743e84a
+// Copyright 2005-2024 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the 'License');
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an 'AS IS' BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+// See www.openfst.org for extensive documentation on this weighted
+// finite-state transducer library.
+//
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/openfst-src/src/lib/properties.cc
+FILE-SHA256: 1ec521f5f77e7f0b06695d766a8f2ef85db2f4cd03aeb91c88b9105d8b8a7d82
+// Copyright 2005-2024 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the 'License');
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an 'AS IS' BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+// See www.openfst.org for extensive documentation on this weighted
+// finite-state transducer library.
+//
+// Functions for updating property bits for various FST operations and
+// string names of the properties.
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/openfst-src/src/lib/symbol-table-ops.cc
+FILE-SHA256: 851f313170bdb3b0975705e279c4a783cd55f4c8c097c39b4ca8dcb062472c1a
+// Copyright 2005-2024 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the 'License');
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an 'AS IS' BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+// See www.openfst.org for extensive documentation on this weighted
+// finite-state transducer library.
+//
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/openfst-src/src/lib/symbol-table.cc
+FILE-SHA256: 1429e5716d41fd5011099ac671aedabf78a4a3c9110dc21b1207ebe06d9bd984
+// Copyright 2005-2024 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the 'License');
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an 'AS IS' BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+// See www.openfst.org for extensive documentation on this weighted
+// finite-state transducer library.
+//
+// Classes to provide symbol-to-integer and integer-to-symbol mappings.
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/openfst-src/src/lib/util.cc
+FILE-SHA256: 820b5b411b3853af1f2f6728bc9974ffc4e57e3c8f1b3e4a3d85d960186f077e
+// Copyright 2005-2024 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the 'License');
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an 'AS IS' BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+// See www.openfst.org for extensive documentation on this weighted
+// finite-state transducer library.
+//
+// FST utility definitions.
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/openfst-src/src/lib/weight.cc
+FILE-SHA256: 8c7fe670ce26a9560826e9ef636fb0ef2733a72c89f5c0286e092dd4c22d233f
+// Copyright 2005-2024 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the 'License');
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an 'AS IS' BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/simple-sentencepiece-src/ssentencepiece/csrc/ssentencepiece.cc
+FILE-SHA256: 4bab587cb07bbb83a638c2f227971a3cbe8374a832c13ecadb74a426ea0e5630
+/**
+ * Copyright      2024    Wei Kang (wkang@pku.edu.cn)
+ *
+ * See LICENSE for clarification regarding multiple authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/audio-tagging-impl.cc
+FILE-SHA256: 0675865094eda99b4aa9745c29ddf18ce3b9a1eeefb0baee70a2bc4b4e4c1f10
+// sherpa-onnx/csrc/audio-tagging-impl.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/audio-tagging-label-file.cc
+FILE-SHA256: 5bec7e1f9583f0efd1f52dc5784c6f86e0a27f5fd3d67dfba98baf398a63bcb1
+// sherpa-onnx/csrc/audio-tagging-label-file.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/audio-tagging-model-config.cc
+FILE-SHA256: 2f60f0a051f2238dda1ac27f0d4e6a86212f8578b7822bb2ffff3f76ba624540
+// sherpa-onnx/csrc/audio-tagging-model-config.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/audio-tagging.cc
+FILE-SHA256: 23a37e88e99cc94e8fa3ce4cbf353dc9b359245cf7adb3af7e2b726d9c7fbc98
+// sherpa-onnx/csrc/audio-tagging.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/base64-decode.cc
+FILE-SHA256: a3adce16dcb233d50051dcef40f522214144188440015bf8936404c3968dd4e3
+// sherpa-onnx/csrc/base64-decode.cc
+//
+// Copyright (c)  2022-2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/bbpe.cc
+FILE-SHA256: 907edf77e136d54718ac202f2ffcb2a7d3f6c32d145c4ce17a0caad2e4535c47
+// sherpa-onnx/csrc/bbpe.cc
+//
+// Copyright (c)  2024 Xiaomi Corporation
+
+// Auto-generated! DO NOT EDIT
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/cat.cc
+FILE-SHA256: c8b5439a226e5f54add4c357cd29ac17b246d1bc96c1ff02feb12216b45d28af
+// sherpa-onnx/csrc/cat.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/circular-buffer.cc
+FILE-SHA256: 943d51da7680bd917a7a9b8464512c45ca05cba0cb3cc73aa398dc78724b7747
+// sherpa-onnx/csrc/circular-buffer.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/context-graph.cc
+FILE-SHA256: f263c48a0ef4bee481a9bffe7bfd8949bf513c2986cb74c2a923693a9a24426f
+// sherpa-onnx/csrc/context-graph.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/endpoint.cc
+FILE-SHA256: ccf863d0796c33dd4548589664b157105b0a730445a5d245c20401e058238385
+// sherpa-onnx/csrc/endpoint.cc
+//
+// Copyright (c)  2022  (authors: Pingfeng Luo)
+//                2022-2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/features.cc
+FILE-SHA256: 4eb17090f02056b03a9f56498ebe72b9f3336b3785b1fd3301bac6ab3247280f
+// sherpa-onnx/csrc/features.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/file-utils.cc
+FILE-SHA256: f903cd213bfdff4fd03c94e9138b75b56dc03008c4d8e7358979cba4a678538d
+// sherpa-onnx/csrc/file-utils.cc
+//
+// Copyright (c)  2022-2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/fst-utils.cc
+FILE-SHA256: b6a44b60374a8cbfd78b8d6ce9031271d1e4529d6e516e86a3fb920304186b5f
+// sherpa-onnx/csrc/fst-utils.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/funasr-nano-tokenizer.cc
+FILE-SHA256: c1589eb9b1b2ca31645a54389ff06bfcc71321d39fc51027f54f958524c290e6
+// sherpa-onnx/csrc/funasr-nano-tokenizer.cc
+//
+// Copyright (c)  2025  zengyw
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/homophone-replacer.cc
+FILE-SHA256: cdaecfdc82b143a523a43db7cb7639355900c6019400815b5b1f9cb10f35e35c
+// sherpa-onnx/csrc/homophone-replacer.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/hypothesis.cc
+FILE-SHA256: 618de34768106c643a5ee717652a88306ff5807ce5244a24adb997def856e1d7
+/**
+ * Copyright (c)  2023  Xiaomi Corporation
+ * Copyright (c)  2023  Pingfeng Luo
+ */
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/keyword-spotter-impl.cc
+FILE-SHA256: 926fc4a821d836b52355f9d1a585e399e74c10066faca4ec0dcbaf4a3c5cc9b3
+// sherpa-onnx/csrc/keyword-spotter-impl.cc
+//
+// Copyright (c)  2023-2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/keyword-spotter.cc
+FILE-SHA256: 5062c6127e5b26624ec36535e2537697938257791bede9403378efdb838bfc71
+// sherpa-onnx/csrc/keyword-spotter.cc
+//
+// Copyright (c)  2023-2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/lfr.cc
+FILE-SHA256: 20f1b4ed6eac695a7665b3642c7a7b3786e0cf155160d12a3e49a6e36cb16e26
+// sherpa-onnx/csrc/lfr.cc
+//
+// Copyright (c)  2026  zhifu gao
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/lodr-fst.cc
+FILE-SHA256: 81dbd19445efc5d6ce0170ed336cfc9269be49ff9209162b6d14468cb077e055
+// sherpa-onnx/csrc/lodr-fst.cc
+//
+// Contains code copied from icefall/utils/ngram_lm.py
+// Copyright (c)  2023 Xiaomi Corporation
+//
+// Copyright (c)  2025 Tilde SIA (Askars Salimbajevs)
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/math.cc
+FILE-SHA256: 6399c4783e531e665b3f479740ba9cab3794d99c6c612fc1afd625ea3f55f4c8
+// sherpa-onnx/csrc/math.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/normal-data-generator.cc
+FILE-SHA256: 45421ed11bcfe96cac1425a56d969c13c7e1d4bd5cc45cc8bdfd175188094c1b
+// sherpa-onnx/csrc/normal-data-generator.cc
+//
+// Copyright      2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-canary-model-config.cc
+FILE-SHA256: 11aa4e325e522a01cc44c3a6a11fb8063b70504fb423647f01c642ed2498f124
+// sherpa-onnx/csrc/offline-canary-model-config.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-canary-model.cc
+FILE-SHA256: 58c943d12ad7b086fcb5c15656f2134975a3162e2d479815040052edbd2f6b68
+// sherpa-onnx/csrc/offline-canary-model.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-catt-model.cc
+FILE-SHA256: dd54b569620038dddb1419611cf494b9fc1b9f624d6b967847d902ef7aa3543e
+// sherpa-onnx/csrc/offline-catt-model.cc
+//
+// Copyright (c)  2026  Matias Lin
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-ced-model.cc
+FILE-SHA256: c558ea793884527dbd122cdd1fa8d6f351a5027e55347b78def01ad948497ea8
+// sherpa-onnx/csrc/offline-ced-model.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-cohere-transcribe-greedy-search-decoder.cc
+FILE-SHA256: 7e15413ee6bab67ce0eed84f4e70239aa1c576cb751e6c2dfc876242cca51ed1
+// sherpa-onnx/csrc/offline-cohere-transcribe-greedy-search-decoder.cc
+//
+// Copyright (c)  2026  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-cohere-transcribe-model-config.cc
+FILE-SHA256: 07056be451c08b0e73c01ccd6fcb89634068e7b8596aacf489110f8c40653324
+// sherpa-onnx/csrc/offline-cohere-transcribe-model-config.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-cohere-transcribe-model.cc
+FILE-SHA256: 084953f59f1f675874ff011a1c64b3c6e36b65fced8cb1707d21cda06a145fb3
+// sherpa-onnx/csrc/offline-cohere-transcribe-model.cc
+//
+// Copyright (c)  2026  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-ct-transformer-model.cc
+FILE-SHA256: 9ea840982fcc2a7a2a15ea82866bbbe8b3de7b9d27ba51872dfb08f28d6a623e
+// sherpa-onnx/csrc/offline-ct-transformer-model.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-ctc-fst-decoder-config.cc
+FILE-SHA256: 22414e6abc35981e925fd4475e19e1ece8da19adf1dd3dfcec34caeb8faa2bf6
+// sherpa-onnx/csrc/offline-ctc-fst-decoder-config.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-ctc-fst-decoder.cc
+FILE-SHA256: 206ac7871f0c78d1b4b073c9099b6c50808d4fd256f6e17553802e5c1ed2b07d
+// sherpa-onnx/csrc/offline-ctc-fst-decoder.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-ctc-greedy-search-decoder.cc
+FILE-SHA256: 79332f68ee5ffc64a550826f0a03a9f93697b3a77ead0766607936c72f767fcd
+// sherpa-onnx/csrc/offline-ctc-greedy-search-decoder.h
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-ctc-model.cc
+FILE-SHA256: 65d0d3ddadd2976eea5f445e6f2b80789be214af83bf9c52dd45508c96075591
+// sherpa-onnx/csrc/offline-ctc-model.cc
+//
+// Copyright (c)  2022-2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-diacritization-impl.cc
+FILE-SHA256: ebac45701e02030be678330df1b373231b7c917b3c2e2bfc4a5c55587597a67a
+// sherpa-onnx/csrc/offline-diacritization-impl.cc
+//
+// Copyright (c)  2026  Matias Lin
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-diacritization-model-config.cc
+FILE-SHA256: 0ae8dd03f7ef4e583d0bfc6940afdb9c9cda43ce8a62773572466d0c26db6496
+// sherpa-onnx/csrc/offline-diacritization-model-config.cc
+//
+// Copyright (c)  2026  Matias Lin
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-diacritization.cc
+FILE-SHA256: a44ee8e8c2721ce6f72eeeb10b50402137492640f5b44759d3ebc6c5875ee8f4
+// sherpa-onnx/csrc/offline-diacritization.cc
+//
+// Copyright (c)  2026  Matias Lin
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-dolphin-model-config.cc
+FILE-SHA256: fe5d7925c77960995124a2b98680e9e78719e50c17e025c73280c1d2a3c8c866
+// sherpa-onnx/csrc/offline-dolphin-model-config.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-dolphin-model.cc
+FILE-SHA256: da67bf1c0fd4a4adf7506b7cb1eea1460bebff0be3152e67cd76543da760888a
+// sherpa-onnx/csrc/offline-dolphin-model.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-fire-red-asr-ctc-model-config.cc
+FILE-SHA256: ea620bfc8e74382dfa55b8a703b21d4a1d48a1095eb18d9c1037101b0f768f84
+// sherpa-onnx/csrc/offline-fire-red-asr-ctc-model-config.cc
+//
+// Copyright (c)  2026  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-fire-red-asr-ctc-model.cc
+FILE-SHA256: 1647c03dc587bf450a2f7a5c488640a7c57c66881be446eea67b97892aa0c0f1
+// sherpa-onnx/csrc/offline-fire-red-asr-ctc-model.cc
+//
+// Copyright (c)  2026  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-fire-red-asr-greedy-search-decoder.cc
+FILE-SHA256: a52be0d795543251187ba757291d8e8d15cc1dade4099db749fda56a7cd64aba
+// sherpa-onnx/csrc/offline-fire-red-asr-greedy-search-decoder.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-fire-red-asr-model-config.cc
+FILE-SHA256: b28f941548e6e137a67165a71d7d2f7810288ae5d1e6108b1b3763d43066f161
+// sherpa-onnx/csrc/offline-fire-red-asr-model-config.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-fire-red-asr-model.cc
+FILE-SHA256: fe74d2752b87e5720bc14999de0c51baea2658472276e604d1d16e8d0df6cd34
+// sherpa-onnx/csrc/offline-fire-red-asr-model.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-funasr-nano-model-config.cc
+FILE-SHA256: c64d1485f5d3640d074a8f5f43552d56658ca9d22b8192b9c0f2181970604de0
+// sherpa-onnx/csrc/offline-funasr-nano-model-config.cc
+//
+// Copyright (c)  2025  zengyw
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-funasr-nano-model.cc
+FILE-SHA256: 397d820749e4ec145d5e8d08e3f77296e5aa011730bf1e9345e47f225f6fef9a
+// sherpa-onnx/csrc/offline-funasr-nano-model.cc
+//
+// Copyright (c)  2025  zengyw
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-lm-config.cc
+FILE-SHA256: 6b73a65aa5a992d656e94c79098b8eee5bcbf9402c41cad086b066ad3b781c2b
+// sherpa-onnx/csrc/offline-lm-config.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-lm.cc
+FILE-SHA256: b9905aab172d0b9dccbe43820cdc9816f145337aa0b702d2d3c137ba66b6b490
+// sherpa-onnx/csrc/offline-lm.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-medasr-ctc-model-config.cc
+FILE-SHA256: ebd5f961b5dba5f43b0829f2205ef81a1f91d4967253bfa288df4d0b1f096312
+// sherpa-onnx/csrc/offline-medasr-ctc-model-config.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-medasr-ctc-model.cc
+FILE-SHA256: 1d9abcf035e9059d59d690108f6b738c93419aa79fbbd9244371133e02aac5d0
+// sherpa-onnx/csrc/offline-medasr-ctc-model.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-model-config.cc
+FILE-SHA256: c6a0a4f5f9960a2269dcca9ab3cec7fe9277def5966b0d6aee7a1c9f9130c3d3
+// sherpa-onnx/csrc/offline-model-config.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-moonshine-greedy-search-decoder.cc
+FILE-SHA256: d174f6f9c21ad22928450b1e1da7e3aa68604d675aabe0ff828f6b4e06a06176
+// sherpa-onnx/csrc/offline-moonshine-greedy-search-decoder.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-moonshine-model-config.cc
+FILE-SHA256: 83c5ab60af5acfb86d6606017e7314d29b6c2ceef8ec50c83c77dada7caf1651
+// sherpa-onnx/csrc/offline-moonshine-model-config.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-moonshine-model-v2.cc
+FILE-SHA256: c24b2db7f884ab940c7d8b15379e04cb83dc9cb9a1ba36388bc9b74727c71e06
+// sherpa-onnx/csrc/offline-moonshine-model-v2.cc
+//
+// Copyright (c)  2024-2026  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-moonshine-model.cc
+FILE-SHA256: 8a8b2ac372bf2a32b90dfd27f5fccbfab439d8a29485bc4f4353351fe3e2ef1b
+// sherpa-onnx/csrc/offline-moonshine-model.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-moonshine-v2-greedy-search-decoder.cc
+FILE-SHA256: 316846f70c715773c9afc1fcf8c44798d8f432b052ce6fdea1379bbe7199359d
+// sherpa-onnx/csrc/offline-moonshine-v2-greedy-search-decoder.cc
+//
+// Copyright (c)  2024-2026  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-nemo-enc-dec-ctc-model-config.cc
+FILE-SHA256: 185533b4fb9293086014f70cf1b8f29553e041e2ab7f40be5085d4d6ce01c36c
+// sherpa-onnx/csrc/offline-nemo-enc-dec-ctc-model-config.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-nemo-enc-dec-ctc-model.cc
+FILE-SHA256: 4dd255daad83d0ad884a53ce386bf51fd73a9aea8e46c416299ff47bdd403917
+// sherpa-onnx/csrc/offline-nemo-enc-dec-ctc-model.cc
+//
+// Copyright (c)  2023-2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-omnilingual-asr-ctc-model-config.cc
+FILE-SHA256: ae5c09953db1e7d65832ed8a575fa96aa54190a50b393164b183868c1b0db71a
+// sherpa-onnx/csrc/offline-omnilingual-asr-ctc-model-config.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-omnilingual-asr-ctc-model.cc
+FILE-SHA256: a6aaa27108874506f3ac79d6d8c6e6b639e160ef2f3f7bc14dd8026a8d712bdd
+// sherpa-onnx/csrc/offline-omnilingual-asr-ctc-model.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-paraformer-greedy-search-decoder.cc
+FILE-SHA256: 7f1c20f7ff945ef4ed3371e2d9a3e43d4a3e9d2626e47a81c094b49ea2a22e92
+// sherpa-onnx/csrc/offline-paraformer-greedy-search-decoder.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-paraformer-model-config.cc
+FILE-SHA256: 793df36fcd34442dcf36d70b4e6776d2a3001c6f0ea3589ea05186dd80e66598
+// sherpa-onnx/csrc/offline-paraformer-model-config.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-paraformer-model.cc
+FILE-SHA256: 003a38a4403ae420a0be1e03be8873dce5870db916678e785baf217fc30c4087
+// sherpa-onnx/csrc/offline-paraformer-model.cc
+//
+// Copyright (c)  2022-2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-punctuation-impl.cc
+FILE-SHA256: 92d55f77673892a30987aefb82907166811ce36c5a2d2b98a7b8f9fa2937a4ec
+// sherpa-onnx/csrc/offline-punctuation-impl.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-punctuation-model-config.cc
+FILE-SHA256: 1ee90480738af0df0668555f1cebb9be93de822dac7e459e28533e019749b459
+// sherpa-onnx/csrc/offline-punctuation-model-config.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-punctuation.cc
+FILE-SHA256: 1fe879b4a41534083995a9fba62f1258014415f2c0e5965424c45a11602d3391
+// sherpa-onnx/csrc/offline-punctuation.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-qwen3-asr-model-config.cc
+FILE-SHA256: 6327612026d04bb80fc9faa061ae96ae5d822e5c9d80dd2c3b8cb9344016fab5
+// sherpa-onnx/csrc/offline-qwen3-asr-model-config.cc
+//
+// Copyright (c)  2026  zengyw
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-qwen3-asr-model.cc
+FILE-SHA256: 256b24af809f1d39919854b98657de5b9fc60de5c5d673160d26963b749ec2b9
+// sherpa-onnx/csrc/offline-qwen3-asr-model.cc
+//
+// Copyright (c)  2026  zengyw
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-recognizer-funasr-nano-impl.cc
+FILE-SHA256: b0d1aedc901d366c7963350a01f0dfb1f78a4f0e442e1ff061338eba7a157d10
+// sherpa-onnx/csrc/offline-recognizer-funasr-nano-impl.cc
+//
+// Copyright (c)  2025  zengyw
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-recognizer-impl.cc
+FILE-SHA256: 88459135ae1ef3a6dd15ece956e92eabd59bccaf457486089e9d119bcda46d1e
+// sherpa-onnx/csrc/offline-recognizer-impl.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-recognizer-qwen3-asr-impl.cc
+FILE-SHA256: cfb17db92e66388ed79823704edc7f71057978eab5b71b3cf1a40154581b4b5a
+// sherpa-onnx/csrc/offline-recognizer-qwen3-asr-impl.cc
+//
+// Copyright (c)  2026 zengyw
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-recognizer.cc
+FILE-SHA256: f30fbfe8bcbe62b4282257015b132a7ff06aeca560b07bfbb9e121016804c1f5
+// sherpa-onnx/csrc/offline-recognizer.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-rnn-lm.cc
+FILE-SHA256: b761a99874271c228c934089356ef4d739f237bc37e05f23bac1c3fde77de4f5
+// sherpa-onnx/csrc/offline-rnn-lm.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-sense-voice-model-config.cc
+FILE-SHA256: 9e31a952f131a3c0fef5fd1ac1ac6751b95eae4c1f3e038c24bfe58ce138a691
+// sherpa-onnx/csrc/offline-sense-voice-model-config.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-sense-voice-model.cc
+FILE-SHA256: 002e0eb75e3f364b4e1cb2f70cccca728762f9971d0b25999cc8b56934c5b581
+// sherpa-onnx/csrc/offline-sense-voice-model.cc
+//
+// Copyright (c)  2022-2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-source-separation-impl.cc
+FILE-SHA256: dc3f1d792c14b01777b93cf09fcdd951fc7dfa0ab9cced3d76715d85931ff3ce
+// sherpa-onnx/csrc/offline-source-separation-impl.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-source-separation-model-config.cc
+FILE-SHA256: 0b407dbc42098ab20d01dbd8cae5a3cd6b3bf1b319e204485c79ecfdb8ebb715
+// sherpa-onnx/csrc/offline-source-separation-model-config.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-source-separation-spleeter-model-config.cc
+FILE-SHA256: cae5ee7571df66b5ec1e7679ed3ebf82b4a95145950ca9c0d6cdb8e8b1f8a25b
+// sherpa-onnx/csrc/offline-source-separation-spleeter-model-config.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-source-separation-spleeter-model.cc
+FILE-SHA256: 6994e103be709d0cb3fdbad24a67cbe9df5cb78056496b8111eeec5326abe243
+// sherpa-onnx/csrc/offline-source-separation-spleeter-model.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-source-separation-uvr-model-config.cc
+FILE-SHA256: 0ee1553399dc78ff119a1ffaf06ad5097ca597521e0962c9e71222e1e794d131
+// sherpa-onnx/csrc/offline-source-separation-uvr-model-config.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-source-separation-uvr-model.cc
+FILE-SHA256: 31e92d46926806856a7166eea0235d1bdd4c659efee4cb1b52b10c38b25c9618
+// sherpa-onnx/csrc/offline-source-separation-uvr-model.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-source-separation.cc
+FILE-SHA256: e17a8c6fd56e40f7a9a583354c2c39a129a8111cb46ba0c0ba7827efe9ccf64c
+// sherpa-onnx/csrc/offline-source-separation.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-speech-denoiser-dpdfnet-model-config.cc
+FILE-SHA256: 01ba4bd201e40430ff1a8087cb4678c5698b71de795fb32e17ba4b322805d9fd
+// sherpa-onnx/csrc/offline-speech-denoiser-dpdfnet-model-config.cc
+//
+// Copyright (c)  2026  Ceva Inc
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-speech-denoiser-dpdfnet-model.cc
+FILE-SHA256: b31c32dc2e386ac68fcb9d9e2e4df9ca536d64c3582d321b02ec9f51fd741d7d
+// sherpa-onnx/csrc/offline-speech-denoiser-dpdfnet-model.cc
+//
+// Copyright (c)  2026  Ceva Inc
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-speech-denoiser-gtcrn-model-config.cc
+FILE-SHA256: 26fa6e152ee51fe948df6b3b0233cde42222137c93b9979239faa26b76851937
+// sherpa-onnx/csrc/offline-speech-denoiser-gtcrn-model-config.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-speech-denoiser-gtcrn-model.cc
+FILE-SHA256: 201b671dc63eed9675440d4d4b10b1b44b1d8605ce5ee626d2c2568932782c08
+// sherpa-onnx/csrc/offline-speech-denoiser-gtcrn-model.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-speech-denoiser-impl.cc
+FILE-SHA256: 1bacb85f147929e75f80b181407659d41af2b2cb1f50180126a7db46ca3d4658
+// sherpa-onnx/csrc/offline-speech-denoiser-impl.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-speech-denoiser-model-config.cc
+FILE-SHA256: fcf9bf42bd0d76b7d19edee4a47b7d5c3a0d669c234f128b01dec8a638516aae
+// sherpa-onnx/csrc/offline-speech-denoiser-model-config.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-speech-denoiser.cc
+FILE-SHA256: 843037efb0a3da2d4a51784719e5228cf0eb1f9fd8069634d15fc1b8402607f9
+// sherpa-onnx/csrc/offline-speech-denoiser.h
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-stream.cc
+FILE-SHA256: 14cf56a31af967663dbc93c53621fdfef847a9870944973401964b7b6df3223c
+// sherpa-onnx/csrc/offline-stream.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-tdnn-ctc-model.cc
+FILE-SHA256: 2e894ec2211c8ece27211a2c07fe2503f9348b3ff69bb4df0a34ead04a167b01
+// sherpa-onnx/csrc/offline-tdnn-ctc-model.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-tdnn-model-config.cc
+FILE-SHA256: 520903d60062674eee39448831be3067a08d961b2edc712537664039d0058832
+// sherpa-onnx/csrc/offline-tdnn-model-config.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-telespeech-ctc-model.cc
+FILE-SHA256: a323e78b264dfebad91da4b298a39f199aa6565b68cfc1a5b9a57e93a95acca0
+// sherpa-onnx/csrc/offline-telespeech-ctc-model.cc
+//
+// Copyright (c)  2023-2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-transducer-greedy-search-decoder.cc
+FILE-SHA256: 434318eab8976eac221e1d08c7d309ca4961a9c75838722fe6d3785f83af72b5
+// sherpa-onnx/csrc/offline-transducer-greedy-search-decoder.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-transducer-greedy-search-nemo-decoder.cc
+FILE-SHA256: 510359cd31d9563c5d5c0b6d036b5e81b54ef8eb7626957910fcd06ccb9aaa36
+// sherpa-onnx/csrc/offline-transducer-greedy-search-nemo-decoder.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-transducer-model-config.cc
+FILE-SHA256: b971a654b26bf655b850a6ef89a5c88bf4de16bab40e3d7bb1d5ad6663a68693
+// sherpa-onnx/csrc/offline-transducer-model-config.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-transducer-model.cc
+FILE-SHA256: e2a65fc911317d29ded27984f9119e9159466c34207f11214d3f8f42e28b4789
+// sherpa-onnx/csrc/offline-transducer-model.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-transducer-modified-beam-search-decoder.cc
+FILE-SHA256: 94e5c27e6be677604333d112b50ac4c11cb753f066f36960586dd08049ba7d00
+// sherpa-onnx/csrc/offline-transducer-modified-beam-search-decoder.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-transducer-modified-beam-search-nemo-decoder.cc
+FILE-SHA256: 27b9bdb7843f975c94741a1a80a3824cd7d6e6e07a7952d607e142e55aa4b4e9
+// sherpa-onnx/csrc/offline-transducer-modified-beam-search-nemo-decoder.cc
+//
+// Copyright (c)  2026  (authors: github.com/nefastosaturo, github.com/nullbio)
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-transducer-nemo-model.cc
+FILE-SHA256: 95110bbca6aedf55ddac989b29f11ec92a64c10144cc2bccdc7ca4460ca01a03
+// sherpa-onnx/csrc/offline-transducer-nemo-model.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-wenet-ctc-model-config.cc
+FILE-SHA256: f3f1232619db270ef65b942d51613a2cb254e3d001dc61fdf3376bf164023ea4
+// sherpa-onnx/csrc/offline-wenet-ctc-model-config.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-wenet-ctc-model.cc
+FILE-SHA256: e76193e651925c82843b0e1810863daefa9c05152f8710905cb20516648f5b92
+// sherpa-onnx/csrc/offline-wenet-ctc-model.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-whisper-dtw.cc
+FILE-SHA256: eba5308cf973f3dee65db6d8c23b04bc038fbfbb61cdf29a3cf021d704c260da
+// sherpa-onnx/csrc/offline-whisper-dtw.cc
+//
+// Copyright (c)  2026  Posit Software, PBC
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-whisper-greedy-search-decoder.cc
+FILE-SHA256: 8e09644af443cfae934c8678e12fdd109aef776f12b325b43c0d69bdcd5d66be
+// sherpa-onnx/csrc/offline-whisper-greedy-search-decoder.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-whisper-model-config.cc
+FILE-SHA256: de27cd86678727439f2d99a8a8d432cd19271146252e1480bb2138b06a4442e0
+// sherpa-onnx/csrc/offline-whisper-model-config.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-whisper-model.cc
+FILE-SHA256: cada799e1c3fb8ae4447bf8b9a4f5114b53f52b30aa5004b2409881bdddcac3b
+// sherpa-onnx/csrc/offline-whisper-model.cc
+//
+// Copyright (c)  2022-2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-whisper-timestamp-rules.cc
+FILE-SHA256: f689dc5b12dca075b558208ee8e69cdf99d3caab7d97c55fc586effc8940499a
+// sherpa-onnx/csrc/offline-whisper-timestamp-rules.cc
+//
+// Copyright (c)  2026  Posit Software, PBC
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-zipformer-audio-tagging-model-config.cc
+FILE-SHA256: e3104b191b8102f91a7a8ec31a7b8a4f79d7ea10bd96f298e4e04ddbe5e539c3
+// sherpa-onnx/csrc/offline-zipformer-audio-tagging-model-config.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-zipformer-audio-tagging-model.cc
+FILE-SHA256: 06247672fc45a7a1fb0a19ef1e7cadfb6a022ad8426b6d7f1ca26881dd742eb9
+// sherpa-onnx/csrc/offline-zipformer-audio-tagging-model.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-zipformer-ctc-model-config.cc
+FILE-SHA256: 8bdbe8efdc6a46231445519810ebb369a9ccaed6db2dcca7e116cdb4872f4ef0
+// sherpa-onnx/csrc/offline-zipformer-ctc-model-config.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/offline-zipformer-ctc-model.cc
+FILE-SHA256: 70f85203666b9522ba1b36d7d16dc6ca9001409998f9ea7cf1fc6b033b8545dd
+// sherpa-onnx/csrc/offline-zipformer-ctc-model.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-cnn-bilstm-model.cc
+FILE-SHA256: 4e9d719a3cf0f64208b7c97cdf2fc5a4c8d29b54a3acab8c216a5e1893d64b80
+// sherpa-onnx/csrc/online-cnn-bilstm-model.cc
+//
+// Copyright (c) 2024 Jian You (jianyou@cisco.com, Cisco Systems)
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-conformer-transducer-model.cc
+FILE-SHA256: b0d0b1b82785ded46fed90b228633a308e40281a3cb21f7914457967586d6cf2
+// sherpa-onnx/csrc/online-conformer-transducer-model.cc
+//
+// Copyright (c)  2023 Jingzhao Ou (jingzhao.ou@gmail.com)
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-ctc-fst-decoder-config.cc
+FILE-SHA256: 97b07241808f381531fdc0acb38e31b2e60d47e2c549ce40094f8eee75439385
+// sherpa-onnx/csrc/online-ctc-fst-decoder-config.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-ctc-fst-decoder.cc
+FILE-SHA256: 077e1b5964bdb902b94bc14ff729cfc7b9c42723cf4b5b3592cd6246221cb341
+// sherpa-onnx/csrc/online-ctc-fst-decoder.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-ctc-greedy-search-decoder.cc
+FILE-SHA256: 3cf2c4c1f990073e8a821430076887e9c37a64481c0a14586141f8cc00f618b5
+// sherpa-onnx/csrc/online-ctc-greedy-search-decoder.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-ctc-model.cc
+FILE-SHA256: 9a387424454902c655ea4911330c352b670aeec2fe7307a829687430c0021806
+// sherpa-onnx/csrc/online-ctc-model.cc
+//
+// Copyright (c)  2022-2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-ebranchformer-transducer-model.cc
+FILE-SHA256: c09f726c9979f4dc0ce2bac69e7f43c78427a6ae9bdfb810e5772f82dfe3c51c
+// sherpa-onnx/csrc/online-ebranchformer-transducer-model.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+//                2025  Brno University of Technology (author: Karel Vesely)
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-lm-config.cc
+FILE-SHA256: d611f39d814c220502aa9fcd487b931a8408293a47c1f95c76fb2805596e57b7
+// sherpa-onnx/csrc/online-lm-config.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-lm.cc
+FILE-SHA256: 614b5bb356e2042ccedb0b32d598383f08d2ffb77b09ec889b79e10f0e43d714
+// sherpa-onnx/csrc/online-lm.cc
+//
+// Copyright (c)  2023  Pingfeng Luo
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-lstm-transducer-model.cc
+FILE-SHA256: 48345998456902bddb2efbd88f4427692dd0e16ec7146403b77cd4589f7dfcd7
+// sherpa-onnx/csrc/online-lstm-transducer-model.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-model-config.cc
+FILE-SHA256: 8f770e89968c76883a374d3c2e43e7435ad9499aa1930300122a9920e3d004ef
+// sherpa-onnx/csrc/online-model-config.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-nemo-ctc-model-config.cc
+FILE-SHA256: 6f18d61d3794d76a95e7b71c0487c7e27653a8ba99c0a22fbb1fdb047c858e6d
+// sherpa-onnx/csrc/online-nemo-ctc-model-config.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-nemo-ctc-model.cc
+FILE-SHA256: db23dc775b879e2e5504611835687e1fc3d0ee64e992a82f4102eab2ee905471
+// sherpa-onnx/csrc/online-nemo-ctc-model.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-paraformer-model-config.cc
+FILE-SHA256: a440cd478f04ad018dac7845f7afd5e0358971b71c58283933c4127066228d61
+// sherpa-onnx/csrc/online-paraformer-model-config.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-paraformer-model.cc
+FILE-SHA256: 210de02d11de9fa50f1dfb244c1e203aab9fb753ddf429a154daed540296045c
+// sherpa-onnx/csrc/online-paraformer-model.cc
+//
+// Copyright (c)  2022-2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-punctuation-impl.cc
+FILE-SHA256: b44f62c5555ed0c97db80bc319add116213650b487e522d9f1cb2ec6ed1a2087
+// sherpa-onnx/csrc/online-punctuation-impl.cc
+//
+// Copyright (c) 2024 Jian You (jianyou@cisco.com, Cisco Systems)
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-punctuation-model-config.cc
+FILE-SHA256: 5ff336cf18c2c3028f0f902e5eac09111e6fb9ebac1821fceeb119bbca84e0b3
+// sherpa-onnx/csrc/online-punctuation-model-config.cc
+//
+// Copyright (c) 2024 Jian You (jianyou@cisco.com, Cisco Systems)
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-punctuation.cc
+FILE-SHA256: b035678d7a8d08b0f1decd53fa0ede6f5b00abd375b85a885207cb1488184310
+// sherpa-onnx/csrc/online-punctuation.cc
+//
+// Copyright (c) 2024 Jian You (jianyou@cisco.com, Cisco Systems)
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-recognizer-impl.cc
+FILE-SHA256: 24e6789832854ee199b60db89d86078ea800460a85233880df014f89e87b05bf
+// sherpa-onnx/csrc/online-recognizer-impl.cc
+//
+// Copyright (c)  2023-2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-recognizer.cc
+FILE-SHA256: 9c811d51e7b960844bccd1b5ae0fe4f843585c4c2f37c4bb17787cf14c7510a9
+// sherpa-onnx/csrc/online-recognizer.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+// Copyright (c)  2023  Pingfeng Luo
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-rnn-lm.cc
+FILE-SHA256: aca9a55cf73325da2217a38ef134aa2ea2d5c52c3d5acc260633d034d2e0dd64
+// sherpa-onnx/csrc/on-rnn-lm.cc
+//
+// Copyright (c)  2023  Pingfeng Luo
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-speech-denoiser-impl.cc
+FILE-SHA256: 7f3dac19d4dc1fabf2c94fcbd08c44bd3d62f7af6f5debd10194756bcaea502b
+// sherpa-onnx/csrc/online-speech-denoiser-impl.cc
+//
+// Copyright (c)  2026  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-speech-denoiser.cc
+FILE-SHA256: 9ccc95aec118cd07637978480fa0a55559542a4be3538ae720d132867b38cfe6
+// sherpa-onnx/csrc/online-speech-denoiser.cc
+//
+// Copyright (c)  2026  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-stream.cc
+FILE-SHA256: cee5724bd48fa3ea4abb02876f04706f51e01da7f8735e4a88b64ed5d314dd86
+// sherpa-onnx/csrc/online-stream.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-t-one-ctc-model-config.cc
+FILE-SHA256: 5d9fe68c148ecc3a0acb209ce50e05a363509a1a7b792c116497485e7d0dc1f1
+// sherpa-onnx/csrc/online-t-one-ctc-model-config.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-t-one-ctc-model.cc
+FILE-SHA256: 55960df5b8d4461ab61834c8076250fe35c401045f0713dee54cbf0e231ed206
+// sherpa-onnx/csrc/online-t-one-ctc-model.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-transducer-decoder.cc
+FILE-SHA256: 652d3ad55a20110e60ea562555b7c78d74e9dd51cf7a7d23d8cc0260b72a3445
+// sherpa-onnx/csrc/online-transducer-decoder.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-transducer-greedy-search-decoder.cc
+FILE-SHA256: f632701fc4801514797ddb5d4b55776bc0d23e3ee7a2876dcd853423baad1faf
+// sherpa-onnx/csrc/online-transducer-greedy-search-decoder.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-transducer-greedy-search-nemo-decoder.cc
+FILE-SHA256: b1bf146eabf779a9687fd2bfd1cdc98823f9024fbf12f088a2ddb868e45eb035
+// sherpa-onnx/csrc/online-transducer-greedy-search-nemo-decoder.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+// Copyright (c)  2024  Sangeet Sagar
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-transducer-greedy-search-nemo-parakeet-unified-decoder.cc
+FILE-SHA256: e9622267add53c5c33174f728e19e07f6390d99c170a8006bae922cf3b9bda47
+// sherpa-onnx/csrc/online-transducer-greedy-search-nemo-parakeet-unified-decoder.cc
+//
+// Copyright (c)  2026  Milan Leonard
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-transducer-model-config.cc
+FILE-SHA256: 486c80b245de716d9966fb7aa804cbb2e49172436a92e79c14a799929fc5c7a8
+// sherpa-onnx/csrc/online-transducer-model-config.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-transducer-model.cc
+FILE-SHA256: cbe3615ba85e9d0c403a6b92c36df278d0a2141f15dd7a4e0307aaa9102b3976
+// sherpa-onnx/csrc/online-transducer-model.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+// Copyright (c)  2023  Pingfeng Luo
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-transducer-modified-beam-search-decoder.cc
+FILE-SHA256: 66b9a3896367ca5b9a5a0588379aab8f7ebf01ab0a1633f397753d6863a8f8e4
+// sherpa-onnx/csrc/online-transducer-modified-beam-search-decoder.cc
+//
+// Copyright (c)  2023  Pingfeng Luo
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-transducer-nemo-model.cc
+FILE-SHA256: f45e3d3e7c6d0f8f9b064c69c63962e7b314b976774febe10b7b5b6596cf53b3
+// sherpa-onnx/csrc/online-transducer-nemo-model.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+// Copyright (c)  2024  Sangeet Sagar
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-transducer-nemo-parakeet-unified-model.cc
+FILE-SHA256: 437bca5579329aad2d4b3064f03863731269ebd7f264d6b632939e6e4a71b95b
+// sherpa-onnx/csrc/online-transducer-nemo-parakeet-unified-model.cc
+//
+// Copyright (c)  2026  Milan Leonard
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-wenet-ctc-model-config.cc
+FILE-SHA256: 4e3e6f75039d913d72adb91685caa2394aa59545f6e408ae73f717d3ce022531
+// sherpa-onnx/csrc/online-wenet-ctc-model-config.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-wenet-ctc-model.cc
+FILE-SHA256: 89760e40f491cf9dab784f0526cbecc94a0aaa55bcc3cf1b9f7cccb048645cfe
+// sherpa-onnx/csrc/online-wenet-ctc-model.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-zipformer-transducer-model.cc
+FILE-SHA256: 6dbec1bd108d677c6f1ea4391723f212ed6269c7a6a78fd6c948dfdbbb313168
+// sherpa-onnx/csrc/online-zipformer-transducer-model.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-zipformer2-ctc-model-config.cc
+FILE-SHA256: c665759619a83cd7f5b9b480e902d0ed50032dc910693f0aad54e1069f2c93a6
+// sherpa-onnx/csrc/online-zipformer2-ctc-model-config.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-zipformer2-ctc-model.cc
+FILE-SHA256: 47ffd32ac99577a8538a5c5e974ebfd444e397f67186ed439788f8bfd245ecee
+// sherpa-onnx/csrc/online-zipformer2-ctc-model.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/online-zipformer2-transducer-model.cc
+FILE-SHA256: fc933814b33ae455c339a25c26e5f064a72d16b0ed447759016d51300584a8bc
+// sherpa-onnx/csrc/online-zipformer2-transducer-model.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/onnx-utils.cc
+FILE-SHA256: f9e1ddcf6785aba0cd1f3d8d531137e2478bbd5dc88588465b1fe61398fa9c0b
+// sherpa-onnx/csrc/onnx-utils.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+// Copyright (c)  2023  Pingfeng Luo
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/packed-sequence.cc
+FILE-SHA256: 9a4092b6f2c0801e330f38d43fa260576e1f6edbcb9e0dc50cd4d5e95bcb8acb
+// sherpa-onnx/csrc/packed-sequence.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/pad-sequence.cc
+FILE-SHA256: 1b139026b18fc38bc2f857158bbcdbabdb903969c9b1d9adc7c9c9923795da94
+// sherpa-onnx/csrc/pad-sequence.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/parse-options.cc
+FILE-SHA256: c7633087b58376fac5e1beb731c18517f41746c2c7fcdbde8e95084ab3cd5531
+// sherpa-onnx/csrc/parse-options.cc
+/**
+ * Copyright 2009-2011  Karel Vesely;  Microsoft Corporation;
+ *                      Saarland University (Author: Arnab Ghoshal);
+ * Copyright 2012-2013  Johns Hopkins University (Author: Daniel Povey);
+ *                      Frantisek Skala;  Arnab Ghoshal
+ * Copyright 2013       Tanel Alumae
+ */
+
+// This file is copied and modified from kaldi/src/util/parse-options.cu
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/phrase-matcher.cc
+FILE-SHA256: a1580bc54de63bae02ccd3752a0a7e04902c536a1edfea049ffdf5ce73eff129
+// sherpa-onnx/csrc/phrase-matcher.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/provider-config.cc
+FILE-SHA256: d0d019bd607c9841eafd46526b7d33d80acb01760ec54f60da7fda3aeb032e7f
+// sherpa-onnx/csrc/provider-config.cc
+//
+// Copyright (c)  2024  Uniphore (Author: Manickavela)
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/provider.cc
+FILE-SHA256: afe5ec7ccc052b37b70507b22a5ade085493149394a8a2db793d5e47f6b51d9e
+// sherpa-onnx/csrc/provider.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/qnn-config.cc
+FILE-SHA256: 4abd8f3dc8229245ca79e5390e0f29e53a46b4009d83b3c2ad43364be19cdabb
+// sherpa-onnx/csrc/qnn-config.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/qwen-asr-tokenizer.cc
+FILE-SHA256: b3210d05d8da15103b8bcdca6fccc70fbd7a5c8b5c8b533059a71bc6013693e3
+// sherpa-onnx/csrc/qwen-asr-tokenizer.cc
+//
+// Copyright (c)  2026  zengyw
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/resample.cc
+FILE-SHA256: 3f195af6535c0847a2e61e0346331c7f19141f28fecddf52ddf794e06125c790
+/**
+ * Copyright     2013  Pegah Ghahremani
+ *               2014  IMSL, PKU-HKUST (author: Wei Shi)
+ *               2014  Yanqing Sun, Junjie Wang
+ *               2014  Johns Hopkins University (author: Daniel Povey)
+ * Copyright     2023  Xiaomi Corporation (authors: Fangjun Kuang)
+ *
+ * See LICENSE for clarification regarding multiple authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+// this file is copied and modified from
+// kaldi/src/feat/resample.cc
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/session.cc
+FILE-SHA256: d8a9e09fe5c87f9a92981936caef2a61e4c84f888d08915c8095ae6759589b56
+// sherpa-onnx/csrc/session.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/silero-vad-model-config.cc
+FILE-SHA256: 852222b4abc4c4d9dd4d2fca2f96089e17147c72746a27786e961daf0f3a77a7
+// sherpa-onnx/csrc/silero-vad-model-config.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/silero-vad-model.cc
+FILE-SHA256: 8a580c9a06b493cfeab31f32d24cdef9b11dd0b0aebb752794732a726dc4d512
+// sherpa-onnx/csrc/silero-vad-model.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/slice.cc
+FILE-SHA256: eceebd93d900e76374fb0b991aa34d80d3b9e06e46e01acf5a1bef77b8e289e8
+// sherpa-onnx/csrc/slice.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/speaker-embedding-extractor-impl.cc
+FILE-SHA256: 3d19a82e6dd739415db40ef47003e794d9db48c54cafc875c276284e2d2ec5d5
+// sherpa-onnx/csrc/speaker-embedding-extractor-impl.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/speaker-embedding-extractor-model.cc
+FILE-SHA256: aeed9e59862f66ef4532673bba04a9dfeccc18c7491da9d49bf7e35831568bc8
+// sherpa-onnx/csrc/speaker-embedding-extractor-model.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/speaker-embedding-extractor-nemo-model.cc
+FILE-SHA256: becb550e78626c11c36bd896d8f793c4ea32a99c125f4327213ec4965c7e1a02
+// sherpa-onnx/csrc/speaker-embedding-extractor-nemo-model.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/speaker-embedding-extractor.cc
+FILE-SHA256: 73d440ac85bdeee06b7fdc667291bc1551a244d2c67ec7109953e9aef3bb7936
+// sherpa-onnx/csrc/speaker-embedding-extractor.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/speaker-embedding-manager.cc
+FILE-SHA256: 0ae1374269e7fcfbb3c4573cc2f1abfc3744c3ccf47d8d081c6317ce9b6f08f8
+// sherpa-onnx/csrc/speaker-embedding-manager.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/spoken-language-identification-impl.cc
+FILE-SHA256: eab3cb576f2c491fdccb5d6c08765edafa41bdb3087272cbb7c829e909e8e1a7
+// sherpa-onnx/csrc/spoken-language-identification-impl.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/spoken-language-identification.cc
+FILE-SHA256: 70bfe1649d72772635f090c4831cbce3c26ca39d6a8b57ef5cc694bfabc2a9fd
+// sherpa-onnx/csrc/spoken-language-identification.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/stack.cc
+FILE-SHA256: 6c475d3553ecff9ecb524d62f768000e528883fcaaabc37ab7c1cfd3cce9de2a
+// sherpa-onnx/csrc/stack.cc
+//
+// Copyright (c) 2023 Jingzhao Ou (jingzhao.ou@gmail.com)
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/symbol-table.cc
+FILE-SHA256: d5883ebe6704daf8eaa8c009980df8a5d1975ad8b4ef27e7023ea4ae43836b18
+// sherpa-onnx/csrc/symbol-table.cc
+//
+// Copyright (c)  2022-2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/tashkeel-tokenizer.cc
+FILE-SHA256: dacf8d6923f003f1c8b94d7238cdebbf44a4649b51039630616d9de890b6d5f5
+// sherpa-onnx/csrc/tashkeel-tokenizer.cc
+//
+// Copyright (c)  2026  Matias Lin
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/ten-vad-model-config.cc
+FILE-SHA256: df57dfed2c2f1ab086912c26a539a50e9f0f87373632bdb12eeb4a25cee26ee8
+// sherpa-onnx/csrc/ten-vad-model-config.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/ten-vad-model.cc
+FILE-SHA256: ba792910dccd0c14d6c65e848c02b48c6e1b3754e54453a6b87e6dcad376257a
+// sherpa-onnx/csrc/ten-vad-model.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/text-utils.cc
+FILE-SHA256: fe36ed6c32a8e3ac681943a52777d515f235cb3e91e6b61b3cfe4f8091992c2f
+// sherpa-onnx/csrc/text-utils.cc
+//
+// Copyright 2009-2011  Saarland University;  Microsoft Corporation
+// Copyright      2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/timer.cc
+FILE-SHA256: d9e62235e48fbef5f91fcbe3532a3cd8a2ab21f15d8395de88084e9f6d60f6e5
+// sherpa-onnx/csrc/timer.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/transducer-keyword-decoder.cc
+FILE-SHA256: 898bf836224dade43a5bb4a68d5660f37c7cadd6aa4ac0d7279bf1a30177dd49
+// sherpa-onnx/csrc/transducer-keywords-decoder.cc
+//
+// Copyright (c)  2023-2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/transpose.cc
+FILE-SHA256: 02720d94c9e34a3d2b83239b286a8986908be55478423a1a56f8d917deeaf696
+// sherpa-onnx/csrc/transpose.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/unbind.cc
+FILE-SHA256: 9fb9c819c2bd5fd1f03b51981b244d874b21cbd1d2f06342b5c6d0a1e64a61cb
+// sherpa-onnx/csrc/unbind.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/utils.cc
+FILE-SHA256: 2068ef4d69db4ea8514eb0ea154dad641f9c27aaf3bd282131bb311204c614cf
+// sherpa-onnx/csrc/utils.cc
+//
+// Copyright      2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/vad-model-config.cc
+FILE-SHA256: 7b988d8966ff1edf2210b30a317f4a0c2b78faccedfb4ea3b689152fb3dbd6d8
+// sherpa-onnx/csrc/vad-model-config.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/vad-model.cc
+FILE-SHA256: 6253948ca536e14fd2409e5ce557f078b78090fbf085358d0d21ae51748428c2
+// sherpa-onnx/csrc/vad-model.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/version.cc
+FILE-SHA256: 6865f970e51cf644eb98069317f0db21ff37c7484fbe2fdfbf8e5ec0ff9099f4
+// sherpa-onnx/csrc/version.h
+//
+// Copyright      2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/voice-activity-detector.cc
+FILE-SHA256: f6f022449a15156e13b64e9521c4b2b2f5b11687c54f4258ef535bc63d8ea871
+// sherpa-onnx/csrc/voice-activity-detector.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/wave-reader.cc
+FILE-SHA256: 8c270aaceb9aaa2e56d2b36cc5872a795c19bd301055e99663c830f3cd334e76
+// sherpa-onnx/csrc/wave-reader.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/csrc/wave-writer.cc
+FILE-SHA256: bfbb10c4c3f69a6ea020b2fb663c035be3af2c5d670b7323e933b2a6233acd8c
+// sherpa-onnx/csrc/wave-writer.cc
+//
+// Copyright (c)  2023  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/jni/audio-tagging.cc
+FILE-SHA256: 49543deb137ab8194f168a5aad80d267213a444bbfbcca370b865d8a37c2f9a1
+// sherpa-onnx/jni/audio-tagging.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/jni/common.cc
+FILE-SHA256: b738392dfef28118a4ef11115eb0f3ec6511c879901d999801ea9efdfe5c98ee
+// sherpa-onnx/jni/common.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/jni/jni.cc
+FILE-SHA256: 2c1858cae1a46eef17ed4895d2f0ddb8ebb0f44a800d3eb0fad1aba2e42654b1
+// sherpa-onnx/jni/jni.cc
+//
+// Copyright (c)  2022-2023  Xiaomi Corporation
+//                2022       Pingfeng Luo
+//                2023       Zhaoming
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/jni/keyword-spotter.cc
+FILE-SHA256: 68f340a6cfde7646ca3eb455b18612a800bb3703729138346e4f1aac1c268fd9
+// sherpa-onnx/jni/keyword-spotter.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/jni/offline-diacritization.cc
+FILE-SHA256: b46de3c3b194d3b803fbb29294dc681562bb7c7a2d1c2b3e96e258df9fec5f63
+// sherpa-onnx/jni/offline-diacritization.cc
+//
+// Copyright (c)  2026  Matias Lin
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/jni/offline-punctuation.cc
+FILE-SHA256: 51d2c4a811dac846542bd466df77b5617f12e5f14818d1e3cf54d8c5566f1502
+// sherpa-onnx/jni/offline-punctuation.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/jni/offline-recognizer.cc
+FILE-SHA256: 9f7918cf4bd884c4719a0deb77c19cc10dbd55675da60635a7d1a3f0b3d58ffb
+// sherpa-onnx/jni/offline-recognizer.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/jni/offline-speech-denoiser.cc
+FILE-SHA256: f0e423099a59685932a424956755dceb0b6d030986093535aed290775b829a32
+// sherpa-onnx/jni/offline-speech-denoiser.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/jni/offline-stream.cc
+FILE-SHA256: 7fc3a5d2082e749d74981c6000f12fe7db8b06412d2c92f5cdabc57e5ba90a67
+// sherpa-onnx/jni/offline-stream.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/jni/online-punctuation.cc
+FILE-SHA256: 170cf8ad58f6755619e08eba0ae4a80c9dacec795f1a83d4ee8f20329793f928
+// sherpa-onnx/jni/online-punctuation.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/jni/online-recognizer.cc
+FILE-SHA256: ef5e1f8085da9cca3c1a336791b5055cea2638eeedb380fdf75c81ada0a74f09
+// sherpa-onnx/jni/online-recognizer.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/jni/online-speech-denoiser.cc
+FILE-SHA256: 6196b288b353c985177eafaceb8d0f088f18360b10f5ae111428b0dddf77340d
+// sherpa-onnx/jni/online-speech-denoiser.cc
+//
+// Copyright (c)  2026  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/jni/online-stream.cc
+FILE-SHA256: ea21ca8c8563cfaede168a3ca717e383e8792819ac8e3b37d1a46764462e4b17
+// sherpa-onnx/jni/online-stream.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/jni/speaker-embedding-extractor.cc
+FILE-SHA256: 28e08b2f4d9c2eb6718c3899f44490f7f56880686a95ba71da08446d1a24d878
+// sherpa-onnx/jni/speaker-embedding-extractor.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/jni/speaker-embedding-manager.cc
+FILE-SHA256: 6e1b13bbe4162cfad669d6f97746fbaa375305ab44ab9e548326e9f96e285324
+// sherpa-onnx/jni/speaker-embedding-manager.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/jni/speech-denoiser.cc
+FILE-SHA256: 7d8b8191f618b03b2cd2f3a497fdba8639c0521be35898070f21cfb02b6aa40e
+// sherpa-onnx/jni/speech-denoiser.cc
+//
+// Copyright (c)  2026  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/jni/spoken-language-identification.cc
+FILE-SHA256: 2c9d5285a61511148152871d0eb3c91dbf3f9184d396275fe568b5673567eb8f
+// sherpa-onnx/jni/spoken-language-identification.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/jni/version.cc
+FILE-SHA256: 838b791aeb746ca5e4e3c9344319f19d2b9c860306732bc11caaad48fa1288fd
+// sherpa-onnx/jni/version.cc
+//
+// Copyright (c)  2025  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/jni/voice-activity-detector.cc
+FILE-SHA256: 84e885045fe616971aee40f2f5a02e3c09e8b77d5f4e5bce888eea0d1223b10c
+// sherpa-onnx/csrc/voice-activity-detector.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/jni/wave-reader.cc
+FILE-SHA256: 76f3f63fba54a3e4113d0fd2bbcb72fcfe1baf20eeae62e822ab3bfac4bcd1a4
+// sherpa-onnx/jni/wave-reader.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation
+
+SOURCE: .gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/sherpa-onnx/jni/wave-writer.cc
+FILE-SHA256: f22d1bea19be43b0fdb270627fffa2bb423e9eeb16848870f7ef0d9ac083aacc
+// sherpa-onnx/jni/wave-writer.cc
+//
+// Copyright (c)  2024  Xiaomi Corporation

@@ -1,0 +1,235 @@
+{
+  "checked_on": "2026-10-13",
+  "scope": "Preexisting AndroidX graphics-path native libraries in final YEZVI APK; extends STT-specific native-audit.json without modifying it",
+  "artifacts": [
+    {
+      "name": "graphics-path-1.0.1.aar",
+      "group": "androidx.graphics",
+      "artifact": "graphics-path",
+      "version": "1.0.1",
+      "role": "Preexisting UI transitive AndroidX dependency, not STT runtime",
+      "path": "C:/Users/Rick/.gradle/caches/modules-2/files-2.1/androidx.graphics/graphics-path/1.0.1/7e243033abd313c7202428422a01d48691378e33/graphics-path-1.0.1.aar",
+      "official_download_url": "https://dl.google.com/dl/android/maven2/androidx/graphics/graphics-path/1.0.1/graphics-path-1.0.1.aar",
+      "size_bytes": 39380,
+      "sha256": "8ca4032b6d79b351f0b59ad4b580eddbb9423e1652f7c958830687f1eee2ec03",
+      "sha1": "7e243033abd313c7202428422a01d48691378e33",
+      "pom_license": "Apache-2.0",
+      "pom_source": "C:/Users/Rick/.gradle/caches/modules-2/files-2.1/androidx.graphics/graphics-path/1.0.1/2a6c8471f30c0b4dc898723d23d5f43ab3fac687/graphics-path-1.0.1.pom",
+      "source_revision": "8a05a22af450d589ef911d772a001a49dcb05b71",
+      "release_notes_url": "https://developer.android.com/jetpack/androidx/releases/graphics#graphics-path-1.0.1",
+      "source_license_evidence": [
+        {
+          "path": "Path.h",
+          "url": "https://android.googlesource.com/platform/frameworks/support/+/8a05a22af450d589ef911d772a001a49dcb05b71/graphics/graphics-path/src/main/cpp/Path.h?format=TEXT",
+          "source_sha256": "4ee841338063d8c6f71ff4c655ecf52559f6c6df9af79835388dae1ebcd8b982",
+          "license_header": "/*\n * Copyright 2022 The Android Open Source Project\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */"
+        },
+        {
+          "path": "PathIterator.cpp",
+          "url": "https://android.googlesource.com/platform/frameworks/support/+/8a05a22af450d589ef911d772a001a49dcb05b71/graphics/graphics-path/src/main/cpp/PathIterator.cpp?format=TEXT",
+          "source_sha256": "3705946b43bf894e013f46ccc940f9923f43285340f8fc2128f95c59238ec7f8",
+          "license_header": "/*\n * Copyright 2022 The Android Open Source Project\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */"
+        },
+        {
+          "path": "pathway.cpp",
+          "url": "https://android.googlesource.com/platform/frameworks/support/+/8a05a22af450d589ef911d772a001a49dcb05b71/graphics/graphics-path/src/main/cpp/pathway.cpp?format=TEXT",
+          "source_sha256": "4be68d6fdb6376e95560f7c49a79aa0cd97218d758cf11ea3230ac9124485800",
+          "license_header": "/*\n * Copyright 2022 The Android Open Source Project\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */"
+        },
+        {
+          "path": "Conic.cpp",
+          "url": "https://android.googlesource.com/platform/frameworks/support/+/8a05a22af450d589ef911d772a001a49dcb05b71/graphics/graphics-path/src/main/cpp/Conic.cpp?format=TEXT",
+          "source_sha256": "49b3da93aa43480cf9cd481590be48705cb9340c52e5d09635efbd0ece07be83",
+          "license_header": "/*\n * Copyright 2022 The Android Open Source Project\n * Copyright (C) 2006 The Android Open Source Project\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *       http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */"
+        },
+        {
+          "path": "math/TVecHelpers.h",
+          "url": "https://android.googlesource.com/platform/frameworks/support/+/8a05a22af450d589ef911d772a001a49dcb05b71/graphics/graphics-path/src/main/cpp/math/TVecHelpers.h?format=TEXT",
+          "source_sha256": "1b0d6b06c5bbd6b438f9d8440ac78cf93fb8a713761badc59a4412b6457c1014",
+          "license_header": "/*\n * Copyright 2013 The Android Open Source Project\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *      http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */"
+        },
+        {
+          "path": "math/compiler.h",
+          "url": "https://android.googlesource.com/platform/frameworks/support/+/8a05a22af450d589ef911d772a001a49dcb05b71/graphics/graphics-path/src/main/cpp/math/compiler.h?format=TEXT",
+          "source_sha256": "d53e85383580e5dbf81cbcb24426b0fe1bf419b4837540242dbdca3f1df4cf66",
+          "license_header": "/*\n * Copyright (C) 2017 The Android Open Source Project\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *      http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */"
+        },
+        {
+          "path": "math/vec2.h",
+          "url": "https://android.googlesource.com/platform/frameworks/support/+/8a05a22af450d589ef911d772a001a49dcb05b71/graphics/graphics-path/src/main/cpp/math/vec2.h?format=TEXT",
+          "source_sha256": "09e1a8eb3f8fdf9c1071500f1a4933f67caeb6d0f765d5c44ba968370de9fcb1",
+          "license_header": "/*\n * Copyright 2013 The Android Open Source Project\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *      http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */"
+        }
+      ],
+      "native_libraries": [
+        {
+          "path": "jni/x86_64/libandroidx.graphics.path.so",
+          "bits": 64,
+          "size_bytes": 10760,
+          "sha256": "4e56c996f13670e70082658de7880c4020eabf4f25e43387f88ed78a713fc9f0",
+          "load_segments": [
+            {
+              "p_align": 16384,
+              "file_offset": 0,
+              "virtual_address": 0,
+              "mod16k_congruent": true
+            },
+            {
+              "p_align": 16384,
+              "file_offset": 7872,
+              "virtual_address": 24256,
+              "mod16k_congruent": true
+            },
+            {
+              "p_align": 16384,
+              "file_offset": 8808,
+              "virtual_address": 41576,
+              "mod16k_congruent": true
+            }
+          ],
+          "gnu_relro_segments": [
+            {
+              "virtual_address": 24256,
+              "memory_size": 4416,
+              "end_mod_16384": 12288
+            }
+          ],
+          "dt_needed": [
+            "libm.so",
+            "libdl.so",
+            "libc.so"
+          ],
+          "GPL_LGPL_eSpeak_string_matches": []
+        },
+        {
+          "path": "jni/arm64-v8a/libandroidx.graphics.path.so",
+          "bits": 64,
+          "size_bytes": 10096,
+          "sha256": "41e9a793c43a0f4fddb19e33f346bace464f30f888ba7b9eaf96294ea115bfb6",
+          "load_segments": [
+            {
+              "p_align": 16384,
+              "file_offset": 0,
+              "virtual_address": 0,
+              "mod16k_congruent": true
+            },
+            {
+              "p_align": 16384,
+              "file_offset": 7232,
+              "virtual_address": 23616,
+              "mod16k_congruent": true
+            },
+            {
+              "p_align": 16384,
+              "file_offset": 8144,
+              "virtual_address": 40912,
+              "mod16k_congruent": true
+            }
+          ],
+          "gnu_relro_segments": [
+            {
+              "virtual_address": 23616,
+              "memory_size": 960,
+              "end_mod_16384": 8192
+            }
+          ],
+          "dt_needed": [
+            "libm.so",
+            "libdl.so",
+            "libc.so"
+          ],
+          "GPL_LGPL_eSpeak_string_matches": []
+        },
+        {
+          "path": "jni/armeabi-v7a/libandroidx.graphics.path.so",
+          "bits": 32,
+          "size_bytes": 7252,
+          "sha256": "41399eba6fc2a60f6f14642375c1824f3cf25eb8fec7397d753730a3ceda3e2b",
+          "load_segments": [
+            {
+              "p_align": 16384,
+              "file_offset": 0,
+              "virtual_address": 0,
+              "mod16k_congruent": true
+            },
+            {
+              "p_align": 16384,
+              "file_offset": 5312,
+              "virtual_address": 21696,
+              "mod16k_congruent": true
+            },
+            {
+              "p_align": 16384,
+              "file_offset": 5772,
+              "virtual_address": 38540,
+              "mod16k_congruent": true
+            }
+          ],
+          "gnu_relro_segments": [
+            {
+              "virtual_address": 21696,
+              "memory_size": 2880,
+              "end_mod_16384": 8192
+            }
+          ],
+          "dt_needed": [
+            "libm.so",
+            "libdl.so",
+            "libc.so"
+          ],
+          "GPL_LGPL_eSpeak_string_matches": []
+        },
+        {
+          "path": "jni/x86/libandroidx.graphics.path.so",
+          "bits": 32,
+          "size_bytes": 9284,
+          "sha256": "eb0570b41fd3bff25d8204a967c03bd7550719e768b791f680cc40cbe35f29af",
+          "load_segments": [
+            {
+              "p_align": 16384,
+              "file_offset": 0,
+              "virtual_address": 0,
+              "mod16k_congruent": true
+            },
+            {
+              "p_align": 16384,
+              "file_offset": 7456,
+              "virtual_address": 23840,
+              "mod16k_congruent": true
+            },
+            {
+              "p_align": 16384,
+              "file_offset": 7912,
+              "virtual_address": 40680,
+              "mod16k_congruent": true
+            }
+          ],
+          "gnu_relro_segments": [
+            {
+              "virtual_address": 23840,
+              "memory_size": 736,
+              "end_mod_16384": 8192
+            }
+          ],
+          "dt_needed": [
+            "libm.so",
+            "libdl.so",
+            "libc.so"
+          ],
+          "GPL_LGPL_eSpeak_string_matches": []
+        }
+      ],
+      "official_sha1": "7e243033abd313c7202428422a01d48691378e33",
+      "official_sha1_match": true,
+      "manifest_text": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    package=\"androidx.graphics.path\" >\n\n    <uses-sdk android:minSdkVersion=\"21\" />\n\n</manifest>",
+      "manifest_permissions_declared": [],
+      "embedded_license_files": [],
+      "aar_metadata": "aarFormatVersion=1.0\naarMetadataVersion=1.0\nminCompileSdk=34\nminCompileSdkExtension=0\nminAndroidGradlePluginVersion=1.0.0\ncoreLibraryDesugaringEnabled=false\n"
+    }
+  ],
+  "checks": {
+    "source": "Local Gradlecache AAR/POM plus primary official release source license headers. No Gradle, emulator, microphone, or binary executed.",
+    "license": "Apache-2.0 from POM and all inspected AOSP/Google native source headers. Retain Apache license and relevant copyright notices in app-wide acknowledgements; not added to STT-specific 13-notice package.",
+    "16KB": "PT_LOAD and GNU_RELRO decoded from original AAR. Final APK zipalignment and actual 16KB-device testing are separate."
+  }
+}

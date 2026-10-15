@@ -1,0 +1,25 @@
+{
+  "artifact": ".gradle/yezvi-stt-research/sherpa-onnx-static-link-onnxruntime-1.13.8.aar",
+  "sha256": "b22c3fc1b6a45666d28892bb2f7694beeb77a8362d7ebd77c1a5431ec9435471",
+  "manifestMinSdk": 21,
+  "aarMinCompileSdk": 1,
+  "aarMinAGP": "1.0.0",
+  "abis": [
+    "arm64-v8a",
+    "armeabi-v7a",
+    "x86",
+    "x86_64"
+  ],
+  "arm64JniBytes": 24169352,
+  "x86_64JniBytes": 27359872,
+  "elfLoadAlignmentBytes": 16384,
+  "elfInspectedAbis": [
+    "arm64-v8a",
+    "x86_64"
+  ],
+  "method": "Read ZIP entries and little-endian ELF64 PT_LOAD headers without executing native code",
+  "limits": [
+    "Does not validate APK ZIP alignment or execution on 16KB devices.",
+    "No test of API24, API37, ARM64 hardware, RAM, CPU, battery or actual transcription."
+  ]
+}

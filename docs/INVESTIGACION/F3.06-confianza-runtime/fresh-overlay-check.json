@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-14",
+  "method": "Run the actual script preparation prefix in an isolated cache root; only cache path and script-location resolution changed",
+  "scope": "Source overlay preparation and immutable input validation, not a separate full native rebuild",
+  "sourceCommit": "11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf",
+  "sourceSnapshotFiles": 1179,
+  "sourceSnapshotSha256": "db80a7c154afecb532a94329be7ef732587f4a32e9a134b1e244f77ba0d23477",
+  "sameSnapshotAsBuilt": true,
+  "patchSha256": "27699515005af79815bf47e41f0cd2cb2598c8f39062f81222a63521fe72dd3a",
+  "bridgeSha256": "bb1c3cb40baf3520b7ef31aa00ec2a8f86acc4aab423ad070589876731441c99",
+  "result": "passed",
+  "downloads": 0,
+  "trackedBaselineClean": true,
+  "note": "Removed an obsolete undefined sourceArchive extraction before running this check; core.autocrlf=false is explicit in the dedicated cache repository"
+}

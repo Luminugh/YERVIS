@@ -1,0 +1,6 @@
+// From https://github.com/nbsdx/SimpleJSON
+// SimpleJSON
+// Simple C++ JSON library
+//
+// License
+// Do what the fuck you want public license

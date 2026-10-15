@@ -1,0 +1,452 @@
+{
+  "checked_on": "2026-10-13",
+  "artifacts": [
+    {
+      "name": "jna-5.18.1.aar",
+      "path": ".gradle/yezvi-stt-research/vosk/jna-5.18.1.aar",
+      "size_bytes": 522677,
+      "sha256": "7f053e3ec99e14dd71259c82c1c8a02738d64a13c31226b2acc170f3060951e0",
+      "sha1": "8e93d068c4eab70ada4c79e010198a112aa3c581",
+      "native_libraries": [
+        {
+          "path": "jni/arm64-v8a/libjnidispatch.so",
+          "bits": 64,
+          "size_bytes": 176520,
+          "sha256": "abc26e994517bcaa3309acdb0a27373864086c7569c89d3087b8626fada9ef06",
+          "load_segments": [
+            {
+              "p_align": 16384,
+              "file_offset": 0,
+              "virtual_address": 0,
+              "mod16k_congruent": true
+            },
+            {
+              "p_align": 16384,
+              "file_offset": 162712,
+              "virtual_address": 179096,
+              "mod16k_congruent": true
+            }
+          ],
+          "gnu_relro_segments": [
+            {
+              "virtual_address": 179096,
+              "memory_size": 1128,
+              "end_mod_16384": 0
+            }
+          ],
+          "dt_needed": [
+            "libc.so",
+            "libdl.so",
+            "libm.so"
+          ],
+          "GPL_LGPL_eSpeak_string_matches": []
+        },
+        {
+          "path": "jni/armeabi/libjnidispatch.so",
+          "bits": 32,
+          "size_bytes": 126980,
+          "sha256": "101daa2222382f3727800c0c49731346c5c4f81f1ecf1fde85ebcea64b151901",
+          "load_segments": [
+            {
+              "p_align": 16384,
+              "file_offset": 0,
+              "virtual_address": 0,
+              "mod16k_congruent": true
+            },
+            {
+              "p_align": 16384,
+              "file_offset": 114064,
+              "virtual_address": 130448,
+              "mod16k_congruent": true
+            }
+          ],
+          "gnu_relro_segments": [
+            {
+              "virtual_address": 130448,
+              "memory_size": 624,
+              "end_mod_16384": 0
+            }
+          ],
+          "dt_needed": [
+            "libc.so",
+            "libdl.so",
+            "libm.so"
+          ],
+          "GPL_LGPL_eSpeak_string_matches": []
+        },
+        {
+          "path": "jni/armeabi-v7a/libjnidispatch.so",
+          "bits": 32,
+          "size_bytes": 126496,
+          "sha256": "9652282ef31834281229370a354d56c1522fe36e93625169df99b3e346f76092",
+          "load_segments": [
+            {
+              "p_align": 16384,
+              "file_offset": 0,
+              "virtual_address": 0,
+              "mod16k_congruent": true
+            },
+            {
+              "p_align": 16384,
+              "file_offset": 114072,
+              "virtual_address": 130456,
+              "mod16k_congruent": true
+            }
+          ],
+          "gnu_relro_segments": [
+            {
+              "virtual_address": 130456,
+              "memory_size": 616,
+              "end_mod_16384": 0
+            }
+          ],
+          "dt_needed": [
+            "libc.so",
+            "libdl.so",
+            "libm.so"
+          ],
+          "GPL_LGPL_eSpeak_string_matches": []
+        },
+        {
+          "path": "jni/mips/libjnidispatch.so",
+          "bits": 32,
+          "size_bytes": 130556,
+          "sha256": "eb549d34eb17b394f4ba74c21c51f41340d8b049aa90cc9feaef734695890402",
+          "load_segments": [
+            {
+              "p_align": 16384,
+              "file_offset": 0,
+              "virtual_address": 0,
+              "mod16k_congruent": true
+            },
+            {
+              "p_align": 16384,
+              "file_offset": 114336,
+              "virtual_address": 130720,
+              "mod16k_congruent": true
+            }
+          ],
+          "gnu_relro_segments": [
+            {
+              "virtual_address": 130720,
+              "memory_size": 352,
+              "end_mod_16384": 0
+            }
+          ],
+          "dt_needed": [
+            "libc.so",
+            "libdl.so",
+            "libm.so"
+          ],
+          "GPL_LGPL_eSpeak_string_matches": []
+        },
+        {
+          "path": "jni/mips64/libjnidispatch.so",
+          "bits": 64,
+          "size_bytes": 150256,
+          "sha256": "93f5b0bec919b95160db0bf35c5ed6904d4d48f282501f0ff4a85f6511f3e44d",
+          "load_segments": [
+            {
+              "p_align": 16384,
+              "file_offset": 0,
+              "virtual_address": 0,
+              "mod16k_congruent": true
+            },
+            {
+              "p_align": 16384,
+              "file_offset": 115880,
+              "virtual_address": 115880,
+              "mod16k_congruent": true
+            }
+          ],
+          "gnu_relro_segments": [
+            {
+              "virtual_address": 115880,
+              "memory_size": 15192,
+              "end_mod_16384": 0
+            }
+          ],
+          "dt_needed": [
+            "libc.so",
+            "libdl.so",
+            "libm.so"
+          ],
+          "GPL_LGPL_eSpeak_string_matches": []
+        },
+        {
+          "path": "jni/x86_64/libjnidispatch.so",
+          "bits": 64,
+          "size_bytes": 126912,
+          "sha256": "3809247e9b804a05ed8377b87d545cf5b5e97f960f75e725bc8497b40260e417",
+          "load_segments": [
+            {
+              "p_align": 16384,
+              "file_offset": 0,
+              "virtual_address": 0,
+              "mod16k_congruent": true
+            },
+            {
+              "p_align": 16384,
+              "file_offset": 113408,
+              "virtual_address": 129792,
+              "mod16k_congruent": true
+            }
+          ],
+          "gnu_relro_segments": [
+            {
+              "virtual_address": 129792,
+              "memory_size": 1280,
+              "end_mod_16384": 0
+            }
+          ],
+          "dt_needed": [
+            "libc.so",
+            "libdl.so",
+            "libm.so"
+          ],
+          "GPL_LGPL_eSpeak_string_matches": []
+        },
+        {
+          "path": "jni/x86/libjnidispatch.so",
+          "bits": 32,
+          "size_bytes": 124380,
+          "sha256": "d10fcc75029621a88fa6020807e7ba82ff434a01ead396cf0e36c50e6c393118",
+          "load_segments": [
+            {
+              "p_align": 16384,
+              "file_offset": 0,
+              "virtual_address": 0,
+              "mod16k_congruent": true
+            },
+            {
+              "p_align": 16384,
+              "file_offset": 114144,
+              "virtual_address": 130528,
+              "mod16k_congruent": true
+            }
+          ],
+          "gnu_relro_segments": [
+            {
+              "virtual_address": 130528,
+              "memory_size": 544,
+              "end_mod_16384": 0
+            }
+          ],
+          "dt_needed": [
+            "libc.so",
+            "libdl.so",
+            "libm.so"
+          ],
+          "GPL_LGPL_eSpeak_string_matches": []
+        }
+      ],
+      "manifest_text": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    package=\"com.sun.jna\"\n    android:versionCode=\"5180199\"\n    android:versionName=\"5.18.1\" >\n\n    <uses-sdk android:targetSdkVersion=\"25\" />\n</manifest> \n    ",
+      "manifest_permissions_declared": [],
+      "embedded_license_files": [
+        "META-INF/LICENSE"
+      ]
+    },
+    {
+      "name": "vosk-android-0.3.75.aar",
+      "path": ".gradle/yezvi-stt-research/vosk/vosk-android-0.3.75.aar",
+      "size_bytes": 13472638,
+      "sha256": "ab2f8b91ac8051561aa325546b35fed9a68b36b8121bac5c6fb927525c4adfad",
+      "sha1": "40764b038a882055e1a57c33136c86ab9b7db2ee",
+      "native_libraries": [
+        {
+          "path": "jni/arm64-v8a/libvosk.so",
+          "bits": 64,
+          "size_bytes": 10042800,
+          "sha256": "06965ebb4e5eb3a9e4a815755e178d9553392e3fe8d3d368ac46952ad3694173",
+          "load_segments": [
+            {
+              "p_align": 16384,
+              "file_offset": 0,
+              "virtual_address": 0,
+              "mod16k_congruent": true
+            },
+            {
+              "p_align": 16384,
+              "file_offset": 4223296,
+              "virtual_address": 4239680,
+              "mod16k_congruent": true
+            },
+            {
+              "p_align": 16384,
+              "file_offset": 9881040,
+              "virtual_address": 9913808,
+              "mod16k_congruent": true
+            },
+            {
+              "p_align": 16384,
+              "file_offset": 10037352,
+              "virtual_address": 10086504,
+              "mod16k_congruent": true
+            }
+          ],
+          "gnu_relro_segments": [
+            {
+              "virtual_address": 9913808,
+              "memory_size": 158256,
+              "end_mod_16384": 12288
+            }
+          ],
+          "dt_needed": [
+            "liblog.so",
+            "libm.so",
+            "libdl.so",
+            "libc.so"
+          ],
+          "GPL_LGPL_eSpeak_string_matches": []
+        },
+        {
+          "path": "jni/armeabi-v7a/libvosk.so",
+          "bits": 32,
+          "size_bytes": 8985628,
+          "sha256": "a89defe2b093be392c793fd9fe21c65dd0a86818de9e42eef51b76db92549181",
+          "load_segments": [
+            {
+              "p_align": 4096,
+              "file_offset": 0,
+              "virtual_address": 0,
+              "mod16k_congruent": true
+            },
+            {
+              "p_align": 4096,
+              "file_offset": 3113920,
+              "virtual_address": 3118016,
+              "mod16k_congruent": false
+            },
+            {
+              "p_align": 4096,
+              "file_offset": 8904128,
+              "virtual_address": 8912320,
+              "mod16k_congruent": false
+            },
+            {
+              "p_align": 4096,
+              "file_offset": 8981632,
+              "virtual_address": 8993920,
+              "mod16k_congruent": false
+            }
+          ],
+          "gnu_relro_segments": [
+            {
+              "virtual_address": 8912320,
+              "memory_size": 78400,
+              "end_mod_16384": 12288
+            }
+          ],
+          "dt_needed": [
+            "liblog.so",
+            "libm.so",
+            "libdl.so",
+            "libc.so"
+          ],
+          "GPL_LGPL_eSpeak_string_matches": []
+        },
+        {
+          "path": "jni/x86/libvosk.so",
+          "bits": 32,
+          "size_bytes": 10397552,
+          "sha256": "ecc56ef0a441f2bab6ff34401f4b6935576fd58e9f41d207026efabd748b3982",
+          "load_segments": [
+            {
+              "p_align": 4096,
+              "file_offset": 0,
+              "virtual_address": 0,
+              "mod16k_congruent": true
+            },
+            {
+              "p_align": 4096,
+              "file_offset": 3714512,
+              "virtual_address": 3718608,
+              "mod16k_congruent": false
+            },
+            {
+              "p_align": 4096,
+              "file_offset": 10315968,
+              "virtual_address": 10324160,
+              "mod16k_congruent": false
+            },
+            {
+              "p_align": 4096,
+              "file_offset": 10393544,
+              "virtual_address": 10405832,
+              "mod16k_congruent": false
+            }
+          ],
+          "gnu_relro_segments": [
+            {
+              "virtual_address": 10324160,
+              "memory_size": 79680,
+              "end_mod_16384": 0
+            }
+          ],
+          "dt_needed": [
+            "liblog.so",
+            "libm.so",
+            "libdl.so",
+            "libc.so"
+          ],
+          "GPL_LGPL_eSpeak_string_matches": []
+        },
+        {
+          "path": "jni/x86_64/libvosk.so",
+          "bits": 64,
+          "size_bytes": 10335120,
+          "sha256": "139c42691fae9f5a65c390c0a1311fac1fc9119be662469f32e1af6cefbe496f",
+          "load_segments": [
+            {
+              "p_align": 16384,
+              "file_offset": 0,
+              "virtual_address": 0,
+              "mod16k_congruent": true
+            },
+            {
+              "p_align": 16384,
+              "file_offset": 4045312,
+              "virtual_address": 4061696,
+              "mod16k_congruent": true
+            },
+            {
+              "p_align": 16384,
+              "file_offset": 10172944,
+              "virtual_address": 10205712,
+              "mod16k_congruent": true
+            },
+            {
+              "p_align": 16384,
+              "file_offset": 10329568,
+              "virtual_address": 10378720,
+              "mod16k_congruent": true
+            }
+          ],
+          "gnu_relro_segments": [
+            {
+              "virtual_address": 10205712,
+              "memory_size": 157168,
+              "end_mod_16384": 8192
+            }
+          ],
+          "dt_needed": [
+            "liblog.so",
+            "libm.so",
+            "libdl.so",
+            "libc.so"
+          ],
+          "GPL_LGPL_eSpeak_string_matches": []
+        }
+      ],
+      "manifest_text": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    package=\"org.vosk\" >\n\n    <uses-sdk android:minSdkVersion=\"21\" />\n\n</manifest>",
+      "manifest_permissions_declared": [],
+      "embedded_license_files": [],
+      "aar_metadata": "aarFormatVersion=1.0\naarMetadataVersion=1.0\nminCompileSdk=1\nminCompileSdkExtension=0\nminAndroidGradlePluginVersion=1.0.0\ncoreLibraryDesugaringEnabled=false\n"
+    }
+  ],
+  "checks": {
+    "ELF_read_only": "Parsed program headers and dynamic DT_NEEDED directly from official AAR bytes; no binary executed.",
+    "16KB_scope": "PT_LOAD alignment and GNU_RELRO end alignment only. APK zipalignment and actual 16KB-device behavior need separate validation.",
+    "license_scope": "String scan can support but cannot prove absence of statically linked copyleft. Official source build recipes/license files remain primary evidence."
+  }
+}

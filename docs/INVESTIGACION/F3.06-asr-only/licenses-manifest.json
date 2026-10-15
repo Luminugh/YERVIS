@@ -1,0 +1,289 @@
+{
+  "checked_on": "2026-10-14",
+  "scope": "Notice packet for authorized sherpa ASR/VAD rebuild and separately associated model/VAD weights; includes conservative source/toolchain notice supersets",
+  "distributionAuditComplete": false,
+  "notices": [
+    {
+      "file": "sherpa-1.13.8-LICENSE.txt",
+      "sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+      "bytes": 11560,
+      "component": "sherpa-onnx",
+      "license": "Apache-2.0",
+      "source_url": "https://raw.githubusercontent.com/k2-fsa/sherpa-onnx/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf/LICENSE",
+      "source_path": ".gradle/yezvi-stt-research/asr-only/source/sherpa-onnx/LICENSE",
+      "scope": "Runtime own code; preserve copyright/header notices and modifications"
+    },
+    {
+      "file": "kaldi-native-fbank-1.22.3-LICENSE.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bytes": 11358,
+      "component": "kaldi-native-fbank-1.22.3-LICENSE.txt",
+      "license": "Apache-2.0",
+      "source_url": "https://raw.githubusercontent.com/csukuangfj/kaldi-native-fbank/b09e686fe2084732ddd30d1ef80acfc0f13eaf01/LICENSE",
+      "source_path": ".gradle/yezvi-stt-research/licenses/kaldi-native-fbank-1.22.3-LICENSE.txt",
+      "scope": "Retained notice from fixed existing inventory; component inclusion must be tied to actual linked objects; ORT ThirdPartyNotices is a superset"
+    },
+    {
+      "file": "kaldi-decoder-0.3.0-LICENSE.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bytes": 11358,
+      "component": "kaldi-decoder-0.3.0-LICENSE.txt",
+      "license": "Apache-2.0",
+      "source_url": "https://raw.githubusercontent.com/k2-fsa/kaldi-decoder/62fda2d74246a90db9570e46fb16b012f813fae7/LICENSE",
+      "source_path": ".gradle/yezvi-stt-research/licenses/kaldi-decoder-0.3.0-LICENSE.txt",
+      "scope": "Retained notice from fixed existing inventory; component inclusion must be tied to actual linked objects; ORT ThirdPartyNotices is a superset"
+    },
+    {
+      "file": "kaldifst-1.8.0-LICENSE.txt",
+      "sha256": "a682d6efd1ee5dee08a8e405c233c2c198ea70ae0718129daa83ab58cfe31c5d",
+      "bytes": 11728,
+      "component": "kaldifst-1.8.0-LICENSE.txt",
+      "license": "Apache-2.0",
+      "source_url": "https://raw.githubusercontent.com/k2-fsa/kaldifst/ab5bdd013bdf13921e6aeee77db5722ebf9955fb/LICENSE",
+      "source_path": ".gradle/yezvi-stt-research/licenses/kaldifst-1.8.0-LICENSE.txt",
+      "scope": "Retained notice from fixed existing inventory; component inclusion must be tied to actual linked objects; ORT ThirdPartyNotices is a superset"
+    },
+    {
+      "file": "kissfft-febd4ca-COPYING.txt",
+      "sha256": "a2840585f8411be8e6826a31ef15ae65c950bd74a2437a73b013398a934ad0c6",
+      "bytes": 246,
+      "component": "kissfft-febd4ca-COPYING.txt",
+      "license": "BSD-3-Clause attribution",
+      "source_url": "https://raw.githubusercontent.com/mborgerding/kissfft/febd4caeed32e33ad8b2e0bb5ea77542c40f18ec/COPYING",
+      "source_path": ".gradle/yezvi-stt-research/licenses/kissfft-febd4ca-COPYING.txt",
+      "scope": "Retained notice from fixed existing inventory; component inclusion must be tied to actual linked objects; ORT ThirdPartyNotices is a superset"
+    },
+    {
+      "file": "kissfft-febd4ca-BSD-3-Clause.txt",
+      "sha256": "4d6bcab46f27d6d0c878e8305d4bdcfe040d52bf6656b9771f04c9fb9902c0ed",
+      "bytes": 1830,
+      "component": "kissfft-febd4ca-BSD-3-Clause.txt",
+      "license": "BSD-3-Clause",
+      "source_url": "https://raw.githubusercontent.com/mborgerding/kissfft/febd4caeed32e33ad8b2e0bb5ea77542c40f18ec/LICENSES/BSD-3-Clause",
+      "source_path": ".gradle/yezvi-stt-research/licenses/kissfft-febd4ca-BSD-3-Clause.txt",
+      "scope": "Retained notice from fixed existing inventory; component inclusion must be tied to actual linked objects; ORT ThirdPartyNotices is a superset"
+    },
+    {
+      "file": "simple-sentencepiece-0.7-LICENSE.txt",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "bytes": 11357,
+      "component": "simple-sentencepiece-0.7-LICENSE.txt",
+      "license": "Apache-2.0",
+      "source_url": "https://raw.githubusercontent.com/pkufool/simple-sentencepiece/62dd423df1d51da5ea06f1c3a046fc04f01b4f39/LICENSE",
+      "source_path": ".gradle/yezvi-stt-research/licenses/simple-sentencepiece-0.7-LICENSE.txt",
+      "scope": "Retained notice from fixed existing inventory; component inclusion must be tied to actual linked objects; ORT ThirdPartyNotices is a superset"
+    },
+    {
+      "file": "simple-sentencepiece-0.7-darts-BSD2-NOTICE.txt",
+      "sha256": "30704ed1913ec07b4090a1eaeafd4aa37af4efe83eebbc3b5a85cedb238e0666",
+      "bytes": 1315,
+      "component": "simple-sentencepiece-0.7-darts-BSD2-NOTICE.txt",
+      "license": "BSD-2-Clause",
+      "source_url": "https://raw.githubusercontent.com/pkufool/simple-sentencepiece/62dd423df1d51da5ea06f1c3a046fc04f01b4f39/ssentencepiece/csrc/darts.h",
+      "source_path": ".gradle/yezvi-stt-research/licenses/simple-sentencepiece-0.7-darts-BSD2-NOTICE.txt",
+      "scope": "Retained notice from fixed existing inventory; component inclusion must be tied to actual linked objects; ORT ThirdPartyNotices is a superset"
+    },
+    {
+      "file": "json-3.12.0-LICENSE.MIT.txt",
+      "sha256": "46a65cffd1ea955132d95a8dd921640714a8d6b537d2e4e482d31145ae95b603",
+      "bytes": 1076,
+      "component": "json-3.12.0-LICENSE.MIT.txt",
+      "license": "MIT",
+      "source_url": "https://raw.githubusercontent.com/nlohmann/json/55f93686c01528224f448c19128836e7df245f72/LICENSE.MIT",
+      "source_path": ".gradle/yezvi-stt-research/licenses/json-3.12.0-LICENSE.MIT.txt",
+      "scope": "Retained notice from fixed existing inventory; component inclusion must be tied to actual linked objects; ORT ThirdPartyNotices is a superset"
+    },
+    {
+      "file": "json-3.12.0-third-party-license.md",
+      "sha256": "d4b7ed0261c2c840e9ccc7d483b3b659bfddc8be797f3007da080f0c4a78d960",
+      "bytes": 1995,
+      "component": "json-3.12.0-third-party-license.md",
+      "license": "MIT notices; Hedley CC0 reference",
+      "source_url": "https://raw.githubusercontent.com/nlohmann/json/55f93686c01528224f448c19128836e7df245f72/docs/mkdocs/docs/home/license.md",
+      "source_path": ".gradle/yezvi-stt-research/licenses/json-3.12.0-third-party-license.md",
+      "scope": "Retained notice from fixed existing inventory; component inclusion must be tied to actual linked objects; ORT ThirdPartyNotices is a superset"
+    },
+    {
+      "file": "json-3.12.0-hedley-SPDX-NOTICE.txt",
+      "sha256": "2852385028857c2bd17e932901a5bc6d2e330975bbce65e838e8db8b8159c8cc",
+      "bytes": 180,
+      "component": "json-3.12.0-hedley-SPDX-NOTICE.txt",
+      "license": "MIT per shipped header (documentation additionally says CC0-1.0)",
+      "source_url": "https://raw.githubusercontent.com/nlohmann/json/55f93686c01528224f448c19128836e7df245f72/include/nlohmann/thirdparty/hedley/hedley.hpp",
+      "source_path": ".gradle/yezvi-stt-research/licenses/json-3.12.0-hedley-SPDX-NOTICE.txt",
+      "scope": "Retained notice from fixed existing inventory; component inclusion must be tied to actual linked objects; ORT ThirdPartyNotices is a superset"
+    },
+    {
+      "file": "onnxruntime-1.28.2-ThirdPartyNotices.txt",
+      "sha256": "0e07b95f3a8d6230037707c5c4a2b554d12c4cb67369669ac255635528ffcee2",
+      "bytes": 325054,
+      "component": "onnxruntime-1.28.2-ThirdPartyNotices.txt",
+      "license": "upstream aggregated third-party notices, a superset rather than binary SBOM",
+      "source_url": "https://raw.githubusercontent.com/microsoft/onnxruntime/v1.28.2/ThirdPartyNotices.txt",
+      "source_path": ".gradle/yezvi-stt-research/licenses/onnxruntime-1.28.2-ThirdPartyNotices.txt",
+      "scope": "Retained notice from fixed existing inventory; component inclusion must be tied to actual linked objects; ORT ThirdPartyNotices is a superset"
+    },
+    {
+      "file": "onnxruntime-1.28.2-LICENSE.txt",
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+      "bytes": 1073,
+      "component": "ONNX Runtime",
+      "license": "MIT",
+      "source_url": "https://raw.githubusercontent.com/microsoft/onnxruntime/v1.28.2/LICENSE",
+      "source_path": "docs/INVESTIGACION/F3.06-stt-local/onnxruntime-LICENSE.txt",
+      "scope": "Dynamic prebuilt runtime; publisher build provenance not reconstructed"
+    },
+    {
+      "file": "openfst-1.8.5-2026-07-09-COPYING.txt",
+      "sha256": "4300529197035fd3452350718a0b8cee984e9412c9932d7f35fcde849fc97a4b",
+      "bytes": 559,
+      "component": "OpenFst fork July 2026",
+      "license": "Apache-2.0 attribution",
+      "source_url": "https://raw.githubusercontent.com/csukuangfj/openfst/v1.8.5-2026-07-09/COPYING",
+      "source_path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/openfst-src/COPYING",
+      "scope": "Actual selected July source, not old April notice"
+    },
+    {
+      "file": "eigen-5.0.1-LICENSE.txt",
+      "sha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5",
+      "bytes": 16725,
+      "component": "Eigen",
+      "license": "MPL-2.0; other compatible per-file licenses as specified by notice",
+      "source_url": "https://gitlab.com/libeigen/eigen/-/raw/5.0.1/LICENSE",
+      "source_path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/eigen-src/LICENSE",
+      "scope": "Preserved full notice set; map included headers from compiler dependencies; MPL covered source must be made available"
+    },
+    {
+      "file": "eigen-5.0.1-COPYING.README.txt",
+      "sha256": "db640ff2bd90c6abd6a4d3fbb351e0ee4d555417cf840492054d1cbb2ea85644",
+      "bytes": 264,
+      "component": "Eigen",
+      "license": "MPL-2.0; other compatible per-file licenses as specified by notice",
+      "source_url": "https://gitlab.com/libeigen/eigen/-/raw/5.0.1/COPYING.README",
+      "source_path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/eigen-src/COPYING.README",
+      "scope": "Preserved full notice set; map included headers from compiler dependencies; MPL covered source must be made available"
+    },
+    {
+      "file": "eigen-5.0.1-COPYING.MPL2.txt",
+      "sha256": "66a3107d5ad6a058aab753eaac2047ccb2ed0e39465dd0fe5844da3e300d5172",
+      "bytes": 16727,
+      "component": "Eigen",
+      "license": "MPL-2.0; other compatible per-file licenses as specified by notice",
+      "source_url": "https://gitlab.com/libeigen/eigen/-/raw/5.0.1/COPYING.MPL2",
+      "source_path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/eigen-src/COPYING.MPL2",
+      "scope": "Preserved full notice set; map included headers from compiler dependencies; MPL covered source must be made available"
+    },
+    {
+      "file": "eigen-5.0.1-COPYING.APACHE.txt",
+      "sha256": "03379001a7b12a2ec997a25554247d985270b353c10d5bafee9ac8d6519820b7",
+      "bytes": 11362,
+      "component": "Eigen",
+      "license": "MPL-2.0; other compatible per-file licenses as specified by notice",
+      "source_url": "https://gitlab.com/libeigen/eigen/-/raw/5.0.1/COPYING.APACHE",
+      "source_path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/eigen-src/COPYING.APACHE",
+      "scope": "Preserved full notice set; map included headers from compiler dependencies; MPL covered source must be made available"
+    },
+    {
+      "file": "eigen-5.0.1-COPYING.BSD.txt",
+      "sha256": "51928dce36213c5333ba3172e847d735d4c6e9b7ff2722a326c49067155b82eb",
+      "bytes": 1517,
+      "component": "Eigen",
+      "license": "MPL-2.0; other compatible per-file licenses as specified by notice",
+      "source_url": "https://gitlab.com/libeigen/eigen/-/raw/5.0.1/COPYING.BSD",
+      "source_path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/eigen-src/COPYING.BSD",
+      "scope": "Preserved full notice set; map included headers from compiler dependencies; MPL covered source must be made available"
+    },
+    {
+      "file": "eigen-5.0.1-COPYING.MINPACK.txt",
+      "sha256": "c87b7f8ee88f6195e91743820c00354833583aef091b72e2d4a49c8e28e798a0",
+      "bytes": 2193,
+      "component": "Eigen",
+      "license": "MPL-2.0; other compatible per-file licenses as specified by notice",
+      "source_url": "https://gitlab.com/libeigen/eigen/-/raw/5.0.1/COPYING.MINPACK",
+      "source_path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/_deps/eigen-src/COPYING.MINPACK",
+      "scope": "Preserved full notice set; map included headers from compiler dependencies; MPL covered source must be made available"
+    },
+    {
+      "file": "ndk-r28c-NOTICE.txt",
+      "sha256": "faf0dc52cf6ce9ab09a04b0c074a378dd2565ee1ed9bc1179d83793bcdba012e",
+      "bytes": 516438,
+      "component": "Android NDK runtime/header notices",
+      "license": "Multiple component licenses; see exact notice",
+      "source_url": "https://dl.google.com/android/repository/android-ndk-r28c-windows.zip",
+      "source_path": ".gradle/yezvi-stt-research/asr-only/toolchain/ndk/android-ndk-r28c/NOTICE",
+      "scope": "Conservative notice superset; NDK compiler itself is not shipped in APK"
+    },
+    {
+      "file": "ndk-r28c-NOTICE.toolchain.txt",
+      "sha256": "789714a9076571c580cf531bdcebec776a4d889c12c3c1108adafc6e4338710a",
+      "bytes": 799639,
+      "component": "Clang/libc++/libc++abi/compiler-rt",
+      "license": "Apache-2.0 WITH LLVM-exception plus per-file legacy/other notices",
+      "source_url": "https://dl.google.com/android/repository/android-ndk-r28c-windows.zip",
+      "source_path": ".gradle/yezvi-stt-research/asr-only/toolchain/ndk/android-ndk-r28c/NOTICE.toolchain",
+      "scope": "Static c++ runtime linked by current build; retain exact NDK notices, no license assigned to entire toolchain by analogy"
+    },
+    {
+      "file": "configured-source-copyright-headers.txt",
+      "sha256": "ec76e50f5417ee8ebe5afffc56adf0571d9746ff0dd398e496d5f1acbfdfbca1",
+      "bytes": 99987,
+      "component": "Configured source and embedded header copyright supplement",
+      "license": "Per-file notices, see contents and full license texts",
+      "source_url": "https://github.com/k2-fsa/sherpa-onnx/tree/11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf",
+      "source_path": ".gradle/yezvi-stt-research/asr-only/build/x86_64/compile_commands.json",
+      "scope": "Derived exact leading-comment excerpts from 263 configured source/header files; superset, not an actual linked-object or complete reachable-header audit"
+    },
+    {
+      "file": "silero-LICENSE.txt",
+      "sha256": "2e63e9a38b6e8fc0c7bc37ce174caca1862870856c6daf5697cfb785e925520b",
+      "bytes": 1075,
+      "component": "silero-LICENSE.txt",
+      "license": "MIT",
+      "source_url": "https://raw.githubusercontent.com/snakers4/silero-vad/1e261b036686cd0017d500ee96acd1c4ba572a9d/LICENSE",
+      "source_path": "docs/INVESTIGACION/F3.06-stt-local/silero-LICENSE.txt",
+      "scope": "Associated model/VAD weights and derived vocabulary, not code licensed by the runtime nor proof weights are inside the AAR; retain attribution/conversion statements with actual model distribution"
+    },
+    {
+      "file": "nvidia-spanish-model-card.md",
+      "sha256": "0e6fe139bab54767e9f3c8dc56a5210a005f0a7b119c3d4058c1fa73edb0cdfa",
+      "bytes": 10592,
+      "component": "nvidia-spanish-model-card.md",
+      "license": "CC-BY-4.0 (model card/upstream weights)",
+      "source_url": "https://huggingface.co/nvidia/stt_es_fastconformer_hybrid_large_pc/raw/d3fcff82e2ddec13517256402aa5da86400c5893/README.md",
+      "source_path": "docs/INVESTIGACION/F3.06-stt-local/nvidia-spanish-model-card.md",
+      "scope": "Associated model/VAD weights and derived vocabulary, not code licensed by the runtime nor proof weights are inside the AAR; retain attribution/conversion statements with actual model distribution"
+    },
+    {
+      "file": "CC-BY-4.0-legalcode.txt",
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+      "bytes": 18657,
+      "component": "CC-BY-4.0-legalcode.txt",
+      "license": "CC-BY-4.0 legal text",
+      "source_url": "https://creativecommons.org/licenses/by/4.0/legalcode.txt",
+      "source_path": "docs/INVESTIGACION/F3.06-stt-local/CC-BY-4.0-legalcode.txt",
+      "scope": "Associated model/VAD weights and derived vocabulary, not code licensed by the runtime nor proof weights are inside the AAR; retain attribution/conversion statements with actual model distribution"
+    },
+    {
+      "file": "eigen-used-header-notices.txt",
+      "sha256": "906cf920fbf0a24d9aa3a9e5c6b897e50d1f166633ca1ef7c5975bcdb15f8167",
+      "bytes": 155243,
+      "component": "Eigen5.0.1 actual used-header notices",
+      "license": "MPL-2.0 and exact per-file Apache/BSD/custom-permissive notices as preserved",
+      "source_url": "https://gitlab.com/libeigen/eigen/-/tree/5.0.1",
+      "source_path": "docs/INVESTIGACION/F3.06-asr-only/eigen-used-headers.json",
+      "scope": "Complete untruncated license/copyright comment blocks from204 actual Ninja header paths (187 headers with notices; 191 blocks), including TensorFlow/Intel/FabianGiesen/WillowGarage/OpenSourceRoboticsFoundation; not a final linker liveness certification"
+    }
+  ],
+  "source_inventory": "sources.json",
+  "source_availability": {
+    "component": "Eigen 5.0.1 MPL-covered code",
+    "url": "https://gitlab.com/libeigen/eigen/-/archive/5.0.1/eigen-5.0.1.tar.gz",
+    "sha256": "e9c326dc8c05cd1e044c71f30f1b2e34a6161a3b6ecf445d56b53ff1669e3dec",
+    "notice": "Eigen source/header files are available from this exact upstream archive under MPL-2.0 and compatible per-file licenses. Keep a durable corresponding-source copy and source access instructions with any public executable distribution. This notice does not license the entire YEZVI app under MPL."
+  },
+  "limits": [
+    "Packet preserves notices and license choices, not complete binary/app audit or permission to publish",
+    "ORT prebuilt build provenance and whole-app 16KB compatibility remain independent release gates",
+    "Configured source copyright supplement is a superset, not evidence every listed file was linked"
+  ]
+}

@@ -1,0 +1,517 @@
+{
+  "normalization": "word edit distance; lowercase, punctuation and diacritics ignored; no numeric/technical aliases",
+  "device": "Pixel 8 AVD API35 x86_64, 4096-byte pages; not Samsung/16KB/microphone",
+  "voskPreparationMs": 285.4318,
+  "sherpaPreparationMs": 655.2054,
+  "rows": [
+    {
+      "fixture": "fleurs-es_419-san_pedro.wav",
+      "round": 0,
+      "engine": "vosk",
+      "samples": 155520,
+      "durationMs": 9720,
+      "loadMs": 948.7729,
+      "inferenceMs": 1567.8936,
+      "referenceWords": 22,
+      "hypothesisWords": 22,
+      "S": 0,
+      "D": 0,
+      "I": 0,
+      "wer": 0.0,
+      "rtf": 0.16130592592592594,
+      "afterFinishMs": 31.0591
+    },
+    {
+      "fixture": "fleurs-es_419-san_pedro.wav",
+      "round": 0,
+      "engine": "rnnt-greedy",
+      "samples": 155520,
+      "durationMs": 9720,
+      "loadMs": 1888.8348,
+      "inferenceMs": 611.0248,
+      "referenceWords": 22,
+      "hypothesisWords": 22,
+      "S": 0,
+      "D": 0,
+      "I": 0,
+      "wer": 0.0,
+      "rtf": 0.06286263374485597
+    },
+    {
+      "fixture": "fleurs-es_419-negative_tierra.wav",
+      "round": 0,
+      "engine": "vosk",
+      "samples": 137280,
+      "durationMs": 8580,
+      "loadMs": 1021.1631,
+      "inferenceMs": 1385.4733,
+      "referenceWords": 15,
+      "hypothesisWords": 15,
+      "S": 0,
+      "D": 0,
+      "I": 0,
+      "wer": 0.0,
+      "rtf": 0.1614770745920746,
+      "afterFinishMs": 23.9885
+    },
+    {
+      "fixture": "fleurs-es_419-negative_tierra.wav",
+      "round": 0,
+      "engine": "rnnt-greedy",
+      "samples": 137280,
+      "durationMs": 8580,
+      "loadMs": 1916.5265,
+      "inferenceMs": 789.5672,
+      "referenceWords": 15,
+      "hypothesisWords": 15,
+      "S": 0,
+      "D": 0,
+      "I": 0,
+      "wer": 0.0,
+      "rtf": 0.09202414918414918
+    },
+    {
+      "fixture": "fleurs-es_419-carpanedo.wav",
+      "round": 0,
+      "engine": "vosk",
+      "samples": 169920,
+      "durationMs": 10620,
+      "loadMs": 827.1171,
+      "inferenceMs": 2005.0485,
+      "referenceWords": 14,
+      "hypothesisWords": 15,
+      "S": 1,
+      "D": 0,
+      "I": 1,
+      "wer": 0.14285714285714285,
+      "rtf": 0.18879929378531074,
+      "afterFinishMs": 32.5449
+    },
+    {
+      "fixture": "fleurs-es_419-carpanedo.wav",
+      "round": 0,
+      "engine": "rnnt-greedy",
+      "samples": 169920,
+      "durationMs": 10620,
+      "loadMs": 1798.5605,
+      "inferenceMs": 546.771,
+      "referenceWords": 14,
+      "hypothesisWords": 14,
+      "S": 1,
+      "D": 0,
+      "I": 0,
+      "wer": 0.07142857142857142,
+      "rtf": 0.05148502824858757
+    },
+    {
+      "fixture": "fleurs-es_419-luna.wav",
+      "round": 0,
+      "engine": "vosk",
+      "samples": 90240,
+      "durationMs": 5640,
+      "loadMs": 802.7292,
+      "inferenceMs": 1080.0603,
+      "referenceWords": 9,
+      "hypothesisWords": 9,
+      "S": 0,
+      "D": 0,
+      "I": 0,
+      "wer": 0.0,
+      "rtf": 0.19150005319148938,
+      "afterFinishMs": 33.4843
+    },
+    {
+      "fixture": "fleurs-es_419-luna.wav",
+      "round": 0,
+      "engine": "rnnt-greedy",
+      "samples": 90240,
+      "durationMs": 5640,
+      "loadMs": 1693.5423,
+      "inferenceMs": 286.8285,
+      "referenceWords": 9,
+      "hypothesisWords": 9,
+      "S": 0,
+      "D": 0,
+      "I": 0,
+      "wer": 0.0,
+      "rtf": 0.0508561170212766
+    },
+    {
+      "fixture": "authorized-private-recording",
+      "round": 0,
+      "engine": "vosk",
+      "samples": 1056160,
+      "durationMs": 66010,
+      "loadMs": 935.2063,
+      "inferenceMs": 16341.8184,
+      "referenceWords": 201,
+      "hypothesisWords": 205,
+      "S": 35,
+      "D": 14,
+      "I": 18,
+      "wer": 0.3333333333333333,
+      "rtf": 0.24756579912134524,
+      "technicalTokenOccurrences": {
+        "discord": {
+          "reference": 3,
+          "recognized": 1
+        },
+        "cpu": {
+          "reference": 3,
+          "recognized": 0
+        },
+        "edge": {
+          "reference": 1,
+          "recognized": 1
+        },
+        "8792": {
+          "reference": 1,
+          "recognized": 0
+        },
+        "4668": {
+          "reference": 1,
+          "recognized": 0
+        },
+        "yezvi": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "kotlin": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "compose": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "nalbero": {
+          "reference": 0,
+          "recognized": 0
+        }
+      },
+      "afterFinishMs": 22.5916
+    },
+    {
+      "fixture": "authorized-private-recording",
+      "round": 0,
+      "engine": "rnnt-greedy",
+      "samples": 1056160,
+      "durationMs": 66010,
+      "loadMs": 2053.1587,
+      "inferenceMs": 6152.7163,
+      "referenceWords": 201,
+      "hypothesisWords": 201,
+      "S": 25,
+      "D": 12,
+      "I": 12,
+      "wer": 0.24378109452736318,
+      "rtf": 0.093208851689138,
+      "technicalTokenOccurrences": {
+        "discord": {
+          "reference": 3,
+          "recognized": 1
+        },
+        "cpu": {
+          "reference": 3,
+          "recognized": 0
+        },
+        "edge": {
+          "reference": 1,
+          "recognized": 0
+        },
+        "8792": {
+          "reference": 1,
+          "recognized": 0
+        },
+        "4668": {
+          "reference": 1,
+          "recognized": 0
+        },
+        "yezvi": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "kotlin": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "compose": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "nalbero": {
+          "reference": 0,
+          "recognized": 0
+        }
+      }
+    },
+    {
+      "fixture": "authorized-private-recording",
+      "round": 1,
+      "engine": "rnnt-greedy",
+      "samples": 1056160,
+      "durationMs": 66010,
+      "loadMs": 1765.8485,
+      "inferenceMs": 4710.7112,
+      "referenceWords": 201,
+      "hypothesisWords": 201,
+      "S": 25,
+      "D": 12,
+      "I": 12,
+      "wer": 0.24378109452736318,
+      "rtf": 0.07136359945462808,
+      "technicalTokenOccurrences": {
+        "discord": {
+          "reference": 3,
+          "recognized": 1
+        },
+        "cpu": {
+          "reference": 3,
+          "recognized": 0
+        },
+        "edge": {
+          "reference": 1,
+          "recognized": 0
+        },
+        "8792": {
+          "reference": 1,
+          "recognized": 0
+        },
+        "4668": {
+          "reference": 1,
+          "recognized": 0
+        },
+        "yezvi": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "kotlin": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "compose": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "nalbero": {
+          "reference": 0,
+          "recognized": 0
+        }
+      }
+    },
+    {
+      "fixture": "authorized-private-recording",
+      "round": 1,
+      "engine": "vosk",
+      "samples": 1056160,
+      "durationMs": 66010,
+      "loadMs": 905.731,
+      "inferenceMs": 15362.4567,
+      "referenceWords": 201,
+      "hypothesisWords": 206,
+      "S": 34,
+      "D": 13,
+      "I": 18,
+      "wer": 0.32338308457711445,
+      "rtf": 0.23272923344947735,
+      "technicalTokenOccurrences": {
+        "discord": {
+          "reference": 3,
+          "recognized": 1
+        },
+        "cpu": {
+          "reference": 3,
+          "recognized": 0
+        },
+        "edge": {
+          "reference": 1,
+          "recognized": 1
+        },
+        "8792": {
+          "reference": 1,
+          "recognized": 0
+        },
+        "4668": {
+          "reference": 1,
+          "recognized": 0
+        },
+        "yezvi": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "kotlin": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "compose": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "nalbero": {
+          "reference": 0,
+          "recognized": 0
+        }
+      },
+      "afterFinishMs": 22.5425
+    },
+    {
+      "fixture": "authorized-private-recording",
+      "round": 2,
+      "engine": "vosk",
+      "samples": 1056160,
+      "durationMs": 66010,
+      "loadMs": 873.3612,
+      "inferenceMs": 15227.2251,
+      "referenceWords": 201,
+      "hypothesisWords": 206,
+      "S": 33,
+      "D": 13,
+      "I": 18,
+      "wer": 0.31840796019900497,
+      "rtf": 0.23068058021511892,
+      "technicalTokenOccurrences": {
+        "discord": {
+          "reference": 3,
+          "recognized": 1
+        },
+        "cpu": {
+          "reference": 3,
+          "recognized": 0
+        },
+        "edge": {
+          "reference": 1,
+          "recognized": 1
+        },
+        "8792": {
+          "reference": 1,
+          "recognized": 0
+        },
+        "4668": {
+          "reference": 1,
+          "recognized": 0
+        },
+        "yezvi": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "kotlin": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "compose": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "nalbero": {
+          "reference": 0,
+          "recognized": 0
+        }
+      },
+      "afterFinishMs": 22.2998
+    },
+    {
+      "fixture": "authorized-private-recording",
+      "round": 2,
+      "engine": "rnnt-greedy",
+      "samples": 1056160,
+      "durationMs": 66010,
+      "loadMs": 1763.5752,
+      "inferenceMs": 4587.374,
+      "referenceWords": 201,
+      "hypothesisWords": 201,
+      "S": 25,
+      "D": 12,
+      "I": 12,
+      "wer": 0.24378109452736318,
+      "rtf": 0.06949513710043932,
+      "technicalTokenOccurrences": {
+        "discord": {
+          "reference": 3,
+          "recognized": 1
+        },
+        "cpu": {
+          "reference": 3,
+          "recognized": 0
+        },
+        "edge": {
+          "reference": 1,
+          "recognized": 0
+        },
+        "8792": {
+          "reference": 1,
+          "recognized": 0
+        },
+        "4668": {
+          "reference": 1,
+          "recognized": 0
+        },
+        "yezvi": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "kotlin": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "compose": {
+          "reference": 0,
+          "recognized": 0
+        },
+        "nalbero": {
+          "reference": 0,
+          "recognized": 0
+        }
+      }
+    }
+  ],
+  "aggregates": [
+    {
+      "dataset": "public",
+      "engine": "rnnt-greedy",
+      "runs": 4,
+      "wer": 0.016666666666666666,
+      "werMin": 0.0,
+      "werMax": 0.07142857142857142,
+      "medianInferenceMs": 578.8978999999999,
+      "totalInferenceMs": 2234.1915,
+      "medianLoadMs": 1843.69765,
+      "medianRtf": 0.05717383099672177
+    },
+    {
+      "dataset": "public",
+      "engine": "vosk",
+      "runs": 4,
+      "wer": 0.03333333333333333,
+      "werMin": 0.0,
+      "werMax": 0.14285714285714285,
+      "medianInferenceMs": 1476.68345,
+      "totalInferenceMs": 6038.475700000001,
+      "medianLoadMs": 887.945,
+      "medianRtf": 0.17513818418869267
+    },
+    {
+      "dataset": "private-approximate-reference",
+      "engine": "rnnt-greedy",
+      "runs": 3,
+      "wer": 0.24378109452736318,
+      "werMin": 0.24378109452736318,
+      "werMax": 0.24378109452736318,
+      "medianInferenceMs": 4710.7112,
+      "totalInferenceMs": 15450.8015,
+      "medianLoadMs": 1765.8485,
+      "medianRtf": 0.07136359945462808
+    },
+    {
+      "dataset": "private-approximate-reference",
+      "engine": "vosk",
+      "runs": 3,
+      "wer": 0.3250414593698176,
+      "werMin": 0.31840796019900497,
+      "werMax": 0.3333333333333333,
+      "medianInferenceMs": 15362.4567,
+      "totalInferenceMs": 46931.5002,
+      "medianLoadMs": 905.731,
+      "medianRtf": 0.23272923344947735
+    }
+  ]
+}

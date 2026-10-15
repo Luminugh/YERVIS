@@ -1,0 +1,40 @@
+{
+  "historical-full-aar": {
+    "privateTimesMs": [
+      13610.6995,
+      8250.0419,
+      7301.2204
+    ],
+    "privateLoadMs": [
+      2030.2416,
+      2536.6064,
+      2505.744
+    ]
+  },
+  "new-asr-only": {
+    "privateTimesMs": [
+      13556.8398,
+      9191.5817,
+      5070.8342
+    ],
+    "privateLoadMs": [
+      1682.2611,
+      2616.6507,
+      1646.2172
+    ]
+  },
+  "new-paired": {
+    "privateTimesMs": [
+      6152.7163,
+      4710.7112,
+      4587.374
+    ],
+    "privateLoadMs": [
+      2053.1587,
+      1765.8485,
+      1763.5752
+    ]
+  },
+  "allNewRnntHypothesesEqualHistorical": true,
+  "scope": "Exact raw transcript equality computed privately; no private text or fingerprints published; historical baseline not a contemporaneous A/B"
+}

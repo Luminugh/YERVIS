@@ -1,0 +1,182 @@
+{
+  "preparedDate": "2026-10-12",
+  "language": "es_419",
+  "languageDescription": "Spanish, Latin America (FLEURS locale; not specifically Peru)",
+  "corpus": "Google FLEURS",
+  "version": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+  "license": "CC-BY-4.0",
+  "licenseEvidenceUrl": "https://huggingface.co/datasets/google/fleurs/blob/70bb2e84b976b7e960aa89f1c648e09c59f894dd/README.md",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "speechType": "human_read_speech",
+  "speechTypeEvidenceUrl": "https://arxiv.org/html/2205.12446v1#S2.SS1",
+  "attribution": "Alexis Conneau, Min Ma, Simran Khanuja, Yu Zhang, Vera Axelrod, Siddharth Dalmia, Jason Riesa, Clara Rivera, Ankur Bapna. FLEURS: Few-shot Learning Evaluation of Universal Representations of Speech, 2022. Google FLEURS dataset on Hugging Face.",
+  "sourceArchiveUrl": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/es_419/audio/test.tar.gz",
+  "sourceArchivePublishedBytes": 582112372,
+  "sourceArchivePublishedSha256": "981802f6c828fd214fcf8bfc1036d80c9184b6eeb5650b3f7882f8affec046c9",
+  "sourceArchiveFullHashVerified": false,
+  "rangeReceipt": {
+    "httpStatus": 206,
+    "contentRange": "bytes 0-4194303/582112372",
+    "downloadedBytes": 4194304,
+    "prefixPath": "fleurs-es_419-test.prefix.partial.gz",
+    "prefixSha256": "c9462abfa84e89983234aef20591a35fcf5edf16845b64a441dcac9db1b87c95"
+  },
+  "integrityLimit": "Only first 4,194,304 compressed bytes fetched over HTTPS from pinned official repository; full archive hash and final gzip CRC not verified. Each complete WAV member has independent local SHA-256. Not claiming publisher per-WAV checksums.",
+  "modifications": "Extracted complete WAV members; converted IEEE float32 mono 16 kHz to PCM signed16 mono 16 kHz without trimming/resampling/normalization, using round(x * 32768) and saturation. Source WAVs retained.",
+  "scopeLimit": "Four samples support human Spanish and generic proper-name lexical bias controls. No YEZVI, Kotlin, Jetpack, Nalvero positives and no user accent/Samsung/microphone acceptance.",
+  "excludedExistingFixture": {
+    "archivePath": ".gradle/yezvi-stt-research/sherpa-onnx-nemo-fast-conformer-transducer-es-1424-int8.tar.bz2",
+    "member": "test_wavs/es-spanish.wav",
+    "reason": "Official sherpa example names this WAV but audio authorship and audio license not established; runtime/model license not assumed to cover recordings.",
+    "extracted": false,
+    "used": false
+  },
+  "metadata": [
+    {
+      "path": "fleurs-README.md",
+      "sourceUrl": "https://huggingface.co/datasets/google/fleurs/raw/70bb2e84b976b7e960aa89f1c648e09c59f894dd/README.md",
+      "bytes": 385614,
+      "sha256": "688f79f2a5c731af3796e9f683eb02f9b3f09d040decd8c5625d0f37098e71c6"
+    },
+    {
+      "path": "fleurs-es_419-test.tsv",
+      "sourceUrl": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/es_419/test.tsv",
+      "bytes": 599882,
+      "sha256": "d107a93a4f54a18ac25cd470bb4cdadce14fb075b0c1d1542258e274d209ec09"
+    },
+    {
+      "path": "subset-extraction.json",
+      "sourceUrl": "locally generated from bounded HTTP range and official TSV",
+      "bytes": 5206,
+      "sha256": "793f89df61538074b5fedaed52e5872c53f0c4d80caa6d320d3780cab7d838c0"
+    },
+    {
+      "path": "fleurs-archive-publisher-metadata.json",
+      "sourceUrl": "https://huggingface.co/api/datasets/google/fleurs/tree/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/es_419/audio",
+      "bytes": 945,
+      "sha256": "236c4aa9d8ff324b358325f7ce30e653d22836fcf7d2806b9c02c50b39c96a8a"
+    },
+    {
+      "path": "CC-BY-4.0-legalcode.txt",
+      "sourceUrl": "https://creativecommons.org/licenses/by/4.0/legalcode.txt",
+      "bytes": 18657,
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+    }
+  ],
+  "samples": [
+    {
+      "name": "1008205615316519958.wav",
+      "archiveMember": "test/1008205615316519958.wav",
+      "originalBytes": 622138,
+      "originalSha256": "0576e73da35ef17b6ce6396d31b32830b7ab19cea98f9f5db68de3756dc3d4fc",
+      "sentenceId": 1764,
+      "rawText": "Fue tanta la cantidad de gente que se concentró, que no todos pudieron acceder al funeral en la Plaza de San Pedro.",
+      "normalizedText": "fue tanta la cantidad de gente que se concentró que no todos pudieron acceder al funeral en la plaza de san pedro",
+      "numSamples": 155520,
+      "speakerGender": "MALE",
+      "path": "fleurs-es_419-san_pedro.wav",
+      "originalPath": "original-1008205615316519958.wav",
+      "sourceUrl": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/es_419/audio/test.tar.gz#test/1008205615316519958.wav",
+      "expectedTextPath": "fleurs-es_419-san_pedro.expected.txt",
+      "expectedTextSha256": "e5e13e20b2479d12a384fd7a7a823250659ecea9d16bfe4e1707cd267cce7161",
+      "bytes": 311084,
+      "sha256": "e6bc71c132b6022fdaee690b0c87051925430c4ed94049827f6ba90e3faf06ac",
+      "sampleRateHz": 16000,
+      "channels": 1,
+      "encoding": "PCM_S16LE",
+      "bitsPerSample": 16,
+      "durationSeconds": 9.72,
+      "sourceEncoding": "WAVE_IEEE_FLOAT32_LE",
+      "saturatedSourceSamples": 0,
+      "role": "positive_multiword_proper_name",
+      "contextualHotwordsPresent": [
+        "Plaza de San Pedro"
+      ]
+    },
+    {
+      "name": "10084850086754329587.wav",
+      "archiveMember": "test/10084850086754329587.wav",
+      "originalBytes": 549178,
+      "originalSha256": "275d5d9dcbfb7099b9aac08ea81fc7383b94e085a683d127ce4d8ff742cb3961",
+      "sentenceId": 1770,
+      "rawText": "Esto parece tener sentido, ya que en la Tierra no se percibe su movimiento, ¿cierto?",
+      "normalizedText": "esto parece tener sentido ya que en la tierra no se percibe su movimiento ¿cierto?",
+      "numSamples": 137280,
+      "speakerGender": "MALE",
+      "path": "fleurs-es_419-negative_tierra.wav",
+      "originalPath": "original-10084850086754329587.wav",
+      "sourceUrl": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/es_419/audio/test.tar.gz#test/10084850086754329587.wav",
+      "expectedTextPath": "fleurs-es_419-negative_tierra.expected.txt",
+      "expectedTextSha256": "a07c07294f36a8791b05a70d5f43c40f95ba6a2c5c7323c61c23662ffb63c55b",
+      "bytes": 274604,
+      "sha256": "f139c0796a0d50b5aa304b1c3d383e9ee58907875b4c233cfa8cab92f5cd6b38",
+      "sampleRateHz": 16000,
+      "channels": 1,
+      "encoding": "PCM_S16LE",
+      "bitsPerSample": 16,
+      "durationSeconds": 8.58,
+      "sourceEncoding": "WAVE_IEEE_FLOAT32_LE",
+      "saturatedSourceSamples": 0,
+      "role": "negative_for_selected_contextual_hotwords",
+      "contextualHotwordsPresent": []
+    },
+    {
+      "name": "10107325335956726764.wav",
+      "archiveMember": "test/10107325335956726764.wav",
+      "originalBytes": 679738,
+      "originalSha256": "675d977de02f4ae1314252277c44375f9969732cb80db56e024b853fbbb939f7",
+      "sentenceId": 1799,
+      "rawText": "Carpanedo participó en dos carreras individuales del campeonato aparte de la competencia del miércoles.",
+      "normalizedText": "carpanedo participó en dos carreras individuales del campeonato aparte de la competencia del miércoles",
+      "numSamples": 169920,
+      "speakerGender": "MALE",
+      "path": "fleurs-es_419-carpanedo.wav",
+      "originalPath": "original-10107325335956726764.wav",
+      "sourceUrl": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/es_419/audio/test.tar.gz#test/10107325335956726764.wav",
+      "expectedTextPath": "fleurs-es_419-carpanedo.expected.txt",
+      "expectedTextSha256": "0c59528d7c885c888bb28d137a36771979c5a98d858cdaad70ebda7850b6667a",
+      "bytes": 339884,
+      "sha256": "d697a2b71d0ccdc888d5171e386e0aff47457a1e72adc8562e27d7510966acc2",
+      "sampleRateHz": 16000,
+      "channels": 1,
+      "encoding": "PCM_S16LE",
+      "bitsPerSample": 16,
+      "durationSeconds": 10.62,
+      "sourceEncoding": "WAVE_IEEE_FLOAT32_LE",
+      "saturatedSourceSamples": 0,
+      "role": "positive_proper_name",
+      "contextualHotwordsPresent": [
+        "Carpanedo"
+      ]
+    },
+    {
+      "name": "10149016836336603986.wav",
+      "archiveMember": "test/10149016836336603986.wav",
+      "originalBytes": 361018,
+      "originalSha256": "13b06188bd62a1a63ed350e6fe1a1ee8518db1ea7bc8f75d72849ca023de7c32",
+      "sentenceId": 1747,
+      "rawText": "Los luchadores compañeros de Luna también le rindieron homenaje.",
+      "normalizedText": "los luchadores compañeros de luna también le rindieron homenaje",
+      "numSamples": 90240,
+      "speakerGender": "FEMALE",
+      "path": "fleurs-es_419-luna.wav",
+      "originalPath": "original-10149016836336603986.wav",
+      "sourceUrl": "https://huggingface.co/datasets/google/fleurs/resolve/70bb2e84b976b7e960aa89f1c648e09c59f894dd/data/es_419/audio/test.tar.gz#test/10149016836336603986.wav",
+      "expectedTextPath": "fleurs-es_419-luna.expected.txt",
+      "expectedTextSha256": "1564244b76b301416df48de31dbb4c69bbad52e67bed0e7c5455ef476cf6c0fd",
+      "bytes": 180524,
+      "sha256": "1cf354f983b58e0c24416314de990caa372be50e8e68e21a2d67f542c29446b6",
+      "sampleRateHz": 16000,
+      "channels": 1,
+      "encoding": "PCM_S16LE",
+      "bitsPerSample": 16,
+      "durationSeconds": 5.64,
+      "sourceEncoding": "WAVE_IEEE_FLOAT32_LE",
+      "saturatedSourceSamples": 0,
+      "role": "positive_proper_name",
+      "contextualHotwordsPresent": [
+        "Luna"
+      ]
+    }
+  ]
+}

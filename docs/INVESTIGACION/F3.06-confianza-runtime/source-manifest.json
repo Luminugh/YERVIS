@@ -1,0 +1,33 @@
+{
+  "format": 1,
+  "upstreamVersion": "1.13.8",
+  "upstreamCommit": "11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf",
+  "license": "Apache-2.0",
+  "purpose": "Debug-only experimental metadata; no decoder-ranking or model changes",
+  "patch": {
+    "path": "sherpa-1.13.8-confidence.patch",
+    "sha256": "27699515005af79815bf47e41f0cd2cb2598c8f39062f81222a63521fe72dd3a"
+  },
+  "addedSource": {
+    "path": "yezvi-token-scores.cc",
+    "destination": "sherpa-onnx/jni/yezvi-token-scores.cc",
+    "sha256": "bb1c3cb40baf3520b7ef31aa00ec2a8f86acc4aab423ad070589876731441c99"
+  },
+  "modifiedUpstreamFiles": [
+    {
+      "path": "sherpa-onnx/csrc/offline-transducer-modified-beam-search-nemo-decoder.cc",
+      "upstreamLfSha256": "38bf91a953b890b3ef0b9987592e10eabd656cf13250ce8df8065943c974b6b8",
+      "patchedLfSha256": "26bf33181123f2c3647fdc5e65c43d1e9c7597f8a42b921ce89d56cb97b7e32b"
+    },
+    {
+      "path": "sherpa-onnx/jni/CMakeLists.txt",
+      "upstreamLfSha256": "cf1e46fb74c820b476fd7c585073389c4e021508fe32a7f007684f6180c7dd31",
+      "patchedLfSha256": "49688abd47c42eb22acef594fe509cdd9429450cf2c85aa874f9237ee77fdfc0"
+    },
+    {
+      "path": "sherpa-onnx/jni/sherpa-onnx-symbols.lds",
+      "upstreamLfSha256": "27495d8f4d39559c0f57587bca1b700553c7a8360a69faa90dc0d8f2d571bdef",
+      "patchedLfSha256": "85d16df7657fdf718dd6d63d0d0eda0c807e3f9f00e6e51c29beaae1ac2dd9ee"
+    }
+  ]
+}
