@@ -45,11 +45,12 @@ class CaptureDraftFlowTest {
     fun typingDraftReviewAndDiscardFlow() {
         composeTestRule.apply {
             waitForIdle()
-            waitForHeading("Hoy")
+            waitForHeading("Inicio")
             // Navegamos desde la barra inferior porque el clic en el FAB no es estable
             // en este emulador API 37 con Espresso 3.7.0 (NO_INPUT_CHANNEL al inicio).
             onNodeWithTag("bottom_nav_capture").performClick()
             waitForTag("capture_text_field")
+            onNodeWithTag("capture_voice_permission_status").assertIsDisplayed()
 
             onNodeWithTag("capture_text_field")
                 .performTextInput("  Revisar el informe mañana  ")
@@ -66,7 +67,7 @@ class CaptureDraftFlowTest {
 
             onNodeWithText("¿Descartar borrador?").assertIsDisplayed()
             onNode(hasText("Descartar") and hasClickAction()).performClick()
-            onNode(hasText("Hoy") and isHeading()).assertIsDisplayed()
+            onNode(hasText("Inicio") and isHeading()).assertIsDisplayed()
         }
     }
 }

@@ -198,6 +198,7 @@ class CaptureViewModelTest {
         override fun observeAll(): Flow<List<MemoryEntry>> = flowOf(emptyList())
 
         override suspend fun deleteById(id: String): Boolean = false
+        override suspend fun deleteByIds(ids: Set<String>): Int = 0
     }
 
     private data class SaveCall(val input: CaptureInput, val id: String)

@@ -10,6 +10,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
@@ -22,6 +23,10 @@ import androidx.navigation.navArgument
 import com.yezvi.assistant.data.local.memory.YezviDatabaseFactory
 import com.yezvi.assistant.data.repository.RoomMemoryCorrectionRepository
 import com.yezvi.assistant.data.repository.RoomMemoryRepository
+import com.yezvi.assistant.data.speech.SherpaOfflineSpeechToTextEngine
+import com.yezvi.assistant.data.speech.AndroidLocalConfirmationSpeech
+import com.yezvi.assistant.data.speech.AndroidLocalSpeechPreferencesStore
+import com.yezvi.assistant.domain.speech.SpeechToTextEngine
 import com.yezvi.assistant.domain.memory.CaptureInput
 import com.yezvi.assistant.domain.memory.MemoryCorrectionRepository
 import com.yezvi.assistant.domain.memory.MemoryRepository
@@ -39,6 +44,7 @@ import com.yezvi.assistant.ui.theme.Motion
 import com.yezvi.assistant.ui.theme.motionDurationMillis
 import com.yezvi.assistant.ui.theme.rememberReduceMotion
 import com.yezvi.assistant.ui.today.TodayScreen
+import kotlinx.coroutines.CoroutineScope
 
 @Composable
 internal fun YezviApp(
@@ -58,7 +64,14 @@ internal fun YezviApp(
     } else {
         null
     }
-    val captureViewModel = captureViewModelOverride ?: rememberCaptureViewModel(memoryRepository)
+    val appContext = LocalContext.current.applicationContext
+    val speechPreferencesStore = remember(appContext) { AndroidLocalSpeechPreferencesStore(appContext) }
+    val captureViewModel = captureViewModelOverride ?: rememberCaptureViewModel(memoryRepository, speechPreferencesStore)
+    val voiceEngineFactory: (Lifecycle, CoroutineScope) -> SpeechToTextEngine = remember(appContext) {
+        { lifecycle: Lifecycle, scope: CoroutineScope ->
+            SherpaOfflineSpeechToTextEngine.create(appContext, lifecycle, scope)
+        }
+    }
     val callbacks = remember(navController, onCaptureRequested) {
         MemoryUiCallbacks(
             // F1 only reviews drafts; F2 supplies a handler when an explicit save action exists.
@@ -100,16 +113,32 @@ internal fun YezviApp(
             )
         }
         composable(Destination.Memory.route) {
-            val memoryViewModel = memoryViewModel(memoryRepository, injectedRepositoryKey)
+            val memoryViewModel = memoryViewModel(
+                memoryRepository = memoryRepository,
+                correctionRepository = correctionRepository,
+                viewModelKey = injectedRepositoryKey,
+            )
             val state by memoryViewModel.uiState.collectAsStateWithLifecycle()
+            val selectionState by memoryViewModel.selectionState.collectAsStateWithLifecycle()
             MemoryScreen(
                 state = state,
+                selectionState = selectionState,
                 callbacks = callbacks,
                 onRetry = memoryViewModel::retry,
+                onToggleSelection = memoryViewModel::toggleSelection,
+                onSelectAll = memoryViewModel::selectAll,
+                onClearSelection = memoryViewModel::clearSelection,
+                onRequestDeleteSelected = memoryViewModel::requestDeleteSelected,
+                onDismissDeleteSelected = memoryViewModel::dismissDeleteConfirmation,
+                onDeleteSelected = memoryViewModel::deleteSelected,
             )
         }
-        composable(Destination.Capture.route) { CaptureScreen(callbacks, captureViewModel) }
-        composable(Destination.Settings.route) { SettingsScreen(callbacks) }
+        composable(Destination.Capture.route) {
+            CaptureScreen(callbacks, captureViewModel, voiceEngineFactory)
+        }
+        composable(Destination.Settings.route) {
+            SettingsScreen(callbacks, captureViewModel.spokenConfirmation)
+        }
         composable(
             route = Destination.EntryDetail.route,
             arguments = listOf(navArgument("entryId") { type = NavType.StringType }),
@@ -161,11 +190,19 @@ private fun rememberMemoryCorrectionRepository(): MemoryCorrectionRepository {
 }
 
 @Composable
-private fun rememberCaptureViewModel(memoryRepository: MemoryRepository): CaptureViewModel {
-    val factory = remember(memoryRepository) {
+private fun rememberCaptureViewModel(
+    memoryRepository: MemoryRepository,
+    speechPreferencesStore: AndroidLocalSpeechPreferencesStore,
+): CaptureViewModel {
+    val appContext = LocalContext.current.applicationContext
+    val factory = remember(memoryRepository, appContext, speechPreferencesStore) {
         viewModelFactory {
             initializer {
-                CaptureViewModel(memoryRepository)
+                CaptureViewModel(
+                    memoryRepository,
+                    confirmationSpeechFactory = { AndroidLocalConfirmationSpeech(appContext) },
+                    speechPreferencesStore = speechPreferencesStore,
+                )
             }
         }
     }
@@ -175,11 +212,12 @@ private fun rememberCaptureViewModel(memoryRepository: MemoryRepository): Captur
 @Composable
 private fun memoryViewModel(
     memoryRepository: MemoryRepository,
+    correctionRepository: MemoryCorrectionRepository,
     viewModelKey: String?,
 ): MemoryViewModel {
-    val factory = remember(memoryRepository) {
+    val factory = remember(memoryRepository, correctionRepository) {
         viewModelFactory {
-            initializer { MemoryViewModel(memoryRepository) }
+            initializer { MemoryViewModel(memoryRepository, correctionRepository) }
         }
     }
     return viewModel(key = viewModelKey, factory = factory)

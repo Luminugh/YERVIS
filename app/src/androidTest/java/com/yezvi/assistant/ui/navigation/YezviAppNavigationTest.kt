@@ -3,6 +3,7 @@ package com.yezvi.assistant.ui.navigation
 import androidx.compose.ui.semantics.SemanticsProperties
 import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.assertIsNotFocused
 import androidx.compose.ui.test.hasClickAction
 import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.hasText
@@ -35,22 +36,26 @@ class YezviAppNavigationTest {
     fun mainNavigationTabsSwitchScreens() {
         composeTestRule.apply {
             waitForIdle()
-            onNode(hasText("Hoy") and isHeading()).assertIsDisplayed()
+            onNode(hasText("Inicio") and isHeading()).assertIsDisplayed()
 
             onNodeWithTag("bottom_nav_memory").performClick()
-            waitForHeading("Memoria")
+            waitForHeading("Recuerdos")
             waitForMemoryLoaded()
 
             onNodeWithTag("bottom_nav_capture").performClick()
-            waitForHeading("Capturar")
-            onNodeWithTag("capture_text_field").assertExists()
+            waitForHeading("Captura")
+            onNodeWithTag("capture_text_field").assertIsNotFocused()
             Espresso.closeSoftKeyboard()
 
             onNodeWithTag("bottom_nav_settings").performClick()
             waitForHeading("Ajustes")
 
             onNodeWithTag("bottom_nav_today").performClick()
-            waitForHeading("Hoy")
+            waitForHeading("Inicio")
+
+            onNodeWithTag("today_capture_fab").performClick()
+            waitForHeading("Captura")
+            onNodeWithTag("capture_text_field").assertIsNotFocused()
         }
     }
 
@@ -59,7 +64,7 @@ class YezviAppNavigationTest {
         composeTestRule.apply {
             waitForIdle()
             onNodeWithTag("bottom_nav_memory").performClick()
-            waitForHeading("Memoria")
+            waitForHeading("Recuerdos")
             waitForMemoryLoaded()
             onNodeWithText("Datos de demostración · aún no se guardan entradas reales")
                 .assertDoesNotExist()

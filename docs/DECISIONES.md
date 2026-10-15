@@ -43,9 +43,30 @@
 ## D-011 — Historial persistente de correcciones (F2.09)
 **Estado:** Aceptada e implementada (2026-10-12). Se conserva inmutable `memory_entries.rawText` y se almacena cada corrección explícita como una fila append-only en `memory_entry_corrections` (`correctionId INTEGER PRIMARY KEY AUTOINCREMENT`, FK `memoryEntryId`, `correctedText` y `modifiedAtEpochMillis` UTC). `YezviDatabase` v2 incorpora tabla e índice con migración aditiva 1→2, sin backfill, borrado ni `fallbackToDestructiveMigration`; `1.json` permanece intacto y Room exportó `2.json`. El ID creciente define la versión vigente y el historial; sin correcciones, la versión vigente es `rawText`. Para impedir la mutación del original, se retiraron las operaciones genéricas `MemoryRepository.update`/`MemoryEntryDao.update`; solo la interfaz de correcciones puede añadir revisiones. La FK usa cascada cuando un futuro flujo F2.10 borre el padre. Motivo: conservar el texto y los metadatos originales auditables. La migración, rollback, FK, correcciones y reapertura se validan con SQLite real; detalles y resultado de la suite en `docs/IMPLEMENTACIONES/F2.09-edicion-segura.md` y `docs/ESTADO.md`.
 
+## D-012 — Runtime STT sin TTS y comparación local Vosk (F3.06)
+**Fecha:** 2026-10-14. **Estado:** aceptada para integración y pruebas locales por autorización explícita del usuario; publicación y aceptación de micrófono pendientes.
+
+Se conserva FastConformer español RNNT int8 y Silero con los contratos existentes, reconstruyendo sherpa-onnx 1.13.8 (`11afbd009a7f8c08f4bcf2fc1b265d0df4670fbf`) sin TTS/diarización. Core estático + JNI compartido + una sola ORT 1.28.2 compartida por ABI; NDK r28c y API nativa 24. El AAR completo anterior queda en caché de investigación y no es una dependencia de la app. No hay fallback cloud, cambio de esquema ni guardado automático.
+
+Motivo: retirar la cadena Piper/eSpeak/UCD no utilizada sin cambiar la red neuronal ni ocultar diferencias de precisión mediante reemplazos. Vosk 0.3.75 y modelo español 0.42 quedan solo en debug como comparación: el A/B previo no cumplió la exigencia de igual velocidad/precisión. No se adopta como motor principal por tener pesos más pequeños.
+
+Consecuencias: el AAR propio tiene identidad, hashes, receta, mapas y avisos propios. La exclusión se audita en configuración, objetos/enlace y paquete por ABI. Eigen sigue MPL-2.0 con acceso a su fuente cubierta; modelo/vocabulario NVIDIA siguen CC-BY-4.0 y Silero MIT. Los avisos de ORT/NDK no sustituyen la auditoría del cierre binario. Cada publicación requiere cotejar artefacto final, fuente/avisos, términos del titular y compatibilidad nativa completa; el rebuild por sí solo no autoriza distribución. Ver `docs/IMPLEMENTACIONES/F3.06-runtime-asr-only.md` y expediente `docs/INVESTIGACION/F3.06-asr-only/`.
+
+## D-013 — Incertidumbre STT experimental y separada del producto (F3.06)
+**Fecha:** 2026-10-14. **Estado:** aceptada para prototipo técnico debug por autorización del usuario; no aprobada para el borrador o distribución.
+
+Se expone el log-score interno del token seleccionado antes del boost de hotwords mediante un puente propio Apache-2.0, sin segundo modelo ni inferencia adicional. El AAR modificado solo se usa en debug; release conserva el runtime ASR-only baseline. Metadatos internos opcionales, hasta 2.048 tokens/512 palabras por sesión, con fallos que descartan el análisis y conservan el texto. Los contratos STT públicos y Room siguen intactos.
+
+Motivo: comprobar una señal de revisión con coste acotado sin llamar “precisión” a una probabilidad no calibrada. El usuario prioriza pocas alertas fiables. El umbral se ajusta solo en desarrollo y se habilita únicamente si supera los criterios independientes documentados; sin esa evidencia, no hay sugerencias automáticas ni porcentaje de acierto por palabra. Cambiar la agregación o el decoder exige otra evaluación. Los límites de micrófono, ARM64/Samsung, ORT y ELF16KB permanecen abiertos. Ver `docs/IMPLEMENTACIONES/F3.06-prototipo-confianza.md`.
+
 ## Decisiones por resolver
 - Qué motor STT on-device funciona offline con buen español en el Samsung real.
 - Migraciones y conservación de datos desde cada schema soportado en F2.12; la base actual empieza en v1.
 - Cifrado, política de backup, exportación y eliminación, según modelo de amenazas.
 - Proveedor gratuito cloud y política de datos; límites/costos y custodia de la credencial.
 - Diseño definitivo de icono/nombre y personalidad TTS.
+
+## D-014 — Nombre visible temporal YERVIS
+**Fecha:** 2026-10-14. **Estado:** aceptada provisionalmente.
+
+La etiqueta visible de la app, el tema Compose y la documentación activa pasan a **YERVIS**. Se mantienen `applicationId`/namespace `com.yezvi.assistant`, los paquetes Kotlin y los nombres de Room para preservar actualización de instalación, acceso a datos y compatibilidad de schemas. El cambio de nombre no altera contenido, persistencia ni contratos. Los resultados históricos que transcriben literalmente “YEZVI” conservan esa referencia como evidencia; se actualizarán si se decide el nombre definitivo.
