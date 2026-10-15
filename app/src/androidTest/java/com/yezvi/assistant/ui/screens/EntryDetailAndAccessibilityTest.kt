@@ -15,6 +15,8 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performTouchInput
+import androidx.compose.ui.test.longClick
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
 import com.yezvi.assistant.data.demo.DemoMemoryFixtures
@@ -22,8 +24,10 @@ import com.yezvi.assistant.data.demo.DemoMemoryRepository
 import com.yezvi.assistant.presentation.memory.EntryDetailUiState
 import com.yezvi.assistant.presentation.memory.EntryDeleteUiState
 import com.yezvi.assistant.presentation.memory.MemoryUiState
+import com.yezvi.assistant.presentation.memory.MemorySelectionUiState
+import com.yezvi.assistant.presentation.memory.MemoryDeleteSelectionStatus
 import com.yezvi.assistant.presentation.actions.MemoryUiCallbacks
-import com.yezvi.assistant.ui.theme.YEZVITheme
+import com.yezvi.assistant.ui.theme.YERVISTheme
 import org.junit.Assert.assertTrue
 import org.junit.Assert.assertEquals
 import org.junit.Rule
@@ -42,7 +46,7 @@ class EntryDetailAndAccessibilityTest {
         var deleteRequests = 0
         var cancelRequests = 0
         composeTestRule.setContent {
-            YEZVITheme(dynamicColor = false) {
+            YERVISTheme(dynamicColor = false) {
                 EntryDetailScreen(
                     state = EntryDetailUiState.Loaded(
                         DemoMemoryRepository.getEntry("demo-2026-10-11-001")!!,
@@ -71,7 +75,7 @@ class EntryDetailAndAccessibilityTest {
         var deleteRequests = 0
         var backRequests = 0
         composeTestRule.setContent {
-            YEZVITheme(dynamicColor = false) {
+            YERVISTheme(dynamicColor = false) {
                 EntryDetailScreen(
                     state = EntryDetailUiState.Loaded(
                         DemoMemoryRepository.getEntry("demo-2026-10-11-001")!!,
@@ -101,7 +105,7 @@ class EntryDetailAndAccessibilityTest {
     @Test
     fun validEntryDisplaysLoadedState() {
         composeTestRule.setContent {
-            YEZVITheme(dynamicColor = false) {
+            YERVISTheme(dynamicColor = false) {
                 EntryDetailScreen(
                     state = EntryDetailUiState.Loaded(
                         DemoMemoryRepository.getEntry("demo-2026-10-11-001")!!,
@@ -119,7 +123,7 @@ class EntryDetailAndAccessibilityTest {
     @Test
     fun invalidEntryDisplaysNotFoundState() {
         composeTestRule.setContent {
-            YEZVITheme(dynamicColor = false) {
+            YERVISTheme(dynamicColor = false) {
                 EntryDetailScreen(
                     state = EntryDetailUiState.NotFound,
                     onBack = {},
@@ -134,7 +138,7 @@ class EntryDetailAndAccessibilityTest {
     @Test
     fun memoryScreenShowsLoadingState() {
         composeTestRule.setContent {
-            YEZVITheme(dynamicColor = false) {
+            YERVISTheme(dynamicColor = false) {
                 MemoryScreen(
                     state = MemoryUiState.Loading,
                     callbacks = noOpCallbacks(),
@@ -150,7 +154,7 @@ class EntryDetailAndAccessibilityTest {
     fun memoryScreenShowsRepositoryErrorRetry() {
         var retries = 0
         composeTestRule.setContent {
-            YEZVITheme(dynamicColor = false) {
+            YERVISTheme(dynamicColor = false) {
                 MemoryScreen(
                     state = MemoryUiState.Error,
                     callbacks = noOpCallbacks(),
@@ -167,7 +171,7 @@ class EntryDetailAndAccessibilityTest {
     @Test
     fun memoryScreenHasAccessibleHeadingsAndLargeTouchTargets() {
         composeTestRule.setContent {
-            YEZVITheme(dynamicColor = false) {
+            YERVISTheme(dynamicColor = false) {
                 MemoryScreen(
                     state = MemoryUiState.Content(DemoMemoryFixtures.entries),
                     callbacks = noOpCallbacks(),
@@ -175,7 +179,7 @@ class EntryDetailAndAccessibilityTest {
                 )
             }
         }
-        composeTestRule.onNode(hasText("Memoria") and isHeading()).assertIsDisplayed()
+        composeTestRule.onNode(hasText("Recuerdos") and isHeading()).assertIsDisplayed()
         composeTestRule.onNode(hasText("Domingo 11 de octubre") and isHeading()).assertIsDisplayed()
         val memoryTab = composeTestRule.onNodeWithTag("bottom_nav_memory")
         memoryTab.assertHeightIsAtLeast(48.dp).assertIsDisplayed()
@@ -191,7 +195,7 @@ class EntryDetailAndAccessibilityTest {
     fun memoryScreenWithLargeFontDoesNotClipContent() {
         composeTestRule.setContent {
             CompositionLocalProvider(LocalDensity provides Density(1f, 1.5f)) {
-                YEZVITheme(dynamicColor = false) {
+                YERVISTheme(dynamicColor = false) {
                     MemoryScreen(
                         state = MemoryUiState.Content(DemoMemoryFixtures.entries),
                         callbacks = noOpCallbacks(),
@@ -200,8 +204,95 @@ class EntryDetailAndAccessibilityTest {
                 }
             }
         }
-        composeTestRule.onNode(hasText("Memoria") and isHeading()).assertIsDisplayed()
+        composeTestRule.onNode(hasText("Recuerdos") and isHeading()).assertIsDisplayed()
         composeTestRule.onNodeWithText("Domingo 11 de octubre").assertIsDisplayed()
+    }
+
+    @Test
+    fun selectionToolbarActionsRemainAccessibleWithLargeFont() {
+        val entries = DemoMemoryFixtures.entries.take(2)
+        composeTestRule.setContent {
+            CompositionLocalProvider(LocalDensity provides Density(1f, 1.5f)) {
+                YERVISTheme(dynamicColor = false) {
+                    MemoryScreen(
+                        state = MemoryUiState.Content(entries),
+                        callbacks = noOpCallbacks(),
+                        onRetry = {},
+                        selectionState = MemorySelectionUiState(setOf(entries.first().id)),
+                    )
+                }
+            }
+        }
+
+        composeTestRule.onNodeWithTag("memory_selection_actions").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("memory_select_all").assertHeightIsAtLeast(48.dp).assertIsDisplayed()
+        composeTestRule.onNodeWithTag("memory_delete_selected").assertHeightIsAtLeast(48.dp).assertIsDisplayed()
+    }
+
+    @Test
+    fun timelinePreviewUsesCurrentCorrectionAndKeepsOriginalOutOfPreview() {
+        val original = DemoMemoryFixtures.entries.first()
+        val corrected = "Versión corregida sintética para la vista previa."
+        composeTestRule.setContent {
+            YERVISTheme(dynamicColor = false) {
+                MemoryScreen(
+                    state = MemoryUiState.Content(listOf(original), mapOf(original.id to corrected)),
+                    callbacks = noOpCallbacks(),
+                    onRetry = {},
+                )
+            }
+        }
+
+        composeTestRule.onNodeWithText(corrected).assertIsDisplayed()
+        composeTestRule.onNodeWithText(original.rawText).assertDoesNotExist()
+    }
+
+    @Test
+    fun longPressEnablesSelectionAndDeleteRequiresAnExplicitConfirmation() {
+        val entries = DemoMemoryFixtures.entries.take(2)
+        var selection by mutableStateOf(MemorySelectionUiState())
+        var requestedDeletes = 0
+        composeTestRule.setContent {
+            YERVISTheme(dynamicColor = false) {
+                MemoryScreen(
+                    state = MemoryUiState.Content(entries),
+                    callbacks = noOpCallbacks(),
+                    onRetry = {},
+                    selectionState = selection,
+                    onToggleSelection = { id ->
+                        val ids = if (id in selection.selectedIds) selection.selectedIds - id
+                        else selection.selectedIds + id
+                        selection = MemorySelectionUiState(ids)
+                    },
+                    onSelectAll = { ids -> selection = MemorySelectionUiState(ids) },
+                    onClearSelection = { selection = MemorySelectionUiState() },
+                    onRequestDeleteSelected = {
+                        selection = selection.copy(deleteStatus = MemoryDeleteSelectionStatus.CONFIRMING)
+                    },
+                    onDismissDeleteSelected = {
+                        selection = selection.copy(deleteStatus = MemoryDeleteSelectionStatus.IDLE)
+                    },
+                    onDeleteSelected = { requestedDeletes++ },
+                )
+            }
+        }
+
+        composeTestRule.onNodeWithText("Mantén presionado un recuerdo para seleccionarlo.").assertDoesNotExist()
+        composeTestRule.onNodeWithTag("timeline_entry_${entries.first().id}")
+            .performTouchInput { longClick() }
+        assertEquals(setOf(entries.first().id), selection.selectedIds)
+        composeTestRule.onNodeWithTag("memory_selection_actions").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("memory_select_all").performClick()
+        assertEquals(entries.map { it.id }.toSet(), selection.selectedIds)
+        composeTestRule.onNodeWithTag("memory_delete_selected").performClick()
+        composeTestRule.onNodeWithText("¿Eliminar recuerdos seleccionados?").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("memory_delete_selected_cancel").performClick()
+
+        assertEquals(0, requestedDeletes)
+        assertEquals(entries.map { it.id }.toSet(), selection.selectedIds)
+        assertEquals(MemoryDeleteSelectionStatus.IDLE, selection.deleteStatus)
+        composeTestRule.onNodeWithTag("memory_selection_cancel").performClick()
+        assertEquals(emptySet<String>(), selection.selectedIds)
     }
 
     private fun noOpCallbacks() = MemoryUiCallbacks(

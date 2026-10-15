@@ -1,4 +1,4 @@
-# YEZVI — ROADMAP MAESTRO OPERATIVO
+# YERVIS — ROADMAP MAESTRO OPERATIVO
 
 **Versión:** 1.1 (solo asignación económica de modelos OpenCode) · **Fecha de planificación:** 2026-10-11 · **Ámbito:** Android nativo / Samsung · **Estado:** plan, NO tareas ejecutadas.
 
@@ -48,7 +48,7 @@
 | **F0.01** | Auditar repositorio y documentación cargada | Codex | C-L | Salida de git status y lista de documentos; no modificar proyecto |
 | **F0.02** | Verificar JAVA_HOME, Gradle Wrapper y AGP sin actualizar versiones | Codex | C-L | assembleDebug concluye sin errores |
 | **F0.03** | Verificar SDK, ADB y emulador Pixel 8 API 35 | Codex | C-L | adb devices registra el emulador con estado device |
-| **F0.04** | Ejecutar YEZVI realmente dentro del emulador | Codex | C-L | Captura o verificación de pantalla con aplicación abierta |
+| **F0.04** | Ejecutar YERVIS realmente dentro del emulador | Codex | C-L | Captura o verificación de pantalla con aplicación abierta |
 | **F0.05** | Verificar MCP Context7 en OpenCode con invocación real | OpenCode | O-M | Consulta real demuestra uso de herramienta MCP, no solo lista |
 | **F0.06** | Verificar MCP Context7 en Codex con invocación real | Codex | C-L | Consulta real demuestra uso de herramienta MCP, no solo lista |
 | **F0.07** | Comprobar modelos visibles en cada cliente | Codex | C-L | Registrar modelos efectivos disponibles, variantes y fallback |
@@ -123,23 +123,23 @@
 
 | ID | Tarea | Responsable | Modelo | Criterio de aceptación mínimo |
 |---|---|---|---|---|
-| **F4.01** | Definir taxonomía dato: tarea/evento/idea/hecho/persona/proyecto | Codex | C-S | Tipos + ejemplos inequívocos con origen explícito/inferido |
-| **F4.02** | Definir esquema versionado de respuesta IA y evidencia | Codex | C-A | JSON con schema/evidence/source, fechas y confidence |
+| **F4.01** | Definir taxonomía: tarea/evento/rutina/hábito/recordatorio/idea/hecho/decisión/objetivo/persona/proyecto | Codex | C-S | Separar patrón declarado/observado, recurrencia y alarma; ejemplos de explícito/inferido, evidencia y excepciones |
+| **F4.02** | Definir esquema versionado de propuestas IA y evidencia por campo | Codex | C-A | JSON con tipo/estado, campos temporales originales+resueltos, zona, fuentes/citas, certeza por campo y recurrencia validable |
 | **F4.03** | Crear interfaz InformationExtractor y fake deterministic | Codex | C-S | Pruebas sin red y sin proveedor |
-| **F4.04** | Implementar validador JSON estricto y límites | Codex | C-A | Rechaza tipos inesperados, campos inválidos y sugerencias sin evidencia |
-| **F4.05** | Implementar resolutor de referencias temporales | Codex | C-A | Mañana/viernes y timezones probados con fecha captura |
-| **F4.06** | Definir propuesta vs. confirmada vs. descartada | Codex | C-S | Estados y transiciones reproducibles |
-| **F4.07** | Diseñar pantalla de revisión/corrección de inferencias | OpenCode | O-D | Usuario entiende que es sugerencia, puede editar/descartar |
-| **F4.08** | Implementar acciones de aceptación/rechazo sin mutar originales | Codex | C-S | Persistencia derivada vinculada a fuente y consentimiento |
-| **F4.09** | Implementar deduplicación conservadora y cambios de estado | Codex | C-A | Evita duplicados sin fusionar registros distintos |
-| **F4.10** | Crear corpus de 30–50 frases sintéticas de evaluación | Codex | C-S | Incluye terminé/tengo que/quizá/correcciones/horas |
-| **F4.11** | Investigar proveedor/modelo gratuito según privacidad/cupo/JSON | Codex | C-A | Matriz de pros/contras, términos verificados y decisión pendiente |
-| **F4.12** | Diseñar pantalla de consentimiento granular para nube | OpenCode | O-D | Explica exactamente qué texto sale y destino antes de enviar |
+| **F4.04** | Implementar validador JSON estricto y límites | Codex | C-A | Rechaza campos/tipos/estados inválidos, recurrencias imposibles y propuestas sin evidencia; JSON válido no basta |
+| **F4.05** | Implementar resolutor de referencias temporales | Codex | C-A | Fechas relativas ancladas al instante/zona de captura; día/semana, cambios de zona y ambigüedad sin inventar hora |
+| **F4.06** | Definir estados de propuesta, patrón y compromiso | Codex | C-S | Candidate/proposed/confirmed/rejected/expired y ocurrencias distinguen completada, pospuesta, cancelada y desconocida |
+| **F4.07** | Diseñar revisión de eventos, tareas y rutinas propuestas | OpenCode | O-D | Mostrar citas y fechas inferidas; editar/rechazar/confirmar por campo; no crear alarma implícita |
+| **F4.08** | Implementar aceptación/rechazo sin mutar originales | Codex | C-S | Datos derivados y sus relaciones versionados, revisables, ligados a varias fuentes si procede |
+| **F4.09** | Deduplicar propuestas y actualizar recurrencias conservadoramente | Codex | C-A | No confundir repetición de evidencia con intención; cambios/excepciones no duplican ni fusionan elementos distintos |
+| **F4.10** | Crear corpus sintético de agenda y patrones semanales | Codex | C-S | Acciones, eventos, hábitos, rutinas, excepciones, negación, horas ambiguas, cambios de zona y falsos positivos de alarmas |
+| **F4.11** | Evaluar proveedor/modelo según calidad, RAG y privacidad | Codex | C-A | Coste/cuota/JSON, retención, entrenamiento, región, borrado, uso de fragmentos y proveedor sin fijar hasta validar términos |
+| **F4.12** | Diseñar consentimiento contextual por envío cloud | OpenCode | O-D | Muestra proveedor, consulta y snippets recuperados exactos; permite retirar/editar y cancelar cada petición |
 | **F4.13** | Diseñar custodia de claves y límites de red | Codex | C-A | Sin credenciales maestras embebidas; riesgos registrados |
-| **F4.14** | Implementar adaptador cloud opcional detrás de interfaz | Codex | C-S | Sin romper modo local; enmascarar información si corresponde |
-| **F4.15** | Cola/reintentos controlados y límite de cuota | Codex | C-S | Sin pérdidas ni procesamiento duplicado y manejo offline |
-| **F4.16** | Probar hallucinaciones, red caida, respuesta malformada | Codex | C-A | No aparece tarea no respaldada; falla sin perder notas |
-| **F4.17** | Prueba end-to-end: texto → sugerencia → confirmar → memoria | Codex | C-S | Original y extracción permanecen trazables |
+| **F4.14** | Implementar adaptador cloud opcional detrás de interfaz | Codex | C-S | Recibe solo texto/snippets consentidos; contrato provider-neutral, sin acceso directo a Room/base completa |
+| **F4.15** | Reintentos idempotentes, límites y borrado de contexto remoto | Codex | C-S | Reintentos no duplican propuestas; expira/quita payload temporal y tolera modo offline |
+| **F4.16** | Probar invención, rutina falsa, alarma falsa y errores cloud | Codex | C-A | Toda propuesta enlaza evidencia; cero alarmas/acciones no confirmadas; falla no pierde notas |
+| **F4.17** | E2E: recuerdo → recuperación RAG → propuesta → revisión | Codex | C-S | Reproduce citas, aceptación/corrección y original intacto; no requiere cloud para captura/consulta local básica |
 
 ### F5 — Búsqueda y memoria contextual
 
@@ -147,17 +147,17 @@
 
 | ID | Tarea | Responsable | Modelo | Criterio de aceptación mínimo |
 |---|---|---|---|---|
-| **F5.01** | Definir consultas por fecha/categoría/estado/persona/proyecto | Codex | C-S | Contratos de filtros y casos de uso |
-| **F5.02** | Implementar índice local y búsquedas Room/SQLite | Codex | C-S | Resultados correctos offline y con registros vacíos |
-| **F5.03** | Definir relación sourceEntryId/evidenceText y proyectos | Codex | C-A | No se pierden evidencias en cambios |
-| **F5.04** | Implementar consultas de pendientes e historial | Codex | C-S | Fechas y estados consistentes |
+| **F5.01** | Definir consultas por tiempo/tipo/estado/recurrencia/persona/proyecto | Codex | C-S | Próximos/pasados, semana, vencidas, ocurrencias y consultas de rutina con zona horaria explícita |
+| **F5.02** | Implementar FTS/índice local y filtros de agenda | Codex | C-S | Resultados útiles offline; ediciones, correcciones y borrados actualizan índice; pruebas con empty DB |
+| **F5.03** | Definir relaciones evidencia/fuentes/revisiones de datos derivados | Codex | C-A | Cita literal y sourceEntryId por campo conservan historial y abren el registro origen |
+| **F5.04** | Implementar vistas de pendientes, eventos y ciclos rutinarios | Codex | C-S | No confunde tarea vencida con evento pasado ni ocurrencia omitida con incumplida |
 | **F5.05** | Diseñar pantalla búsqueda con filtros y resultados | OpenCode | O-M | Búsqueda accesible, estados vacíos y errores |
 | **F5.06** | Diseñar vistas de contexto personas/proyectos | OpenCode | O-D | Relaciones explicables sin sobrecargar interfaz |
-| **F5.07** | Implementar motor consulta natural con recuperación local | Codex | C-A | Selecciona fuentes y no inventa registros |
-| **F5.08** | Implementar respuesta breve con citas internas | Codex | C-A | Cada afirmación relevante abre el registro origen |
+| **F5.07** | Implementar consulta natural con recuperación local previa a cloud | Codex | C-A | Filtros duros + FTS primero, top-k mínimo; cloud recibe contexto solo tras consentimiento; no inventa fuentes |
+| **F5.08** | Implementar respuesta breve con citas verificables | Codex | C-A | Valida ID y cita contra evidencia local; cada afirmación y sugerencia abre fuente/revisión correcta |
 | **F5.09** | Diseñar UI de conversación contextual y citas | OpenCode | O-M | No confundir respuesta derivada con hecho confirmado |
-| **F5.10** | Implementar resúmenes diarios/semanales opcionales | Codex | C-S | Fuentes y periodo explícitos; permite regenerar |
-| **F5.11** | Medir calidad de búsqueda; evaluar embeddings solo si aportan | Codex | C-A | Informe sobre necesidad real y coste local |
+| **F5.10** | Implementar resúmenes diarios/semanales y rutina observada opcionales | Codex | C-S | Periodo/fuentes explícitos; repetición es hipótesis y requiere opt-in/revisión para convertirse en rutina |
+| **F5.11** | Medir recuperación híbrida; evaluar embeddings si aportan | Codex | C-A | Comparar FTS/filtros/semántica con queries etiquetadas, recall, falsas rutinas, latencia y coste |
 | **F5.12** | Pruebas regresión de búsqueda y actualización posterior | Codex | C-S | Ediciones reflejadas y citas correctas |
 
 ### F6 — Samsung, widgets y personalización
@@ -214,15 +214,15 @@
 | **F8.03** | Prototipo opt-in de hotword si viable | Codex | C-A | Solo tras aprobación; fallback manual garantizado |
 | **F8.04** | Evaluar LLM cuantizado completamente local | Codex | C-A | Benchmark RAM/CPU/modelo/calidad en Samsung |
 | **F8.05** | Añadir proveedor local detrás de extractor si satisface calidad | Codex | C-A | Mismo contrato; nube sigue opcional |
-| **F8.06** | Diseñar recordatorios inteligentes no invasivos | OpenCode | O-D | Frecuencia/prioridad y controles comprensibles |
-| **F8.07** | Implementar recordatorios/seguimiento de ciclos abiertos | Codex | C-S | Notificaciones consentidas, sin falsas certezas |
-| **F8.08** | Evaluar integración Calendar con permisos mínimos | Codex | C-A | ADR: solo lectura/escritura separadas y consentimiento |
-| **F8.09** | Implementar integración de calendario opcional | Codex | C-S | Acciones confirmadas y reversibles |
+| **F8.06** | Diseñar alarmas, rutinas y seguimiento no invasivo | OpenCode | O-D | Evento/tarea/rutina separados; consentimiento, precisión, snooze, pausas y controles claros; no alarmas inferidas |
+| **F8.07** | Implementar recordatorios confirmados y ocurrencias rutinarias | Codex | C-S | Cancelables/idempotentes; estados de entrega honestos; AlarmManager/WorkManager según precisión y límites de API/OEM |
+| **F8.08** | Evaluar integración Calendar y recurrencia | Codex | C-A | Permisos mínimos, duplicados, excepciones/zona/DST; lectura y escritura separadas |
+| **F8.09** | Implementar integración de calendario opcional | Codex | C-S | Sincroniza ítems/ocurrencias consentidos con origen trazable y reversión explícita |
 | **F8.10** | Evaluar memoria semántica local avanzada | Codex | C-A | Comparativa embeddings vs FTS con datos de prueba |
 | **F8.11** | Diseñar sincronización cifrada opcional entre dispositivos | Codex | C-A | Threat model y resolución de conflictos antes de implementar |
 | **F8.12** | Prototipo sincronización si usuario decide añadirla | Codex | C-A | Sin backend obligatorio para uso local |
 | **F8.13** | Investigación personalización Samsung avanzada | OpenCode | O-D | Solo integraciones documentadas públicamente |
-| **F8.14** | Evaluación UX longitudinal y priorización de mejoras | OpenCode | O-D | Recomendaciones apoyadas en evidencia, no intuición |
+| **F8.14** | Evaluación UX semanal de agenda y rutinas | OpenCode | O-D | Recomendaciones explicables, editables y respaldadas por muestras/feedback voluntario; sin inferir por telemetría oculta |
 | **F8.15** | Plan de mantenimiento, deprecaciones y compatibilidad | Codex | C-S | Actualización rutinaria con tests y rollback |
 
 **Total de tareas planificables:** 123.
@@ -261,3 +261,29 @@ Seguir `docs/IMPLEMENTACIONES/PLANTILLA.md`: contexto, objetivo/no-objetivos, di
 - https://developers.openai.com/api/docs/guides/code-generation
 - https://developer.android.com/topic/architecture
 - https://developer.samsung.com/one-ui/index.html
+
+## Anexo futuro — Personalización ASR y organización asistida (después de F0–F8)
+
+Este anexo es una **propuesta para considerar únicamente cuando todas las etapas F0–F8 hayan terminado y sus puertas de salida estén verificadas**. No inicia una fase activa, no recibe ID ni modifica responsables, numeración, avances o el total de **123 tareas planificables**. Requiere priorización y aprobación propias antes de ejecutarse.
+
+### Objetivo
+
+Permitir que cada persona adapte el reconocimiento a sus temas y que la IA organice borradores en tareas, eventos, ideas, hechos o proyectos, conservando la captura original y el uso local como base.
+
+### Agenda, rutinas y RAG personal
+
+1. **Ampliar lo que la agenda entiende:** recuerdos, eventos/citas, tareas/compromisos, ideas, hechos, decisiones, objetivos/progreso, bloqueos/seguimientos, personas, proyectos, lugares/recursos, rutinas, hábitos y recordatorios. Definir vocabulario no redundante y ejemplos negativos: “voy cada martes” describe frecuencia pero no necesariamente deseo de alerta; “recuérdame cada martes” sí solicita notificación; una reunión semanal es evento recurrente, no hábito. Fecha de captura, inicio/fin del evento, vencimiento de tarea, fecha prevista y disparo de recordatorio son instantes/roles distintos.
+2. **Rutinas semanales seguras:** admitir patrón explícito y patrón observado, sin mezclarlos. La observación resume fechas repetidas de capturas/ocurrencias dentro del periodo que la persona elija, calcula distribución de días/ventanas y adjunta las fuentes usadas. Muestra la hipótesis al usuario y consulta si desea nombrarla, corregirla, hacer seguimiento o crear un recordatorio. No interpretar silencio/falta de nota como incumplimiento; soportar saltos, pausas, feriados/vacaciones, DST, zona y cambios de horario. Sin muestras suficientes, indicar “no hay datos” en vez de puntuación inventada.
+3. **Esquema antes de Room:** definir modelo conceptual normalizado de `OrganizedItem`, extensiones de Evento/Tarea/Rutina/Hábito/Recordatorio y `RoutineOccurrence`/excepciones, junto con `EvidenceLink` hacia ID+revisión de la memoria original. Comparar tabla común + tablas tipadas con tablas separadas; evitar un objeto gigante opcional. Estados candidate/proposed/confirmed/rejected/expired, certeza/procedencia por campo y evolución append-only de extracción deben ser acordados. Presentar propuesta de migración Room separada y probarla antes de código; no ampliar el schema v2 durante el anexo.
+4. **Recordatorios:** el sistema solo programa a pedido del usuario. Definir instante, zona, adelanto, canal, habilitado, snooze, pausa, destino, origen e idempotencia. Tras edición/cambio de zona, reprogramar y cancelar el pending intent anterior. Probar reinicio, Doze, economía de batería, cambio de zona/DST y permiso exact alarm; diferenciar hora exacta y ventana aproximada. Tratar WorkManager como trabajo diferible y AlarmManager como alarmas donde haga falta precisión; confirmar en F8 con Android/Samsung vigentes. No solicitar permisos especiales hasta que exista una función aprobada que los necesite.
+5. **RAG híbrido con privacidad:** Room y FTS local son verdad e índice inicial. Para cada consulta, extraer filtros de fechas/tipo/estado/persona/proyecto/rutina; recuperar top-k snippets localmente por FTS y metadatos, luego opcionalmente rerankear/usar embedding solo tras benchmark. Presentar consulta y fragmentos exactos que se enviarían; consentimiento por envío. El adaptador cloud recibe solo pregunta + mínimo contexto seleccionado y IDs/citas opacos, nunca audio, vector store completo o historial. Devuelve respuesta/propuestas JSON con fuentes y evidencia; Kotlin valida citas contra fuentes locales y nada se escribe en Room hasta aceptación. Falla/red/cupo agotado mantiene búsqueda local. Retención y borrado remotos deben poder auditarse. Proveedor gestionado de RAG no es el default por crear otra copia persistente.
+6. **Pruebas para aceptar:** corpus etiquetado español con varias semanas simuladas y frases sintéticas; medir precisión/recall de extracción, citas correctas, tasa de falsas rutinas/alarmas, horas/días/zona/DST, cambios y excepciones, duplicados, coste/latencia/tokens y degradación sin red. Comparar FTS-only vs híbrido con preguntas esperadas. Incluir casos que niegan/corrigen una rutina y semanas sin registro. Ajuste de ASR/LLM es último recurso y usa datos con derechos/consentimiento; RAG en sí recupera contexto, no entrena pesos.
+
+### Puertas de seguridad y aceptación
+
+- Antes de comenzar, cerrar las puertas pendientes de F3.06 (validación de micrófono y auditoría de distribución), y contar con F4 (consentimiento/extracción), F5 (recuperación trazable) y F7 (privacidad/resiliencia) implementadas y validadas.
+- Congelar conjuntos de evaluación licenciados o autorizados por perfil; medir WER/CER, precisión/recall de términos, inserciones negativas, calidad de clasificación, fechas inventadas, latencia, memoria, batería y costo por operación. Separar entrenamiento, calibración y evaluación por hablante/frase.
+- Comparar proveedores y precios, cuotas, tratamiento/retención de datos, licencias de código/pesos/datasets y condiciones de distribución **en el momento de ejecutar**; no fijar ahora Gemini, DeepSeek ni un modelo o versión concreta. Los niveles gratuitos se prueban solo con datos sintéticos si sus condiciones permiten revisión o mejora del proveedor.
+- No publicar modelos, adaptadores ni APK hasta cerrar la auditoría de licencias/procedencia y los requisitos de distribución del runtime.
+
+**No forma parte de este anexo:** reabrir etapas anteriores, cambiar Room/contratos antes de una propuesta aprobada, atribuir confianza por palabra sin calibración, autocorregir o guardar inferencias sin confirmación, subir voz a la nube o habilitar entrenamiento automático.

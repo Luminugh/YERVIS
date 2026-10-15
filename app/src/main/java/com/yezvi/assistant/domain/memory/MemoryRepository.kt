@@ -18,4 +18,7 @@ interface MemoryRepository {
 
     /** Deletes the row for [id]; returns `false` when it does not exist. */
     suspend fun deleteById(id: String): Boolean
+
+    /** Deletes the requested entries as one atomic storage operation; returns the affected rows. */
+    suspend fun deleteByIds(ids: Set<String>): Int
 }

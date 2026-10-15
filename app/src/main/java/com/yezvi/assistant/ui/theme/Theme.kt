@@ -42,7 +42,7 @@ private val LightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun YEZVITheme(
+fun YERVISTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
@@ -60,7 +60,7 @@ fun YEZVITheme(
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
-        shapes = YezviShapes,
+        shapes = YervisShapes,
         content = content
     )
 }

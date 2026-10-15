@@ -8,12 +8,19 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -29,7 +36,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.semantics.heading
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -40,6 +50,8 @@ import com.yezvi.assistant.domain.memory.MemoryEntry
 import com.yezvi.assistant.presentation.actions.AppDestination
 import com.yezvi.assistant.presentation.actions.MemoryUiCallbacks
 import com.yezvi.assistant.presentation.memory.MemoryUiState
+import com.yezvi.assistant.presentation.memory.MemorySelectionUiState
+import com.yezvi.assistant.presentation.memory.MemoryDeleteSelectionStatus
 import com.yezvi.assistant.ui.navigation.YezviBottomBar
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -52,20 +64,40 @@ internal fun MemoryScreen(
     state: MemoryUiState,
     callbacks: MemoryUiCallbacks,
     onRetry: () -> Unit,
+    selectionState: MemorySelectionUiState = MemorySelectionUiState(),
+    onToggleSelection: (String) -> Unit = {},
+    onSelectAll: (Set<String>) -> Unit = {},
+    onClearSelection: () -> Unit = {},
+    onRequestDeleteSelected: () -> Unit = {},
+    onDismissDeleteSelected: () -> Unit = {},
+    onDeleteSelected: () -> Unit = {},
 ) {
     val entries = (state as? MemoryUiState.Content)?.entries.orEmpty()
     val grouped = remember(entries) { groupEntriesByDate(entries) }
 
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = {
-                    Text(
-                        text = stringResource(R.string.nav_memory),
-                        modifier = Modifier.semantics { heading() },
+            Column {
+                TopAppBar(
+                    title = {
+                        Text(
+                            text = stringResource(R.string.nav_memory),
+                            modifier = Modifier.semantics { heading() },
+                        )
+                    },
+                )
+                if (selectionState.selectedIds.isNotEmpty()) {
+                    val allIds = entries.mapTo(linkedSetOf()) { it.id }
+                    SelectionActions(
+                        count = selectionState.selectedIds.size,
+                        allSelected = allIds.isNotEmpty() && selectionState.selectedIds.containsAll(allIds),
+                        enabled = selectionState.deleteStatus == MemoryDeleteSelectionStatus.IDLE,
+                        onSelectAll = { onSelectAll(allIds) },
+                        onDelete = onRequestDeleteSelected,
+                        onCancel = onClearSelection,
                     )
-                },
-            )
+                }
+            }
         },
         bottomBar = {
             YezviBottomBar(
@@ -103,9 +135,125 @@ internal fun MemoryScreen(
                     items(dayEntries, key = { it.id }) { entry ->
                         TimelineItemCard(
                             entry = entry,
-                            onEntryClick = callbacks.onMemoryEntrySelected,
+                            displayText = state.currentTextById[entry.id] ?: entry.rawText,
+                            selected = entry.id in selectionState.selectedIds,
+                            selecting = selectionState.selectedIds.isNotEmpty(),
+                            onEntryClick = {
+                                if (selectionState.selectedIds.isNotEmpty()) onToggleSelection(entry.id)
+                                else callbacks.onMemoryEntrySelected(entry.id)
+                            },
+                            onEntryLongClick = { onToggleSelection(entry.id) },
                         )
                     }
+                }
+            }
+        }
+    }
+
+    if (selectionState.deleteStatus != MemoryDeleteSelectionStatus.IDLE) {
+        val deleting = selectionState.deleteStatus == MemoryDeleteSelectionStatus.DELETING
+        val failed = selectionState.deleteStatus == MemoryDeleteSelectionStatus.FAILED
+        AlertDialog(
+            onDismissRequest = { if (!deleting) onDismissDeleteSelected() },
+            title = { Text(stringResource(R.string.memory_delete_selected_title)) },
+            text = {
+                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Text(
+                        if (deleting) stringResource(R.string.memory_delete_selected_in_progress)
+                        else stringResource(
+                            R.string.memory_delete_selected_message,
+                            selectionState.selectedIds.size,
+                        ),
+                    )
+                    if (failed) {
+                        Text(
+                            stringResource(R.string.memory_delete_selected_error),
+                            color = MaterialTheme.colorScheme.error,
+                        )
+                    }
+                }
+            },
+            confirmButton = {
+                when {
+                    deleting -> Unit
+                    failed -> TextButton(onClick = onDeleteSelected) {
+                        Text(stringResource(R.string.memory_delete_selected_retry))
+                    }
+                    else -> Button(
+                        onClick = onDeleteSelected,
+                        modifier = Modifier.testTag("memory_delete_selected_confirm"),
+                    ) { Text(stringResource(R.string.memory_delete_selected)) }
+                }
+            },
+            dismissButton = {
+                TextButton(
+                    onClick = onDismissDeleteSelected,
+                    enabled = !deleting,
+                    modifier = Modifier.testTag("memory_delete_selected_cancel"),
+                ) { Text(stringResource(R.string.entry_delete_cancel)) }
+            },
+            modifier = Modifier.testTag("memory_delete_selected_dialog"),
+        )
+    }
+}
+
+@Composable
+private fun SelectionActions(
+    count: Int,
+    allSelected: Boolean,
+    enabled: Boolean,
+    onSelectAll: () -> Unit,
+    onDelete: () -> Unit,
+    onCancel: () -> Unit,
+) {
+    Surface(
+        color = MaterialTheme.colorScheme.surfaceContainerLow,
+        shape = MaterialTheme.shapes.medium,
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
+        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp).padding(bottom = 8.dp)
+            .testTag("memory_selection_actions"),
+    ) {
+        Column(modifier = Modifier.padding(horizontal = 12.dp, vertical = 4.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    pluralStringResource(R.plurals.memory_selected_count, count, count),
+                    style = MaterialTheme.typography.titleSmall,
+                )
+                TextButton(
+                    onClick = onCancel,
+                    enabled = enabled,
+                    modifier = Modifier.heightIn(min = 48.dp).testTag("memory_selection_cancel"),
+                ) { Text(stringResource(R.string.memory_selection_cancel)) }
+            }
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                TextButton(
+                    onClick = onSelectAll,
+                    enabled = enabled && !allSelected,
+                    modifier = Modifier.weight(1f).heightIn(min = 48.dp).testTag("memory_select_all"),
+                ) {
+                    Text(
+                        text = stringResource(if (allSelected) R.string.memory_all_selected else R.string.memory_select_all),
+                        maxLines = 2,
+                    )
+                }
+                Button(
+                    onClick = onDelete,
+                    enabled = enabled,
+                    modifier = Modifier.weight(1f).heightIn(min = 48.dp).testTag("memory_delete_selected"),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.error,
+                        contentColor = MaterialTheme.colorScheme.onError,
+                    ),
+                ) {
+                    Text(stringResource(R.string.memory_delete_selected), maxLines = 2)
                 }
             }
         }
@@ -168,36 +316,55 @@ internal fun formatEntryDate(epochMillis: Long, timezoneId: String): String {
 @Composable
 private fun TimelineItemCard(
     entry: MemoryEntry,
+    displayText: String,
+    selected: Boolean,
+    selecting: Boolean,
     onEntryClick: (String) -> Unit,
+    onEntryLongClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Card(
-        onClick = { onEntryClick(entry.id) },
         modifier = modifier
             .fillMaxWidth()
+            .heightIn(min = 48.dp)
             .testTag("timeline_entry_${entry.id}")
-            .semantics(mergeDescendants = true) { },
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-        ),
+            .combinedClickable(
+                role = Role.Button,
+                onClick = { onEntryClick(entry.id) },
+                onLongClick = onEntryLongClick,
+            )
+            .semantics(mergeDescendants = true) {
+                stateDescription = if (selected) "Seleccionado" else "No seleccionado"
+            },
+        colors = CardDefaults.cardColors(containerColor = if (selected) {
+            MaterialTheme.colorScheme.secondaryContainer
+        } else {
+            MaterialTheme.colorScheme.surfaceContainerLow
+        }),
     ) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                SourceBadge(entry.sourceType)
-                Spacer(Modifier.width(8.dp))
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Column(modifier = Modifier.weight(1f)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    SourceBadge(entry.sourceType)
+                    Spacer(Modifier.width(8.dp))
+                    Text(
+                        text = formatEntryTime(entry.capturedAtEpochMillis, entry.timezoneId),
+                        style = MaterialTheme.typography.labelLarge,
+                        color = MaterialTheme.colorScheme.primary,
+                    )
+                }
+                Spacer(Modifier.height(8.dp))
                 Text(
-                    text = formatEntryTime(entry.capturedAtEpochMillis, entry.timezoneId),
-                    style = MaterialTheme.typography.labelLarge,
-                    color = MaterialTheme.colorScheme.primary,
+                    text = displayText,
+                    style = MaterialTheme.typography.bodyLarge,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
                 )
             }
-            Spacer(Modifier.height(8.dp))
-            Text(
-                text = entry.rawText,
-                style = MaterialTheme.typography.bodyLarge,
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis,
-            )
+            if (selecting) Checkbox(checked = selected, onCheckedChange = null)
         }
     }
 }

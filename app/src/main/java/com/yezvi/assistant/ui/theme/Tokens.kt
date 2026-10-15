@@ -12,7 +12,7 @@ object Spacing {
     val xl = 24.dp
 }
 
-val YezviShapes = Shapes(
+val YervisShapes = Shapes(
     extraSmall = RoundedCornerShape(Spacing.xs),
     small = RoundedCornerShape(Spacing.sm),
     medium = RoundedCornerShape(Spacing.lg),

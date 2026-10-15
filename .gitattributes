@@ -1,0 +1,10 @@
+# Preserve bytes used by the pinned STT SHA-256 inventories, including text vocabularies/notices.
+app/src/main/assets/stt/** -text
+app/src/debug/assets/stt/** -text
+docs/INVESTIGACION/F3.06-vosk/** -text
+docs/INVESTIGACION/F3.06-stt-local/** -text
+docs/INVESTIGACION/F3.06-asr-only/** -text
+docs/INVESTIGACION/F3.06-confianza-runtime/** -text
+docs/INVESTIGACION/F3.06-confianza-corpus/** -text
+scripts/sherpa-confidence/** -text
+app/src/androidTest/assets/stt-stage2/** -text

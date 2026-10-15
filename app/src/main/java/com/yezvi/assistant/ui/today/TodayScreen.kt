@@ -33,7 +33,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.yezvi.assistant.R
-import com.yezvi.assistant.ui.theme.YEZVITheme
+import com.yezvi.assistant.ui.theme.YERVISTheme
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -260,7 +260,7 @@ private fun formatTodayDate(): String =
 @Preview(showBackground = true, name = "Hoy — datos demo")
 @Composable
 private fun TodayScreenPreview() {
-    YEZVITheme(dynamicColor = false) {
+    YERVISTheme(dynamicColor = false) {
         TodayScreen()
     }
 }
@@ -268,7 +268,7 @@ private fun TodayScreenPreview() {
 @Preview(showBackground = true, name = "Hoy — estado vacío")
 @Composable
 private fun TodayScreenEmptyPreview() {
-    YEZVITheme(dynamicColor = false) {
+    YERVISTheme(dynamicColor = false) {
         TodayScreen(pendingItems = emptyList(), recentItems = emptyList())
     }
 }

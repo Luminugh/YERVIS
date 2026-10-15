@@ -26,4 +26,7 @@ interface MemoryEntryDao {
 
     @Query("DELETE FROM memory_entries WHERE id = :id")
     suspend fun deleteById(id: String): Int
+
+    @Query("DELETE FROM memory_entries WHERE id IN (:ids)")
+    suspend fun deleteByIds(ids: List<String>): Int
 }

@@ -1,16 +1,16 @@
-# YEZVI — instrucciones compartidas de agentes
+# YERVIS — instrucciones compartidas de agentes
 
 > Contexto estable para OpenCode Go y Codex. Mantener conciso. Leer los documentos específicos solo cuando correspondan a la tarea.
 
 ## Propósito
-YEZVI es un asistente personal de memoria para Android/Samsung: captura por texto o voz, convierte voz a texto **localmente**, conserva el original, organiza tareas/eventos/ideas por fechas y permite recuperar información con privacidad y control del usuario. No es un chatbot genérico ni una app de notas convencional.
+YERVIS es el nombre temporal del asistente personal de memoria para Android/Samsung: captura por texto o voz, convierte voz a texto **localmente**, conserva el original, organiza tareas/eventos/ideas por fechas y permite recuperar información con privacidad y control del usuario. No es un chatbot genérico ni una app de notas convencional.
 
-## Estado actual verificado (11-10-2026)
-- Repositorio local del usuario: `C:\Users\Rick\Documents\GitHub\YEZVI`.
-- Paquete observado: `com.yezvi.assistant`.
-- Kotlin + Jetpack Compose + Gradle Kotlin DSL; `assembleDebug` dio `BUILD SUCCESSFUL`.
-- ADB reconoce el emulador `emulator-5554` (Pixel 8, API 35).
-- **Aún no se ha confirmado** desde este documento la ejecución de la app con Run, las conexiones de Context7 en ambos clientes ni el Samsung físico.
+## Estado actual verificado (14-10-2026)
+- Repositorio local del usuario: `C:\Users\Rick\Documents\GitHub\YERVIZ` (directorio renombrado por el usuario).
+- Nombre visible temporal actual: **YERVIS**. Se conserva `applicationId`/namespace `com.yezvi.assistant`, el paquete Kotlin y la identidad de Room para preservar instalaciones, datos y schemas existentes; no renombrarlos como parte de esta actualización de marca.
+- `applicationId`/namespace conservados: `com.yezvi.assistant`.
+- Kotlin + Jetpack Compose + Gradle Kotlin DSL; `assembleDebug`, `testDebugUnitTest` y `assembleDebugAndroidTest` dieron `BUILD SUCCESSFUL` en los ajustes de interfaz del 14-10-2026.
+- ADB reconoció un Samsung Galaxy S21 FE (`SM-G990E`, API 35) para pruebas instrumentadas focalizadas.
 - No cambiar package name, Gradle/Java ni herramientas que ya compilan sin motivo verificable.
 
 ## Responsabilidades

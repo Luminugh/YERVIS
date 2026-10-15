@@ -1,4 +1,4 @@
-# Roadmap de YEZVI
+# Roadmap de YERVIS
 
 **Fecha base:** 11 de octubre de 2026  
 **Horizonte:** MVP personal Android primero; Samsung/IA avanzada después.  
@@ -81,6 +81,8 @@
 - Integración de calendario y sugerencias no invasivas; seguimiento de ciclos abiertos.
 - Memoria semántica y sincronización cifrada opcional (requieren decisiones separadas).
 **Puerta de salida:** una investigación de viabilidad y prototipo independiente antes de prometer funciones.
+
+**Después de completar F0–F8:** queda como propuesta no activa el anexo «Personalización ASR y organización asistida» de `agentes/ROADMAP_MAESTRO.md`. Agrupa perfiles/vocabulario local, RAG local, evaluación de IA local/cloud y posible ajuste fino como último recurso. No añade tareas ni cambia el alcance actual; requiere aprobación y cierre de las puertas de salida antes de planificar su ejecución.
 
 ## Backlog próximo (orden bloqueante)
 1. [ ] Confirmar `Run app` en Pixel 8 y `adb devices` en la sesión actual.

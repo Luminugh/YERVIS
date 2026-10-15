@@ -30,4 +30,7 @@ class RoomMemoryRepository(
 
     override suspend fun deleteById(id: String): Boolean =
         memoryEntryDao.deleteById(id) > 0
+
+    override suspend fun deleteByIds(ids: Set<String>): Int =
+        if (ids.isEmpty()) 0 else memoryEntryDao.deleteByIds(ids.sorted())
 }

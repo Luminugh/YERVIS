@@ -1,4 +1,4 @@
-# YEZVI — Modelos y roles (edición económica para OpenCode Go)
+# YERVIS — Modelos y roles (edición económica para OpenCode Go)
 
 **Actualización:** 2026-10-11. **Cambio acotado:** solo política de modelos OpenCode; se conservan F0–F8, las 123 tareas y las responsabilidades originales. Los códigos de Codex permanecen intactos.
 

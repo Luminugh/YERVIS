@@ -1,4 +1,4 @@
-# UX/UI de YEZVI — guía del agente visual
+# UX/UI de YERVIS — guía del agente visual
 
 ## Principio
 Una memoria personal que se entiende a primera vista: menos «chat», más contexto del día. Captura visible y rápida. Apariencia premium pero no recargada. Inspirada en One UI sin copiar interfaces protegidas ni asumir APIs privadas de Samsung.

@@ -1,6 +1,6 @@
 package com.yezvi.assistant.domain.memory
 
-/** The channel through which the original text entered YEZVI. */
+/** The channel through which the original text entered YERVIS. */
 enum class CaptureSourceType {
     TEXT,
     VOICE,

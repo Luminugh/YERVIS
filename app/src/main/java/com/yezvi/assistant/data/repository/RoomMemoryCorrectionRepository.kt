@@ -7,6 +7,8 @@ import com.yezvi.assistant.data.local.memory.toMemoryTextVersion
 import com.yezvi.assistant.domain.memory.MemoryCorrection
 import com.yezvi.assistant.domain.memory.MemoryCorrectionRepository
 import com.yezvi.assistant.domain.memory.MemoryTextVersion
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 /** Room adapter for explicit text revisions; original entries are only read by its DAO. */
 class RoomMemoryCorrectionRepository(
@@ -31,6 +33,9 @@ class RoomMemoryCorrectionRepository(
 
     override suspend fun getCurrentVersion(memoryEntryId: String): MemoryTextVersion? =
         memoryCorrectionDao.findCurrentVersion(memoryEntryId)?.toMemoryTextVersion()
+
+    override fun observeCurrentVersions(): Flow<List<MemoryTextVersion>> =
+        memoryCorrectionDao.observeCurrentVersions().map { rows -> rows.map { it.toMemoryTextVersion() } }
 
     override suspend fun getCorrectionHistory(memoryEntryId: String): List<MemoryCorrection> =
         memoryCorrectionDao.findHistory(memoryEntryId).map { it.toMemoryCorrection() }

@@ -30,7 +30,7 @@ import com.yezvi.assistant.domain.memory.CaptureSourceType
 import com.yezvi.assistant.presentation.memory.CorrectionSaveStatus
 import com.yezvi.assistant.presentation.memory.EntryDetailUiState
 import com.yezvi.assistant.presentation.memory.EntryDetailViewModel
-import com.yezvi.assistant.ui.theme.YEZVITheme
+import com.yezvi.assistant.ui.theme.YERVISTheme
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
@@ -107,7 +107,7 @@ class EntryDetailEditingTest {
                     val detailState by viewModel.uiState.collectAsStateWithLifecycle()
                     val deleteState by viewModel.deleteState.collectAsStateWithLifecycle()
                     val correctionState by viewModel.correctionState.collectAsStateWithLifecycle()
-                    YEZVITheme(dynamicColor = false) {
+                    YERVISTheme(dynamicColor = false) {
                         EntryDetailScreen(
                             state = detailState,
                             deleteState = deleteState,

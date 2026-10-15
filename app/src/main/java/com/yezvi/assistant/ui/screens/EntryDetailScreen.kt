@@ -59,7 +59,7 @@ import com.yezvi.assistant.domain.memory.CaptureSourceType
 import com.yezvi.assistant.domain.memory.CaptureStatus
 import com.yezvi.assistant.domain.memory.MemoryEntry
 import com.yezvi.assistant.ui.theme.Motion
-import com.yezvi.assistant.ui.theme.YEZVITheme
+import com.yezvi.assistant.ui.theme.YERVISTheme
 import com.yezvi.assistant.ui.theme.motionDurationMillis
 import com.yezvi.assistant.ui.theme.rememberReduceMotion
 
@@ -640,7 +640,7 @@ private fun statusLabel(status: CaptureStatus): String = when (status) {
 @Preview(showBackground = true, name = "Detalle — entrada demo")
 @Composable
 private fun EntryDetailScreenPreview() {
-    YEZVITheme(dynamicColor = false) {
+    YERVISTheme(dynamicColor = false) {
         val entry = DemoMemoryFixtures.entries.first()
         EntryDetailScreen(
             state = EntryDetailUiState.Loaded(entry),

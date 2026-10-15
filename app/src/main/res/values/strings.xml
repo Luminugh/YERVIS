@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">YEZVI</string>
+    <string name="app_name">YERVIS</string>
 
     <!-- Inicio «Hoy» (F1.07) -->
-    <string name="today_title">Hoy</string>
+    <string name="today_title">Inicio</string>
     <string name="today_capture">Capturar</string>
     <string name="today_demo_notice">Hoy muestra ejemplos; tus recuerdos guardados aparecen en Memoria.</string>
     <string name="today_summary">%1$d pendientes · %2$d recientes</string>
@@ -12,9 +12,9 @@
     <string name="today_empty_hint">Captura tu primera nota para verla aquí.</string>
 
     <!-- Navegación principal (F1.06) -->
-    <string name="nav_today">Hoy</string>
-    <string name="nav_memory">Memoria</string>
-    <string name="nav_capture">Capturar</string>
+    <string name="nav_today">Inicio</string>
+    <string name="nav_memory">Recuerdos</string>
+    <string name="nav_capture">Captura</string>
     <string name="nav_settings">Ajustes</string>
     <string name="placeholder_title">Pantalla de %1$s</string>
 
@@ -39,6 +39,57 @@
     <string name="capture_discard_message">Perderás lo que escribiste.</string>
     <string name="capture_discard_confirm">Descartar</string>
     <string name="capture_discard_cancel">Seguir escribiendo</string>
+    <string name="capture_voice_permission_explanation">La voz necesitará acceso al micrófono. Conceder permiso no inicia grabación ni transcripción.</string>
+    <string name="capture_voice_permission_granted">Permiso concedido. Pulsa Iniciar para transcribir en este dispositivo.</string>
+    <string name="capture_voice_permission_denied">No se concedió el permiso. Puedes continuar escribiendo.</string>
+    <string name="capture_voice_permission_revoked">El permiso fue revocado. La captura por texto sigue disponible.</string>
+    <string name="capture_voice_permission_request">Permitir micrófono</string>
+    <string name="capture_voice_permission_retry">Reintentar permiso</string>
+    <string name="capture_voice_permission_settings">Abrir ajustes</string>
+    <string name="capture_voice_title">Captura por voz</string>
+    <string name="capture_voice_idle">En reposo</string>
+    <string name="capture_voice_preparing">Preparando voz local…</string>
+    <string name="capture_voice_listening">Escuchando</string>
+    <string name="capture_voice_paused">Pausado</string>
+    <string name="capture_voice_transcribing">Transcribiendo…</string>
+    <string name="capture_voice_result">Transcripción pendiente de revisión</string>
+    <string name="capture_voice_cancelled">Cancelado</string>
+    <string name="capture_voice_cancelling">Cancelando…</string>
+    <string name="capture_voice_error">Error de voz</string>
+    <string name="capture_voice_start">Iniciar</string>
+    <string name="capture_voice_pause">Pausar</string>
+    <string name="capture_voice_resume">Reanudar</string>
+    <string name="capture_voice_stop">Detener</string>
+    <string name="capture_voice_cancel">Cancelar</string>
+    <string name="capture_voice_local_detail">La voz se procesa en este dispositivo.</string>
+    <string name="capture_voice_preparing_detail">Preparando el modelo antes de abrir el micrófono.</string>
+    <string name="capture_voice_listening_detail">El micrófono está activo. Pulsa Detener al terminar.</string>
+    <string name="capture_voice_paused_detail">El micrófono está pausado. Puedes reanudar o detener para revisar el borrador.</string>
+    <string name="capture_voice_processing_detail">Procesando un fragmento. Puedes detener o cancelar la sesión.</string>
+    <string name="capture_voice_finishing_detail">Terminando la transcripción local. Puedes cancelar.</string>
+    <string name="capture_voice_result_detail">Aún no se ha guardado. Tu borrador escrito se conserva.</string>
+    <string name="capture_voice_cancelled_detail">Se descartó la captura de voz. Puedes volver a empezar.</string>
+    <string name="capture_voice_cancelling_detail">Cerrando la captura y liberando el micrófono.</string>
+    <string name="capture_voice_partial">Texto provisional; puede cambiar.</string>
+    <string name="capture_voice_draft_conflict_title">Ya tienes un borrador escrito</string>
+    <string name="capture_voice_draft_conflict_message">Elige qué hacer con la transcripción. El borrador escrito no cambiará hasta que elijas.</string>
+    <string name="capture_voice_replace_draft">Reemplazar con voz</string>
+    <string name="capture_voice_append_draft">Anexar para revisar</string>
+    <string name="capture_voice_keep_draft">Conservar escrito</string>
+    <string name="capture_voice_discard_review">Descartar voz</string>
+    <string name="capture_voice_mixed_origin_blocked">Texto y voz juntos no tienen un origen fiel en el contrato actual. No guardaremos esta mezcla como si fuera solo voz. Cancela la revisión para conservar el borrador escrito o reinicia y elige Reemplazar.</string>
+    <string name="capture_review_origin_text">Texto</string>
+    <string name="capture_review_origin_voice">Voz</string>
+    <string name="capture_review_origin_mixed">Texto + voz (no guardable)</string>
+    <string name="capture_save_unavailable">No disponible</string>
+    <string name="capture_voice_permission_error">No hay permiso de micrófono. Puedes concederlo abajo o continuar escribiendo.</string>
+    <string name="capture_voice_engine_error">El motor local no está disponible en este dispositivo.</string>
+    <string name="capture_voice_model_error">No se pudo preparar el modelo local. No se descargará automáticamente.</string>
+    <string name="capture_voice_no_speech">No se detectó voz. Intenta hablar más cerca del micrófono.</string>
+    <string name="capture_voice_language_error">El modelo local no admite el idioma solicitado.</string>
+    <string name="capture_voice_audio_error">No se pudo capturar el audio. Comprueba el micrófono y vuelve a intentarlo.</string>
+    <string name="capture_voice_busy_error">El motor ya tiene una sesión activa. Cancélala antes de volver a iniciar.</string>
+    <string name="capture_voice_recognition_error">No se pudo transcribir. Puedes reintentar o continuar escribiendo.</string>
 
     <!-- Línea temporal de Memoria (F1.09) -->
     <string name="memory_loading">Cargando recuerdos guardados…</string>
@@ -49,6 +100,15 @@
     <string name="memory_retry">Reintentar</string>
     <string name="memory_source_text">Texto</string>
     <string name="memory_source_voice">Voz</string>
+    <string name="memory_selection_cancel">Cancelar selección</string>
+    <string name="memory_select_all">Seleccionar todo</string>
+    <string name="memory_all_selected">Todos seleccionados</string>
+    <string name="memory_delete_selected">Eliminar seleccionados</string>
+    <string name="memory_delete_selected_title">¿Eliminar recuerdos seleccionados?</string>
+    <string name="memory_delete_selected_message">Se eliminarán %1$d recuerdos y sus correcciones guardadas. Esta acción no se puede deshacer desde la app.</string>
+    <string name="memory_delete_selected_in_progress">Eliminando recuerdos…</string>
+    <string name="memory_delete_selected_error">No se pudo completar el borrado. Los recuerdos seleccionados siguen disponibles; puedes reintentar.</string>
+    <string name="memory_delete_selected_retry">Reintentar</string>
 
     <!-- Detalle de entrada (F1.10) -->
     <string name="entry_detail_title">Detalle</string>
@@ -95,6 +155,36 @@
     <string name="entry_delete_error">No se pudo confirmar el borrado. Puedes reintentar.</string>
     <string name="entry_delete_retry">Reintentar</string>
     <string name="entry_delete_success_title">Recuerdo eliminado</string>
-    <string name="entry_delete_success_message">El recuerdo y sus correcciones se eliminaron de la base local de YEZVI.</string>
+    <string name="entry_delete_success_message">El recuerdo y sus correcciones se eliminaron de la base local de YERVIS.</string>
     <string name="entry_delete_success_action">Volver a Memoria</string>
+    <string name="capture_tts_opt_in">Confirmación hablada local (opcional)</string>
+    <string name="capture_tts_disabled">Desactivada. No se reproduce voz.</string>
+    <string name="capture_tts_preparing">Comprobando una voz española local… El guardado no espera.</string>
+    <string name="capture_tts_ready">Voz española declarada local disponible. Solo dirá «Recuerdo guardado».</string>
+    <string name="capture_tts_no_engine">Motor de voz no disponible. El guardado sigue funcionando sin voz.</string>
+    <string name="capture_tts_no_voice">No hay una voz española local instalada verificable. La confirmación permanecerá en silencio.</string>
+    <string name="capture_tts_failed">No se pudo reproducir la confirmación local. El recuerdo guardado no se modifica.</string>
+    <string name="settings_voice_title">Voz y confirmaciones</string>
+    <string name="settings_voice_description">La confirmación es opcional y solo se reproduce después de guardar un recuerdo. Nunca lee su contenido.</string>
+    <string name="settings_voice_on">Activada</string>
+    <string name="settings_voice_off">Desactivada; no se reproducirá voz</string>
+    <string name="settings_voice_volume">Volumen de la confirmación</string>
+    <string name="settings_voice_volume_value">%1$d %%</string>
+    <string name="settings_voice_volume_description">Solo ajusta esta frase y respeta el silencio del dispositivo. Cero mantiene la confirmación en silencio.</string>
+    <string name="settings_voice_choice">Voz española local</string>
+    <string name="settings_voice_auto">Automática: mejor voz local disponible</string>
+    <string name="settings_voice_auto_selected">Automática · %1$s</string>
+    <string name="settings_voice_selected_missing">La voz guardada ya no está disponible</string>
+    <string name="settings_voice_no_options">Sin opciones locales disponibles</string>
+    <string name="settings_voice_status">Disponibilidad: %1$s</string>
+    <string name="settings_voice_not_checked">Aún no comprobada</string>
+    <string name="settings_voice_preparing">Inicializando y comprobando voces locales…</string>
+    <string name="settings_voice_ready">Voz española local lista</string>
+    <string name="settings_voice_no_engine">Motor de síntesis no disponible</string>
+    <string name="settings_voice_no_local_voice">No hay una voz española instalada declarada local</string>
+    <string name="settings_voice_failed">No se pudo comprobar o iniciar la voz local</string>
+    <plurals name="memory_selected_count">
+        <item quantity="one">%1$d seleccionado</item>
+        <item quantity="other">%1$d seleccionados</item>
+    </plurals>
 </resources>

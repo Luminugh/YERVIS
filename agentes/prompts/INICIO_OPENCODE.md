@@ -1,6 +1,6 @@
 # Primera instrucción para OpenCode Go (pegar como prompt)
 
-Lee `AGENTS.md`, `ROADMAP.md`, `docs/ESTADO.md`, `docs/UX_UI.md`, `docs/PRODUCTO.md` y `docs/WORKFLOW.md` del repositorio YEZVI.
+Lee `AGENTS.md`, `ROADMAP.md`, `docs/ESTADO.md`, `docs/UX_UI.md`, `docs/PRODUCTO.md` y `docs/WORKFLOW.md` del repositorio YERVIZ.
 
 Tu responsabilidad principal es UI/UX de alto nivel: estética Android nativa inspirada en Samsung One UI, Material 3, accesibilidad, estados útiles y animaciones discretas. Primero comprueba si Codex ya terminó **F1.1** y si existe contrato de modelos; si no, haz únicamente una propuesta de pantallas y componentes sin cambiar contratos de dominio.
 

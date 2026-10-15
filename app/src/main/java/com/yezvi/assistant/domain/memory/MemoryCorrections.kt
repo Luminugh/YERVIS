@@ -1,5 +1,7 @@
 package com.yezvi.assistant.domain.memory
 
+import kotlinx.coroutines.flow.Flow
+
 /** An immutable, explicitly saved correction to an original memory entry. */
 data class MemoryCorrection(
     val correctionId: Long,
@@ -45,6 +47,9 @@ interface MemoryCorrectionRepository {
 
     /** Returns the corrected text, or the immutable original text if no correction exists. */
     suspend fun getCurrentVersion(memoryEntryId: String): MemoryTextVersion?
+
+    /** Observes the current version for each persisted entry; updates when corrections are added. */
+    fun observeCurrentVersions(): Flow<List<MemoryTextVersion>>
 
     /** Returns revisions in append order, oldest first. */
     suspend fun getCorrectionHistory(memoryEntryId: String): List<MemoryCorrection>

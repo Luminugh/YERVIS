@@ -9,6 +9,7 @@ import com.yezvi.assistant.domain.memory.CaptureInput
 import com.yezvi.assistant.domain.memory.CaptureSourceType
 import com.yezvi.assistant.domain.memory.CaptureStatus
 import com.yezvi.assistant.domain.memory.MemoryEntry
+import com.yezvi.assistant.domain.memory.MemoryTextVersion
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.flow.collect
@@ -25,6 +26,75 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 class RoomMemoryRepositoryTest {
+    @Test
+    fun correctionFlowUpdatesCurrentTimelineTextAndLeavesRawTextUntouched() = runBlocking {
+        val context = InstrumentationRegistry.getInstrumentation().targetContext
+        val databaseName = "yervis-corrected-preview-test.db"
+        context.deleteDatabase(databaseName)
+        val database = YezviDatabaseFactory.create(context, databaseName)
+        val entries = RoomMemoryRepository(database.memoryEntryDao())
+        val corrections = RoomMemoryCorrectionRepository(database.memoryCorrectionDao())
+        val emissions = Channel<List<MemoryTextVersion>>(Channel.UNLIMITED)
+        val observer = launch { corrections.observeCurrentVersions().collect(emissions::send) }
+        val input = CaptureInput(
+            rawText = "Original sintético preservado.",
+            sourceType = CaptureSourceType.TEXT,
+            capturedAtEpochMillis = 1_791_234_567_890L,
+            timezoneId = "America/Lima",
+        )
+
+        try {
+            assertEquals(emptyList<MemoryTextVersion>(), emissions.receive())
+            val entry = entries.save(input, "synthetic-corrected-preview")
+            assertEquals(
+                listOf(MemoryTextVersion(entry.id, entry.rawText, null, null)),
+                emissions.receive(),
+            )
+            val correctedText = "Versión vigente corregida sintética."
+            corrections.addCorrection(entry.id, correctedText, 1_791_234_600_000L)
+            assertEquals(correctedText, emissions.receive().single().text)
+            assertEquals(entry.rawText, entries.findById(entry.id)?.rawText)
+        } finally {
+            observer.cancelAndJoin()
+            database.close()
+            context.deleteDatabase(databaseName)
+        }
+    }
+
+    @Test
+    fun deleteSelectedEntriesUsesOneRoomDeleteAndCascadesOnlyTheirCorrections() = runBlocking {
+        val context = InstrumentationRegistry.getInstrumentation().targetContext
+        val databaseName = "yervis-selected-delete-test.db"
+        context.deleteDatabase(databaseName)
+        val database = YezviDatabaseFactory.create(context, databaseName)
+        val entries = RoomMemoryRepository(database.memoryEntryDao())
+        val corrections = RoomMemoryCorrectionRepository(database.memoryCorrectionDao())
+        val syntheticInput = CaptureInput(
+            rawText = "Recuerdo sintético por borrar.",
+            sourceType = CaptureSourceType.TEXT,
+            capturedAtEpochMillis = 1_791_234_567_890L,
+            timezoneId = "America/Lima",
+        )
+
+        try {
+            val selectedA = entries.save(syntheticInput, "selected-memory-a")
+            val selectedB = entries.save(syntheticInput.copy(rawText = "Segundo recuerdo sintético."), "selected-memory-b")
+            val preserved = entries.save(syntheticInput.copy(rawText = "Recuerdo sintético que se conserva."), "unselected-memory")
+            corrections.addCorrection(selectedA.id, "Corrección A sintética.", 1_791_234_600_000L)
+            corrections.addCorrection(selectedB.id, "Corrección B sintética.", 1_791_234_700_000L)
+
+            assertEquals(2, entries.deleteByIds(setOf(selectedA.id, selectedB.id)))
+            assertEquals(listOf(preserved), entries.observeAll().first())
+            assertTrue(corrections.getCorrectionHistory(selectedA.id).isEmpty())
+            assertTrue(corrections.getCorrectionHistory(selectedB.id).isEmpty())
+            assertEquals(preserved.rawText, corrections.observeCurrentVersions().first().single().text)
+            assertTrue(entries.deleteByIds(emptySet()) == 0)
+        } finally {
+            database.close()
+            context.deleteDatabase(databaseName)
+        }
+    }
+
     @Test
     fun deleteCascadesCorrectionsUpdatesFlowsAndPersistsAfterReopen() = runBlocking {
         val context = InstrumentationRegistry.getInstrumentation().targetContext

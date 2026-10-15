@@ -24,7 +24,7 @@ import com.yezvi.assistant.domain.memory.CaptureStatus
 import com.yezvi.assistant.presentation.capture.CaptureSaveState
 import com.yezvi.assistant.presentation.capture.CaptureViewModel
 import com.yezvi.assistant.ui.navigation.YezviApp
-import com.yezvi.assistant.ui.theme.YEZVITheme
+import com.yezvi.assistant.ui.theme.YERVISTheme
 import java.util.TimeZone
 import java.util.concurrent.atomic.AtomicInteger
 import kotlinx.coroutines.runBlocking
@@ -64,7 +64,7 @@ class CapturePersistenceTest {
             runBlocking { repository.save(conflictingInput, stableId) }
             composeTestRule.activity.runOnUiThread {
                 composeTestRule.activity.setContent {
-                    YEZVITheme {
+                    YERVISTheme {
                         YezviApp(
                             captureViewModelOverride = viewModel,
                             memoryRepositoryOverride = repository,

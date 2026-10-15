@@ -23,7 +23,7 @@ import com.yezvi.assistant.data.local.memory.YezviDatabaseFactory
 import com.yezvi.assistant.data.repository.RoomMemoryRepository
 import com.yezvi.assistant.presentation.capture.CaptureViewModel
 import com.yezvi.assistant.ui.navigation.YezviApp
-import com.yezvi.assistant.ui.theme.YEZVITheme
+import com.yezvi.assistant.ui.theme.YERVISTheme
 import java.util.TimeZone
 import java.util.concurrent.atomic.AtomicInteger
 import kotlinx.coroutines.flow.first
@@ -57,7 +57,7 @@ class MemoryPersistenceTest {
         try {
             setTestContent(repository, captureViewModel)
             composeTestRule.waitForIdle()
-            composeTestRule.onNode(hasText("Hoy") and isHeading()).assertIsDisplayed()
+            composeTestRule.onNode(hasText("Inicio") and isHeading()).assertIsDisplayed()
 
             composeTestRule.onNodeWithTag("bottom_nav_memory").performClick()
             waitForTag("memory_empty")
@@ -109,7 +109,7 @@ class MemoryPersistenceTest {
 
             composeTestRule.onNode(hasText("Atrás") and hasClickAction()).performClick()
             composeTestRule.onNodeWithTag("bottom_nav_today").performClick()
-            composeTestRule.onNode(hasText("Hoy") and isHeading()).assertIsDisplayed()
+            composeTestRule.onNode(hasText("Inicio") and isHeading()).assertIsDisplayed()
 
             requireNotNull(database).close()
             database = null
@@ -142,7 +142,7 @@ class MemoryPersistenceTest {
     ) {
         composeTestRule.activity.runOnUiThread {
             composeTestRule.activity.setContent {
-                YEZVITheme {
+                YERVISTheme {
                     YezviApp(
                         captureViewModelOverride = captureViewModel,
                         memoryRepositoryOverride = repository,

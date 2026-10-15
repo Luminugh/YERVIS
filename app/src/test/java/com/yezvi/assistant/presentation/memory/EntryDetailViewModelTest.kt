@@ -16,6 +16,7 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
@@ -288,6 +289,8 @@ class EntryDetailViewModelTest {
             deleteCalls += id
             return deleteBehavior(this, id)
         }
+
+        override suspend fun deleteByIds(ids: Set<String>): Int = ids.count { deleteById(it) }
     }
 
     private class FakeMemoryCorrectionRepository(
@@ -331,5 +334,19 @@ class EntryDetailViewModelTest {
 
         override suspend fun getCorrectionHistory(memoryEntryId: String): List<MemoryCorrection> =
             corrections.toList()
+
+        override fun observeCurrentVersions(): Flow<List<MemoryTextVersion>> {
+            val latest = corrections.lastOrNull()
+            return flowOf(
+                listOf(
+                    MemoryTextVersion(
+                        memoryEntryId = entryId,
+                        text = latest?.correctedText ?: originalText,
+                        correctionId = latest?.correctionId,
+                        modifiedAtEpochMillis = latest?.modifiedAtEpochMillis,
+                    ),
+                ),
+            )
+        }
     }
 }

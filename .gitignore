@@ -40,3 +40,25 @@ replay_pid*
 # Configuracion local
 local.properties
 .DS_Store
+
+# F3.06 runtime/weights are provisioned explicitly from the pinned SHA-256 inventory.
+# encoder.int8.onnx exceeds GitHub's 100 MiB regular Git file limit.
+/app/libs/sherpa-onnx-static-link-onnxruntime-1.13.8.aar
+/app/libs/sherpa-onnx-asr-only-1.13.8-yezvi.aar
+/app/libs/sherpa-onnx-asr-only-confidence-1.13.8-yezvi.aar
+/app/src/main/assets/stt/nemo-es-rnnt-int8/*.onnx
+/app/src/main/assets/stt/silero_vad.onnx
+/app/src/debug/assets/stt/nemo-es-rnnt-int8/*.onnx
+/app/src/debug/assets/stt/silero_vad.onnx
+/app/libs/vosk-android-0.3.75.aar
+/app/libs/jna-5.18.1.aar
+/app/src/main/assets/stt/vosk-es-0.42/
+/app/src/debug/assets/stt/vosk-es-0.42/
+
+# User recording authorized for local STT tests, not for repository/APK publication.
+/Recursos/Guarda esto en YEZVI.wav
+/app/src/androidTest/assets/stt-stage2/user/
+
+# Python generated caches
+__pycache__/
+*.py[cod]

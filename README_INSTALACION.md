@@ -1,14 +1,14 @@
-# Cómo colocar este contexto en YEZVI (Windows)
+# Cómo colocar este contexto en YERVIS (Windows)
 
 ## Copiar
 El ZIP está armado con `AGENTS.md`, `ROADMAP.md`, `docs/` y `prompts/` directamente en su raíz. Extraer el contenido en:
 
-`C:\Users\Rick\Documents\GitHub\YEZVI`
+`C:\Users\Rick\Documents\GitHub\YERVIZ`
 
 **Si ya existen esos archivos, respaldarlos/comparar contenido antes de sobrescribir.** Esta entrega no cambia automáticamente tu proyecto local.
 
 ## Cómo trabajar
-1. Abrir la terminal de Android Studio en YEZVI.
+1. Abrir la terminal de Android Studio en YERVIZ.
 2. Verificar `git status`, `opencode mcp list` y `codex mcp list`; no se asume MCP listo.
 3. Abrir Codex: `codex`. Pegar `prompts/INICIO_CODEX.md` para F1.1.
 4. Cuando termine y documente su handoff, abrir OpenCode: `opencode`. Pegar `prompts/INICIO_OPENCODE.md` para F1.2/F1.3.
